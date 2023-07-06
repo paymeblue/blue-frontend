@@ -97,7 +97,7 @@ const Home = () => {
                   <Image
                     alt={card.title}
                     src={card.img}
-                    className="m-auto -mr-[25px] w-auto"
+                    className="m-auto -mr-[5px] w-auto"
                   />
                 }
               >
