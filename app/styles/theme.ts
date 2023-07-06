@@ -17,14 +17,10 @@ const theme = {
   },
   components: {
     Menu: {
-      itemSelectedColor: "white",
-      horizontalItemSelectedColor: "white",
-      itemHoverBg: "transparent",
       itemBg: "transparent",
-      itemSelectedBg: "#AAA9FF",
+      colorItemBgSelected: "transparent",
       boxShadowSecondary: "none",
-      itemColor: "white",
-      horizontalItemSelectedBg: "#AAA9FF",
+      itemColor: "#4341CD",
     },
     Input: {
       colorBorder: "transparent",

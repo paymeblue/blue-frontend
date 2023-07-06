@@ -23,7 +23,7 @@ const Contact = () => {
   const selectBefore = () => {
     return (
       <Item name="code" noStyle>
-        <Select style={{ width: 80 }}>
+        <Select className="-mx-[10px] w-20 rounded bg-white">
           {countrycodes.map((country) => (
             <Option value={country.code} key={country.flag}>
               {country.flag}
@@ -62,12 +62,12 @@ const Contact = () => {
       <main className="mb-16 flex h-[320px] flex-col items-center justify-center bg-primary">
         {contextHolder}
         <Container className="text-center">
-          <Paragraph className="mb-2 max-w-xl font-semibold text-body-text-1 laptop:text-[22px] laptop:leading-[133%]">
+          <Paragraph className="mb-2 text-[0.9375rem] font-normal leading-normal text-body-text-1 laptop:text-[1.3125rem] laptop:font-semibold laptop:leading-[133%]">
             Contact us
           </Paragraph>
           <Title
             level={1}
-            className="m-0 font-bold text-white laptop:text-[40px]"
+            className="m-0 text-[1.5rem] font-semibold leading-[133%] text-white laptop:text-[2.5rem] laptop:font-bold laptop:leading-normal"
           >
             Get in touch
           </Title>
@@ -88,7 +88,7 @@ const Contact = () => {
           <Item
             name="firstName"
             label="First name"
-            className="[&>div>div.ant-form-item-label>label]:flex-row-reverse [&>div>div.ant-form-item-label>label]:gap-1 [&>div>div.ant-form-item-label>label]:text-[12px] [&>div>div.ant-form-item-label>label]:font-semibold [&>div>div.ant-form-item-label>label]:leading-[15.12px] [&>div>div.ant-form-item-label>label]:laptop:text-[15px] [&>div>div.ant-form-item-label>label]:laptop:leading-[21px] [&>div>div.ant-form-item-label]:p-0 [&>div>div>div>div>.ant-form-item-explain-error]:mt-2 [&>div>div>div>div>.ant-form-item-explain-error]:text-[9.23px] [&>div>div>div>div>.ant-form-item-explain-error]:leading-[11.63px] laptop:[&>div>div>div>div>.ant-form-item-explain-error]:text-[11px] laptop:[&>div>div>div>div>.ant-form-item-explain-error]:leading-[13.86px]"
+            className="[&>div>div.ant-form-item-label>label]:flex-row-reverse [&>div>div.ant-form-item-label>label]:gap-1 [&>div>div.ant-form-item-label>label]:text-[0.9375rem] [&>div>div.ant-form-item-label>label]:font-semibold [&>div>div.ant-form-item-label>label]:leading-[1.3125rem] [&>div>div.ant-form-item-label]:p-0 [&>div>div>div>div>.ant-form-item-explain-error]:mt-2 [&>div>div>div>div>.ant-form-item-explain-error]:text-[9.23px] [&>div>div>div>div>.ant-form-item-explain-error]:leading-[11.63px] laptop:[&>div>div>div>div>.ant-form-item-explain-error]:text-[11px] laptop:[&>div>div>div>div>.ant-form-item-explain-error]:leading-[13.86px]"
             rules={[
               { required: true, message: "Please enter your firstname!" },
               {
@@ -102,13 +102,13 @@ const Contact = () => {
               placeholder="Enter your firstname"
               type="text"
               required
-              className="rounded bg-input-field py-2 outline-none [&>input]:bg-inherit [&>input]:placeholder-[#555] placeholder:[&>input]:text-[12px] placeholder:[&>input]:font-medium placeholder:[&>input]:leading-[15.62px] laptop:placeholder:[&>input]:text-[15px] laptop:placeholder:[&>input]:leading-[21px]"
+              className="rounded border-2 bg-input-field py-2 outline-none [&>input]:bg-inherit [&>input]:placeholder-[#555] placeholder:[&>input]:text-[0.9375rem] placeholder:[&>input]:font-medium placeholder:[&>input]:leading-[1.3125rem]"
             />
           </Item>
           <Item
             name="surname"
             label="Surname"
-            className="[&>div>div.ant-form-item-label>label]:flex-row-reverse [&>div>div.ant-form-item-label>label]:gap-1 [&>div>div.ant-form-item-label>label]:text-[12px] [&>div>div.ant-form-item-label>label]:font-semibold [&>div>div.ant-form-item-label>label]:leading-[15.12px] [&>div>div.ant-form-item-label>label]:laptop:text-[15px] [&>div>div.ant-form-item-label>label]:laptop:leading-[21px] [&>div>div.ant-form-item-label]:p-0 [&>div>div>div>div>.ant-form-item-explain-error]:mt-2 [&>div>div>div>div>.ant-form-item-explain-error]:text-[9.23px] [&>div>div>div>div>.ant-form-item-explain-error]:leading-[11.63px] laptop:[&>div>div>div>div>.ant-form-item-explain-error]:text-[11px] laptop:[&>div>div>div>div>.ant-form-item-explain-error]:leading-[13.86px]"
+            className="[&>div>div.ant-form-item-label>label]:flex-row-reverse [&>div>div.ant-form-item-label>label]:gap-1 [&>div>div.ant-form-item-label>label]:text-[0.9375rem] [&>div>div.ant-form-item-label>label]:font-semibold [&>div>div.ant-form-item-label>label]:leading-[1.3125rem] [&>div>div.ant-form-item-label]:p-0 [&>div>div>div>div>.ant-form-item-explain-error]:mt-2 [&>div>div>div>div>.ant-form-item-explain-error]:text-[9.23px] [&>div>div>div>div>.ant-form-item-explain-error]:leading-[11.63px] laptop:[&>div>div>div>div>.ant-form-item-explain-error]:text-[11px] laptop:[&>div>div>div>div>.ant-form-item-explain-error]:leading-[13.86px]"
             rules={[
               { required: true, message: "Please enter your Surname!" },
               {
@@ -122,13 +122,13 @@ const Contact = () => {
               placeholder="Yesufu"
               type="text"
               required
-              className="rounded bg-input-field py-2 outline-none [&>input]:bg-inherit [&>input]:placeholder-[#555] placeholder:[&>input]:text-[12px] placeholder:[&>input]:font-medium placeholder:[&>input]:leading-[15.62px] laptop:placeholder:[&>input]:text-[15px] laptop:placeholder:[&>input]:leading-[21px]"
+              className="rounded border-2 bg-input-field py-2 outline-none [&>input]:bg-inherit [&>input]:placeholder-[#555] placeholder:[&>input]:text-[0.9375rem] placeholder:[&>input]:font-medium placeholder:[&>input]:leading-[1.3125rem]"
             />
           </Item>
           <Item
             name="email"
             label="Email address"
-            className="[&>div>div.ant-form-item-label>label]:flex-row-reverse [&>div>div.ant-form-item-label>label]:gap-1 [&>div>div.ant-form-item-label>label]:text-[12px] [&>div>div.ant-form-item-label>label]:font-semibold [&>div>div.ant-form-item-label>label]:leading-[15.12px] [&>div>div.ant-form-item-label>label]:laptop:text-[15px] [&>div>div.ant-form-item-label>label]:laptop:leading-[21px] [&>div>div.ant-form-item-label]:p-0 [&>div>div>div>div>.ant-form-item-explain-error]:mt-2 [&>div>div>div>div>.ant-form-item-explain-error]:text-[9.23px] [&>div>div>div>div>.ant-form-item-explain-error]:leading-[11.63px] laptop:[&>div>div>div>div>.ant-form-item-explain-error]:text-[11px] laptop:[&>div>div>div>div>.ant-form-item-explain-error]:leading-[13.86px]"
+            className="[&>div>div.ant-form-item-label>label]:flex-row-reverse [&>div>div.ant-form-item-label>label]:gap-1 [&>div>div.ant-form-item-label>label]:text-[0.9375rem] [&>div>div.ant-form-item-label>label]:font-semibold [&>div>div.ant-form-item-label>label]:leading-[1.3125rem] [&>div>div.ant-form-item-label]:p-0 [&>div>div>div>div>.ant-form-item-explain-error]:mt-2 [&>div>div>div>div>.ant-form-item-explain-error]:text-[9.23px] [&>div>div>div>div>.ant-form-item-explain-error]:leading-[11.63px] laptop:[&>div>div>div>div>.ant-form-item-explain-error]:text-[11px] laptop:[&>div>div>div>div>.ant-form-item-explain-error]:leading-[13.86px]"
             rules={[
               {
                 type: "email",
@@ -145,12 +145,12 @@ const Contact = () => {
               placeholder="ysemiraefe@gmail.com"
               type="email"
               required
-              className="rounded bg-input-field py-2 outline-none [&>input]:bg-inherit [&>input]:placeholder-[#555] placeholder:[&>input]:text-[12px] placeholder:[&>input]:font-medium placeholder:[&>input]:leading-[15.62px] laptop:placeholder:[&>input]:text-[15px] laptop:placeholder:[&>input]:leading-[21px]"
+              className="rounded border-2 bg-input-field py-2 outline-none [&>input]:bg-inherit [&>input]:placeholder-[#555] placeholder:[&>input]:text-[0.9375rem] placeholder:[&>input]:font-medium placeholder:[&>input]:leading-[1.3125rem]"
             />
           </Item>
           <Item
             name="phone"
-            className="[&>div>div.ant-form-item-label>label]:flex-row-reverse [&>div>div.ant-form-item-label>label]:gap-1 [&>div>div.ant-form-item-label>label]:text-[12px] [&>div>div.ant-form-item-label>label]:font-semibold [&>div>div.ant-form-item-label>label]:leading-[15.12px] [&>div>div.ant-form-item-label>label]:laptop:text-[15px] [&>div>div.ant-form-item-label>label]:laptop:leading-[21px] [&>div>div.ant-form-item-label]:p-0 [&>div>div>div>div>.ant-form-item-explain-error]:mt-2 [&>div>div>div>div>.ant-form-item-explain-error]:text-[9.23px] [&>div>div>div>div>.ant-form-item-explain-error]:leading-[11.63px] laptop:[&>div>div>div>div>.ant-form-item-explain-error]:text-[11px] laptop:[&>div>div>div>div>.ant-form-item-explain-error]:leading-[13.86px]"
+            className="[&>div>div.ant-form-item-label>label]:flex-row-reverse [&>div>div.ant-form-item-label>label]:gap-1 [&>div>div.ant-form-item-label>label]:text-[0.9375rem] [&>div>div.ant-form-item-label>label]:font-semibold [&>div>div.ant-form-item-label>label]:leading-[1.3125rem] [&>div>div.ant-form-item-label]:p-0 [&>div>div>div>div>.ant-form-item-explain-error]:mt-2 [&>div>div>div>div>.ant-form-item-explain-error]:text-[9.23px] [&>div>div>div>div>.ant-form-item-explain-error]:leading-[11.63px] laptop:[&>div>div>div>div>.ant-form-item-explain-error]:text-[11px] laptop:[&>div>div>div>div>.ant-form-item-explain-error]:leading-[13.86px]"
             label="Phone number"
             rules={[
               {
@@ -172,13 +172,13 @@ const Contact = () => {
               addonBefore={selectBefore()}
               type="tel"
               required
-              className="bg-input-field [&>span>.ant-input-affix-wrapper]:bg-input-field [&>span>input]:rounded-r [&>span>input]:border-none [&>span>input]:py-2 [&>span>input]:outline-none [&>span>span>div>div.ant-select-selector]:border-none [&>span>span>input]:bg-inherit placeholder:[&>span>span>input]:text-[12px] placeholder:[&>span>span>input]:font-medium placeholder:[&>span>span>input]:leading-[15.62px] placeholder:[&>span>span>input]:text-[#555] laptop:placeholder:[&>span>span>input]:text-[14px] laptop:placeholder:[&>span>span>input]:leading-[17.64px] [&>span>span]:bg-[#d9d9d9] [&>span>span]:py-2"
+              className="rounded border-2 border-transparent bg-input-field [&>span>.ant-input-affix-wrapper]:bg-input-field [&>span>input]:rounded-r [&>span>input]:border-none [&>span>input]:py-2 [&>span>input]:outline-none [&>span>span>div>div.ant-select-selector]:rounded-e [&>span>span>div>div.ant-select-selector]:border-none [&>span>span>input]:bg-inherit placeholder:[&>span>span>input]:text-[0.9375rem] placeholder:[&>span>span>input]:font-medium placeholder:[&>span>span>input]:leading-[1.3125rem] placeholder:[&>span>span>input]:text-[#555] [&>span>span]:py-2"
               placeholder="Enter your phone number"
             />
           </Item>
           <Item
             name="msg"
-            className="[&>div>div.ant-form-item-label>label]:flex-row-reverse [&>div>div.ant-form-item-label>label]:gap-1 [&>div>div.ant-form-item-label>label]:text-[12px] [&>div>div.ant-form-item-label>label]:font-semibold [&>div>div.ant-form-item-label>label]:leading-[15.12px] [&>div>div.ant-form-item-label>label]:laptop:text-[15px] [&>div>div.ant-form-item-label>label]:laptop:leading-[21px] [&>div>div.ant-form-item-label]:p-0 [&>div>div>div>div>.ant-form-item-explain-error]:mt-2 [&>div>div>div>div>.ant-form-item-explain-error]:text-[9.23px] [&>div>div>div>div>.ant-form-item-explain-error]:leading-[11.63px] laptop:[&>div>div>div>div>.ant-form-item-explain-error]:text-[11px] laptop:[&>div>div>div>div>.ant-form-item-explain-error]:leading-[13.86px]"
+            className="[&>div>div.ant-form-item-label>label]:flex-row-reverse [&>div>div.ant-form-item-label>label]:gap-1 [&>div>div.ant-form-item-label>label]:text-[0.9375rem] [&>div>div.ant-form-item-label>label]:font-semibold [&>div>div.ant-form-item-label>label]:leading-[1.3125rem] [&>div>div.ant-form-item-label]:p-0 [&>div>div>div>div>.ant-form-item-explain-error]:mt-2 [&>div>div>div>div>.ant-form-item-explain-error]:text-[9.23px] [&>div>div>div>div>.ant-form-item-explain-error]:leading-[11.63px] laptop:[&>div>div>div>div>.ant-form-item-explain-error]:text-[11px] laptop:[&>div>div>div>div>.ant-form-item-explain-error]:leading-[13.86px]"
             label="Message"
           >
             <TextArea
@@ -190,7 +190,7 @@ const Contact = () => {
             <Button
               type="primary"
               htmlType="submit"
-              className="mx-auto mt-6 flex items-center justify-center font-semibold text-white laptop:p-6 laptop:text-[16px] laptop:leading-[24px] "
+              className="laptopfont-semibold mx-auto mt-6 flex items-center justify-center text-[0.9375rem] font-medium leading-[1.39663rem] text-white laptop:p-6 laptop:text-[1rem] laptop:leading-[1.5rem] "
               loading={isLoading}
               block
             >

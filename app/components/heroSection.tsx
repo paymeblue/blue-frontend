@@ -10,16 +10,16 @@ const { Text, Title, Paragraph } = Typography;
 
 const HeroSection = () => {
   return (
-    <main className="mb-16 flex h-screen flex-col items-center  justify-center bg-primary">
+    <main className="flex h-[600px] flex-col items-center justify-center  bg-primary laptop:h-screen">
       <Container className="text-center">
         <Typography className="m-auto max-w-2xl">
           <Title
             level={1}
-            className="m-0 font-bold text-white laptop:text-[50px] laptop:leading-[110%]"
+            className="m-0 text-[1.5rem] font-medium text-white laptop:text-[3.125rem] laptop:font-bold laptop:leading-[110%]"
           >
             Receive and make payments easily with Blue!
           </Title>
-          <Paragraph className="mt-2 max-w-xl font-medium text-body-text-1 laptop:text-[20px] laptop:leading-[26px]">
+          <Paragraph className="mt-2 max-w-xl text-[0.9375rem] font-medium leading-[1.3125rem]  text-body-text-1 laptop:text-[1.25rem] laptop:leading-[1.625rem]">
             With Blue, you can make payments seamlessly, request and receive
             money, all on one platform.
           </Paragraph>
@@ -51,9 +51,9 @@ const HeroSection = () => {
             type="svg"
             value="https://www.blue.com"
           />
-          <div className="absolute -bottom-[70%] left-[70%] flex w-max items-center">
+          <div className="absolute -bottom-[75%] -left-[5%] flex w-max items-center mobile-md:left-[12%] mobile-lg:left-[25%] tablet:left-[35%] laptop:-bottom-[60%] laptop:left-[70%]">
             <Image src={spiralLine} alt="directional line" priority />
-            <Text className="w-full font-medium text-[#EAEAFE] laptop:text-[20px] laptop:leading-[26px]">
+            <Text className="w-full text-[0.9375rem] font-medium leading-[1.3125rem] text-[#EAEAFE] laptop:text-[1.25rem] laptop:leading-[1.625rem]">
               Scan this code to <br /> download now
             </Text>
           </div>

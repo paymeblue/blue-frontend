@@ -1,6 +1,5 @@
 "use client";
 import { MenuOutlined } from "@ant-design/icons";
-import useNavBg from "@hooks/useNavBg";
 import { Button, Divider, Drawer, Layout, Menu, MenuProps, Space } from "antd";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,24 +11,25 @@ import { ChevronDown, ChevronUp } from "react-iconly";
 const { Header } = Layout;
 const items2: MenuProps["items"] = [
   {
-    key: "/benefits",
+    key: "#benefits",
     label: (
-      <Link className="font-body text-sm text-inherit" href="/benefits">
+      <Link className="font-body text-sm text-inherit" href="#benefits">
         Benefits
       </Link>
     ),
   },
   {
     key: "/solutions",
-    label: <span className="font-body text-sm text-inherit">Solutions</span>,
+    label: (
+      <span className="font-body text-sm text-inherit hover:text-white">
+        Solutions
+      </span>
+    ),
     children: [
       {
-        key: "/solutions/catalogue",
+        key: "#",
         label: (
-          <Link
-            className="font-body text-sm text-inherit"
-            href="/solutions/catalogue"
-          >
+          <Link className="font-body text-sm text-inherit" href="#">
             Catalogue
           </Link>
         ),
@@ -49,7 +49,6 @@ const items2: MenuProps["items"] = [
 const Navbar = () => {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const bgColor = useNavBg();
   const [openKeys, setOpenKeys] = useState([""]);
   const rootSubmenuKeys = ["/cabinets", "/support"];
 
@@ -78,9 +77,9 @@ const Navbar = () => {
 
   const items: MenuProps["items"] = [
     {
-      key: "/benefits",
+      key: "#benefits",
       label: (
-        <Link className="font-body text-sm text-inherit" href="/benefits">
+        <Link className="font-body text-sm text-inherit" href="#benefits">
           Benefits
         </Link>
       ),
@@ -89,7 +88,7 @@ const Navbar = () => {
       key: "/solutions",
       label: (
         <span
-          className="font-body flex items-center justify-center gap-2 text-sm text-inherit hover:text-neutral"
+          className="font-body flex items-center justify-center gap-2 text-sm text-white"
           onClick={mouseEnterHandler}
           onMouseLeave={mouseLeaveHandler}
         >
@@ -103,24 +102,10 @@ const Navbar = () => {
       ),
       children: [
         {
-          key: "/solutions/catalogue",
+          key: "#",
           label: (
-            <Link
-              className="font-body text-sm text-inherit"
-              href="/solutions/catalogue"
-            >
+            <Link className="font-body text-sm text-inherit" href="#">
               Catalogue
-            </Link>
-          ),
-        },
-        {
-          key: "/solutions/catalogue-1",
-          label: (
-            <Link
-              className="font-body text-sm text-inherit"
-              href="/solutions/catalogue=1"
-            >
-              Catalogue - 1
             </Link>
           ),
         },
@@ -146,12 +131,8 @@ const Navbar = () => {
   };
 
   return (
-    <Header
-      className={`fixed left-0 top-0 z-30  m-auto flex h-auto w-full items-center justify-between ${
-        bgColor <= 0 ? "bg-transparent" : "bg-primary"
-      } px-4 transition-all ease-out tablet:px-20`}
-    >
-      <div className="flex-auto">
+    <Header className="fixed left-0 top-0 z-30 m-auto flex h-auto w-full items-center justify-between bg-primary px-4 transition-all ease-out tablet:px-20">
+      <div>
         <Link href="/">
           <Image src={logo} alt="soower logo" priority />
         </Link>
@@ -168,13 +149,13 @@ const Navbar = () => {
           mode="horizontal"
           disabledOverflow={true}
           triggerSubMenuAction="click"
-          className="[&>li.ant-menu-item-active]:bg-input-fied hidden border-b-0 font-semibold laptop:flex laptop:items-center laptop:justify-between [&>li::after]:border-b-0 [&>li]:rounded-md hover:[&>li]:text-neutral laptop:[&>li]:mx-2"
+          className="hidden border-b-0 font-semibold laptop:flex laptop:items-center laptop:justify-between [&>.ant-menu-item-selected]:text-white [&>.ant-menu-item]:text-white [&>li::after]:border-b-0 [&>li]:rounded-md hover:[&>li]:text-input-field laptop:[&>li]:mx-2"
         />
 
         <Button
           type="primary"
           size="large"
-          className="border-transparent bg-white text-primary shadow-none"
+          className="hidden border-transparent bg-white text-primary shadow-none laptop:block laptop:text-[1.125rem] laptop:leading-[1.3125rem]"
         >
           <Link className="font-body font-semibold text-inherit" href="#">
             Download App
@@ -197,13 +178,13 @@ const Navbar = () => {
           onOpenChange={onOpenChange}
           triggerSubMenuAction="click"
           disabledOverflow={true}
-          className="border-b-0 border-none font-semibold laptop:hidden [&>.ant-menu-item-active]:bg-input-field [&>li::after]:border-b-0 [&>li]:rounded-md"
+          className="border-b-0 border-none font-semibold laptop:hidden [&>li::after]:border-b-0 [&>li]:rounded-md"
         />
         <Divider type="horizontal" className="my-4 border-slate-400" />
         <Button
           type="primary"
           size="large"
-          className="ml-4 border-transparent bg-white text-primary shadow-none"
+          className="ml-4 border-transparent shadow-none laptop:text-[1.125rem] laptop:leading-[1.3125rem]"
         >
           <Link className="font-body font-semibold text-inherit" href="#">
             Download App
@@ -213,8 +194,8 @@ const Navbar = () => {
       <div className="block laptop:hidden">
         <MenuOutlined
           onClick={showDrawer}
-          style={{ fontSize: "21px" }}
-          className="hover:text-primary"
+          style={{ fontSize: "18px" }}
+          className="text-white hover:text-primary"
         />
       </div>
     </Header>
