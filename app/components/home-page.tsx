@@ -149,7 +149,7 @@ const Home = () => {
         ))}
         <Space
           size="large"
-          className="mb-14 mt-0 flex flex-col items-center justify-around laptop:mb-28 laptop:mt-16 laptop:flex-row"
+          className="mb-6 mt-0 flex flex-col items-center justify-evenly laptop:mb-28 laptop:mt-16 laptop:hidden laptop:flex-row"
         >
           <Card
             bordered={false}
@@ -227,6 +227,11 @@ const Home = () => {
               className="m-auto mr-[-30px] mobile-md:mr-[-5px] mobile-lg:mr-[20px] tablet:mr-[20px]"
             />
           </Card>
+        </Space>
+        <Space
+          size="large"
+          className="mb-14 mt-0 flex flex-col items-center justify-evenly laptop:mb-28 laptop:mt-16 laptop:flex-row"
+        >
           <Card
             bordered={false}
             className="laptop:py[1rem] rounded-[23px] bg-txt p-0 tablet:w-[400px] laptop:px-[2.5rem] laptop:py-[1rem] laptop-md:w-[500px] laptop-md:py-[2.75rem] [&>.ant-card-body]:p-3 laptop:[&>.ant-card-body]:p-6"
