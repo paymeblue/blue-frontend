@@ -24,7 +24,10 @@ export const metadata: Metadata = {
   description:
     "Receive and make payments easily with Blue, you can make payments seamlessly, request and receive money, all on one platform.",
   applicationName: "Blue",
-  authors: { url: "", name: "Roman Dev Experts" },
+  authors: {
+    url: "https://github.com/roman-developer-experts",
+    name: "Roman Dev Experts",
+  },
   keywords: ["Make payments", "Receive money", "Seamless payment", "Blue"],
   //   manifest: "https://example.com/site.webmanifest",
   //   icons: [
@@ -42,7 +45,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body className={`${gilroy.variable}`}>
         <Provider>
           <Navbar />

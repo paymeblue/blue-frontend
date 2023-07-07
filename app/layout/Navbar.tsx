@@ -155,7 +155,7 @@ const Navbar = () => {
         <Button
           type="primary"
           size="large"
-          className="hidden border-transparent bg-white text-primary shadow-none laptop:block laptop:text-[1.125rem] laptop:leading-[1.3125rem]"
+          className="hidden border-transparent bg-white text-[0.875rem] leading-[1.25rem] text-primary shadow-none laptop:block"
         >
           <Link className="font-body font-semibold text-inherit" href="#">
             Download App
@@ -184,7 +184,7 @@ const Navbar = () => {
         <Button
           type="primary"
           size="large"
-          className="ml-4 border-transparent shadow-none laptop:text-[1.125rem] laptop:leading-[1.3125rem]"
+          className="ml-4 border-transparent text-[0.875rem] leading-[1.25rem] shadow-none"
         >
           <Link className="font-body font-semibold text-inherit" href="#">
             Download App
