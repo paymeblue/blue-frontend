@@ -299,7 +299,8 @@ const Home = () => {
                 className="m-0 text-[1.2rem] font-semibold leading-[133%] text-white laptop:text-[1.7rem] laptop:leading-[2.5rem]"
               >
                 Sync your contact within
-                <br className="block laptop:hidden" /> Blue and send money to
+                <br className="block laptop:hidden" /> Blue and send money
+                to&nbsp;
                 <br className="block laptop:hidden" />
                 them easily
               </Title>

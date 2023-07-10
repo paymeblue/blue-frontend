@@ -18,10 +18,10 @@ const HeroSection = () => {
             className="m-0 text-[1.3rem] font-semibold text-white laptop:text-[3rem] laptop:font-bold laptop:leading-[110%]"
           >
             Receive and make <br className="hidden mobile-md:block" /> payments
-            &nbsp; easily with Blue!
+            easily with Blue!
           </Title>
           <Paragraph className="mt-2 max-w-xl text-[0.9375rem] font-medium leading-[1.3125rem]  text-body-text-1 laptop:text-[1.25rem] laptop:leading-[1.625rem]">
-            With Blue, you can make payments
+            With Blue, you can make payments &nbsp;
             <br className="block tablet:hidden" />
             seamlessly, request
             <br className="hidden tablet:block" />
