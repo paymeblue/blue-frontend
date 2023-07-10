@@ -1,9 +1,7 @@
 import Container from "@shared/container";
+import DownloadBtns from "@shared/downloadBtns";
 import { QRCode, Space, Typography } from "antd";
 import Image from "next/image";
-import Link from "next/link";
-import appPlay from "public/app-store.svg";
-import googlePlay from "public/google-play.svg";
 import spiralLine from "public/spiral.svg";
 
 const { Text, Title, Paragraph } = Typography;
@@ -35,22 +33,7 @@ const HeroSection = () => {
           </Paragraph>
         </Typography>
         <div className="mb-8">
-          <Space>
-            <Link href="#">
-              <Image
-                src={googlePlay}
-                alt="download blue app on google play"
-                priority
-              />
-            </Link>
-            <Link href="#">
-              <Image
-                src={appPlay}
-                alt="download blue app on google play"
-                priority
-              />
-            </Link>
-          </Space>
+          <DownloadBtns />
         </div>
         <Space className="relative inset-0">
           <QRCode
@@ -59,11 +42,16 @@ const HeroSection = () => {
             bgColor="white"
             className="rounded-2xl p-6"
             type="svg"
-            value="https://www.blue.com"
+            value="https://paymeblue.com/"
           />
-          <div className="absolute -bottom-[75%] -left-[5%] flex w-max items-center mobile-md:left-[12%] mobile-lg:left-[25%] tablet:left-[35%] laptop:-bottom-[60%] laptop:left-[70%]">
-            <Image src={spiralLine} alt="directional line" priority />
-            <Text className="w-full text-[0.9375rem] font-medium leading-[1.3125rem] text-[#EAEAFE] laptop:text-[1.25rem] laptop:leading-[1.625rem]">
+          <div className="absolute bottom-[-35%] left-[40%] flex w-full items-center tablet:left-[50%] tablet:w-max laptop:-bottom-[50%] laptop:left-[60%]">
+            <Image
+              src={spiralLine}
+              alt="directional line"
+              priority
+              className="w-1/5 laptop:w-[30%]"
+            />
+            <Text className="text-[0.9375rem] font-medium leading-[1.3125rem] text-[#EAEAFE] laptop:text-[1.25rem] laptop:leading-[1.625rem]">
               Scan this code to <br /> download now
             </Text>
           </div>

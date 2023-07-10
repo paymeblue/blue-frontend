@@ -2,12 +2,10 @@
 import CardX from "@components/cardX";
 import HeroSection from "@components/heroSection";
 import Container from "@shared/container";
+import DownloadBtns from "@shared/downloadBtns";
 import { Card, Col, Row, Space, Typography } from "antd";
 import { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
-import appPlay from "public/app-store.svg";
-import googlePlay from "public/google-play.svg";
 import qrCode from "public/qr-code.svg";
 import screen1 from "public/screen-1.svg";
 import screen2 from "public/screen-2.svg";
@@ -174,22 +172,7 @@ const Home = () => {
                 failures with Blue transfers.
                 <br className="block tablet:hidden" /> Download Blue today.
               </Paragraph>
-              <Space className="mt-8">
-                <Link href="#">
-                  <Image
-                    src={googlePlay}
-                    alt="download blue app on google play"
-                    priority
-                  />
-                </Link>
-                <Link href="#">
-                  <Image
-                    src={appPlay}
-                    alt="download blue app on google play"
-                    priority
-                  />
-                </Link>
-              </Space>
+              <DownloadBtns />
             </Typography>
             <Image
               src={screen6}
@@ -220,22 +203,7 @@ const Home = () => {
                 USSD or text
                 <br className="block tablet:hidden" /> message.
               </Paragraph>
-              <Space className="mt-8">
-                <Link href="#">
-                  <Image
-                    src={googlePlay}
-                    alt="download blue app on google play"
-                    priority
-                  />
-                </Link>
-                <Link href="#">
-                  <Image
-                    src={appPlay}
-                    alt="download blue app on google play"
-                    priority
-                  />
-                </Link>
-              </Space>
+              <DownloadBtns />
             </Typography>
             <Image
               src={screen7}
@@ -265,21 +233,7 @@ const Home = () => {
                 Scan and make payments on the go.
                 <br className="block laptop:hidden" /> No stress, no complaints.
               </Paragraph>
-              <Space className="mt-8">
-                <Link href="#">
-                  <Image
-                    src={googlePlay}
-                    alt="download blue app on google play"
-                  />
-                </Link>
-                <Link href="#">
-                  <Image
-                    src={appPlay}
-                    alt="download blue app on google play"
-                    priority
-                  />
-                </Link>
-              </Space>
+              <DownloadBtns />
             </Typography>
             <Image src={qrCode} alt="quick scan" className="m-auto" priority />
           </Card>
@@ -309,22 +263,7 @@ const Home = () => {
                 <br className="mobile-md:block laptop:hidden" /> from your
                 contact list using Blue.
               </Paragraph>
-              <Space className="mt-8">
-                <Link href="#">
-                  <Image
-                    src={googlePlay}
-                    alt="download blue app on google play"
-                    priority
-                  />
-                </Link>
-                <Link href="#">
-                  <Image
-                    src={appPlay}
-                    alt="download blue app on google play"
-                    priority
-                  />
-                </Link>
-              </Space>
+              <DownloadBtns />
             </Typography>
           </Card>
         </Space>
@@ -337,22 +276,7 @@ const Home = () => {
             <br className="block tablet:hidden" /> for? Download Blue
             <br className="block tablet:hidden" /> today.
           </Title>
-          <Space className="mt-8">
-            <Link href="#">
-              <Image
-                src={googlePlay}
-                alt="download blue app on google play"
-                priority
-              />
-            </Link>
-            <Link href="#">
-              <Image
-                src={appPlay}
-                alt="download blue app on google play"
-                priority
-              />
-            </Link>
-          </Space>
+          <DownloadBtns />
         </Typography>
       </Container>
     </Fragment>

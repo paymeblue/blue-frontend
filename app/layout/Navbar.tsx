@@ -200,7 +200,12 @@ const Navbar = () => {
     <Header className="fixed left-0 top-0 z-30 m-auto flex h-auto w-full items-center justify-between bg-primary px-4 transition-all ease-out tablet:px-20">
       <div>
         <Link href="/">
-          <Image src={logo} alt="soower logo" priority />
+          <Image
+            src={logo}
+            alt="soower logo"
+            className="w-[65%] laptop:w-auto"
+            priority
+          />
         </Link>
       </div>
 

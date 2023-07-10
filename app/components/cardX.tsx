@@ -1,8 +1,6 @@
+import DownloadBtns from "@shared/downloadBtns";
 import { Space, Typography } from "antd";
 import Image from "next/image";
-import Link from "next/link";
-import appPlay from "public/app-store.svg";
-import googlePlay from "public/google-play.svg";
 
 const { Title, Paragraph } = Typography;
 type IProps = {
@@ -30,22 +28,7 @@ const CardX = ({ hash, second, title, desc, img }: IProps) => {
         <Paragraph className="mt-2 font-medium text-body-text-1 laptop:text-[1.125rem] laptop:leading-[1.625rem]">
           {desc}
         </Paragraph>
-        <Space className="mt-8">
-          <Link href="#">
-            <Image
-              src={googlePlay}
-              alt="download blue app on google play"
-              priority
-            />
-          </Link>
-          <Link href="#">
-            <Image
-              src={appPlay}
-              alt="download blue app on google play"
-              priority
-            />
-          </Link>
-        </Space>
+        <DownloadBtns />
       </Typography>
       <Image src={img} alt="free transfer" priority />
     </Space>
