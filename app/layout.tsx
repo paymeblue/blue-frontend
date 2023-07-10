@@ -29,16 +29,15 @@ export const metadata: Metadata = {
     name: "Roman Dev Experts",
   },
   keywords: ["Make payments", "Receive money", "Seamless payment", "Blue"],
-  manifest:
-    "https://blue-frontend-developer-romandevexpe.vercel.app/site.webmanifest",
+  manifest: "https://paymeblue.com//site.webmanifest",
   icons: [
     {
       rel: "icon",
-      url: "https://blue-frontend-developer-romandevexpe.vercel.app/favicon-32x32.png",
+      url: "https://paymeblue.com//favicon-32x32.png",
     },
     {
       rel: "apple-touch-icon",
-      url: "https://blue-frontend-developer-romandevexpe.vercel.app/apple-touch-icon.png",
+      url: "https://paymeblue.com//apple-touch-icon.png",
     },
   ],
 };
