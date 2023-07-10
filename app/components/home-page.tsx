@@ -86,7 +86,7 @@ const Home = () => {
             </Paragraph>
             <Title
               level={2}
-              className="m-0 text-[1.5rem] font-semibold leading-[133%] text-txt laptop:text-[2.5rem] laptop:leading-normal"
+              className="m-0 text-[1.3rem] font-semibold leading-[133%] text-txt laptop:text-[2.3rem] laptop:leading-normal"
             >
               Receive & Make payment <br className="block tablet:hidden" /> on
               the go
@@ -113,7 +113,7 @@ const Home = () => {
                     title={
                       <Title
                         level={4}
-                        className="m-0 mb-0 text-[1.375rem] font-semibold leading-[133%] text-txt laptop:my-3 laptop:text-[1.875rem] laptop:leading-[133%] "
+                        className="m-0 mb-0 text-[1.2rem] font-semibold leading-[133%] text-txt laptop:my-3 laptop:text-[1.7rem] laptop:leading-[133%] "
                       >
                         {card.title}
                       </Title>
@@ -136,7 +136,7 @@ const Home = () => {
           </Paragraph>
           <Title
             level={2}
-            className="m-0 text-[1.5rem] font-semibold leading-normal text-txt laptop:text-[2.5rem]"
+            className="m-0 text-[1.3rem] font-semibold leading-normal text-txt laptop:text-[2.3rem]"
           >
             Unlock hassle - free
             <br className="block tablet:hidden" /> payment options
@@ -164,7 +164,7 @@ const Home = () => {
             <Typography className="mx-auto mb-8 text-center">
               <Title
                 level={1}
-                className="m-0 text-[1.375rem] font-semibold leading-[133%] text-white laptop:text-[1.875rem] laptop:leading-[2.5rem]"
+                className="m-0 text-[1.2rem] font-semibold leading-[133%] text-white laptop:text-[1.7rem] laptop:leading-[2.5rem]"
               >
                 Blue to Blue Free Transfers
               </Title>
@@ -205,7 +205,7 @@ const Home = () => {
             <Typography className="mx-auto mb-8 text-center">
               <Title
                 level={1}
-                className="m-0 text-[1.375rem] font-semibold leading-[133%] text-white laptop:text-[1.875rem] laptop:leading-[2.5rem]"
+                className="m-0 text-[1.2rem] font-semibold leading-[133%] text-white laptop:text-[1.7rem] laptop:leading-[2.5rem]"
               >
                 Receive and make
                 <br className="block laptop:hidden" /> payments without a
@@ -256,7 +256,7 @@ const Home = () => {
             <Typography className="mx-auto my-10 text-center">
               <Title
                 level={1}
-                className="m-0 text-[1.375rem] font-semibold leading-[133%] text-white laptop:text-[1.875rem] laptop:leading-[2.5rem]"
+                className="m-0 text-[1.2rem] font-semibold leading-[133%] text-white laptop:text-[1.7rem] laptop:leading-[2.5rem]"
               >
                 Send, request and receive
                 <br className="block laptop:hidden" /> money with a quick scan!
@@ -296,7 +296,7 @@ const Home = () => {
             <Typography className="mx-auto -mt-8 text-center">
               <Title
                 level={1}
-                className="m-0 text-[1.375rem] font-semibold leading-[133%] text-white laptop:text-[1.875rem] laptop:leading-[2.5rem]"
+                className="m-0 text-[1.2rem] font-semibold leading-[133%] text-white laptop:text-[1.7rem] laptop:leading-[2.5rem]"
               >
                 Sync your contact within
                 <br className="block laptop:hidden" /> Blue and send money to
@@ -330,7 +330,7 @@ const Home = () => {
         <Typography className="mx-auto my-8 max-w-sm text-center">
           <Title
             level={5}
-            className="m-0 text-[1.5rem] font-semibold leading-[133%] text-txt laptop:text-[1.875rem] laptop:leading-[2.5rem]"
+            className="m-0 text-[1.3rem] font-semibold leading-[133%] text-txt laptop:text-[1.7rem] laptop:leading-[2.5rem]"
           >
             What are you waiting
             <br className="block tablet:hidden" /> for? Download Blue

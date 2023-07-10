@@ -23,7 +23,7 @@ const CardX = ({ hash, second, title, desc, img }: IProps) => {
       <Typography className="mx-12 max-w-md text-start">
         <Title
           level={1}
-          className="m-0 font-semibold text-white laptop:text-[1.875rem] laptop:leading-[2.375rem]"
+          className="m-0 font-semibold text-white laptop:text-[1.7rem] laptop:leading-[2.375rem]"
         >
           {title}
         </Title>

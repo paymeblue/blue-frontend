@@ -67,7 +67,7 @@ const Contact = () => {
           </Paragraph>
           <Title
             level={1}
-            className="m-0 text-[1.5rem] font-semibold leading-[133%] text-white laptop:text-[2.5rem] laptop:font-bold laptop:leading-normal"
+            className="m-0 text-[1.3rem] font-semibold leading-[133%] text-white laptop:text-[2.3rem] laptop:font-bold laptop:leading-normal"
           >
             Get in touch
           </Title>
