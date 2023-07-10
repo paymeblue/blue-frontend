@@ -25,7 +25,7 @@ const HeroSection = () => {
           <Paragraph className="mt-2 block max-w-xl text-[0.9375rem] font-medium leading-[1.3125rem] text-body-text-1  laptop:hidden laptop:text-[1.25rem] laptop:leading-[1.625rem]">
             With Blue, you can make payments
             <br className="block tablet:hidden" />
-            seamlessly, request
+            seamlessly, request &nbsp;
             <br className="hidden tablet:block" />
             and receive
             <br className="block tablet:hidden" />
