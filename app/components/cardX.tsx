@@ -10,10 +10,12 @@ type IProps = {
   desc: string;
   img: any;
   second: boolean;
+  hash: string;
 };
-const CardX = ({ second, title, desc, img }: IProps) => {
+const CardX = ({ hash, second, title, desc, img }: IProps) => {
   return (
     <Space
+      id={hash}
       className={`mb-12 hidden w-full flex-col items-center justify-between rounded-[1.4375rem] laptop:flex ${
         second ? "bg-txt tablet:flex-row-reverse" : "bg-primary tablet:flex-row"
       }  laptop:pb-0 laptop:pl-8 laptop:pt-8`}

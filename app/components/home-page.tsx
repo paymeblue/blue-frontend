@@ -62,6 +62,7 @@ const gridData = [
     desc: "You can expect no hidden charges and no transfer failures with Blue transfers. Download Blue today.",
     img: screen4,
     second: false,
+    hash: "blue-to-blue",
   },
   {
     id: "2",
@@ -69,6 +70,7 @@ const gridData = [
     desc: "Blue offers a hassle-free way to make payments without a smartphone. You can make payments via USSD or text message.",
     img: smallPhone,
     second: true,
+    hash: "offline-mode",
   },
 ];
 
@@ -147,6 +149,7 @@ const Home = () => {
             img={data.img}
             key={data.id}
             second={data.second}
+            hash={data.hash}
           />
         ))}
         <Space
@@ -155,6 +158,7 @@ const Home = () => {
         >
           <Card
             bordered={false}
+            id="blue-to-blue"
             className="rounded-[23px] bg-primary p-10 px-0 pb-0 [&>.ant-card-body]:p-3 [&>.ant-card-body]:pb-0 laptop:[&>.ant-card-body]:p-6 laptop:[&>.ant-card-body]:pb-0"
           >
             <Typography className="mx-auto mb-8 text-center">
@@ -194,6 +198,7 @@ const Home = () => {
             />
           </Card>
           <Card
+            id="offline-mode"
             bordered={false}
             className="rounded-[23px] bg-txt p-10 px-0 pb-0 [&>.ant-card-body]:p-3 [&>.ant-card-body]:pb-0 laptop:[&>.ant-card-body]:p-6 laptop:[&>.ant-card-body]:pb-0"
           >
@@ -244,6 +249,7 @@ const Home = () => {
           className="mb-14 mt-0 flex w-full flex-col items-center justify-evenly laptop:mb-28 laptop:mt-16 laptop:flex-row [&.ant-space-item]:w-full"
         >
           <Card
+            id="qr-scan"
             bordered={false}
             className="oopw-full rounded-[23px] bg-txt p-0 laptop:px-[2.5rem] laptop:py-[2rem] laptop-md:py-[2.75rem] [&>.ant-card-body]:p-3 laptop:[&>.ant-card-body]:p-6"
           >
@@ -278,6 +284,7 @@ const Home = () => {
             <Image src={qrCode} alt="quick scan" className="m-auto" priority />
           </Card>
           <Card
+            id="phone-transfer"
             bordered={false}
             className="oopw-full rounded-[23px] bg-primary p-10 px-0 pt-0 [&>.ant-card-body]:p-3 [&>.ant-card-body]:pt-0 laptop:[&>.ant-card-body]:p-6 laptop:[&>.ant-card-body]:pt-0"
           >

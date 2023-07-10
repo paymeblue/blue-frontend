@@ -11,7 +11,7 @@ import { ChevronDown, ChevronUp } from "react-iconly";
 const { Header } = Layout;
 const items2: MenuProps["items"] = [
   {
-    key: "#benefits",
+    key: "/#benefits",
     label: (
       <Link className="font-body text-sm text-inherit" href="#benefits">
         Benefits
@@ -27,10 +27,43 @@ const items2: MenuProps["items"] = [
     ),
     children: [
       {
-        key: "#",
+        key: "/#blue-to-blue",
         label: (
-          <Link className="font-body text-sm text-inherit" href="#">
-            Catalogue
+          <Link
+            className="font-body text-sm text-inherit"
+            href="/#blue-to-blue"
+          >
+            Blue to Blue
+          </Link>
+        ),
+      },
+      {
+        key: "/#phone-transfer",
+        label: (
+          <Link
+            className="font-body text-sm text-inherit"
+            href="/#phone-transfer"
+          >
+            Phone Transfer
+          </Link>
+        ),
+      },
+      {
+        key: "/#qr-scan",
+        label: (
+          <Link className="font-body text-sm text-inherit" href="/#qr-scan">
+            QR Scan
+          </Link>
+        ),
+      },
+      {
+        key: "/#offline-mode",
+        label: (
+          <Link
+            className="font-body text-sm text-inherit"
+            href="/#offline-mode"
+          >
+            Offline Mode
           </Link>
         ),
       },
@@ -77,7 +110,7 @@ const Navbar = () => {
 
   const items: MenuProps["items"] = [
     {
-      key: "#benefits",
+      key: "/#benefits",
       label: (
         <Link className="font-body text-sm text-inherit" href="#benefits">
           Benefits
@@ -102,10 +135,43 @@ const Navbar = () => {
       ),
       children: [
         {
-          key: "#",
+          key: "/#blue-to-blue",
           label: (
-            <Link className="font-body text-sm text-inherit" href="#">
-              Catalogue
+            <Link
+              className="font-body text-sm text-inherit"
+              href="/#blue-to-blue"
+            >
+              Blue to Blue
+            </Link>
+          ),
+        },
+        {
+          key: "/#phone-transfer",
+          label: (
+            <Link
+              className="font-body text-sm text-inherit"
+              href="/#phone-transfer"
+            >
+              Phone Transfer
+            </Link>
+          ),
+        },
+        {
+          key: "/#qr-scan",
+          label: (
+            <Link className="font-body text-sm text-inherit" href="/#qr-scan">
+              QR Scan
+            </Link>
+          ),
+        },
+        {
+          key: "/#offline-mode",
+          label: (
+            <Link
+              className="font-body text-sm text-inherit"
+              href="/#offline-mode"
+            >
+              Offline Mode
             </Link>
           ),
         },
