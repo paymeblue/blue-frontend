@@ -29,14 +29,18 @@ export const metadata: Metadata = {
     name: "Roman Dev Experts",
   },
   keywords: ["Make payments", "Receive money", "Seamless payment", "Blue"],
-  //   manifest: "https://example.com/site.webmanifest",
-  //   icons: [
-  //     { rel: "icon", url: "https://example.com/favicon-32x32.png" },
-  //     {
-  //       rel: "apple-touch-icon",
-  //       url: "https://example.com/apple-touch-icon.png",
-  //     },
-  //   ],
+  manifest:
+    "https://blue-frontend-developer-romandevexpe.vercel.app/site.webmanifest",
+  icons: [
+    {
+      rel: "icon",
+      url: "https://blue-frontend-developer-romandevexpe.vercel.app/favicon-32x32.png",
+    },
+    {
+      rel: "apple-touch-icon",
+      url: "https://blue-frontend-developer-romandevexpe.vercel.app/apple-touch-icon.png",
+    },
+  ],
 };
 
 export default function RootLayout({

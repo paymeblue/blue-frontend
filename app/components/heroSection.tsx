@@ -10,17 +10,23 @@ const { Text, Title, Paragraph } = Typography;
 
 const HeroSection = () => {
   return (
-    <main className="flex h-[600px] flex-col items-center justify-center  bg-primary laptop:h-screen">
-      <Container className="text-center">
+    <main className="flex h-[600px] flex-col items-center justify-center  bg-primary laptop:h-[772px]">
+      <Container className="my-0 text-center">
         <Typography className="m-auto max-w-2xl">
           <Title
             level={1}
             className="m-0 text-[1.5rem] font-medium text-white laptop:text-[3.125rem] laptop:font-bold laptop:leading-[110%]"
           >
-            Receive and make payments easily with Blue!
+            Receive and make <br className="hidden mobile-md:block" /> payments
+            easily with Blue!
           </Title>
           <Paragraph className="mt-2 max-w-xl text-[0.9375rem] font-medium leading-[1.3125rem]  text-body-text-1 laptop:text-[1.25rem] laptop:leading-[1.625rem]">
-            With Blue, you can make payments seamlessly, request and receive
+            With Blue, you can make payments
+            <br className="block tablet:hidden" />
+            seamlessly, request
+            <br className="hidden tablet:block" />
+            and receive
+            <br className="block tablet:hidden" />
             money, all on one platform.
           </Paragraph>
         </Typography>

@@ -79,38 +79,39 @@ const Home = () => {
       <Container className="text-center">
         <div id="benefits">
           <Typography className="my-8 laptop:mt-16">
-            <Paragraph className="m-0 text-[0.9375rem] font-medium leading-[1.3125rem] text-txt laptop:text-[1.25rem] laptop:leading-[1.625rem] laptop:text-primary">
+            <Paragraph className="m-0 text-[0.9375rem] font-medium leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:leading-[1.625rem]">
               Guaranteed ease all through
             </Paragraph>
             <Title
               level={2}
               className="m-0 text-[1.5rem] font-semibold leading-[133%] text-txt laptop:text-[2.5rem] laptop:leading-normal"
             >
-              Receive and make payment on the go
+              Receive & Make payment <br className="block tablet:hidden" /> on
+              the go
             </Title>
           </Typography>
           <Row
             gutter={[24, 24]}
-            className="mx-auto my-8 flex-col flex-nowrap items-center justify-center laptop:flex-row"
+            className="mx-auto my-8 flex-col flex-nowrap items-center justify-between laptop:flex-row"
           >
             {cardInfo.map((card) => (
-              <Col key={card.id}>
+              <Col key={card.id} className="w-full tablet:w-auto laptop:w-full">
                 <Card
-                  className="relative top-1/2 m-auto p-4 laptop:w-[300px] [&>.ant-card-body]:absolute [&>.ant-card-body]:inset-0 [&>.ant-card-body]:top-1/2 [&>.ant-card-body]:bg-white [&>.ant-card-cover]:relative"
+                  className="relative top-1/2 m-auto p-4 [&>.ant-card-body]:absolute [&>.ant-card-body]:inset-0 [&>.ant-card-body]:top-1/2 [&>.ant-card-body]:bg-white [&>.ant-card-cover]:relative"
                   cover={
                     <Image
                       alt={card.title}
                       src={card.img}
-                      className="m-auto -mr-[25px] w-auto"
+                      className="m-auto mr-[-25px] w-auto mobile-lg:mr-[-5px] tablet:mr-[-25px] laptop-md:mr-[15px]"
                     />
                   }
                 >
                   <Meta
-                    className="text-center laptop:text-start"
+                    className="text-center tablet:text-start"
                     title={
                       <Title
                         level={4}
-                        className="m-0 my-3 text-[1.375rem] font-semibold leading-[133%] text-txt laptop:text-[1.875rem] laptop:leading-[133%] "
+                        className="m-0 mb-0 text-[1.375rem] font-semibold leading-[133%] text-txt laptop:my-3 laptop:text-[1.875rem] laptop:leading-[133%] "
                       >
                         {card.title}
                       </Title>
@@ -128,14 +129,15 @@ const Home = () => {
         </div>
 
         <Typography className="mb-8 mt-12 laptop:my-16">
-          <Paragraph className="m-0 text-[0.9375rem] font-medium leading-[1.3125rem] text-txt laptop:text-[1.25rem] laptop:leading-[1.625rem] laptop:text-primary">
+          <Paragraph className="m-0 text-[0.9375rem] font-medium leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:leading-[1.625rem]">
             Flexibility at your Fingertips
           </Paragraph>
           <Title
             level={2}
             className="m-0 text-[1.5rem] font-semibold leading-normal text-txt laptop:text-[2.5rem]"
           >
-            Unlock hassle - free payment options
+            Unlock hassle - free
+            <br className="block tablet:hidden" /> payment options
           </Title>
         </Typography>
         {gridData.map((data) => (
@@ -153,7 +155,7 @@ const Home = () => {
         >
           <Card
             bordered={false}
-            className="rounded-[23px] bg-primary p-10 px-0 pb-0 tablet:w-[400px] laptop:hidden laptop-md:w-[500px] [&>.ant-card-body]:p-3 [&>.ant-card-body]:pb-0 laptop:[&>.ant-card-body]:p-6 laptop:[&>.ant-card-body]:pb-0"
+            className="rounded-[23px] bg-primary p-10 px-0 pb-0 [&>.ant-card-body]:p-3 [&>.ant-card-body]:pb-0 laptop:[&>.ant-card-body]:p-6 laptop:[&>.ant-card-body]:pb-0"
           >
             <Typography className="mx-auto mb-8 text-center">
               <Title
@@ -163,8 +165,10 @@ const Home = () => {
                 Blue to Blue Free Transfers
               </Title>
               <Paragraph className="mx-auto max-w-[335px] text-[0.9375rem] font-medium leading-[1.3125rem] text-body-text-1 laptop:text-[1.125rem] laptop:leading-[1.625rem]">
-                You can expect no hidden charges and no transfer failures with
-                Blue transfers. Download Blue today.
+                You can expect no hidden charges and
+                <br className="mobile-md:block tablet:hidden" /> no transfer
+                failures with Blue transfers.
+                <br className="block tablet:hidden" /> Download Blue today.
               </Paragraph>
               <Space className="mt-8">
                 <Link href="#">
@@ -186,23 +190,30 @@ const Home = () => {
             <Image
               src={screen6}
               alt="free transfers"
-              className="m-auto mr-[-5px] mobile-md:mr-[20px] mobile-lg:mr-[45px]"
+              className="m-auto mr-[-5px] mobile-md:mr-[20px] mobile-lg:mr-[65px]"
             />
           </Card>
           <Card
             bordered={false}
-            className="rounded-[23px] bg-txt p-10 px-0 pb-0 tablet:w-[400px] laptop:hidden laptop-md:w-[500px] [&>.ant-card-body]:p-3 [&>.ant-card-body]:pb-0 laptop:[&>.ant-card-body]:p-6 laptop:[&>.ant-card-body]:pb-0"
+            className="rounded-[23px] bg-txt p-10 px-0 pb-0 [&>.ant-card-body]:p-3 [&>.ant-card-body]:pb-0 laptop:[&>.ant-card-body]:p-6 laptop:[&>.ant-card-body]:pb-0"
           >
             <Typography className="mx-auto mb-8 text-center">
               <Title
                 level={1}
                 className="m-0 text-[1.375rem] font-semibold leading-[133%] text-white laptop:text-[1.875rem] laptop:leading-[2.5rem]"
               >
-                Receive and make payments without a smartphone
+                Receive and make
+                <br className="block laptop:hidden" /> payments without a
+                <br className="block laptop:hidden" />
+                smartphone
               </Title>
               <Paragraph className="mx-auto max-w-[335px] text-[0.9375rem] font-medium leading-[1.3125rem] text-body-text-1 laptop:text-[1.125rem] laptop:leading-[1.625rem]">
-                Blue offers a hassle - free way to make payments without a
-                smartphone. You can make payments via USSD or text message.
+                Blue offers a hassle - free way to make
+                <br className="block tablet:hidden" /> payments without a
+                smartphone. You
+                <br className="block tablet:hidden" /> can make payments via
+                USSD or text
+                <br className="block tablet:hidden" /> message.
               </Paragraph>
               <Space className="mt-8">
                 <Link href="#">
@@ -224,27 +235,29 @@ const Home = () => {
             <Image
               src={screen7}
               alt="free transfers"
-              className="m-auto mr-[-30px] mobile-md:mr-[-5px] mobile-lg:mr-[20px] tablet:mr-[20px]"
+              className="m-auto mr-[-30px] mobile-md:mr-[-5px] mobile-lg:mr-[20px] tablet:mr-[40px]"
             />
           </Card>
         </Space>
         <Space
           size="large"
-          className="mb-14 mt-0 flex flex-col items-center justify-evenly laptop:mb-28 laptop:mt-16 laptop:flex-row"
+          className="mb-14 mt-0 flex w-full flex-col items-center justify-evenly laptop:mb-28 laptop:mt-16 laptop:flex-row [&.ant-space-item]:w-full"
         >
           <Card
             bordered={false}
-            className="laptop:py[1rem] rounded-[23px] bg-txt p-0 tablet:w-[400px] laptop:px-[2.5rem] laptop:py-[1rem] laptop-md:w-[500px] laptop-md:py-[2.75rem] [&>.ant-card-body]:p-3 laptop:[&>.ant-card-body]:p-6"
+            className="oopw-full rounded-[23px] bg-txt p-0 laptop:px-[2.5rem] laptop:py-[2rem] laptop-md:py-[2.75rem] [&>.ant-card-body]:p-3 laptop:[&>.ant-card-body]:p-6"
           >
             <Typography className="mx-auto my-10 text-center">
               <Title
                 level={1}
                 className="m-0 text-[1.375rem] font-semibold leading-[133%] text-white laptop:text-[1.875rem] laptop:leading-[2.5rem]"
               >
-                Send, request and receive money with a quick scan!
+                Send, request and receive
+                <br className="block laptop:hidden" /> money with a quick scan!
               </Title>
               <Paragraph className="mx-auto max-w-[335px] text-[0.9375rem] font-medium leading-[1.3125rem] text-body-text-1 laptop:text-[1.125rem] laptop:leading-[1.625rem]">
-                Scan and make payments on the go. No stress, no complaints.
+                Scan and make payments on the go.
+                <br className="block laptop:hidden" /> No stress, no complaints.
               </Paragraph>
               <Space className="mt-8">
                 <Link href="#">
@@ -266,23 +279,27 @@ const Home = () => {
           </Card>
           <Card
             bordered={false}
-            className="rounded-[23px] bg-primary p-10 px-0 pt-0 tablet:w-[400px] laptop-md:w-[500px] [&>.ant-card-body]:p-3 [&>.ant-card-body]:pt-0 laptop:[&>.ant-card-body]:p-6 laptop:[&>.ant-card-body]:pt-0"
+            className="oopw-full rounded-[23px] bg-primary p-10 px-0 pt-0 [&>.ant-card-body]:p-3 [&>.ant-card-body]:pt-0 laptop:[&>.ant-card-body]:p-6 laptop:[&>.ant-card-body]:pt-0"
           >
             <Image
               src={screen5}
               alt="sync contacts"
-              className="m-auto -mr-[25px] tablet:mr-[-35px] laptop:mr-[-25px]"
+              className="m-auto -mr-[25px] mobile-md:mr-[-30px] tablet:mr-[-35px] laptop-md:mr-[50px]"
             />
             <Typography className="mx-auto -mt-8 text-center">
               <Title
                 level={1}
                 className="m-0 text-[1.375rem] font-semibold leading-[133%] text-white laptop:text-[1.875rem] laptop:leading-[2.5rem]"
               >
-                Sync your contact within Blue and send money to them easily
+                Sync your contact within
+                <br className="block laptop:hidden" /> Blue and send money to
+                <br className="block laptop:hidden" />
+                them easily
               </Title>
               <Paragraph className="mx-auto max-w-[335px] text-[0.9375rem] font-medium leading-[1.3125rem] text-body-text-1 laptop:text-[1.125rem] laptop:leading-[1.625rem]">
-                Easily send and request money directly from your contact list
-                using Blue.
+                Easily send and request money directly
+                <br className="mobile-md:block laptop:hidden" /> from your
+                contact list using Blue.
               </Paragraph>
               <Space className="mt-8">
                 <Link href="#">
@@ -308,7 +325,9 @@ const Home = () => {
             level={5}
             className="m-0 text-[1.5rem] font-semibold leading-[133%] text-txt laptop:text-[1.875rem] laptop:leading-[2.5rem]"
           >
-            What are you waiting for? Download Blue today.
+            What are you waiting
+            <br className="block tablet:hidden" /> for? Download Blue
+            <br className="block tablet:hidden" /> today.
           </Title>
           <Space className="mt-8">
             <Link href="#">
