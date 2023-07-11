@@ -15,11 +15,11 @@ const Privacy = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[1.25rem] font-bold uppercase leading-normal text-primary"
+            className="m-0 mb-5 text-left text-[0.9375rem] font-semibold uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:font-bold laptop:leading-normal"
           >
             PRIVACY POLICY
           </Title>
-          <Paragraph className="text-[1.125rem] font-medium leading-[1.625rem] text-txt">
+          <Paragraph className="text-[0.9375rem]  font-medium leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
             Last updated: <span className="text-primary">July 1st, 2023 </span>
             <br /> This Privacy Policy describes Our policies and procedures on
             the collection, use and disclosure of Your information when You use
@@ -32,11 +32,11 @@ const Privacy = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[1.25rem] font-bold uppercase leading-normal text-primary"
+            className="m-0 mb-5 text-left text-[0.9375rem] font-semibold uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:font-bold laptop:leading-normal"
           >
             Interpretation
           </Title>
-          <Paragraph className="text-[1.125rem] font-medium leading-[1.625rem] text-txt">
+          <Paragraph className="text-[0.9375rem]  font-medium leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
             The words of which the initial letter is capitalised have meanings
             defined under the following conditions. The following definitions
             shall have the same meaning regardless of whether they appear in
@@ -46,11 +46,11 @@ const Privacy = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[1.25rem] font-bold uppercase leading-normal text-primary"
+            className="m-0 mb-5 text-left text-[0.9375rem] font-semibold uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:font-bold laptop:leading-normal"
           >
             Definitions
           </Title>
-          <Paragraph className="text-[1.125rem] font-medium leading-[1.625rem] text-txt">
+          <Paragraph className="text-[0.9375rem]  font-medium leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
             For the purposes of this Privacy Policy:
             <ul className="list-disc">
               <li>
@@ -108,11 +108,11 @@ const Privacy = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[1.25rem] font-bold uppercase leading-normal text-primary"
+            className="m-0 mb-5 text-left text-[0.9375rem] font-semibold uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:font-bold laptop:leading-normal"
           >
             Collecting and Using Your Personal Data
           </Title>
-          <Paragraph className="text-[1.125rem] font-medium leading-[1.625rem] text-txt">
+          <Paragraph className="text-[0.9375rem]  font-medium leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
             <span className="font-medium text-primary">Personal Data:</span>
             <ul className="list-disc">
               While using Our Service, We may ask You to provide Us with certain
@@ -126,7 +126,7 @@ const Privacy = () => {
               <li>Usage Data</li>
             </ul>
           </Paragraph>
-          <Paragraph className="text-[1.125rem] font-medium leading-[1.625rem] text-txt">
+          <Paragraph className="text-[0.9375rem]  font-medium leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
             <span className="font-medium text-primary">Usage Data: </span>
             <br />
             Usage Data is collected automatically when using the Service.
@@ -149,11 +149,11 @@ const Privacy = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[1.25rem] font-bold uppercase leading-normal text-primary"
+            className="m-0 mb-5 text-left text-[0.9375rem] font-semibold uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:font-bold laptop:leading-normal"
           >
             Tracking Technologies and Cookies
           </Title>
-          <Paragraph className="text-[1.125rem] font-medium leading-[1.625rem] text-txt">
+          <Paragraph className="text-[0.9375rem] font-medium leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
             <ul className="list-disc">
               We use Cookies and similar tracking technologies to track the
               activity on Our Service and store certain information. Tracking
@@ -183,7 +183,7 @@ const Privacy = () => {
               Your web browser.
             </ul>
           </Paragraph>
-          <Paragraph className="text-[1.125rem] font-medium leading-[1.625rem] text-txt">
+          <Paragraph className="text-[0.9375rem]  font-medium leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
             <span className="font-semibold text-primary">
               Necessary / Essential Cookies:
             </span>
@@ -197,7 +197,7 @@ const Privacy = () => {
             that You have asked for cannot be provided, and We only use these
             Cookies to provide You with those services.
           </Paragraph>
-          <Paragraph className="text-[1.125rem] font-medium leading-[1.625rem] text-txt">
+          <Paragraph className="text-[0.9375rem]  font-medium leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
             <span className="font-semibold text-primary">
               Cookies Policy / Notice Acceptance Cookies:
             </span>
@@ -208,7 +208,7 @@ const Privacy = () => {
             Purpose: These Cookies identify if users have accepted the use of
             cookies on the Website.
           </Paragraph>
-          <Paragraph className="text-[1.125rem] font-medium leading-[1.625rem] text-txt">
+          <Paragraph className="text-[0.9375rem]  font-medium leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
             <span className="font-semibold text-primary">
               Functionality Cookies:
             </span>
@@ -233,11 +233,11 @@ const Privacy = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[1.25rem] font-bold uppercase leading-normal text-primary"
+            className="m-0 mb-5 text-left text-[0.9375rem] font-semibold uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:font-bold laptop:leading-normal"
           >
             Use of Your Personal Data
           </Title>
-          <Paragraph className="text-[1.125rem] font-medium leading-[1.625rem] text-txt">
+          <Paragraph className="text-[0.9375rem]  font-medium leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
             <ul className="list-disc">
               The Company may use Personal Data for the following purposes:
               <li>
@@ -330,11 +330,11 @@ const Privacy = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[1.25rem] font-bold uppercase leading-normal text-primary"
+            className="m-0 mb-5 text-left text-[0.9375rem] font-semibold uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:font-bold laptop:leading-normal"
           >
             Retention of Your Personal Data
           </Title>
-          <Paragraph className="text-[1.125rem] font-medium leading-[1.625rem] text-txt">
+          <Paragraph className="text-[0.9375rem]  font-medium leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
             The Company will retain Your Personal Data only for as long as is
             necessary for the purposes set out in this Privacy Policy. We will
             retain and use Your Personal Data to the extent necessary to comply
@@ -351,11 +351,11 @@ const Privacy = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[1.25rem] font-bold uppercase leading-normal text-primary"
+            className="m-0 mb-5 text-left text-[0.9375rem] font-semibold uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:font-bold laptop:leading-normal"
           >
             Transfer of Your Personal Data
           </Title>
-          <Paragraph className="text-[1.125rem] font-medium leading-[1.625rem] text-txt">
+          <Paragraph className="text-[0.9375rem]  font-medium leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
             Your information, including Personal Data, is processed at the
             Company's operating offices and in any other places where the
             parties involved in the processing are located. It means that this
@@ -376,11 +376,11 @@ const Privacy = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[1.25rem] font-bold uppercase leading-normal text-primary"
+            className="m-0 mb-5 text-left text-[0.9375rem] font-semibold uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:font-bold laptop:leading-normal"
           >
             Delete Your Personal Data
           </Title>
-          <Paragraph className="text-[1.125rem] font-medium leading-[1.625rem] text-txt">
+          <Paragraph className="text-[0.9375rem]  font-medium leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
             You have the right to delete or request that We assist in deleting
             the Personal Data that We have collected about You. Our Service may
             give You the ability to delete certain information about You from
@@ -398,11 +398,11 @@ const Privacy = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[1.25rem] font-bold uppercase leading-normal text-primary"
+            className="m-0 mb-5 text-left text-[0.9375rem] font-semibold uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:font-bold laptop:leading-normal"
           >
             Disclosure of Your Personal Data
           </Title>
-          <Paragraph className="text-[1.125rem] font-medium leading-[1.625rem] text-txt">
+          <Paragraph className="text-[0.9375rem]  font-medium leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
             <p>
               <span className="font-semibold text-primary">
                 Business Transactions:
@@ -443,7 +443,7 @@ const Privacy = () => {
               <li>Protect against legal liability</li>
             </ul>
           </Paragraph>
-          <Paragraph className="text-[1.125rem] font-medium leading-[1.625rem] text-txt">
+          <Paragraph className="text-[0.9375rem]  font-medium leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
             <span className="font-semibold text-primary">Usage Data: </span>
             <br />
             Usage Data is collected automatically when using the Service.
@@ -466,11 +466,11 @@ const Privacy = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[1.25rem] font-bold uppercase leading-normal text-primary"
+            className="m-0 mb-5 text-left text-[0.9375rem] font-semibold uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:font-bold laptop:leading-normal"
           >
             Security of Your Personal Data
           </Title>
-          <Paragraph className="text-[1.125rem] font-medium leading-[1.625rem] text-txt">
+          <Paragraph className="text-[0.9375rem]  font-medium leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
             The security of Your Personal Data is important to Us, but remember
             that no method of transmission over the Internet, or method of
             electronic storage is 100% secure. While We strive to use
@@ -481,11 +481,11 @@ const Privacy = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[1.25rem] font-bold uppercase leading-normal text-primary"
+            className="m-0 mb-5 text-left text-[0.9375rem] font-semibold uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:font-bold laptop:leading-normal"
           >
             Children's Privacy
           </Title>
-          <Paragraph className="text-[1.125rem] font-medium leading-[1.625rem] text-txt">
+          <Paragraph className="text-[0.9375rem]  font-medium leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
             Our Service does not address anyone under the age of 13. We do not
             knowingly collect personally identifiable information from anyone
             under the age of 13. If You are a parent or guardian and You are
@@ -502,11 +502,11 @@ const Privacy = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[1.25rem] font-bold uppercase leading-normal text-primary"
+            className="m-0 mb-5 text-left text-[0.9375rem] font-semibold uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:font-bold laptop:leading-normal"
           >
             Links to Other Websites
           </Title>
-          <Paragraph className="text-[1.125rem] font-medium leading-[1.625rem] text-txt">
+          <Paragraph className="text-[0.9375rem]  font-medium leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
             Our Service may contain links to other websites that are not
             operated by Us. If You click on a third party link, You will be
             directed to that third party's site. We strongly advise You to
@@ -519,11 +519,11 @@ const Privacy = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[1.25rem] font-bold uppercase leading-normal text-primary"
+            className="m-0 mb-5 text-left text-[0.9375rem] font-semibold uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:font-bold laptop:leading-normal"
           >
             Changes to this Privacy Policy
           </Title>
-          <Paragraph className="text-[1.125rem] font-medium leading-[1.625rem] text-txt">
+          <Paragraph className="text-[0.9375rem]  font-medium leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
             We may update Our Privacy Policy from time to time. We will notify
             You of any changes by posting the new Privacy Policy on this page.
             We will let You know via email and/or a prominent notice on Our

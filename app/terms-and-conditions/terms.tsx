@@ -14,11 +14,11 @@ const Terms = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[1.25rem] font-bold uppercase leading-normal text-primary"
+            className="m-0 mb-5 text-left text-[0.9375rem] font-semibold uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:font-bold laptop:leading-normal"
           >
             Terms and Conditions
           </Title>
-          <Paragraph className="text-[1.125rem] font-medium leading-[1.625rem] text-txt">
+          <Paragraph className="text-[0.9375rem]  font-medium leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
             <span className="mb-4 block">Welcome to Blue website!</span>
             These terms and conditions outline the rules and regulations for the
             use of Blue Fintech Service Limited 's Website, located at
@@ -46,11 +46,11 @@ const Terms = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[1.25rem] font-bold uppercase leading-normal text-primary"
+            className="m-0 mb-5 text-left text-[0.9375rem] font-semibold uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:font-bold laptop:leading-normal"
           >
             Cookies
           </Title>
-          <Paragraph className="text-[1.125rem] font-medium leading-[1.625rem] text-txt">
+          <Paragraph className="text-[0.9375rem]  font-medium leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
             We employ the use of cookies. By accessing Blue website, you agreed
             to use cookies in agreement with the Blue Fintech Service Limited 's
             Privacy Policy.
@@ -64,11 +64,11 @@ const Terms = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[1.25rem] font-bold uppercase leading-normal text-primary"
+            className="m-0 mb-5 text-left text-[0.9375rem] font-semibold uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:font-bold laptop:leading-normal"
           >
             License
           </Title>
-          <Paragraph className="text-[1.125rem] font-medium leading-[1.625rem] text-txt">
+          <Paragraph className="text-[0.9375rem]  font-medium leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
             Unless otherwise stated, Blue Fintech Service Limited and/or its
             licensors own the intellectual property rights for all material on
             Blue website. All intellectual property rights are reserved. You may
@@ -127,11 +127,11 @@ const Terms = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[1.25rem] font-bold uppercase leading-normal text-primary"
+            className="m-0 mb-5 text-left text-[0.9375rem] font-semibold uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:font-bold laptop:leading-normal"
           >
             Hyperlinking to our Content
           </Title>
-          <Paragraph className="text-[1.125rem] font-medium leading-[1.625rem] text-txt">
+          <Paragraph className="text-[0.9375rem]  font-medium leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
             <ul className="list-disc">
               The following organizations may link to our Website without prior
               written approval:
@@ -205,11 +205,11 @@ const Terms = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[1.25rem] font-bold uppercase leading-normal text-primary"
+            className="m-0 mb-5 text-left text-[0.9375rem] font-semibold uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:font-bold laptop:leading-normal"
           >
             iFrames
           </Title>
-          <Paragraph className="text-[1.125rem] font-medium leading-[1.625rem] text-txt">
+          <Paragraph className="text-[0.9375rem]  font-medium leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
             Without prior approval and written permission, you may not create
             frames around our Webpages that alter in any way the visual
             presentation or appearance of our Website.
@@ -218,11 +218,11 @@ const Terms = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[1.25rem] font-bold uppercase leading-normal text-primary"
+            className="m-0 mb-5 text-left text-[0.9375rem] font-semibold uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:font-bold laptop:leading-normal"
           >
             Content Liability
           </Title>
-          <Paragraph className="text-[1.125rem] font-medium leading-[1.625rem] text-txt">
+          <Paragraph className="text-[0.9375rem]  font-medium leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
             We shall not be hold responsible for any content that appears on
             your Website. You agree to protect and defend us against all claims
             that is rising on your Website. No link(s) should appear on any
@@ -234,11 +234,11 @@ const Terms = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[1.25rem] font-bold uppercase leading-normal text-primary"
+            className="m-0 mb-5 text-left text-[0.9375rem] font-semibold uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:font-bold laptop:leading-normal"
           >
             Reservation of Rights
           </Title>
-          <Paragraph className="text-[1.125rem] font-medium leading-[1.625rem] text-txt">
+          <Paragraph className="text-[0.9375rem]  font-medium leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
             We reserve the right to request that you remove all links or any
             particular link to our Website. You approve to immediately remove
             all links to our Website upon request. We also reserve the right to
@@ -250,11 +250,11 @@ const Terms = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[1.25rem] font-bold uppercase leading-normal text-primary"
+            className="m-0 mb-5 text-left text-[0.9375rem] font-semibold uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:font-bold laptop:leading-normal"
           >
             Removal of links from our website
           </Title>
-          <Paragraph className="text-[1.125rem] font-medium leading-[1.625rem] text-txt">
+          <Paragraph className="text-[0.9375rem]  font-medium leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
             If you find any link on our Website that is offensive for any
             reason, you are free to contact and inform us any moment. We will
             consider requests to remove links but we are not obligated to or so
@@ -268,11 +268,11 @@ const Terms = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[1.25rem] font-bold uppercase leading-normal text-primary"
+            className="m-0 mb-5 text-left text-[0.9375rem] font-semibold uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:font-bold laptop:leading-normal"
           >
             Disclaimer
           </Title>
-          <Paragraph className="text-[1.125rem] font-medium leading-[1.625rem] text-txt">
+          <Paragraph className="text-[0.9375rem]  font-medium leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
             <ul className="list-disc">
               To the maximum extent permitted by applicable law, we exclude all
               representations, warranties and conditions relating to our website
