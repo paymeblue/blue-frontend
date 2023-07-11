@@ -15,7 +15,7 @@ const Privacy = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 text-left mb-5 text-[1.25rem] font-bold uppercase leading-normal text-primary"
+            className="m-0 mb-5 text-left text-[1.25rem] font-bold uppercase leading-normal text-primary"
           >
             PRIVACY POLICY
           </Title>
@@ -32,7 +32,7 @@ const Privacy = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 text-left mb-5 text-[1.25rem] font-bold uppercase leading-normal text-primary"
+            className="m-0 mb-5 text-left text-[1.25rem] font-bold uppercase leading-normal text-primary"
           >
             Interpretation
           </Title>
@@ -46,7 +46,7 @@ const Privacy = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 text-left mb-5 text-[1.25rem] font-bold uppercase leading-normal text-primary"
+            className="m-0 mb-5 text-left text-[1.25rem] font-bold uppercase leading-normal text-primary"
           >
             Definitions
           </Title>
@@ -108,7 +108,7 @@ const Privacy = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 text-left mb-5 text-[1.25rem] font-bold uppercase leading-normal text-primary"
+            className="m-0 mb-5 text-left text-[1.25rem] font-bold uppercase leading-normal text-primary"
           >
             Collecting and Using Your Personal Data
           </Title>
@@ -149,7 +149,7 @@ const Privacy = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 text-left mb-5 text-[1.25rem] font-bold uppercase leading-normal text-primary"
+            className="m-0 mb-5 text-left text-[1.25rem] font-bold uppercase leading-normal text-primary"
           >
             Tracking Technologies and Cookies
           </Title>
@@ -180,9 +180,7 @@ const Privacy = () => {
               Cookies can be "Persistent" or "Session" Cookies. Persistent
               Cookies remain on Your personal computer or mobile device when You
               go offline, while Session Cookies are deleted as soon as You close
-              Your web browser. Learn more about cookies on the Free Privacy
-              Policy website article. We use both Session and Persistent Cookies
-              for the purposes set out below:
+              Your web browser.
             </ul>
           </Paragraph>
           <Paragraph className="text-[1.125rem] font-medium leading-[1.625rem] text-txt">
@@ -235,7 +233,7 @@ const Privacy = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 text-left mb-5 text-[1.25rem] font-bold uppercase leading-normal text-primary"
+            className="m-0 mb-5 text-left text-[1.25rem] font-bold uppercase leading-normal text-primary"
           >
             Use of Your Personal Data
           </Title>
@@ -332,7 +330,7 @@ const Privacy = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 text-left mb-5 text-[1.25rem] font-bold uppercase leading-normal text-primary"
+            className="m-0 mb-5 text-left text-[1.25rem] font-bold uppercase leading-normal text-primary"
           >
             Retention of Your Personal Data
           </Title>
@@ -353,7 +351,7 @@ const Privacy = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 text-left mb-5 text-[1.25rem] font-bold uppercase leading-normal text-primary"
+            className="m-0 mb-5 text-left text-[1.25rem] font-bold uppercase leading-normal text-primary"
           >
             Transfer of Your Personal Data
           </Title>
@@ -378,7 +376,7 @@ const Privacy = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 text-left mb-5 text-[1.25rem] font-bold uppercase leading-normal text-primary"
+            className="m-0 mb-5 text-left text-[1.25rem] font-bold uppercase leading-normal text-primary"
           >
             Delete Your Personal Data
           </Title>
@@ -400,7 +398,7 @@ const Privacy = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 text-left mb-5 text-[1.25rem] font-bold uppercase leading-normal text-primary"
+            className="m-0 mb-5 text-left text-[1.25rem] font-bold uppercase leading-normal text-primary"
           >
             Disclosure of Your Personal Data
           </Title>
@@ -468,7 +466,7 @@ const Privacy = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 text-left mb-5 text-[1.25rem] font-bold uppercase leading-normal text-primary"
+            className="m-0 mb-5 text-left text-[1.25rem] font-bold uppercase leading-normal text-primary"
           >
             Security of Your Personal Data
           </Title>
@@ -483,7 +481,7 @@ const Privacy = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 text-left mb-5 text-[1.25rem] font-bold uppercase leading-normal text-primary"
+            className="m-0 mb-5 text-left text-[1.25rem] font-bold uppercase leading-normal text-primary"
           >
             Children's Privacy
           </Title>
@@ -504,7 +502,7 @@ const Privacy = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 text-left mb-5 text-[1.25rem] font-bold uppercase leading-normal text-primary"
+            className="m-0 mb-5 text-left text-[1.25rem] font-bold uppercase leading-normal text-primary"
           >
             Links to Other Websites
           </Title>
@@ -521,7 +519,7 @@ const Privacy = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 text-left mb-5 text-[1.25rem] font-bold uppercase leading-normal text-primary"
+            className="m-0 mb-5 text-left text-[1.25rem] font-bold uppercase leading-normal text-primary"
           >
             Changes to this Privacy Policy
           </Title>
