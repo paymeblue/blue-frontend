@@ -12,9 +12,8 @@ const { Text } = Typography;
 const { Footer } = Layout;
 
 const policies = [
-  { id: "1", text: "Electronic policy", link: "#" },
-  { id: "2", text: "Privacy policy", link: "#" },
-  { id: "3", text: "Terms and conditions", link: "#" },
+  { id: "1", text: "Privacy policy", link: "/privacy" },
+  { id: "2", text: "Terms and conditions", link: "/terms-and-conditions" },
 ];
 const socialIcons = [
   {
@@ -62,7 +61,7 @@ const LayoutFooter = () => {
               key={item.id}
               className="mx-2 text-[1rem] font-semibold leading-[1.5rem] text-neutral laptop:text-[0.9375rem] laptop:font-medium laptop:leading-[1.3125rem]"
             >
-              <Link href={item.link} target="_blank" className="text-inherit">
+              <Link href={item.link} className="text-inherit">
                 {item.text}
               </Link>
             </li>

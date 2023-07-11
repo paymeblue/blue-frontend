@@ -2,7 +2,8 @@
 import { CheckCircleOutlined } from "@ant-design/icons";
 import countrycodes from "@lib/countryCodes";
 import Container from "@shared/container";
-import { Button, Form, Input, Select, Typography, message } from "antd";
+import PageHead from "@shared/pageHead";
+import { Button, Form, Input, Select, message } from "antd";
 import { Fragment, useState } from "react";
 
 type State = {
@@ -15,8 +16,6 @@ type State = {
 const { Item, useForm } = Form;
 const { Option } = Select;
 const { TextArea } = Input;
-
-const { Title, Paragraph } = Typography;
 
 const Contact = () => {
   const [form] = useForm();
@@ -59,20 +58,8 @@ const Contact = () => {
   };
   return (
     <Fragment>
-      <main className="mb-16 flex h-[320px] flex-col items-center justify-center bg-primary">
-        {contextHolder}
-        <Container className="text-center">
-          <Paragraph className="mb-2 text-[0.9375rem] font-normal leading-normal text-body-text-1 laptop:text-[1.3125rem] laptop:font-semibold laptop:leading-[133%]">
-            Contact us
-          </Paragraph>
-          <Title
-            level={1}
-            className="m-0 text-[1.3rem] font-semibold leading-[133%] text-white laptop:text-[2.3rem] laptop:font-bold laptop:leading-normal"
-          >
-            Get in touch
-          </Title>
-        </Container>
-      </main>
+      {contextHolder}
+      <PageHead mainText="Get in touch" subText="Contact us" />
       <Container className="">
         <Form
           form={form}
