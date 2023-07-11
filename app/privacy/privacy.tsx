@@ -59,8 +59,8 @@ const Privacy = () => {
               </li>
               <li>
                 Company (referred to as either "the Company", "We", "Us" or
-                "Our" in this Agreement) refers to Blue Fintech Technologies
-                LTD, Nigeria.
+                "Our" in this Agreement) refers to Blue Fintech Service Limited,
+                Nigeria.
               </li>
               <li>
                 Cookies are small files that are placed on Your computer, mobile
