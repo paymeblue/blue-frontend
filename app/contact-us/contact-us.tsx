@@ -38,8 +38,13 @@ const Contact = () => {
 
   const onFinish = async (values: State): Promise<void> => {
     setIsLoading(true);
-    console.log("Form data: ", values);
-    await new Promise((resolve) => setTimeout(resolve, 2500)); // Simulating an asynchronous operation
+    // console.log("Form data: ", values);
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      body: JSON.stringify(values),
+    });
+    // await new Promise((resolve) => setTimeout(resolve, 2500)); // Simulating an asynchronous operation
+    console.log(await res.json(), "response");
     form.resetFields();
     setIsLoading(false);
     messageApi.open({

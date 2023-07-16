@@ -7,13 +7,12 @@ import { Card, Col, Row, Space, Typography } from "antd";
 import { Metadata } from "next";
 import Image from "next/image";
 import qrCode from "public/qr-code.svg";
-import screen1 from "public/screen-1.svg";
-import screen2 from "public/screen-2.svg";
-import screen3 from "public/screen-3.svg";
-import screen4 from "public/screen-4.svg";
-import screen5 from "public/screen-5.svg";
-import screen6 from "public/screen-6.svg";
-import screen7 from "public/screen-7.svg";
+import screen1 from "public/screen-1.png";
+import screen2 from "public/screen-2.png";
+import screen3 from "public/screen-3.png";
+import screen4 from "public/screen-4.png";
+import screen5 from "public/screen-5.png";
+import screen7 from "public/screen-7.png";
 import smallPhone from "public/small-phone.svg";
 import { Fragment } from "react";
 
@@ -92,17 +91,20 @@ const Home = () => {
           </Typography>
           <Row
             gutter={[24, 24]}
-            className="mx-auto my-8 flex-col flex-nowrap items-center justify-between laptop:flex-row"
+            className="mx-auto my-8 flex-col flex-wrap items-center justify-between laptop:flex-row laptop-md:flex-nowrap"
           >
             {cardInfo.map((card) => (
-              <Col key={card.id} className="w-full tablet:w-auto laptop:w-full">
+              <Col
+                key={card.id}
+                className="w-full tablet:w-3/4 laptop:w-1/2 laptop-md:w-full"
+              >
                 <Card
-                  className="relative top-1/2 m-auto p-4 [&>.ant-card-body]:absolute [&>.ant-card-body]:inset-0 [&>.ant-card-body]:top-1/2 [&>.ant-card-body]:bg-white [&>.ant-card-cover]:relative"
+                  className="top-1/2 m-auto w-auto p-4 laptop:w-[420px] [&>.ant-card-body]:inset-0 [&>.ant-card-body]:top-1/2 [&>.ant-card-body]:bg-white"
                   cover={
                     <Image
                       alt={card.title}
                       src={card.img}
-                      className="m-auto mr-[-25px] w-auto mobile-lg:mr-[-5px] tablet:mr-[-25px] laptop-md:mr-[15px]"
+                      className="m-auto w-3/4 tablet:w-1/2 laptop:w-3/4"
                     />
                   }
                 >
@@ -166,18 +168,18 @@ const Home = () => {
               >
                 Blue to Blue Free Transfers
               </Title>
-              <Paragraph className="mx-auto max-w-[335px] text-[0.9375rem] font-medium leading-[1.3125rem] text-body-text-1 laptop:text-[1.125rem] laptop:leading-[1.625rem]">
+              <Paragraph className="mx-auto mt-2 min-w-[270px] text-[0.9375rem] font-medium leading-[1.3125rem] text-body-text-1 mobile-md:min-w-max laptop:text-[1.125rem] laptop:leading-[1.625rem]">
                 You can expect no hidden charges and
-                <br className="mobile-md:block tablet:hidden" /> no transfer
-                failures with Blue transfers.
-                <br className="block tablet:hidden" /> Download Blue today.
+                <br className="hidden mobile-md:block" /> no transfer failures
+                with Blue transfers.
+                <br className="block" /> Download Blue today.
               </Paragraph>
               <DownloadBtns />
             </Typography>
             <Image
-              src={screen6}
+              src={screen4}
               alt="free transfers"
-              className="m-auto mr-[-5px] mobile-md:mr-[20px] mobile-lg:mr-[65px]"
+              className="m-auto w-3/4"
             />
           </Card>
           <Card
@@ -195,31 +197,29 @@ const Home = () => {
                 <br className="block laptop:hidden" />
                 smartphone
               </Title>
-              <Paragraph className="mx-auto max-w-[335px] text-[0.9375rem] font-medium leading-[1.3125rem] text-body-text-1 laptop:text-[1.125rem] laptop:leading-[1.625rem]">
+              <Paragraph className="mx-auto mt-2 max-w-[335px] text-[0.9375rem] font-medium leading-[1.3125rem] text-body-text-1 laptop:text-[1.125rem] laptop:leading-[1.625rem]">
                 Blue offers a hassle - free way to make
-                <br className="block tablet:hidden" /> payments without a
-                smartphone. You
-                <br className="block tablet:hidden" /> can make payments via
-                USSD or text
-                <br className="block tablet:hidden" /> message.
+                <br className="block" /> payments without a smartphone. You
+                <br className="block" /> can make payments via USSD or text
+                <br className="block" /> message.
               </Paragraph>
               <DownloadBtns />
             </Typography>
             <Image
               src={screen7}
               alt="free transfers"
-              className="m-auto mr-[-30px] mobile-md:mr-[-5px] mobile-lg:mr-[20px] tablet:mr-[40px]"
+              className="m-auto w-3/4"
             />
           </Card>
         </Space>
         <Space
           size="large"
-          className="mb-14 mt-0 flex w-full flex-col items-center justify-evenly laptop:mb-28 laptop:mt-16 laptop:flex-row [&.ant-space-item]:w-full"
+          className="mx-auto mb-14 mt-0 flex w-full flex-col items-center justify-between laptop:mb-28 laptop:mt-16 laptop:flex-row laptop:[&>.ant-space-item]:w-full"
         >
           <Card
             id="qr-scan"
             bordered={false}
-            className="oopw-full rounded-[23px] bg-txt p-0 laptop:px-[2.5rem] laptop:py-[2rem] laptop-md:py-[2.75rem] [&>.ant-card-body]:p-3 laptop:[&>.ant-card-body]:p-6"
+            className="w-full rounded-[23px] bg-txt p-0 laptop:py-[1rem] [&>.ant-card-body]:px-3 laptop:[&>.ant-card-body]:p-6"
           >
             <Typography className="mx-auto my-10 text-center">
               <Title
@@ -227,41 +227,39 @@ const Home = () => {
                 className="m-0 text-[1.2rem] font-semibold leading-[133%] text-white laptop:text-[1.7rem] laptop:leading-[2.5rem]"
               >
                 Send, request and receive
-                <br className="block laptop:hidden" /> money with a quick scan!
+                <br /> money with a quick scan!
               </Title>
-              <Paragraph className="mx-auto max-w-[335px] text-[0.9375rem] font-medium leading-[1.3125rem] text-body-text-1 laptop:text-[1.125rem] laptop:leading-[1.625rem]">
+              <Paragraph className="mx-auto mt-2 text-[0.9375rem] font-medium leading-[1.3125rem] text-body-text-1 laptop:text-[1.125rem] laptop:leading-[1.625rem]">
                 Scan and make payments on the go.
-                <br className="block laptop:hidden" /> No stress, no complaints.
+                <br /> No stress, no complaints.
               </Paragraph>
               <DownloadBtns />
             </Typography>
-            <Image src={qrCode} alt="quick scan" className="m-auto" priority />
+            <Image
+              src={qrCode}
+              alt="quick scan"
+              className="m-auto w-3/4"
+              priority
+            />
           </Card>
           <Card
             id="phone-transfer"
             bordered={false}
-            className="oopw-full rounded-[23px] bg-primary p-10 px-0 pt-0 [&>.ant-card-body]:p-3 [&>.ant-card-body]:pt-0 laptop:[&>.ant-card-body]:p-6 laptop:[&>.ant-card-body]:pt-0"
+            className="w-full rounded-[23px] bg-primary p-8 px-0 pt-0 [&>.ant-card-body]:p-3 [&>.ant-card-body]:pt-0 laptop:[&>.ant-card-body]:p-6 laptop:[&>.ant-card-body]:pt-0"
           >
-            <Image
-              src={screen5}
-              alt="sync contacts"
-              className="m-auto -mr-[25px] mobile-md:mr-[-30px] tablet:mr-[-35px] laptop-md:mr-[50px]"
-            />
-            <Typography className="mx-auto -mt-8 text-center">
+            <Image src={screen5} alt="sync contacts" className="m-auto w-3/4" />
+            <Typography className="mx-auto mt-8 text-center">
               <Title
                 level={1}
-                className="m-0 text-[1.2rem] font-semibold leading-[133%] text-white laptop:text-[1.7rem] laptop:leading-[2.5rem]"
+                className="m-auto max-w-[280px] text-[1.2rem]  font-semibold leading-[133%] text-white laptop:max-w-md laptop:text-[1.7rem] laptop:leading-[2.5rem]"
               >
-                Sync your contact within
-                <br className="block laptop:hidden" /> Blue and send money
-                to&nbsp;
-                <br className="block laptop:hidden" />
-                them easily
+                Sync your contact within Blue{" "}
+                <br className="hidden laptop:block" /> and send money to them
+                easily
               </Title>
-              <Paragraph className="mx-auto max-w-[335px] text-[0.9375rem] font-medium leading-[1.3125rem] text-body-text-1 laptop:text-[1.125rem] laptop:leading-[1.625rem]">
+              <Paragraph className="md-mobile:min-w-max mx-auto mt-2 min-w-[270px] text-[0.9375rem] font-medium leading-[1.3125rem] text-body-text-1 laptop:text-[1.125rem] laptop:leading-[1.625rem]">
                 Easily send and request money directly
-                <br className="mobile-md:block laptop:hidden" /> from your
-                contact list using Blue.
+                <br /> from your contact list using Blue.
               </Paragraph>
               <DownloadBtns />
             </Typography>
@@ -270,11 +268,9 @@ const Home = () => {
         <Typography className="mx-auto my-8 max-w-sm text-center">
           <Title
             level={5}
-            className="m-0 text-[1.3rem] font-semibold leading-[133%] text-txt laptop:text-[1.7rem] laptop:leading-[2.5rem]"
+            className="m-auto max-w-xs text-[1.3rem] font-semibold leading-[133%] text-txt laptop:max-w-sm laptop:text-[1.7rem] laptop:leading-[2.5rem]"
           >
-            What are you waiting
-            <br className="block tablet:hidden" /> for? Download Blue
-            <br className="block tablet:hidden" /> today.
+            What are you waiting for? Download Blue today.
           </Title>
           <DownloadBtns />
         </Typography>
