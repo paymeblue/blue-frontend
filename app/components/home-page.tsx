@@ -248,7 +248,7 @@ const Home = () => {
             className="w-full rounded-[23px] bg-primary p-8 px-0 pt-0 [&>.ant-card-body]:p-3 [&>.ant-card-body]:pt-0 laptop:[&>.ant-card-body]:p-6 laptop:[&>.ant-card-body]:pt-0"
           >
             <Image src={screen5} alt="sync contacts" className="m-auto w-3/4" />
-            <Typography className="mx-auto mt-8 text-center">
+            <Typography className="mx-auto mt-8 text-center laptop:mt-10">
               <Title
                 level={1}
                 className="m-auto max-w-[280px] text-[1.2rem]  font-semibold leading-[133%] text-white laptop:max-w-md laptop:text-[1.7rem] laptop:leading-[2.5rem]"

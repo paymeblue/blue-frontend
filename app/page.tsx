@@ -4,7 +4,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Home | Blue",
   description:
-    "Receive and make payments easily with Blue, you can make payments seamlessly, request and receive money, all on one platform.",
+    "Blue is a P2P payment system that enables users to make payments, send and receive money, request money, and pay bills seamlessly",
 };
 
 const Homepage = () => <Home />;

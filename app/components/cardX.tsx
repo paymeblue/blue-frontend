@@ -18,14 +18,14 @@ const CardX = ({ hash, second, title, desc, img }: IProps) => {
         second ? "bg-txt tablet:flex-row-reverse" : "bg-primary tablet:flex-row"
       }  laptop:px-8 laptop:pb-0 laptop:pt-8`}
     >
-      <Typography className="mx-12 text-start laptop-md:max-w-md">
+      <Typography className="mx-12 text-start laptop:max-w-md">
         <Title
           level={1}
           className="m-0 font-semibold text-white laptop:text-[1.7rem] laptop:leading-[2.375rem]"
         >
           {title}
         </Title>
-        <Paragraph className="mt-2 mb-0 font-medium text-body-text-1 laptop:text-[1.125rem] laptop:leading-[1.625rem]">
+        <Paragraph className="mb-0 mt-2 font-medium text-body-text-1 laptop:text-[1.125rem] laptop:leading-[1.625rem]">
           {desc}
         </Paragraph>
         <DownloadBtns />
