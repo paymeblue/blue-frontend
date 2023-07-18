@@ -134,13 +134,6 @@ export async function POST(request: NextRequest) {
       }
     );
   } catch (error: any) {
-    if (error.status === 500)
-      return NextResponse.json(`Server error`, {
-        status: 500,
-      });
-    if (error.status === 400)
-      return NextResponse.json(`${error.message}`, {
-        status: 400,
-      });
+    return NextResponse.json({ error: error.message });
   }
 }
