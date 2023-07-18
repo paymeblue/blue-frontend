@@ -13,10 +13,9 @@ const HeroSection = () => {
         <Typography className="m-auto max-w-2xl">
           <Title
             level={1}
-            className="m-0 text-[1.3rem] font-semibold text-white laptop:text-[3rem] laptop:font-bold laptop:leading-[110%]"
+            className="m-0 text-[1.3rem] font-bold text-white laptop:text-[3rem] laptop:leading-[110%]"
           >
-            Receive and make <br className="hidden mobile-md:block" /> payments
-            easily with Blue!
+            Receive and make <br /> payments easily with Blue!
           </Title>
           <Paragraph className="mt-2 hidden max-w-xl text-[0.9375rem]  font-medium leading-[1.3125rem] text-body-text-1  laptop:block laptop:text-[1.25rem] laptop:leading-[1.625rem]">
             With Blue, you can make payments seamlessly, request and receive
@@ -44,14 +43,14 @@ const HeroSection = () => {
             type="svg"
             value="https://paymeblue.com/"
           />
-          <div className="absolute bottom-[-35%] left-[40%] flex w-full items-center tablet:left-[50%] tablet:w-max laptop:-bottom-[50%] laptop:left-[60%]">
+          <div className="absolute bottom-[-35%] left-[40%] flex w-full items-center tablet:-bottom-[50%] tablet:left-[50%] tablet:w-max laptop:left-[60%]">
             <Image
               src={spiralLine}
               alt="directional line"
               priority
-              className="w-1/5 laptop:w-[30%]"
+              className="w-[35%] laptop:w-[30%]"
             />
-            <Text className="text-[0.9375rem] font-medium leading-[1.3125rem] text-[#EAEAFE] laptop:text-[1.25rem] laptop:leading-[1.625rem]">
+            <Text className="text-[0.8rem] font-medium leading-[1.3125rem] text-[#EAEAFE] tablet:text-[0.9375rem] laptop:text-[1.25rem] laptop:leading-[1.625rem]">
               Scan this code to <br /> download now
             </Text>
           </div>

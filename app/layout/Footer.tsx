@@ -1,11 +1,7 @@
 "use client";
 
-import {
-  InstagramOutlined,
-  TwitterOutlined,
-  YoutubeFilled,
-} from "@ant-design/icons";
-import LinkedinOutlined from "@components/assets/icons/linkedin";
+import { PhoneOutlined } from "@ant-design/icons";
+// import LinkedinOutlined from "@components/assets/icons/linkedin";
 import { Layout, Space, Typography } from "antd";
 import Link from "next/link";
 const { Text } = Typography;
@@ -15,33 +11,43 @@ const policies = [
   { id: "1", text: "Privacy policy", link: "/privacy" },
   { id: "2", text: "Terms and conditions", link: "/terms-and-conditions" },
 ];
+// const socialIcons = [
+//   {
+//     id: "1",
+//     link: "#",
+//     icon: (
+//       <InstagramOutlined className="mx-[2px] rounded-full bg-[#202124] p-[6px] text-[13px] text-white" />
+//     ),
+//   },
+//   {
+//     id: "2",
+//     link: "#",
+//     icon: (
+//       <LinkedinOutlined className="mx-[2px] rounded-full bg-[#202124] p-[6px] text-[13px] text-white" />
+//     ),
+//   },
+//   {
+//     id: "3",
+//     link: "#",
+//     icon: (
+//       <TwitterOutlined className="mx-[2px] rounded-full bg-[#202124] p-[6px] text-[13px] text-white" />
+//     ),
+//   },
+//   {
+//     id: "4",
+//     link: "#",
+//     icon: (
+//       <YoutubeFilled className="mx-[2px] rounded-full bg-[#202124] p-[6px] text-[13px] text-white" />
+//     ),
+//   },
+// ];
+
 const socialIcons = [
   {
     id: "1",
-    link: "#",
+    link: "tel:+2349075561565",
     icon: (
-      <InstagramOutlined className="mx-[2px] rounded-full bg-[#202124] p-[6px] text-[13px] text-white" />
-    ),
-  },
-  {
-    id: "2",
-    link: "#",
-    icon: (
-      <LinkedinOutlined className="mx-[2px] rounded-full bg-[#202124] p-[6px] text-[13px] text-white" />
-    ),
-  },
-  {
-    id: "3",
-    link: "#",
-    icon: (
-      <TwitterOutlined className="mx-[2px] rounded-full bg-[#202124] p-[6px] text-[13px] text-white" />
-    ),
-  },
-  {
-    id: "4",
-    link: "#",
-    icon: (
-      <YoutubeFilled className="mx-[2px] rounded-full bg-[#202124] p-[6px] text-[13px] text-white" />
+      <PhoneOutlined className="mx-[2px] rounded-full bg-[#202124] p-[6px] text-[13px] text-white" />
     ),
   },
 ];

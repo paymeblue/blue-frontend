@@ -6,21 +6,23 @@ import googlePlay from "public/google-play.svg";
 
 const DownloadBtns = () => {
   return (
-    <Space className="mt-6 gap-0 tablet:gap-2 laptop-md:mt-8">
-      <Link href="#">
+    <Space className="mt-6 laptop-md:mt-8">
+      <Link href="#" target="_blank">
         <Image
           src={googlePlay}
           alt="download blue app on google play"
           priority
-          className="mx-auto w-4/5 tablet:w-auto"
+          className="mx-auto object-contain laptop:w-auto"
+          width={121.8}
         />
       </Link>
-      <Link href="#">
+      <Link href="#" target="_blank">
         <Image
           src={appPlay}
           alt="download blue app on google play"
           priority
-          className="mx-auto w-4/5 tablet:w-auto"
+          className="mx-auto object-contain laptop:w-auto"
+          width={121.8}
         />
       </Link>
     </Space>

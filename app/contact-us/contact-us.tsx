@@ -1,16 +1,19 @@
 "use client";
 import { CheckCircleOutlined } from "@ant-design/icons";
+import useFunctions from "@hooks/useFunctions";
 import countrycodes from "@lib/countryCodes";
 import Container from "@shared/container";
 import PageHead from "@shared/pageHead";
 import { Button, Form, Input, Select, message } from "antd";
-import { Fragment, useState } from "react";
+import type { FormInstance } from "antd/es/form";
+import { Fragment, useRef, useState } from "react";
 
 type State = {
-  name: string;
+  code: string;
+  firstName: string;
+  surname: string;
   email: string;
-  code: any;
-  phoneNum: string;
+  phone: string;
   msg: string;
 };
 const { Item, useForm } = Form;
@@ -19,10 +22,18 @@ const { TextArea } = Input;
 
 const Contact = () => {
   const [form] = useForm();
+  const formRef = useRef<FormInstance>(null);
+
+  const onCodeChange = (value: string) => {
+    formRef.current?.setFieldsValue({ phone: value });
+  };
   const selectBefore = () => {
     return (
       <Item name="code" noStyle>
-        <Select className="-mx-[10px] w-20 rounded bg-white">
+        <Select
+          className="-mx-[10px] w-20 rounded bg-white"
+          onChange={onCodeChange}
+        >
           {countrycodes.map((country) => (
             <Option value={country.code} key={country.flag}>
               {country.flag}
@@ -35,29 +46,48 @@ const Contact = () => {
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [messageApi, contextHolder] = message.useMessage();
-
+  const { capitalizeFirstLetter } = useFunctions();
   const onFinish = async (values: State): Promise<void> => {
     setIsLoading(true);
-    // console.log("Form data: ", values);
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      body: JSON.stringify(values),
-    });
-    // await new Promise((resolve) => setTimeout(resolve, 2500)); // Simulating an asynchronous operation
-    console.log(await res.json(), "response");
-    form.resetFields();
-    setIsLoading(false);
-    messageApi.open({
-      content: `Subimssion successful!`,
-      className: "[&>div]:bg-[#17B472] [&>div]:text-white",
-      icon: <CheckCircleOutlined />,
-    });
+    const { firstName, surname, email, code, phone, msg } = values;
+    const rawName = `${firstName} ${surname}`;
+    const name = capitalizeFirstLetter(rawName);
+    const data = {
+      name,
+      email,
+      phone: `${code}${phone}`,
+      msg,
+    };
+    console.log(data);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      const result = await res.json();
+      form.resetFields();
+      messageApi.open({
+        content: result.msg,
+        className: "[&>div]:bg-[#17B472] [&>div]:text-white",
+        icon: <CheckCircleOutlined />,
+      });
+    } catch (error: any) {
+      messageApi.open({
+        content: `Form submission failed!`,
+        className: "[&>div]:bg-red-800 [&>div]:text-white",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const onFinishFailed = (errorInfo: any) => {
-    console.log("Failed:", errorInfo);
     messageApi.open({
-      content: "Form submission failed!",
+      content: "Please fill all input field!",
       className: "[&>div]:bg-red-800 [&>div]:text-white",
     });
   };
@@ -68,6 +98,7 @@ const Contact = () => {
       <Container className="">
         <Form
           form={form}
+          ref={formRef}
           name="contact_form"
           layout="vertical"
           className="m-auto max-w-lg"
@@ -75,6 +106,7 @@ const Contact = () => {
           onFinishFailed={onFinishFailed}
           initialValues={{
             code: "+234",
+            phone: "+234",
           }}
         >
           <Item
@@ -94,7 +126,7 @@ const Contact = () => {
               placeholder="Enter your firstname"
               type="text"
               required
-              className="rounded border-2 bg-input-field py-2 outline-none [&>input]:bg-inherit [&>input]:placeholder-[#555] placeholder:[&>input]:text-[0.9375rem] placeholder:[&>input]:font-medium placeholder:[&>input]:leading-[1.3125rem]"
+              className="rounded border-2 bg-input-field py-2 capitalize outline-none [&>input]:bg-inherit [&>input]:placeholder-[#555] placeholder:[&>input]:text-[0.9375rem] placeholder:[&>input]:font-medium placeholder:[&>input]:leading-[1.3125rem]"
             />
           </Item>
           <Item
@@ -149,16 +181,7 @@ const Contact = () => {
                 required: true,
                 message: "Please enter your phone number!",
               },
-              {
-                min: 11,
-                message: "A minimum of 11 digits",
-              },
-              {
-                max: 14,
-                message: "Phone number should not exceed 14 digits",
-              },
             ]}
-            hasFeedback
           >
             <Input
               addonBefore={selectBefore()}
@@ -172,6 +195,12 @@ const Contact = () => {
             name="msg"
             className="[&>div>div.ant-form-item-label>label]:flex-row-reverse [&>div>div.ant-form-item-label>label]:gap-1 [&>div>div.ant-form-item-label>label]:text-[0.9375rem] [&>div>div.ant-form-item-label>label]:font-semibold [&>div>div.ant-form-item-label>label]:leading-[1.3125rem] [&>div>div.ant-form-item-label]:p-0 [&>div>div>div>div>.ant-form-item-explain-error]:mt-2 [&>div>div>div>div>.ant-form-item-explain-error]:text-[9.23px] [&>div>div>div>div>.ant-form-item-explain-error]:leading-[11.63px] laptop:[&>div>div>div>div>.ant-form-item-explain-error]:text-[11px] laptop:[&>div>div>div>div>.ant-form-item-explain-error]:leading-[13.86px]"
             label="Message"
+            rules={[
+              {
+                required: true,
+                message: "Please enter your message!",
+              },
+            ]}
           >
             <TextArea
               style={{ height: 120, resize: "none" }}

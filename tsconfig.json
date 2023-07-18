@@ -29,11 +29,12 @@
     "baseUrl": ".",
     "paths": {
       "@app/*": ["/*"],
-      "@styles/*": ["app/styles/*"],
+      "@components/*": ["app/components/*"],
+      "@config/*": ["app/config/*"],
       "@hooks/*": ["app/hooks/*"],
       "@lib/*": ["app/lib/*"],
       "@shared/*": ["app/shared/*"],
-      "@components/*": ["app/components/*"]
+      "@styles/*": ["app/styles/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
