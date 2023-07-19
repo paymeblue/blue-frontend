@@ -83,7 +83,7 @@ const Home = () => {
             </Paragraph>
             <Title
               level={2}
-              className="m-0 text-[1.3rem] font-bold leading-[133%] text-txt tablet:font-semibold laptop:text-[2.3rem] laptop:leading-normal"
+              className="m-0 text-[1.3rem] font-extrabold leading-[133%] text-txt tablet:font-semibold laptop:text-[2.3rem] laptop:leading-normal"
             >
               Receive & Make payment <br className="block tablet:hidden" /> on
               the go
@@ -105,6 +105,7 @@ const Home = () => {
                       alt={card.title}
                       src={card.img}
                       className="m-auto w-3/4 tablet:w-1/2 laptop:w-3/4"
+                      width={203.731}
                     />
                   }
                 >
@@ -113,13 +114,13 @@ const Home = () => {
                     title={
                       <Title
                         level={4}
-                        className="m-0 mb-0 text-[1.2rem] font-bold leading-[133%] text-txt tablet:font-semibold laptop:my-3 laptop:text-[1.7rem] laptop:leading-[133%] "
+                        className="m-0 mb-0 text-[1.2rem] font-extrabold leading-[133%] text-txt tablet:font-semibold laptop:my-3 laptop:text-[1.7rem] laptop:leading-[133%] "
                       >
                         {card.title}
                       </Title>
                     }
                     description={
-                      <Paragraph className="m-0 text-[0.9375rem] font-normal leading-[1.3125rem] text-txt laptop:text-[1.125rem] laptop:font-medium laptop:leading-[1.625rem]">
+                      <Paragraph className="m-0 text-[0.9375rem] font-medium leading-[1.3125rem] text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
                         {card.desc}
                       </Paragraph>
                     }
@@ -136,7 +137,7 @@ const Home = () => {
           </Paragraph>
           <Title
             level={2}
-            className="m-0 text-[1.3rem] font-bold leading-normal text-txt tablet:font-semibold laptop:text-[2.3rem]"
+            className="m-0 text-[1.3rem] font-extrabold leading-normal text-txt tablet:font-semibold laptop:text-[2.3rem]"
           >
             Unlock hassle - free
             <br className="block tablet:hidden" /> payment options
@@ -164,11 +165,11 @@ const Home = () => {
             <Typography className="mx-auto mb-8 text-center">
               <Title
                 level={1}
-                className="m-0 text-[1.2rem] font-bold leading-[133%] text-white tablet:font-semibold laptop:text-[1.7rem] laptop:leading-[2.5rem]"
+                className="m-0 text-[1.2rem] font-extrabold leading-[133%] text-white tablet:font-semibold laptop:text-[1.7rem] laptop:leading-[2.5rem]"
               >
                 Blue to Blue Free Transfers
               </Title>
-              <Paragraph className="mx-auto mt-2 min-w-[270px] text-[0.9375rem] font-medium leading-[1.3125rem] text-body-text-1 mobile-md:min-w-max laptop:text-[1.125rem] laptop:leading-[1.625rem]">
+              <Paragraph className="mx-auto mt-2 min-w-[270px] text-[0.9375rem] font-semibold leading-[1.3125rem] text-body-text-1 mobile-md:min-w-max tablet:font-medium laptop:text-[1.125rem] laptop:leading-[1.625rem]">
                 You can expect no hidden charges and
                 <br className="hidden mobile-md:block" /> no transfer failures
                 with Blue transfers.
@@ -180,6 +181,7 @@ const Home = () => {
               src={screen4}
               alt="free transfers"
               className="m-auto w-3/4"
+              width={285}
             />
           </Card>
           <Card
@@ -190,14 +192,14 @@ const Home = () => {
             <Typography className="mx-auto mb-8 text-center">
               <Title
                 level={1}
-                className="m-0 text-[1.2rem] font-bold leading-[133%] text-white tablet:font-semibold laptop:text-[1.7rem] laptop:leading-[2.5rem]"
+                className="m-0 text-[1.2rem] font-extrabold leading-[133%] text-white tablet:font-semibold laptop:text-[1.7rem] laptop:leading-[2.5rem]"
               >
                 Receive and make
                 <br className="block laptop:hidden" /> payments without a
                 <br className="block laptop:hidden" />
                 smartphone
               </Title>
-              <Paragraph className="mx-auto mt-2 max-w-[335px] text-[0.9375rem] font-medium leading-[1.3125rem] text-body-text-1 laptop:text-[1.125rem] laptop:leading-[1.625rem]">
+              <Paragraph className="mx-auto mt-2 max-w-[335px] text-[0.9375rem] font-semibold leading-[1.3125rem] text-body-text-1 tablet:font-medium laptop:text-[1.125rem] laptop:leading-[1.625rem]">
                 Blue offers a hassle - free way to make
                 <br className="block" /> payments without a smartphone. You
                 <br className="block" /> can make payments via USSD or text
@@ -209,6 +211,7 @@ const Home = () => {
               src={screen7}
               alt="free transfers"
               className="m-auto w-3/4"
+              width={285}
             />
           </Card>
         </Space>
@@ -224,12 +227,12 @@ const Home = () => {
             <Typography className="mx-auto my-10 text-center">
               <Title
                 level={1}
-                className="m-0 text-[1.2rem] font-bold leading-[133%] text-white tablet:font-semibold laptop:text-[1.7rem] laptop:leading-[2.5rem]"
+                className="m-0 text-[1.2rem] font-extrabold leading-[133%] text-white tablet:font-semibold laptop:text-[1.7rem] laptop:leading-[2.5rem]"
               >
                 Send, request and receive
                 <br /> money with a quick scan!
               </Title>
-              <Paragraph className="mx-auto mt-2 text-[0.9375rem] font-medium leading-[1.3125rem] text-body-text-1 laptop:text-[1.125rem] laptop:leading-[1.625rem]">
+              <Paragraph className="mx-auto mt-2 text-[0.9375rem] font-semibold leading-[1.3125rem] text-body-text-1 tablet:font-medium laptop:text-[1.125rem] laptop:leading-[1.625rem]">
                 Scan and make payments on the go.
                 <br /> No stress, no complaints.
               </Paragraph>
@@ -240,6 +243,7 @@ const Home = () => {
               alt="quick scan"
               className="m-auto w-3/4"
               priority
+              width={285}
             />
           </Card>
           <Card
@@ -247,17 +251,22 @@ const Home = () => {
             bordered={false}
             className="w-full rounded-[23px] bg-primary p-8 px-0 pt-0 [&>.ant-card-body]:p-3 [&>.ant-card-body]:pt-0 laptop:[&>.ant-card-body]:p-6 laptop:[&>.ant-card-body]:pt-0"
           >
-            <Image src={screen5} alt="sync contacts" className="m-auto w-3/4" />
+            <Image
+              src={screen5}
+              alt="sync contacts"
+              className="m-auto w-3/4"
+              width={285}
+            />
             <Typography className="mx-auto mt-8 text-center laptop:mt-10">
               <Title
                 level={1}
-                className="m-auto max-w-[280px] text-[1.2rem]  font-bold leading-[133%] text-white tablet:font-semibold laptop:max-w-md laptop:text-[1.7rem] laptop:leading-[2.5rem]"
+                className="m-auto max-w-[280px] text-[1.2rem]  font-extrabold leading-[133%] text-white tablet:font-semibold laptop:max-w-md laptop:text-[1.7rem] laptop:leading-[2.5rem]"
               >
                 Sync your contact within Blue{" "}
                 <br className="hidden laptop:block" /> and send money to them
                 easily
               </Title>
-              <Paragraph className="md-mobile:min-w-max mx-auto mt-2 min-w-[270px] text-[0.9375rem] font-medium leading-[1.3125rem] text-body-text-1 laptop:text-[1.125rem] laptop:leading-[1.625rem]">
+              <Paragraph className="md-mobile:min-w-max mx-auto mt-2 min-w-[270px] text-[0.9375rem] font-semibold leading-[1.3125rem] text-body-text-1 tablet:font-medium laptop:text-[1.125rem] laptop:leading-[1.625rem]">
                 Easily send and request money directly
                 <br /> from your contact list using Blue.
               </Paragraph>
@@ -268,7 +277,7 @@ const Home = () => {
         <Typography className="mx-auto my-8 max-w-sm text-center">
           <Title
             level={5}
-            className="m-auto max-w-xs text-[1.3rem] font-bold leading-[133%] text-txt tablet:font-semibold laptop:max-w-sm laptop:text-[1.7rem] laptop:leading-[2.5rem]"
+            className="m-auto max-w-xs text-[1.3rem] font-extrabold leading-[133%] text-txt tablet:font-semibold laptop:max-w-sm laptop:text-[1.7rem] laptop:leading-[2.5rem]"
           >
             What are you waiting for? Download Blue today.
           </Title>

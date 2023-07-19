@@ -13,7 +13,7 @@ const HeroSection = () => {
         <Typography className="m-auto max-w-2xl">
           <Title
             level={1}
-            className="m-0 text-[1.3rem] font-bold text-white laptop:text-[3rem] laptop:leading-[110%]"
+            className="m-0 text-[1.3rem] font-extrabold text-white tablet:font-bold laptop:text-[3rem] laptop:leading-[110%]"
           >
             Receive and make <br /> payments easily with Blue!
           </Title>
@@ -21,7 +21,7 @@ const HeroSection = () => {
             With Blue, you can make payments seamlessly, request and receive
             money, all on one platform.
           </Paragraph>
-          <Paragraph className="mt-2 block max-w-xl text-[0.9375rem] font-medium leading-[1.3125rem] text-body-text-1  laptop:hidden laptop:text-[1.25rem] laptop:leading-[1.625rem]">
+          <Paragraph className="mt-2 block max-w-xl text-[0.9375rem] font-semibold leading-[1.3125rem] text-body-text-1 tablet:font-bold  laptop:hidden laptop:text-[1.25rem] laptop:leading-[1.625rem]">
             With Blue, you can make payments
             <br className="block tablet:hidden" />
             seamlessly, request &nbsp;
@@ -49,6 +49,7 @@ const HeroSection = () => {
               alt="directional line"
               priority
               className="w-[35%] laptop:w-[30%]"
+              width={120}
             />
             <Text className="text-[0.8rem] font-medium leading-[1.3125rem] text-[#EAEAFE] tablet:text-[0.9375rem] laptop:text-[1.25rem] laptop:leading-[1.625rem]">
               Scan this code to <br /> download now

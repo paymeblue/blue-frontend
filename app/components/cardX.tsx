@@ -30,7 +30,13 @@ const CardX = ({ hash, second, title, desc, img }: IProps) => {
         </Paragraph>
         <DownloadBtns />
       </Typography>
-      <Image src={img} alt="free transfer" priority className="m-auto w-3/4" />
+      <Image
+        src={img}
+        alt="free transfer"
+        priority
+        className="m-auto w-3/4"
+        width={285}
+      />
     </Space>
   );
 };

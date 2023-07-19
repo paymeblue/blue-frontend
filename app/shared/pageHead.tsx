@@ -16,7 +16,7 @@ const PageHead = ({ mainText, subText }: IProps) => {
         </Paragraph>
         <Title
           level={1}
-          className="m-0 text-[1.3rem] font-semibold leading-[133%] text-white laptop:text-[2.3rem] laptop:font-bold laptop:leading-normal"
+          className="m-0 text-[1.3rem] font-extrabold leading-[133%] text-white tablet:font-bold laptop:text-[2.3rem] laptop:leading-normal"
         >
           {mainText}
         </Title>

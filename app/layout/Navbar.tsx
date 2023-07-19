@@ -4,7 +4,7 @@ import { Button, Divider, Drawer, Layout, Menu, MenuProps, Space } from "antd";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import logo from "public/logo.svg";
+import logo from "public/logo1.png";
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "react-iconly";
 
@@ -205,6 +205,7 @@ const Navbar = () => {
             alt="soower logo"
             className="w-[65%] laptop:w-auto"
             priority
+            width={123}
           />
         </Link>
       </div>
