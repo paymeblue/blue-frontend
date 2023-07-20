@@ -56,7 +56,7 @@ const LayoutFooter = () => {
     <Footer className="bg-black px-0 py-6">
       <Space
         size="large"
-        className="flex w-full flex-col items-center justify-between px-8 laptop:flex-row laptop:px-20 [&>.ant-space-item]:w-full"
+        className="m-auto flex w-full flex-col items-center justify-between px-8 laptop:flex-row laptop:px-20 [&>.ant-space-item]:w-full [&>.ant-space-item]:first:text-center laptop:[&>.ant-space-item]:first:text-start"
       >
         <Text className="text-[1rem] font-semibold leading-[1.5rem] text-neutral laptop:text-[0.9375rem] laptop:font-medium laptop:leading-[1.3125rem]">
           © 2023 Blue. All rights reserved
