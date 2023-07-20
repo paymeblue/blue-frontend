@@ -56,12 +56,12 @@ const LayoutFooter = () => {
     <Footer className="bg-black px-0 py-6">
       <Space
         size="large"
-        className="[&>.ant-space-item]:wfull flex w-full flex-col items-center justify-between px-8 laptop:flex-row laptop:px-20"
+        className="flex w-full flex-col items-center justify-between px-8 laptop:flex-row laptop:px-20 [&>.ant-space-item]:w-full"
       >
         <Text className="text-[1rem] font-semibold leading-[1.5rem] text-neutral laptop:text-[0.9375rem] laptop:font-medium laptop:leading-[1.3125rem]">
           © 2023 Blue. All rights reserved
         </Text>
-        <ul className="my-0 flex flex-col items-center justify-between gap-2 laptop:flex-row laptop:gap-0">
+        <ul className="mx-auto my-0 flex flex-col items-center justify-center gap-2 laptop:flex-row laptop:gap-0">
           {policies.map((item) => (
             <li
               key={item.id}
@@ -73,7 +73,7 @@ const LayoutFooter = () => {
             </li>
           ))}
         </ul>
-        <ul className="my-0 flex items-center justify-between">
+        <ul className="my-0 flex items-center justify-end">
           {socialIcons.map((item) => (
             <li
               key={item.id}

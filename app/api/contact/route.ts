@@ -1,6 +1,8 @@
 import transporter from "@config/nodemailer";
 import { NextRequest, NextResponse } from "next/server";
 
+// import Mailgun from "mailgun.js";
+
 type RequestBody = {
   name: string;
   email: string;
@@ -137,3 +139,32 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: error.message });
   }
 }
+
+// import formData from "form-data";
+
+// export async function POST(request: NextRequest) {
+//   const body: RequestBody = await request.json();
+
+//   const mailgun = new Mailgun(formData);
+//   const client = mailgun.client({ username: "api", key: process.env.API_KEY! });
+
+//   const messageData = {
+//     from: body.name + "<" + body.email + ">",
+//     to: process.env.EMAIL,
+//     subject: "Message from Blue Contact Form",
+//     text: body.msg,
+//   };
+
+//   try {
+//     const res = await client.messages.create(process.env.DOMAIN!, messageData);
+//     return NextResponse.json(
+//       { success: true, msg: `Message sent successfully! ${res.message}` },
+//       {
+//         status: 200,
+//       }
+//     );
+//   } catch (error: any) {
+//     console.log(error, "error from server");
+//     return NextResponse.json({ error: error.message });
+//   }
+// }
