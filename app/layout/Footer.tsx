@@ -73,7 +73,7 @@ const LayoutFooter = () => {
             </li>
           ))}
         </ul>
-        <ul className="my-0 flex items-center justify-end">
+        <ul className="my-0 flex items-center justify-center laptop:justify-end">
           {socialIcons.map((item) => (
             <li
               key={item.id}
