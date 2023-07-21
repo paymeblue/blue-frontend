@@ -6,6 +6,6 @@ export const metadata: Metadata = {
   description: "Stay connected with us for all your needs!",
 };
 
-const ContactPage = () => <Contact />;
+const ContactPage = () => <Contact url={process.env.API_URL!} />;
 
 export default ContactPage;

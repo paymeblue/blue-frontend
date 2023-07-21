@@ -20,7 +20,7 @@ const { Item, useForm } = Form;
 const { Option } = Select;
 const { TextArea } = Input;
 
-const Contact = () => {
+const Contact = ({ url }: { url: string }) => {
   const [form] = useForm();
   const formRef = useRef<FormInstance>(null);
 
@@ -49,18 +49,17 @@ const Contact = () => {
   const { capitalizeFirstLetter } = useFunctions();
   const onFinish = async (values: State): Promise<void> => {
     setIsLoading(true);
-    const { firstName, surname, email, code, phone, msg } = values;
+    const { firstName, surname, email, phone, msg } = values;
     const rawName = `${firstName} ${surname}`;
     const name = capitalizeFirstLetter(rawName);
     const data = {
       name,
       email,
-      phone: `${code}${phone}`,
-      msg,
+      phone,
+      message: msg,
     };
-    console.log(data);
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch(url, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -69,15 +68,18 @@ const Contact = () => {
         body: JSON.stringify(data),
       });
       const result = await res.json();
+      if (!res.ok) {
+        throw new Error(result.message);
+      }
       form.resetFields();
       messageApi.open({
-        content: result.msg,
+        content: result.message,
         className: "[&>div]:bg-[#17B472] [&>div]:text-white",
         icon: <CheckCircleOutlined />,
       });
     } catch (error: any) {
       messageApi.open({
-        content: `Form submission failed!`,
+        content: error.toString(),
         className: "[&>div]:bg-red-800 [&>div]:text-white",
       });
     } finally {
