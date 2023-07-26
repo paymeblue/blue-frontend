@@ -1,3 +1,4 @@
+import { ThemeConfig } from "antd";
 import localFont from "next/font/local";
 
 const gilroy = localFont({
@@ -8,7 +9,7 @@ const gilroy = localFont({
   style: "normal",
 });
 
-const theme = {
+const theme: ThemeConfig = {
   token: {
     colorPrimary: "#4341CD",
     fontFamily: gilroy.style.fontFamily,

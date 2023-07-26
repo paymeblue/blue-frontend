@@ -1,12 +1,12 @@
 // global css stylesheet
 import "@styles/globals.css";
 // ant design stylesheet
+import StyledComponentsRegistry from "@lib/AntdRegistry";
 import "antd/dist/reset.css";
 import { Metadata } from "next";
 import localFont from "next/font/local";
 import LayoutFooter from "./layout/Footer";
 import Navbar from "./layout/Navbar";
-import Provider from "./provider";
 
 const gilroy = localFont({
   src: "./fonts/Gilroy-Regular.ttf",
@@ -50,11 +50,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${gilroy.variable}`}>
-        <Provider>
+        <StyledComponentsRegistry>
           <Navbar />
           {children}
           <LayoutFooter />
-        </Provider>
+        </StyledComponentsRegistry>
       </body>
     </html>
   );
