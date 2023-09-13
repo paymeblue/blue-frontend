@@ -6,7 +6,7 @@ import DownloadBtns from "@shared/downloadBtns";
 import { Card, Col, Row, Space, Typography } from "antd";
 import { Metadata } from "next";
 import Image from "next/image";
-import qrCode from "public/qr-code.svg";
+import qrCode from "public/qr-code.png";
 import screen1 from "public/screen-1.png";
 import screen2 from "public/screen-2.png";
 import screen3 from "public/screen-3.png";

@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import Privacy from "./privacy";
+import dynamic from "next/dynamic";
 
 export const metadata: Metadata = {
   title: "Privacy policy",
@@ -9,6 +9,7 @@ export const metadata: Metadata = {
             protects You.`,
 };
 
+const Privacy = dynamic(() => import("./privacy"));
 const PrivacyPage = () => <Privacy />;
 
 export default PrivacyPage;

@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import Terms from "./terms";
+import dynamic from "next/dynamic";
 
 export const metadata: Metadata = {
   title: "Terms and Conditions",
@@ -8,6 +8,7 @@ export const metadata: Metadata = {
             paymeblue.com.`,
 };
 
+const Terms = dynamic(() => import("./terms"));
 const TermsPage = () => <Terms />;
 
 export default TermsPage;
