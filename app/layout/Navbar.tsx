@@ -83,7 +83,7 @@ const Navbar = () => {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [openKeys, setOpenKeys] = useState([""]);
-  const rootSubmenuKeys = ["/cabinets", "/support"];
+  const rootSubmenuKeys = ["/solutions"];
 
   const [hover, setHover] = useState<boolean>(false);
 
