@@ -19,7 +19,7 @@ const theme: ThemeConfig = {
   components: {
     Menu: {
       itemBg: "transparent",
-      colorItemBgSelected: "transparent",
+      itemSelectedBg: "transparent",
       boxShadowSecondary: "none",
       itemColor: "#4341CD",
     },
