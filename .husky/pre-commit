@@ -33,3 +33,10 @@ npm run build || (
     '
     false
 )
+
+# Add the pre-commit task here
+npm run pre-commit || (
+    echo '❌🧐👷❌ Pre-commit check failed. ❌🧐👷❌
+            Please make the required changes and try committing again.'
+    false
+)
