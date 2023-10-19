@@ -1,20 +1,11 @@
 // global css stylesheet
 import "@styles/globals.css";
 // ant design stylesheet
+import { Footer, Navbar } from "@layout/index";
 import "antd/dist/reset.css";
 import { Metadata } from "next";
-import localFont from "next/font/local";
-import LayoutFooter from "./layout/Footer";
-import Navbar from "./layout/Navbar";
+import { gilroy } from "./fonts";
 import Providers from "./providers";
-
-const gilroy = localFont({
-  src: "./fonts/Gilroy-Regular.ttf",
-  weight: "400",
-  variable: "--font-gilory",
-  preload: true,
-  style: "normal",
-});
 
 export const metadata: Metadata = {
   title: {
@@ -48,12 +39,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth scroll-pt-20">
       <body className={`${gilroy.variable}`}>
         <Providers>
           <Navbar />
           {children}
-          <LayoutFooter />
+          <Footer />
         </Providers>
       </body>
     </html>

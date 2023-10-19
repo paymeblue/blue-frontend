@@ -33,6 +33,7 @@
       "@config/*": ["app/config/*"],
       "@hooks/*": ["app/hooks/*"],
       "@lib/*": ["app/lib/*"],
+      "@layout/*": ["app/layout/*"],
       "@shared/*": ["app/shared/*"],
       "@styles/*": ["app/styles/*"]
     }

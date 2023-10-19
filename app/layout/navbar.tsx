@@ -197,7 +197,7 @@ const Navbar = () => {
   };
 
   return (
-    <Header className="fixed left-0 top-0 z-30 m-auto flex h-auto w-full items-center justify-between bg-primary px-4 transition-all ease-out tablet:px-20">
+    <Header className="fixed left-0 top-0 z-30 m-auto flex h-aut w-full items-center justify-between bg-primary px-4 transition-all ease-out tablet:px-20">
       <div>
         <Link href="/">
           <Image

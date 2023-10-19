@@ -8,4 +8,5 @@ npx --no -- commitlint --edit "$1" || (
     echo '🤡😂❌🤡... Haha...Learn to make commit the right way!. 😤🏀👋😤'
     false
 )
+
 echo '🚀🚀🚀🚀 You rock buddy... You are a Pro! ✅✅✅✅'

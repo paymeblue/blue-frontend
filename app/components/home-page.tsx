@@ -104,7 +104,8 @@ const Home = () => {
                     <Image
                       alt={card.title}
                       src={card.img}
-                      className="m-auto w-3/4 tablet:w-1/2 laptop:w-3/4"
+                      className="m-auto w-auto object-contain"
+                      //  className="m-auto w-3/4 tablet:w-1/2 laptop:w-3/4"
                       width={203.731}
                     />
                   }
@@ -180,8 +181,8 @@ const Home = () => {
             <Image
               src={screen4}
               alt="free transfers"
-              className="m-auto w-3/4"
-              width={285}
+              className="m-auto w-auto object-contain"
+              // width={285}
             />
           </Card>
           <Card
@@ -210,14 +211,14 @@ const Home = () => {
             <Image
               src={screen7}
               alt="free transfers"
-              className="m-auto w-3/4"
-              width={285}
+              className="m-auto w-auto object-contain"
+              // width={285}
             />
           </Card>
         </Space>
         <Space
           size="large"
-          className="mx-auto mb-14 mt-0 flex w-full flex-col items-center justify-between laptop:mb-28 laptop:mt-16 laptop:flex-row [&>.ant-space-item]:w-full tablet:[&>.ant-space-item]:w-3/4 laptop:[&>.ant-space-item]:w-full"
+          className="mx-auto mb-14 mt-0 flex w-full flex-col items-center justify-between laptop:mb-28 laptop:mt-16 laptop:flex-row [&>.ant-space-item]:w-full tablet:[&>.ant-space-item]:w-3/4 laptop:[&>.ant-space-item]:h-full"
         >
           <Card
             id="qr-scan"
@@ -241,7 +242,7 @@ const Home = () => {
             <Image
               src={qrCode}
               alt="quick scan"
-              className="m-auto w-3/4"
+              className="m-auto w-auto object-contain"
               priority
               width={285}
             />
@@ -249,12 +250,13 @@ const Home = () => {
           <Card
             id="phone-transfer"
             bordered={false}
-            className="w-full rounded-[23px] bg-primary p-8 px-0 pt-0 [&>.ant-card-body]:p-3 [&>.ant-card-body]:pt-0 laptop:[&>.ant-card-body]:p-6 laptop:[&>.ant-card-body]:pt-0"
+            className="w-full rounded-[23px] bg-primary p-10 laptop:pb-[3.6rem] laptop-md:pb-12 px-0 pt-0 [&>.ant-card-body]:p-3 [&>.ant-card-body]:pt-0 laptop:[&>.ant-card-body]:p-6 laptop:[&>.ant-card-body]:pt-0"
           >
             <Image
               src={screen5}
               alt="sync contacts"
-              className="m-auto w-3/4"
+              className="m-auto w-auto object-contain"
+              priority
               width={285}
             />
             <Typography className="mx-auto mt-8 text-center laptop:mt-10">

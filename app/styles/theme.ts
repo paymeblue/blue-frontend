@@ -1,13 +1,5 @@
 import { ThemeConfig } from "antd";
-import localFont from "next/font/local";
-
-const gilroy = localFont({
-  src: "../fonts/Gilroy-Regular.ttf",
-  weight: "400",
-  variable: "--font-gilory",
-  preload: true,
-  style: "normal",
-});
+import { gilroy } from "app/fonts";
 
 const theme: ThemeConfig = {
   token: {
