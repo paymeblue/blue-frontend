@@ -1,7 +1,6 @@
 // global css stylesheet
 import "@styles/globals.css";
 // ant design stylesheet
-import { Footer, Navbar } from "@layout/index";
 import "antd/dist/reset.css";
 import { Metadata } from "next";
 import { gilroy } from "./fonts";
@@ -20,17 +19,6 @@ export const metadata: Metadata = {
     name: "Roman Dev Experts",
   },
   keywords: ["Make payments", "Receive money", "Seamless payment", "Blue"],
-  manifest: "https://paymeblue.com//site.webmanifest",
-  icons: [
-    {
-      rel: "icon",
-      url: "https://paymeblue.com//favicon-32x32.png",
-    },
-    {
-      rel: "apple-touch-icon",
-      url: "https://paymeblue.com//apple-touch-icon.png",
-    },
-  ],
 };
 
 export default function RootLayout({
@@ -41,11 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth scroll-pt-20">
       <body className={`${gilroy.variable}`}>
-        <Providers>
-          <Navbar />
-          {children}
-          <Footer />
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

@@ -1,0 +1,11 @@
+ {
+   "applinks": {
+       "apps": [],
+       "details": [
+       {
+         "appID": "93Z7N2THB8.com.example.blueMobile",
+         "paths": ["*"]
+       }
+     ]
+   }
+ }
