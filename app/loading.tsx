@@ -2,7 +2,7 @@
 import { LoadingOutlined } from "@ant-design/icons";
 import { Spin } from "antd";
 import Image from "next/image";
-import logo from "public/logo1.png";
+import logo from "public/logo.png";
 
 const Loading = () => {
   const antIcon = (

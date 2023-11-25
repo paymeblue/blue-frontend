@@ -21,3 +21,16 @@ export const capitalizeFirstLetter = (words: string): string => {
   }
   return separateWord.join(" ");
 };
+export const sleep = (ms: number) => {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+};
+
+export const detectOS = () => {
+  const platform = navigator.userAgent.toLowerCase();
+
+  if (platform.includes("ios") || platform.includes("mac")) {
+    return "iOS";
+  } else {
+    return "Android";
+  }
+};

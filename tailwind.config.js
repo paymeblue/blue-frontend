@@ -14,6 +14,7 @@ module.exports = {
       colors: {
         primary: "#4341CD",
         txt: "#232949",
+        txt2: "#666B7E",
         neutral: "#D1D5DB",
         bg: "#FEFEFE;",
         "body-text-1": "#EAEAFEBF",
