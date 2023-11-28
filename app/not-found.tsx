@@ -52,16 +52,17 @@ const PageNotFound = () => {
         alt="Circle Icon"
         width={28}
         height={28}
-        className="absolute bottom-[50%] left-[70%]"
+        className="absolute bottom-[70%] lg:bottom-[50%] left-[70%]"
       />
-      <Typography className="text-center text-[3rem] font-[700] text-txt">
-        404 <br /> Page Not Found
+      <Typography className="text-center font-[700] text-txt">
+        <span className="text-[3rem] lg:text-[3rem]">404</span> <br />{" "}
+        <span className="text-[2rem] lg:text-[2.5rem]">Page Not Found</span>
       </Typography>
       <Typography className="text-center text-body-text-2">
         We're sorry, the page you requested could <br /> not be found
       </Typography>
-      <Link href="/" className="mt-4">
-        <Button type="primary" className="px-20 h-12">
+      <Link href="/" className="mt-4 max-lg:w-[90%]">
+        <Button type="primary" className="max-lg:w-full lg:px-20 h-12">
           Proceed
         </Button>
       </Link>
