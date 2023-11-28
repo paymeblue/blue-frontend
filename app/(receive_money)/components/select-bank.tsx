@@ -7,9 +7,22 @@ import opay from "public/opay.png";
 import palmpay from "public/palmpay.png";
 import stanbic from "public/stanbic.png";
 import { ChangeEvent, FormEvent, Fragment, useId, useState } from "react";
+import { useQuery } from "react-query";
 
 const { Title, Paragraph } = Typography;
-
+export const LoadingBankSkeleton = () => {
+  return (
+    <div className="bg-input-field rounded-md p-4 mb-5 max-w-[450px] w-full mx-auto">
+      <div className="animate-pulse flex items-center justify-center space-x-1">
+        <div className="rounded-full bg-gray-200 h-10 w-10" />
+        <div className="flex-1 space-y-1 py-1">
+          <div className="h-3 w-[75%] bg-gray-200 rounded" />
+          <div className="h-3  w-[95%] bg-gray-200 rounded" />
+        </div>
+      </div>
+    </div>
+  );
+};
 const SelectBank = () => {
   const [selected, setSelected] = useState("");
   const [open, setOpen] = useState(false);
@@ -45,6 +58,36 @@ const SelectBank = () => {
       holder: "Semira Yesufu - 7081323920",
     },
   ];
+  const fetchBankList = async (
+    phone: string
+  ): Promise<{
+    data: Array<{
+      icon: string;
+      value: string;
+      bankName: string;
+      holder: string;
+    }>;
+  }> => {
+    try {
+      const response = await fetch(
+        `${process.env.BLUE_API}payment-link?phone=${phone}`
+      );
+
+      if (!response.ok) {
+        const result = await response.json();
+        throw new Error(result.message);
+      }
+
+      const result = await response.json();
+      console.log(response, result, "fetching list of banks successful!");
+      return result;
+    } catch (error) {
+      console.error(error, "error in fetching list of banks");
+      throw error;
+    }
+  };
+
+  useQuery("bank-list", () => fetchBankList("08037683537"));
 
   const handleRadioChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSelected(e.target.value);
@@ -129,6 +172,10 @@ const SelectBank = () => {
           Choose the bank account you want to transfer the received money to:
         </div>
       </div>
+      {/* {isLoading &&
+        Array.from({ length: 3 }, (_, index) => (
+          <LoadingBankSkeleton key={index} />
+        ))} */}
       <form className="max-w-lg w-full m-auto">
         <div className="flex items-center w-full flex-col gap-20 justify-center">
           <div className="w-full">

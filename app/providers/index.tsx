@@ -11,6 +11,7 @@ import theme from "@styles/theme";
 import { ConfigProvider } from "antd";
 import { useServerInsertedHTML } from "next/navigation";
 import { ReactNode, useMemo } from "react";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 const px2rem = px2remTransformer({
   rootValue: 16,
@@ -18,6 +19,7 @@ const px2rem = px2remTransformer({
 
 const Providers = ({ children }: { children: ReactNode }) => {
   const cache = useMemo<Entity>(() => createCache(), []);
+  const queryClient = new QueryClient();
   useServerInsertedHTML(() => (
     <style
       id="antd"
@@ -25,11 +27,17 @@ const Providers = ({ children }: { children: ReactNode }) => {
     />
   ));
   return (
-    <ConfigProvider theme={theme}>
-      <StyleProvider hashPriority="high" transformers={[px2rem]} cache={cache}>
-        {children}
-      </StyleProvider>
-    </ConfigProvider>
+    <QueryClientProvider client={queryClient}>
+      <ConfigProvider theme={theme}>
+        <StyleProvider
+          hashPriority="high"
+          transformers={[px2rem]}
+          cache={cache}
+        >
+          {children}
+        </StyleProvider>
+      </ConfigProvider>
+    </QueryClientProvider>
   );
 };
 
