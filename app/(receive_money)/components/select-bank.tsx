@@ -68,11 +68,19 @@ const SelectBank = ({
   };
   const withdrawFund = async (data: Bank) => {
     try {
-      const body = {
+      const body: Partial<{
+        amount: number;
+        transaction_id: string;
+        account_number: string;
+        bank_code: string;
+        bank_name: string;
+        receiver_name: string;
+      }> = {
         ...data,
         amount: 200,
-        transaction_id,
+        transaction_id: String(transaction_id),
       };
+      delete body.receiver_name;
       const result = await axios.post(
         "https://blue-api-backend.herokuapp.com/api/payment-link/withdraw",
         body
