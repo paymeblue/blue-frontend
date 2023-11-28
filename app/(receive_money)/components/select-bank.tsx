@@ -6,7 +6,7 @@ import axios from "axios";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import bank from "public/bank.png";
-import { ChangeEvent, Fragment, useState } from "react";
+import { ChangeEvent, Fragment, useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import EmptyState from "./empty-state";
 
@@ -52,9 +52,12 @@ const SelectBank = ({
   const [verify, setVerify] = useState({ loading: false, status: undefined });
   const router = useRouter();
   const [messageApi, contextHolder] = message.useMessage();
-
+  useEffect(() => {
+    if (state.phone) {
+    }
+  }, [state.phone]);
   console.log(selectedBank, "selected bank");
-  const fetchBankList = async (phone: string): Promise<Bank[]> => {
+  const fetchBankList = async (phone: string | null): Promise<Bank[]> => {
     try {
       const result = await axios.get(
         // `https://blue-api-backend.herokuapp.com/api/payment-link/linked-accounts?phone=${phone}`
@@ -69,7 +72,7 @@ const SelectBank = ({
   const withdrawFund = async (data: Bank) => {
     try {
       const body: Partial<{
-        amount: number;
+        amount: number | undefined;
         transaction_id: string;
         account_number: string;
         bank_code: string;
@@ -77,7 +80,7 @@ const SelectBank = ({
         receiver_name: string;
       }> = {
         ...data,
-        amount: 200,
+        amount: state.amount as unknown as number | undefined,
         transaction_id: String(transaction_id),
       };
       delete body.receiver_name;
@@ -87,7 +90,8 @@ const SelectBank = ({
       );
       console.log(result, "withdrawal response");
       sendReceipt(result.data.data);
-      router.push("?step=success");
+      router.replace("?step=success");
+      closeModal();
       return result.data.data;
     } catch (error) {
       messageApi.open({
@@ -115,7 +119,7 @@ const SelectBank = ({
   const handleRadioChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSelected(e.target.value);
     const selectedItem = data?.find(
-      (item) => item.account_number === e.target.value
+      (item: any) => item.account_number === e.target.value
     );
     setSelectedBank(selectedItem);
     setOpen(true);

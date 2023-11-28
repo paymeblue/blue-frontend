@@ -12,7 +12,6 @@ import {
   FormEvent,
   Fragment,
   useEffect,
-  // useId,
   useRef,
   useState,
 } from "react";
@@ -36,22 +35,13 @@ const ReceiveMoney = ({ code }: Props) => {
   const { updateStore, state } = useCtx();
   const [selected, setSelected] = useState("send");
   const [receiptData, setReceiptData] = useState("");
-  // const [data, setData] = useState<{
-  //   phone: string | null;
-  //   sender: string | null;
-  //   amount: string | null;
-  // }>({ phone: null, sender: null, amount: null });
   const ref = useRef<HTMLElement>(null);
   const q = searchParams.get("step");
   const amount = receiverDetails?.amount || null;
   const sender = receiverDetails?.sender || null;
   const phone = receiverDetails?.phone || null;
   console.log(state, "state");
-  // let incomingData;
   useEffect(() => {
-    // if (!amount || !sender || !phone) {
-    //   return;
-    // }
     const data = { amount, sender, phone };
     updateStore(data);
   }, []);

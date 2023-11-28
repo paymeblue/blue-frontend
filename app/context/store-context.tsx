@@ -17,7 +17,7 @@ type StoreContextType = {
   updateStore: (data: State) => void; // Make updateStore parameters optional
 };
 
-const initialState: State = { phone: null, sender: null, amount: null };
+const initialState: State = { phone: "", sender: "", amount: "" };
 
 const reducer = (state: State, action: UpdateStoreAction): State => {
   switch (action.type) {
@@ -25,9 +25,9 @@ const reducer = (state: State, action: UpdateStoreAction): State => {
       const { phone, amount, sender } = action.payload;
       return {
         ...state,
-        phone: phone || state.phone,
-        sender: sender || state.sender,
-        amount: amount || state.amount,
+        phone: phone ?? state.phone,
+        sender: sender ?? state.sender,
+        amount: amount ?? state.amount,
       };
     default:
       return state;

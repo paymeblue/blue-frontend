@@ -12,7 +12,6 @@ import {
   FormEvent,
   Fragment,
   useEffect,
-  // useId,
   useRef,
   useState,
 } from "react";
@@ -28,22 +27,13 @@ const ReceiveMoney = () => {
   const { updateStore, state } = useCtx();
   const [selected, setSelected] = useState("send");
   const [receiptData, setReceiptData] = useState("");
-  // const [data, setData] = useState<{
-  //   phone: string | null;
-  //   sender: string | null;
-  //   amount: string | null;
-  // }>({ phone: null, sender: null, amount: null });
   const ref = useRef<HTMLElement>(null);
   const q = searchParams.get("step");
   const amount = searchParams.get("amount");
   const sender = searchParams.get("sender");
   const phone = searchParams.get("phone");
   console.log(state, "state");
-  // let incomingData;
   useEffect(() => {
-    // if (!amount || !sender || !phone) {
-    //   return;
-    // }
     const data = { amount, sender, phone };
     updateStore(data);
   }, []);
@@ -55,9 +45,9 @@ const ReceiveMoney = () => {
     e.preventDefault();
 
     if (selected === "send") {
-      router.push("?step=select-bank");
+      router.replace("?step=select-bank");
     } else if (selected === "signup") {
-      router.push("/");
+      router.replace("/");
     }
   };
   const addReceiptId = (data: any) => {
