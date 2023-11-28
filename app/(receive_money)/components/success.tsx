@@ -1,4 +1,4 @@
-import { sleep } from "@lib/index";
+import { formatCurrency, sleep } from "@lib/index";
 import { Button, Typography } from "antd";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -8,7 +8,7 @@ import generatePDF from "react-to-pdf";
 
 const { Title, Paragraph } = Typography;
 
-const Success = ({ refElem }: { refElem: any }) => {
+const Success = ({ refElem, data }: { refElem: any; data: any }) => {
   const router = useRouter();
 
   const handleClick = async () => {
@@ -41,10 +41,11 @@ const Success = ({ refElem }: { refElem: any }) => {
           </Title>
           <Paragraph className="tracking-[-0.025rem] max-w-xs mx-auto text-base leading-6 laptop:leading-[2.00244rem] text-txt2 font-medium laptop:text-xl">
             You sent&nbsp;
-            <strong className="font-semibold text-txt">₦50,000.00</strong>
-            &nbsp;to 2210123339
-            <br />
-            (Semira Yesufu)
+            <strong className="font-semibold text-txt">
+              {formatCurrency(data.amount)}
+            </strong>
+            &nbsp;to {data.receiver_wallet}
+            <br />({data.receiver_name})
           </Paragraph>
         </div>
         <div className="flex items-center w-full flex-col justify-center">
@@ -60,7 +61,7 @@ const Success = ({ refElem }: { refElem: any }) => {
           </Button>
 
           <Button
-            onClick={() => router.push("?step=empty")}
+            onClick={() => router.push("/")}
             className="laptop mx-auto mt-6 flex items-center justify-center hover:bg-white/80 text-[0.9375rem] font-medium leading-[1.
             39663rem] laptop:p-6 laptop:text-[1rem] border-primary text-primary laptop:leading-[1.5rem]"
             block

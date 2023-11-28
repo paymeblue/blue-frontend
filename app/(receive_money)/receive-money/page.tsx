@@ -1,3 +1,4 @@
+import StoreContextProvider from "app/context/store-context";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
 
@@ -8,6 +9,10 @@ export const metadata: Metadata = {
 
 const ReceiveMoney = dynamic(() => import("./receive-money"));
 
-const ReceiveMoneyPage = () => <ReceiveMoney />;
+const ReceiveMoneyPage = () => (
+  <StoreContextProvider>
+    <ReceiveMoney />
+  </StoreContextProvider>
+);
 
 export default ReceiveMoneyPage;

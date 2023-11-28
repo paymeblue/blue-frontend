@@ -1,6 +1,8 @@
 "use client";
+import { formatCurrency } from "@lib/index";
 import Container from "@shared/container";
 import { Button, Typography } from "antd";
+import { useCtx } from "app/context/store-context";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import bank from "public/bank.png";
@@ -9,11 +11,11 @@ import {
   ChangeEvent,
   FormEvent,
   Fragment,
-  useId,
+  useEffect,
+  // useId,
   useRef,
   useState,
 } from "react";
-import EmptyState from "../components/empty-state";
 import Receipt from "../components/receipt";
 import SelectBank from "../components/select-bank";
 import Success from "../components/success";
@@ -23,9 +25,28 @@ const { Title, Paragraph } = Typography;
 const ReceiveMoney = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const { updateStore, state } = useCtx();
   const [selected, setSelected] = useState("send");
+  const [receiptData, setReceiptData] = useState("");
+  // const [data, setData] = useState<{
+  //   phone: string | null;
+  //   sender: string | null;
+  //   amount: string | null;
+  // }>({ phone: null, sender: null, amount: null });
   const ref = useRef<HTMLElement>(null);
   const q = searchParams.get("step");
+  const amount = searchParams.get("amount");
+  const sender = searchParams.get("sender");
+  const phone = searchParams.get("phone");
+  console.log(state, "state");
+  // let incomingData;
+  useEffect(() => {
+    // if (!amount || !sender || !phone) {
+    //   return;
+    // }
+    const data = { amount, sender, phone };
+    updateStore(data);
+  }, []);
 
   const handleRadioChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSelected(e.target.value);
@@ -39,10 +60,12 @@ const ReceiveMoney = () => {
       router.push("/");
     }
   };
-
+  const addReceiptId = (data: any) => {
+    setReceiptData(data);
+  };
   const items = [
     {
-      id: useId(),
+      id: "1",
       value: "send",
       icon: (
         <Image
@@ -55,7 +78,7 @@ const ReceiveMoney = () => {
       desc: "Enter your phone number and choose any bank accounts linked to your number.",
     },
     {
-      id: useId(),
+      id: "2",
       value: "signup",
       icon: (
         <Image
@@ -72,15 +95,13 @@ const ReceiveMoney = () => {
   return (
     <Fragment>
       {q === "receipt" ? (
-        <Receipt ref={ref} />
+        <Receipt ref={ref} receiptData={receiptData} />
       ) : (
         <Container className="py-8 laptop:py-20">
           {q === "select-bank" ? (
-            <SelectBank />
+            <SelectBank sendReceipt={addReceiptId} />
           ) : q === "success" ? (
-            <Success refElem={ref} />
-          ) : q === "empty" ? (
-            <EmptyState />
+            <Success refElem={ref} data={receiptData} />
           ) : (
             <div className="flex flex-col items-center justify-between">
               <div className="max-w-2xl laptop-md:mt-20 mb-8 mx-auto text-center laptop:mb-10">
@@ -88,14 +109,17 @@ const ReceiveMoney = () => {
                   level={2}
                   className="text-body-text-2 text-xl font-semibold laptop:text-4xl leading-[1.6625rem] laptop:leading-[2.9925rem]"
                 >
-                  You just received ₦50,000.00!&nbsp;
+                  You just received {formatCurrency(Number(amount))}
+                  !&nbsp;
                 </Title>
                 <div className="text-body-text-2 max-w-[500px] mx-auto leading-[1.3125rem] text-[0.9375rem] laptop:leading-9 laptop:text-[1.375rem] font-medium">
-                  <p className="text-primary font-semibold inline">
-                    Semira Yesufu&nbsp;
+                  <p className="text-primary capitalize font-semibold inline">
+                    {sender?.replaceAll("%20", " ").toLowerCase()}&nbsp;
                   </p>
                   has sent you&nbsp;
-                  <strong className="text-primary">₦50,000.00&nbsp;</strong>
+                  <strong className="text-primary">
+                    {formatCurrency(Number(amount))}&nbsp;
+                  </strong>
                   How would you like to withdraw it?
                 </div>
               </div>

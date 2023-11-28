@@ -1,15 +1,23 @@
+"use client";
 import Portal from "@shared/portal";
-import { Button, Typography, message } from "antd";
+import { Button, Form, Input, Typography, message } from "antd";
+import { useCtx } from "app/context/store-context";
+import axios from "axios";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import eyowo from "public/eyowo.png";
-import opay from "public/opay.png";
-import palmpay from "public/palmpay.png";
-import stanbic from "public/stanbic.png";
-import { ChangeEvent, FormEvent, Fragment, useId, useState } from "react";
+import bank from "public/bank.png";
+import { ChangeEvent, Fragment, useState } from "react";
 import { useQuery } from "react-query";
+import EmptyState from "./empty-state";
+
+type Bank = {
+  account_number: string;
+  bank_code: string;
+  bank_name: string;
+};
 
 const { Title, Paragraph } = Typography;
+const { Item } = Form;
 export const LoadingBankSkeleton = () => {
   return (
     <div className="bg-input-field rounded-md p-4 mb-5 max-w-[450px] w-full mx-auto">
@@ -23,102 +31,104 @@ export const LoadingBankSkeleton = () => {
     </div>
   );
 };
-const SelectBank = () => {
+const SelectBank = ({ sendReceipt }: { sendReceipt: (id: number) => void }) => {
+  const { state } = useCtx();
+
+  console.log(state.phone);
   const [selected, setSelected] = useState("");
+  const [selectedBank, setSelectedBank] = useState<Bank | undefined>();
   const [open, setOpen] = useState(false);
+  const [verify, setVerify] = useState({ loading: false, status: undefined });
   const router = useRouter();
   const [messageApi, contextHolder] = message.useMessage();
-  const bankList = [
-    {
-      id: useId(),
-      icon: eyowo,
-      value: "eyowo",
-      bankName: "Eyowo MicroFinance Bank",
-      holder: "Semira Yesufu - 1248592040",
-    },
-    {
-      id: useId(),
-      icon: palmpay,
-      value: "palmpay",
-      bankName: "Palmpay Finance",
-      holder: "Semira Yesufu - 7081323920",
-    },
-    {
-      id: useId(),
-      icon: stanbic,
-      value: "stanbic",
-      bankName: "Stanbic Bank",
-      holder: "Semira Yesufu - 6780112490",
-    },
-    {
-      id: useId(),
-      icon: opay,
-      value: "opay",
-      bankName: "Opay Finance",
-      holder: "Semira Yesufu - 7081323920",
-    },
-  ];
-  const fetchBankList = async (
-    phone: string
-  ): Promise<{
-    data: Array<{
-      icon: string;
-      value: string;
-      bankName: string;
-      holder: string;
-    }>;
-  }> => {
+
+  console.log(selectedBank, "selected bank");
+  const fetchBankList = async (phone: string): Promise<Bank[]> => {
     try {
-      const response = await fetch(
-        `${process.env.BLUE_API}payment-link?phone=${phone}`
+      const result = await axios.get(
+        `https://blue-api-backend.herokuapp.com/api/payment-link/linked-accounts?phone=${phone}`
       );
-
-      if (!response.ok) {
-        const result = await response.json();
-        throw new Error(result.message);
-      }
-
-      const result = await response.json();
-      console.log(response, result, "fetching list of banks successful!");
-      return result;
+      return result.data.data;
     } catch (error) {
-      console.error(error, "error in fetching list of banks");
+      console.log(error, "error in fetching list of banks");
       throw error;
     }
   };
-
-  useQuery("bank-list", () => fetchBankList("08037683537"));
-
-  const handleRadioChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setSelected(e.target.value);
-    setOpen(true);
-  };
-  const closeModal = () => setOpen(false);
-  const simulateAsyncOperation = (isSuccess: boolean) => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (isSuccess) {
-          resolve("Success!");
-        } else {
-          reject(new Error("Something went wrong!"));
-        }
-      }, 2000);
-    });
-  };
-  const payToBankHandler = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const withdrawFund = async (data: Bank) => {
     try {
-      // Simulate a successful Promise
-      await simulateAsyncOperation(true);
+      const body = {
+        ...data,
+        amount: 200,
+      };
+      const result = await axios.post(
+        "https://blue-api-backend.herokuapp.com/api/payment-link/withdraw",
+        body
+      );
+      console.log(result, "withdrawal response");
+      sendReceipt(result.data.data);
       router.push("?step=success");
-
-      // Simulate a rejected Promise
-      // await simulateAsyncOperation(false);
+      return result.data.data;
     } catch (error) {
       messageApi.open({
         content: `${error}`,
         className: "[&>div]:bg-red-800 [&>div]:text-white",
       });
+    }
+  };
+  const { data, isLoading, error } = useQuery(
+    "bank-list",
+    () => fetchBankList("08141358069")
+    // { enabled: !!state.phone }
+  );
+
+  const { data: transfer } = useQuery(
+    "transfer-bank",
+    () => withdrawFund(selectedBank!),
+    { enabled: !!verify.status }
+  );
+  if (error) {
+    return <EmptyState />;
+  }
+  console.log(transfer, "transfer complete");
+  const handleRadioChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setSelected(e.target.value);
+    const selectedItem = data?.find(
+      (item) => item.account_number === e.target.value
+    );
+    setSelectedBank(selectedItem);
+    setOpen(true);
+  };
+  const closeModal = () => setOpen(false);
+
+  const onFinish = async ({ acctNum }: { acctNum: string }) => {
+    setVerify((prev) => ({ ...prev, loading: true }));
+    const body = {
+      account_number: acctNum,
+      masked_account: selectedBank?.account_number,
+    };
+    try {
+      const result = await axios.post(
+        "https://blue-api-backend.herokuapp.com/api/payment-link/validate-account",
+        body
+      );
+      setVerify((prev) => ({ ...prev, status: result.data.status }));
+      messageApi.open({
+        content: `${result.data.message}`,
+        className: "[&>div]:bg-green-800 [&>div]:text-white",
+      });
+      if (selectedBank) {
+        setSelectedBank(() => ({
+          ...selectedBank,
+          account_number: acctNum,
+        }));
+      }
+    } catch (error) {
+      messageApi.open({
+        content: `${error}`,
+        className: "[&>div]:bg-red-800 [&>div]:text-white",
+      });
+    } finally {
+      setVerify((prev) => ({ ...prev, loading: false }));
     }
   };
   return (
@@ -130,7 +140,7 @@ const SelectBank = () => {
             onClick={(e) => e.stopPropagation()}
             className="py-8 px-4 laptop:px-8 m-auto rounded-lg bg-white"
           >
-            <form onSubmit={payToBankHandler}>
+            <Form onFinish={onFinish}>
               <div className="text-center mb-1">
                 <Title
                   level={4}
@@ -142,11 +152,13 @@ const SelectBank = () => {
                   Input your entire account number to confirm it's yours.
                 </Paragraph>
               </div>
-              <input
-                type="text"
-                className="border w-full mb-3 border-primary outline-0 ring-0 rounded px-4 py-3"
-                defaultValue="1234567890"
-              />
+              <Item name="acctNum">
+                <Input
+                  type="text"
+                  className="border w-full mb-3 border-primary outline-0 ring-0 rounded px-4 py-3"
+                  placeholder="1234567890"
+                />
+              </Item>
               <Button
                 type="primary"
                 htmlType="submit"
@@ -154,10 +166,11 @@ const SelectBank = () => {
             39663rem] text-white laptop:p-6 laptop:text-[1rem] laptop:leading-[1.5rem] "
                 block
                 size="large"
+                loading={verify.loading}
               >
-                Withdraw
+                Verify
               </Button>
-            </form>
+            </Form>
           </div>
         </Portal>
       )}
@@ -172,55 +185,57 @@ const SelectBank = () => {
           Choose the bank account you want to transfer the received money to:
         </div>
       </div>
-      {/* {isLoading &&
+      {isLoading ? (
         Array.from({ length: 3 }, (_, index) => (
           <LoadingBankSkeleton key={index} />
-        ))} */}
-      <form className="max-w-lg w-full m-auto">
-        <div className="flex items-center w-full flex-col gap-20 justify-center">
-          <div className="w-full">
-            {bankList.map((item) => (
-              <div
-                key={item.id}
-                className="relative w-full h-[80px] max-w-[450px] mb-6"
-              >
-                <input
-                  type="radio"
-                  name={item.value}
-                  value={item.value}
-                  id={item.value}
-                  checked={selected === item.value}
-                  onChange={handleRadioChange}
-                  className="w-full h-full relative appearance-none checked:border-primary bg-input-field hover:border-primary border-transparent rounded border"
-                />
-                <label
-                  htmlFor={item.value}
-                  className="absolute w-full m-auto flex items-center justify-start gap-4 p-4 laptop:gap-8 laptop:p-8 h-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        ))
+      ) : (
+        <form className="max-w-lg w-full m-auto">
+          <div className="flex items-center w-full flex-col gap-20 justify-center">
+            <div className="w-full">
+              {data?.map((item: Bank) => (
+                <div
+                  key={item.account_number}
+                  className="relative w-full h-[80px] max-w-[450px] mb-6"
                 >
-                  <div>
-                    <Image
-                      src={item.icon}
-                      alt={item.value}
-                      className="laptop:w-[55px] w-[45px] h-[45px] laptop:h-[55px] object-contain"
-                    />
-                  </div>
-                  <div className="text-start">
-                    <Title
-                      level={5}
-                      className="font-semibold laptop:leading-[1.97531rem] mb-1 leading-[1.3125rem] text-[0.9375rem] laptop:text-xl text-txt"
-                    >
-                      {item.bankName}
-                    </Title>
-                    <Paragraph className="laptop:leading-[1.85113rem] font-medium m-0 leading-5 text-[0.8125rem] laptop:text-lg text-txt">
-                      {item.holder}
-                    </Paragraph>
-                  </div>
-                </label>
-              </div>
-            ))}
+                  <input
+                    type="radio"
+                    name={item.bank_name}
+                    value={item.account_number}
+                    id={item.bank_code}
+                    checked={selected === item.account_number}
+                    onChange={handleRadioChange}
+                    className="w-full h-full relative appearance-none checked:border-primary bg-input-field hover:border-primary border-transparent rounded border"
+                  />
+                  <label
+                    htmlFor={item.bank_code}
+                    className="absolute w-full m-auto flex items-center justify-start gap-4 p-4 laptop:gap-8 laptop:p-8 h-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                  >
+                    <div>
+                      <Image
+                        src={bank}
+                        alt="send to blue"
+                        className="laptop:w-[55px] w-[45px] h-[45px] laptop:h-[55px] object-contain"
+                      />
+                    </div>
+                    <div className="text-start">
+                      <Title
+                        level={5}
+                        className="font-semibold laptop:leading-[1.97531rem] mb-1 leading-[1.3125rem] text-[0.9375rem] laptop:text-xl text-txt"
+                      >
+                        {item.bank_name}
+                      </Title>
+                      <Paragraph className="laptop:leading-[1.85113rem] font-medium m-0 leading-5 text-[0.8125rem] laptop:text-lg text-txt">
+                        Semira Yesufu - {item.account_number}
+                      </Paragraph>
+                    </div>
+                  </label>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </form>
+        </form>
+      )}
     </Fragment>
   );
 };

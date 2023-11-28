@@ -1,11 +1,45 @@
 /* eslint-disable react/display-name */
 import Container from "@shared/container";
+import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import logo from "public/logo.png";
 import { Ref, forwardRef, useId } from "react";
-
-const Receipt = forwardRef((_: any, ref: Ref<HTMLElement>) => {
+import { useQuery } from "react-query";
+type Response = {
+  status: "success" | "fail";
+  message: string;
+  data: {
+    id: 183;
+    amount: string;
+    received_by: string;
+    order_reference: string;
+    receiver_name: string;
+    narration: string | null;
+    payment_mode: string;
+    status: string;
+    created_at: string;
+  };
+};
+const Receipt = forwardRef(({ receiptData }: any, ref: Ref<HTMLElement>) => {
+  const fetchReceiptDetailst = async (transId: string): Promise<Response> => {
+    try {
+      const result = await axios.get(
+        `https://blue-api-backend.herokuapp.com/api/payment-link/receipt?transaction_id=${transId}`
+      );
+      return result.data.data;
+    } catch (error) {
+      console.log(error, "error in fetching list of banks");
+      throw error;
+    }
+  };
+  const { data } = useQuery(
+    "receipt",
+    () => fetchReceiptDetailst(receiptData.transaction_id),
+    { enabled: !!receiptData }
+  );
+  console.log(receiptData, "receipt");
+  console.log(data, "trans receipt");
   const receiptDetails = [
     { id: useId(), heading: "Transaction Type:", desc: "Blue to Blue" },
     {

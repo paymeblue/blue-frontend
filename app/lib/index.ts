@@ -34,3 +34,13 @@ export const detectOS = () => {
     return "Android";
   }
 };
+export const formatCurrency = (amount: number | null) => {
+  if (!amount) {
+    return "0.00";
+  }
+  const newFormat = new Intl.NumberFormat("en-NG", {
+    style: "currency",
+    currency: "NGN",
+  }).format(amount);
+  return newFormat;
+};
