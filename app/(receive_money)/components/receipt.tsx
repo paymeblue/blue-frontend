@@ -7,19 +7,15 @@ import logo from "public/logo.png";
 import { Ref, forwardRef, useId } from "react";
 import { useQuery } from "react-query";
 type Response = {
-  status: "success" | "fail";
-  message: string;
-  data: {
-    id: 183;
-    amount: string;
-    received_by: string;
-    order_reference: string;
-    receiver_name: string;
-    narration: string | null;
-    payment_mode: string;
-    status: string;
-    created_at: string;
-  };
+  id: number;
+  amount: string;
+  received_by: string;
+  order_reference: string;
+  receiver_name: string;
+  narration: string | null;
+  payment_mode: string;
+  status: string;
+  created_at: string;
 };
 const Receipt = forwardRef(({ receiptData }: any, ref: Ref<HTMLElement>) => {
   const fetchReceiptDetailst = async (transId: string): Promise<Response> => {
@@ -36,22 +32,21 @@ const Receipt = forwardRef(({ receiptData }: any, ref: Ref<HTMLElement>) => {
   const { data } = useQuery(
     "receipt",
     () => fetchReceiptDetailst(receiptData.transaction_id),
-    { enabled: !!receiptData }
+    { enabled: !!receiptData.transaction_id }
   );
-  console.log(receiptData, "receipt");
-  console.log(data, "trans receipt");
+
   const receiptDetails = [
-    { id: useId(), heading: "Transaction Type:", desc: "Blue to Blue" },
+    { id: useId(), heading: "Transaction Type:", desc: data?.payment_mode },
     {
       id: useId(),
       heading: "Transaction Date:",
-      desc: "30 - Oct - 2023 11:27:30PM",
+      desc: data?.created_at,
     },
-    { id: useId(), heading: "Amount:", desc: "₦1,248,000.00" },
-    { id: useId(), heading: "Beneficiary Name:", desc: "Favour momoh" },
-    { id: useId(), heading: "Credit Account:", desc: "9086452572" },
-    { id: useId(), heading: "Narration:", desc: "Happy Flexing" },
-    { id: useId(), heading: "Status", desc: "Successful" },
+    { id: useId(), heading: "Amount:", desc: `₦${data?.amount}` },
+    { id: useId(), heading: "Beneficiary Name:", desc: data?.receiver_name },
+    { id: useId(), heading: "Credit Account:", desc: data?.received_by },
+    { id: useId(), heading: "Narration:", desc: data?.narration ?? "" },
+    { id: useId(), heading: "Status", desc: data?.status },
   ];
   return (
     <main ref={ref}>

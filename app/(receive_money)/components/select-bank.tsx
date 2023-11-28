@@ -6,7 +6,7 @@ import axios from "axios";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import bank from "public/bank.png";
-import { ChangeEvent, Fragment, useState } from "react";
+import { ChangeEvent, Fragment, useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import EmptyState from "./empty-state";
 
@@ -41,9 +41,12 @@ const SelectBank = ({ sendReceipt }: { sendReceipt: (id: number) => void }) => {
   const [verify, setVerify] = useState({ loading: false, status: undefined });
   const router = useRouter();
   const [messageApi, contextHolder] = message.useMessage();
-
+  useEffect(() => {
+    if (state.phone) {
+    }
+  }, [state.phone]);
   console.log(selectedBank, "selected bank");
-  const fetchBankList = async (phone: string): Promise<Bank[]> => {
+  const fetchBankList = async (phone: string | null): Promise<Bank[]> => {
     try {
       const result = await axios.get(
         `https://blue-api-backend.herokuapp.com/api/payment-link/linked-accounts?phone=${phone}`
@@ -58,7 +61,7 @@ const SelectBank = ({ sendReceipt }: { sendReceipt: (id: number) => void }) => {
     try {
       const body = {
         ...data,
-        amount: 200,
+        amount: state.amount,
       };
       const result = await axios.post(
         "https://blue-api-backend.herokuapp.com/api/payment-link/withdraw",
@@ -66,7 +69,8 @@ const SelectBank = ({ sendReceipt }: { sendReceipt: (id: number) => void }) => {
       );
       console.log(result, "withdrawal response");
       sendReceipt(result.data.data);
-      router.push("?step=success");
+      router.replace("?step=success");
+      closeModal();
       return result.data.data;
     } catch (error) {
       messageApi.open({
@@ -77,8 +81,8 @@ const SelectBank = ({ sendReceipt }: { sendReceipt: (id: number) => void }) => {
   };
   const { data, isLoading, error } = useQuery(
     "bank-list",
-    () => fetchBankList("08141358069")
-    // { enabled: !!state.phone }
+    () => fetchBankList(state.phone),
+    { enabled: !!state.phone }
   );
 
   const { data: transfer } = useQuery(
@@ -226,7 +230,7 @@ const SelectBank = ({ sendReceipt }: { sendReceipt: (id: number) => void }) => {
                         {item.bank_name}
                       </Title>
                       <Paragraph className="laptop:leading-[1.85113rem] font-medium m-0 leading-5 text-[0.8125rem] laptop:text-lg text-txt">
-                        Semira Yesufu - {item.account_number}
+                        {item.account_number}
                       </Paragraph>
                     </div>
                   </label>
