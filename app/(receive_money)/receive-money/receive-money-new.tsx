@@ -1,7 +1,7 @@
 "use client";
 import { formatCurrency } from "@lib/index";
 import Container from "@shared/container";
-import { Button, Typography } from "antd";
+import { Button, Spin, Typography } from "antd";
 import { useCtx } from "app/context/store-context";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -18,25 +18,46 @@ import {
 import Receipt from "../components/receipt";
 import SelectBank from "../components/select-bank";
 import Success from "../components/success";
+import useGetReceiverDetails from "@hooks/useGetReceiverDetails";
+import { LoadingOutlined } from "@ant-design/icons";
+import EmptyState from "../components/empty-state";
 
 const { Title, Paragraph } = Typography;
 
-const ReceiveMoney = () => {
+interface Props {
+  code?: string;
+}
+
+const ReceiveMoney = ({ code }: Props) => {
   const router = useRouter();
+  const { loading, receiverDetails, error } = useGetReceiverDetails({ code });
   const searchParams = useSearchParams();
   const { updateStore, state } = useCtx();
   const [selected, setSelected] = useState("send");
   const [receiptData, setReceiptData] = useState("");
   const ref = useRef<HTMLElement>(null);
   const q = searchParams.get("step");
-  const amount = searchParams.get("amount");
-  const sender = searchParams.get("sender");
-  const phone = searchParams.get("phone");
+  const amount = receiverDetails?.amount || null;
+  const sender = receiverDetails?.sender || null;
+  const phone = receiverDetails?.phone || null;
   console.log(state, "state");
   useEffect(() => {
     const data = { amount, sender, phone };
     updateStore(data);
   }, []);
+
+  const antIcon = (
+    <LoadingOutlined
+      style={{
+        fontSize: 32,
+        display: "flex",
+        alignItems: "center",
+        minHeight: "10rem",
+        color: "#4341CD",
+      }}
+      spin
+    />
+  );
 
   const handleRadioChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSelected(e.target.value);
@@ -45,14 +66,16 @@ const ReceiveMoney = () => {
     e.preventDefault();
 
     if (selected === "send") {
-      router.replace("?step=select-bank");
+      router.push("?step=select-bank");
     } else if (selected === "signup") {
-      router.replace("/");
+      router.push("/");
     }
   };
+
   const addReceiptId = (data: any) => {
     setReceiptData(data);
   };
+
   const items = [
     {
       id: "1",
@@ -82,6 +105,26 @@ const ReceiveMoney = () => {
     },
   ];
 
+  if (loading) {
+    return (
+      <div className="flex w-screen h-screen items-center justify-center">
+        <Spin size="large" indicator={antIcon} />
+      </div>
+    );
+  }
+
+  if (error || !receiverDetails) {
+    return (
+      <div className="flex w-screen h-screen items-center justify-center">
+        <EmptyState
+          title="Invalid Transaction"
+          description="This transaction is invalid or has already been completed."
+          btnText="Sign up for Blue today!"
+        />
+      </div>
+    );
+  }
+
   return (
     <Fragment>
       {q === "receipt" ? (
@@ -89,7 +132,12 @@ const ReceiveMoney = () => {
       ) : (
         <Container className="py-8 laptop:py-20">
           {q === "select-bank" ? (
-            <SelectBank sendReceipt={addReceiptId} />
+            <SelectBank
+              sendReceipt={addReceiptId}
+              code={code!}
+              phone={phone!}
+              transaction_id={receiverDetails.transaction_id}
+            />
           ) : q === "success" ? (
             <Success refElem={ref} data={receiptData} />
           ) : (

@@ -7,11 +7,11 @@ export const metadata: Metadata = {
   description: "Receive and withdraw money sent to you from friends and family",
 };
 
-const ReceiveMoney = dynamic(() => import("./receive-money"));
+const ReceiveMoney = dynamic(() => import("../receive-money-new"));
 
-const ReceiveMoneyPage = () => (
+const ReceiveMoneyPage = ({ params }: { params: { id: string } }) => (
   <StoreContextProvider>
-    <ReceiveMoney />
+    <ReceiveMoney code={params.id} />
   </StoreContextProvider>
 );
 

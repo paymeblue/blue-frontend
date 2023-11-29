@@ -1,6 +1,7 @@
 "use client";
 
 import axios from "axios";
+import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 
 interface Props {
@@ -9,16 +10,15 @@ interface Props {
 
 const useHandleCodeVerify = ({ code }: Props) => {
   const [loading, setLoading] = useState(true);
+  const router = useRouter();
 
   const handleCodeVerify = useCallback(async () => {
     setLoading(true);
     try {
-      const res = await axios.get(
+      await axios.get(
         `https://blue-api-backend.herokuapp.com/api/payment-link/verify/${code}`
       );
-      console.log({ res });
-      const url = res?.data?.data?.split("/");
-      window.location.href = url[1];
+      router.push(`/receive-money/${code}`);
     } catch (err) {
       console.log({ err });
       setLoading(false);

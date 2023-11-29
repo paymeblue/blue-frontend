@@ -14,6 +14,7 @@ type Bank = {
   account_number: string;
   bank_code: string;
   bank_name: string;
+  receiver_name: string;
 };
 
 const { Title, Paragraph } = Typography;
@@ -31,7 +32,17 @@ export const LoadingBankSkeleton = () => {
     </div>
   );
 };
-const SelectBank = ({ sendReceipt }: { sendReceipt: (id: number) => void }) => {
+const SelectBank = ({
+  sendReceipt,
+  code,
+  phone,
+  transaction_id,
+}: {
+  sendReceipt: (id: number) => void;
+  code: string;
+  phone: string;
+  transaction_id: number;
+}) => {
   const { state } = useCtx();
 
   console.log(state.phone);
@@ -49,7 +60,8 @@ const SelectBank = ({ sendReceipt }: { sendReceipt: (id: number) => void }) => {
   const fetchBankList = async (phone: string | null): Promise<Bank[]> => {
     try {
       const result = await axios.get(
-        `https://blue-api-backend.herokuapp.com/api/payment-link/linked-accounts?phone=${phone}`
+        // `https://blue-api-backend.herokuapp.com/api/payment-link/linked-accounts?phone=${phone}`
+        `https://blue-api-backend.herokuapp.com/api/payment-link/linked-accounts?phone=${phone}&url_code=${code}`
       );
       return result.data.data;
     } catch (error) {
@@ -59,10 +71,19 @@ const SelectBank = ({ sendReceipt }: { sendReceipt: (id: number) => void }) => {
   };
   const withdrawFund = async (data: Bank) => {
     try {
-      const body = {
+      const body: Partial<{
+        amount: number | undefined;
+        transaction_id: string;
+        account_number: string;
+        bank_code: string;
+        bank_name: string;
+        receiver_name: string;
+      }> = {
         ...data,
-        amount: state.amount,
+        amount: state.amount as unknown as number | undefined,
+        transaction_id: String(transaction_id),
       };
+      delete body.receiver_name;
       const result = await axios.post(
         "https://blue-api-backend.herokuapp.com/api/payment-link/withdraw",
         body
@@ -81,14 +102,15 @@ const SelectBank = ({ sendReceipt }: { sendReceipt: (id: number) => void }) => {
   };
   const { data, isLoading, error } = useQuery(
     "bank-list",
-    () => fetchBankList(state.phone),
-    { enabled: !!state.phone }
+    () => fetchBankList(phone),
+    { retry: false }
+    // { enabled: !!state.phone }
   );
 
   const { data: transfer } = useQuery(
     "transfer-bank",
     () => withdrawFund(selectedBank!),
-    { enabled: !!verify.status }
+    { enabled: !!verify.status, retry: false }
   );
   if (error) {
     return <EmptyState />;
@@ -97,7 +119,7 @@ const SelectBank = ({ sendReceipt }: { sendReceipt: (id: number) => void }) => {
   const handleRadioChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSelected(e.target.value);
     const selectedItem = data?.find(
-      (item) => item.account_number === e.target.value
+      (item: any) => item.account_number === e.target.value
     );
     setSelectedBank(selectedItem);
     setOpen(true);
@@ -230,7 +252,7 @@ const SelectBank = ({ sendReceipt }: { sendReceipt: (id: number) => void }) => {
                         {item.bank_name}
                       </Title>
                       <Paragraph className="laptop:leading-[1.85113rem] font-medium m-0 leading-5 text-[0.8125rem] laptop:text-lg text-txt">
-                        {item.account_number}
+                        {item.receiver_name} - {item.account_number}
                       </Paragraph>
                     </div>
                   </label>

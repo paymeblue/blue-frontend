@@ -3,11 +3,17 @@ import { Typography } from "antd";
 import Image from "next/image";
 import Link from "next/link";
 import empty from "public/empty.png";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, ReactNode, useEffect, useState } from "react";
 
 const { Title, Paragraph } = Typography;
 
-const EmptyState = () => {
+interface Props {
+  title?: string;
+  description?: string | ReactNode;
+  btnText?: string;
+}
+
+const EmptyState = ({ title, description, btnText }: Props) => {
   const [isClient, setClient] = useState(false);
   let platform;
   useEffect(() => {
@@ -31,10 +37,16 @@ const EmptyState = () => {
             level={5}
             className="laptop:leading-normal font-semibold m-0 leading-[1.3125rem] text-lg laptop:text-[1.75rem]"
           >
-            No Linked Bank Account!
+            {title || "No Linked Bank Account!"}
           </Title>
           <Paragraph className="font-medium leading-5 text-[0.8125rem] laptop:text-xl">
-            There is no bank account tied to your phone number.&nbsp;
+            {description ? (
+              <span>{description}&nbsp;</span>
+            ) : (
+              <span>
+                There is no bank account tied to your phone number.&nbsp;
+              </span>
+            )}
             <br className="laptop:hidden" />
             <Link
               href={
@@ -44,7 +56,7 @@ const EmptyState = () => {
               }
               className="text-primary underline"
             >
-              Sign up for Blue to access your funds.
+              {btnText || "Sign up for Blue to access your funds."}
             </Link>
           </Paragraph>
         </div>
