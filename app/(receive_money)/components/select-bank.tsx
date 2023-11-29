@@ -123,7 +123,10 @@ const SelectBank = ({
     setSelectedBank(selectedItem);
     setOpen(true);
   };
-  const closeModal = () => setOpen(false);
+  const closeModal = () => {
+    setOpen(false);
+    setSelected("");
+  };
 
   const onFinish = async ({ acctNum }: { acctNum: string }) => {
     setVerify((prev) => ({ ...prev, loading: true }));

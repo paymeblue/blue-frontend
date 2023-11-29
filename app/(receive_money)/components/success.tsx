@@ -1,10 +1,10 @@
 import { formatCurrency, sleep } from "@lib/index";
 import { Button, Typography } from "antd";
+import html2canvas from "html2canvas";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import success from "public/success.png";
 import { Fragment } from "react";
-import generatePDF from "react-to-pdf";
 
 const { Title, Paragraph } = Typography;
 
@@ -12,15 +12,25 @@ const Success = ({ refElem, data }: { refElem: any; data: any }) => {
   const router = useRouter();
 
   const handleClick = async () => {
-    router.push("?step=receipt");
+    router.replace("?step=receipt");
     await sleep(2000);
-    if (refElem.current) {
-      generatePDF(refElem, {
-        filename: `receipt-${Date.now()}.pdf`,
-      });
+    const componentElement = refElem.current;
+
+    if (componentElement) {
+      html2canvas(componentElement, { allowTaint: true, useCORS: true })
+        .then((canvas) => {
+          const imgData = canvas.toDataURL("image/png");
+          const link = document.createElement("a");
+          link.href = imgData;
+          link.download = `receipt-${Date.now()}.png`;
+          link.click();
+        })
+        .catch((error) => {
+          console.error("Error capturing component:", error);
+        });
     }
     await sleep(2000);
-    router.back();
+    router.replace("/");
   };
   return (
     <Fragment>
@@ -61,7 +71,7 @@ const Success = ({ refElem, data }: { refElem: any; data: any }) => {
           </Button>
 
           <Button
-            onClick={() => router.push("/")}
+            onClick={() => router.replace("/")}
             className="laptop mx-auto mt-6 flex items-center justify-center hover:bg-white/80 text-[0.9375rem] font-medium leading-[1.
             39663rem] laptop:p-6 laptop:text-[1rem] border-primary text-primary laptop:leading-[1.5rem]"
             block

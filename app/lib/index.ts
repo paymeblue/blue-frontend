@@ -44,3 +44,20 @@ export const formatCurrency = (amount: number | null) => {
   }).format(amount);
   return newFormat;
 };
+
+export const convertISOToDateAndFormat = (isoString: string) => {
+  const options: Intl.DateTimeFormatOptions = {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: true,
+  };
+  const dateObject = new Date(isoString);
+  const formattedDate = new Intl.DateTimeFormat("en-US", options).format(
+    dateObject
+  );
+  return formattedDate;
+};

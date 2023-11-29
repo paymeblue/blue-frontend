@@ -1,4 +1,6 @@
 "use client";
+import { LoadingOutlined } from "@ant-design/icons";
+import useGetReceiverDetails from "@hooks/useGetReceiverDetails";
 import { formatCurrency } from "@lib/index";
 import Container from "@shared/container";
 import { Button, Spin, Typography } from "antd";
@@ -15,12 +17,10 @@ import {
   useRef,
   useState,
 } from "react";
+import EmptyState from "../components/empty-state";
 import Receipt from "../components/receipt";
 import SelectBank from "../components/select-bank";
 import Success from "../components/success";
-import useGetReceiverDetails from "@hooks/useGetReceiverDetails";
-import { LoadingOutlined } from "@ant-design/icons";
-import EmptyState from "../components/empty-state";
 
 const { Title, Paragraph } = Typography;
 
@@ -32,7 +32,7 @@ const ReceiveMoney = ({ code }: Props) => {
   const router = useRouter();
   const { loading, receiverDetails, error } = useGetReceiverDetails({ code });
   const searchParams = useSearchParams();
-  const { updateStore, state } = useCtx();
+  const { updateStore } = useCtx();
   const [selected, setSelected] = useState("send");
   const [receiptData, setReceiptData] = useState("");
   const ref = useRef<HTMLElement>(null);
@@ -40,7 +40,6 @@ const ReceiveMoney = ({ code }: Props) => {
   const amount = receiverDetails?.amount || null;
   const sender = receiverDetails?.sender || null;
   const phone = receiverDetails?.phone || null;
-  console.log(state, "state");
   useEffect(() => {
     const data = { amount, sender, phone };
     updateStore(data);
@@ -66,9 +65,9 @@ const ReceiveMoney = ({ code }: Props) => {
     e.preventDefault();
 
     if (selected === "send") {
-      router.push("?step=select-bank");
+      router.replace("?step=select-bank");
     } else if (selected === "signup") {
-      router.push("/");
+      router.replace("/");
     }
   };
 
