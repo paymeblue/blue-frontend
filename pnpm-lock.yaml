@@ -14,9 +14,6 @@ dependencies:
   "@hookform/resolvers":
     specifier: ^3.3.2
     version: 3.3.2(react-hook-form@7.47.0)
-  "@types/react-query":
-    specifier: ^1.2.9
-    version: 1.2.9(react-dom@18.2.0)(react@18.2.0)
   antd:
     specifier: ^5.10.1
     version: 5.10.1(react-dom@18.2.0)(react@18.2.0)
@@ -1227,20 +1224,6 @@ packages:
     dependencies:
       "@types/react": 18.2.28
     dev: true
-
-  /@types/react-query@1.2.9(react-dom@18.2.0)(react@18.2.0):
-    resolution:
-      {
-        integrity: sha512-xfVcv5zjC6fGf6axPyKxdXNm9RKK9OFzSIyZeCR3r9h4zDuqSpHc8ilTBtfQ1zU/uCx+tAsB+W6vzdCBMu1jtg==,
-      }
-    deprecated: This is a stub types definition. react-query provides its own type definitions, so you do not need this installed.
-    dependencies:
-      react-query: 3.39.3(react-dom@18.2.0)(react@18.2.0)
-    transitivePeerDependencies:
-      - react
-      - react-dom
-      - react-native
-    dev: false
 
   /@types/react@18.2.28:
     resolution:
