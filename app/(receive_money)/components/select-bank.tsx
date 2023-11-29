@@ -219,12 +219,6 @@ const SelectBank = ({
           <div className="flex items-center w-full flex-col gap-20 justify-center">
             <div className="w-full">
               {data?.map((item: Bank) => {
-                // console.log({ item });
-                console.log({
-                  selected,
-                  item: item.account_number,
-                  checked: selected === item.account_number,
-                });
                 return (
                   <div
                     key={item.account_number}
