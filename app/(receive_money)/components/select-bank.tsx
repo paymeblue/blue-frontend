@@ -80,7 +80,6 @@ const SelectBank = ({
         receiver_name: string;
       }> = {
         ...data,
-        amount: state.amount as unknown as number | undefined,
         transaction_id: String(transaction_id),
       };
       delete body.receiver_name;
