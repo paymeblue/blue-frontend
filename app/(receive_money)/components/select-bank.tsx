@@ -80,11 +80,9 @@ const SelectBank = ({
         receiver_name: string;
       }> = {
         ...data,
-        amount: state.amount as unknown as number | undefined,
         transaction_id: String(transaction_id),
       };
       delete body.receiver_name;
-      delete body.amount;
       const result = await axios.post(
         "https://blue-api-backend.herokuapp.com/api/payment-link/withdraw",
         body
