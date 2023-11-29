@@ -149,7 +149,7 @@ const SelectBank = ({
       }
     } catch (error) {
       messageApi.open({
-        content: `${error}`,
+        content: `Account numbers didn't match. Please enter the correct account number for the account.`,
         className: "[&>div]:bg-red-800 [&>div]:text-white",
       });
     } finally {
@@ -218,45 +218,53 @@ const SelectBank = ({
         <form className="max-w-lg w-full m-auto">
           <div className="flex items-center w-full flex-col gap-20 justify-center">
             <div className="w-full">
-              {data?.map((item: Bank) => (
-                <div
-                  key={item.account_number}
-                  className="relative w-full h-[80px] max-w-[450px] mb-6"
-                >
-                  <input
-                    type="radio"
-                    name={item.bank_name}
-                    value={item.account_number}
-                    id={item.bank_code}
-                    checked={selected === item.account_number}
-                    onChange={handleRadioChange}
-                    className="w-full h-full relative appearance-none checked:border-primary bg-input-field hover:border-primary border-transparent rounded border"
-                  />
-                  <label
-                    htmlFor={item.bank_code}
-                    className="absolute w-full m-auto flex items-center justify-start gap-4 p-4 laptop:gap-8 laptop:p-8 h-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+              {data?.map((item: Bank) => {
+                // console.log({ item });
+                console.log({
+                  selected,
+                  item: item.account_number,
+                  checked: selected === item.account_number,
+                });
+                return (
+                  <div
+                    key={item.account_number}
+                    className="relative w-full h-[80px] max-w-[450px] mb-6"
                   >
-                    <div>
-                      <Image
-                        src={bank}
-                        alt="send to blue"
-                        className="laptop:w-[55px] w-[45px] h-[45px] laptop:h-[55px] object-contain"
-                      />
-                    </div>
-                    <div className="text-start">
-                      <Title
-                        level={5}
-                        className="font-semibold laptop:leading-[1.97531rem] mb-1 leading-[1.3125rem] text-[0.9375rem] laptop:text-xl text-txt"
-                      >
-                        {item.bank_name}
-                      </Title>
-                      <Paragraph className="laptop:leading-[1.85113rem] font-medium m-0 leading-5 text-[0.8125rem] laptop:text-lg text-txt">
-                        {item.receiver_name} - {item.account_number}
-                      </Paragraph>
-                    </div>
-                  </label>
-                </div>
-              ))}
+                    <input
+                      type="radio"
+                      name={item.account_number}
+                      value={item.account_number}
+                      id={item.account_number}
+                      checked={selected === item.account_number}
+                      onChange={handleRadioChange}
+                      className="w-full h-full relative appearance-none checked:border-primary bg-input-field hover:border-primary border-transparent rounded border"
+                    />
+                    <label
+                      htmlFor={item.account_number}
+                      className="absolute w-full m-auto flex items-center justify-start gap-4 p-4 laptop:gap-8 laptop:p-8 h-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                    >
+                      <div>
+                        <Image
+                          src={bank}
+                          alt="send to blue"
+                          className="laptop:w-[55px] w-[45px] h-[45px] laptop:h-[55px] object-contain"
+                        />
+                      </div>
+                      <div className="text-start">
+                        <Title
+                          level={5}
+                          className="font-semibold laptop:leading-[1.97531rem] mb-1 leading-[1.3125rem] text-[0.9375rem] laptop:text-xl text-txt"
+                        >
+                          {item.bank_name}
+                        </Title>
+                        <Paragraph className="laptop:leading-[1.85113rem] font-medium m-0 leading-5 text-[0.8125rem] laptop:text-lg text-txt">
+                          {item.receiver_name} - {item.account_number}
+                        </Paragraph>
+                      </div>
+                    </label>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </form>
