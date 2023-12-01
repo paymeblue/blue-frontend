@@ -1,8 +1,9 @@
 "use client";
+import { CheckCircleOutlined } from "@ant-design/icons";
 import Portal from "@shared/portal";
 import { Button, Form, Input, Typography, message } from "antd";
 import { useCtx } from "app/context/store-context";
-import axios from "axios";
+import axios, { AxiosError, AxiosResponse } from "axios";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import bank from "public/bank.png";
@@ -15,6 +16,10 @@ type Bank = {
   bank_code: string;
   bank_name: string;
   receiver_name: string;
+};
+type BasicResponse = {
+  status: "fail" | "string";
+  message: string;
 };
 
 const { Title, Paragraph } = Typography;
@@ -37,11 +42,13 @@ const SelectBank = ({
   code,
   phone,
   transaction_id,
+  id,
 }: {
   sendReceipt: (id: number) => void;
   code: string;
   phone: string;
   transaction_id: number;
+  id: number;
 }) => {
   const { state } = useCtx();
 
@@ -80,24 +87,52 @@ const SelectBank = ({
         receiver_name: string;
       }> = {
         ...data,
-        transaction_id: String(transaction_id),
       };
       delete body.receiver_name;
-      const result = await axios.post(
-        "https://blue-api-backend.herokuapp.com/api/payment-link/withdraw",
+      delete body.bank_name;
+      const response: AxiosResponse = await axios.post(
+        `https://blue-api-backend.herokuapp.com/api/payment-link/${id}/withdraw`,
         body
       );
-      console.log(result, "withdrawal response");
-      sendReceipt(result.data.data);
+      console.log(response, "withdrawal response");
+      sendReceipt(response.data.data);
+      messageApi.open({
+        content: `${response.data.message}`,
+        className: "[&>div]:bg-[#17B472] [&>div]:text-white",
+        icon: <CheckCircleOutlined />,
+      });
       router.replace("?step=success");
       closeModal();
-      return result.data.data;
-    } catch (error) {
-      messageApi.open({
-        content: `${error}`,
-        className: "[&>div]:bg-red-800 [&>div]:text-white",
-      });
+      return response.data.data;
+    } catch (error: any) {
+      if (axios.isAxiosError(error)) {
+        // Axios error (HTTP error response)
+        const axiosError: AxiosError = error;
+        console.log(axiosError, "axios error");
+        if (axiosError.response) {
+          console.log("Error Status:", axiosError.response.status);
+          console.log("Error Data:", axiosError.response.data);
+          messageApi.open({
+            content: `${(axiosError.response.data as BasicResponse).message}`,
+            className: "[&>div]:bg-red-800 [&>div]:text-white",
+          });
+        } else {
+          console.log("Network Error:", axiosError.message);
+          messageApi.open({
+            content: `${axiosError.message}`,
+            className: "[&>div]:bg-red-800 [&>div]:text-white",
+          });
+        }
+      } else {
+        // Non-Axios error (e.g., network error)
+        console.log("Unexpected Error:", error.message);
+        messageApi.open({
+          content: `${error.message}`,
+          className: "[&>div]:bg-red-800 [&>div]:text-white",
+        });
+      }
     }
+    // };
   };
   const { data, isLoading, error } = useQuery(
     "bank-list",
@@ -136,7 +171,7 @@ const SelectBank = ({
     };
     try {
       const result = await axios.post(
-        "https://blue-api-backend.herokuapp.com/api/payment-link/validate-account",
+        `https://blue-api-backend.herokuapp.com/api/payment-link/${id}/validate-account`,
         body
       );
       setVerify((prev) => ({ ...prev, status: result.data.status }));

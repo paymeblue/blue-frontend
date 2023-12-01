@@ -37,6 +37,7 @@ const ReceiveMoney = ({ code }: Props) => {
   const [receiptData, setReceiptData] = useState("");
   const ref = useRef<HTMLElement>(null);
   const q = searchParams.get("step");
+  const id = receiverDetails?.id;
   const amount = receiverDetails?.amount || null;
   const sender = receiverDetails?.sender || null;
   const phone = receiverDetails?.phone || null;
@@ -132,10 +133,11 @@ const ReceiveMoney = ({ code }: Props) => {
         <Container className="py-8 laptop:py-20">
           {q === "select-bank" ? (
             <SelectBank
+              id={id!}
               sendReceipt={addReceiptId}
               code={code!}
               phone={phone!}
-              transaction_id={receiverDetails.transaction_id}
+              transaction_id={receiverDetails?.transaction_id}
             />
           ) : q === "success" ? (
             <Success refElem={ref} data={receiptData} />

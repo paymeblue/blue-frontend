@@ -51,8 +51,8 @@ const EmptyState = ({ title, description, btnText }: Props) => {
             <Link
               href={
                 platform === "iOS"
-                  ? "#link-to-iOS-store"
-                  : "#link-to-android-store"
+                  ? "/#link-to-iOS-store"
+                  : "/#link-to-android-store"
               }
               className="text-primary underline"
             >

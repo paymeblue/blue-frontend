@@ -6,7 +6,7 @@ import { Spin } from "antd";
 import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
-import logo from "public/logo.png";
+import logo from "public/receipt-logo.svg";
 import { Ref, forwardRef, useId } from "react";
 import { useQuery } from "react-query";
 type Response = {
@@ -91,7 +91,7 @@ const Receipt = forwardRef(({ receiptData }: any, ref: Ref<HTMLElement>) => {
             <Image
               src={logo}
               alt="blue logo"
-              className="w-1/2 mx-auto object-contain h-1/2"
+              className="w-[100px] mx-auto object-contain"
               priority
               width={75}
               height={75}

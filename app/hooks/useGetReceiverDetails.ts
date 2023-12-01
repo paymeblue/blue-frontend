@@ -8,6 +8,7 @@ interface Props {
 }
 
 interface ReceiverDetails {
+  id: number;
   amount: string;
   sender: string;
   phone: string;
@@ -15,7 +16,7 @@ interface ReceiverDetails {
 }
 
 const useGetReceiverDetails = ({ code }: Props) => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [receiverDetails, setReceiverDetails] =
     useState<ReceiverDetails | null>(null);
@@ -29,11 +30,11 @@ const useGetReceiverDetails = ({ code }: Props) => {
       );
       const details = res?.data?.data as ReceiverDetails;
       setReceiverDetails(details);
-      setLoading(false);
     } catch (err) {
       console.log({ err });
-      setLoading(false);
       setError(true);
+    } finally {
+      setLoading(false);
     }
   }, [code]);
 
