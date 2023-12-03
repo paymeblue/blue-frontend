@@ -73,6 +73,7 @@ const ReceiveMoney = ({ code }: Props) => {
   };
 
   const addReceiptId = (data: any) => {
+    console.log(data, "adding");
     setReceiptData(data);
   };
 

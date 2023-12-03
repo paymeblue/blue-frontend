@@ -1,12 +1,11 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/display-name */
 import { LoadingOutlined } from "@ant-design/icons";
 import { capitalizeFirstLetter, convertISOToDateAndFormat } from "@lib/index";
 import Container from "@shared/container";
 import { Spin } from "antd";
 import axios from "axios";
-import Image from "next/image";
 import Link from "next/link";
-import logo from "public/receipt-logo.svg";
 import { Ref, forwardRef, useId } from "react";
 import { useQuery } from "react-query";
 type Response = {
@@ -88,13 +87,10 @@ const Receipt = forwardRef(({ receiptData }: any, ref: Ref<HTMLElement>) => {
         </p>
         <div>
           <Link href="/">
-            <Image
-              src={logo}
+            <img
+              src="/receipt-logo.png"
               alt="blue logo"
               className="w-[100px] mx-auto object-contain"
-              priority
-              width={75}
-              height={75}
             />
           </Link>
         </div>
