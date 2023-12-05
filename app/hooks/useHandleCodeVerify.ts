@@ -29,7 +29,7 @@ const useHandleCodeVerify = ({ code }: Props) => {
     if (!code) return;
 
     handleCodeVerify();
-  }, [code, handleCodeVerify]);
+  }, [code, handleCodeVerify, router]);
 
   return {
     loading,
