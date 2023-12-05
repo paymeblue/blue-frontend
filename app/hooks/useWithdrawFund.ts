@@ -18,6 +18,7 @@ const useWithdrawFund = ({
   onSuccess,
 }: IUseWithdrawFund) => {
   const [loading, setLoading] = useState(false);
+  const [isWidthrawing, setIsWithdrawing] = useState(false);
 
   const handleWithdraw = async (
     enteredAccountNumber: string,
@@ -46,6 +47,8 @@ const useWithdrawFund = ({
         account_number: enteredAccountNumber,
       };
 
+      setIsWithdrawing(true);
+
       const response: AxiosResponse = await axios.post(
         `https://blue-api-backend.herokuapp.com/api/payment-link/${id}/withdraw`,
         payload
@@ -70,10 +73,11 @@ const useWithdrawFund = ({
       }
     } finally {
       setLoading(false);
+      setIsWithdrawing(false);
     }
   };
 
-  return { loading, handleWithdraw };
+  return { loading, handleWithdraw, isWidthrawing };
 };
 
 export default useWithdrawFund;

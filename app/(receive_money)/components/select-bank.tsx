@@ -50,7 +50,11 @@ const SelectBank = ({
   const router = useRouter();
   const [messageApi, contextHolder] = message.useMessage();
 
-  const { handleWithdraw, loading: loadingWithdraw } = useWithdrawFund({
+  const {
+    handleWithdraw,
+    loading: loadingWithdraw,
+    isWidthrawing,
+  } = useWithdrawFund({
     id: String(id),
     messageApi,
     selectedBank: selectedBank!,
@@ -123,12 +127,17 @@ const SelectBank = ({
                 size="large"
                 loading={loadingWithdraw}
               >
-                {/* {verify.loading
+                {/* {loadingWithdraw
                   ? "Verifying"
                   : withdrawalLoading
                   ? "Attempting Withdrawal"
                   : "Verify"} */}
-                Verify
+                {loadingWithdraw
+                  ? isWidthrawing
+                    ? "Widthdrawing"
+                    : "Verifying"
+                  : "Verify"}
+                {/* Verify */}
               </Button>
             </Form>
           </div>
