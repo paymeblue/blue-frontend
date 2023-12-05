@@ -129,7 +129,7 @@ const SelectBank = ({
               >
                 {loadingWithdraw
                   ? isWidthrawing
-                    ? "Widthdrawing"
+                    ? "Withdrawing"
                     : "Verifying"
                   : "Verify"}
               </Button>
