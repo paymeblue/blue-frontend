@@ -105,6 +105,7 @@ const SelectBank = ({
       closeModal();
       return response.data.data;
     } catch (error: any) {
+      console.log(error, "withdrawal error");
       if (axios.isAxiosError(error)) {
         // Axios error (HTTP error response)
         const axiosError: AxiosError = error;
@@ -141,7 +142,7 @@ const SelectBank = ({
     // { enabled: !!state.phone }
   );
 
-  const { data: transfer } = useQuery(
+  const { data: transfer, isLoading: withdrawalLoading } = useQuery(
     "transfer-bank",
     () => withdrawFund(selectedBank!),
     { enabled: !!verify.status, retry: false }
@@ -229,9 +230,13 @@ const SelectBank = ({
             39663rem] text-white laptop:p-6 laptop:text-[1rem] laptop:leading-[1.5rem] "
                 block
                 size="large"
-                loading={verify.loading}
+                loading={verify.loading || withdrawalLoading}
               >
-                Verify
+                {verify.loading
+                  ? "Verifying"
+                  : withdrawalLoading
+                  ? "Attempting Withdrawal"
+                  : "Verify"}
               </Button>
             </Form>
           </div>

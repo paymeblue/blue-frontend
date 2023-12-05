@@ -82,7 +82,7 @@ const Receipt = forwardRef(({ receiptData }: any, ref: Ref<HTMLElement>) => {
   return (
     <main ref={ref}>
       <nav className="w-full flex items-center px-6 py-4 tablet:px-20 m-auto justify-between bg-primary">
-        <p className="text-lg font-medium text-white leading-6">
+        <p className="text-lg font-medium m-0 p-0 text-white leading-6">
           Transaction Receipt
         </p>
         <div>
