@@ -127,17 +127,11 @@ const SelectBank = ({
                 size="large"
                 loading={loadingWithdraw}
               >
-                {/* {loadingWithdraw
-                  ? "Verifying"
-                  : withdrawalLoading
-                  ? "Attempting Withdrawal"
-                  : "Verify"} */}
                 {loadingWithdraw
                   ? isWidthrawing
                     ? "Widthdrawing"
                     : "Verifying"
                   : "Verify"}
-                {/* Verify */}
               </Button>
             </Form>
           </div>

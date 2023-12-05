@@ -16,7 +16,7 @@ interface ReceiverDetails {
 }
 
 const useGetReceiverDetails = ({ code }: Props) => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [receiverDetails, setReceiverDetails] =
     useState<ReceiverDetails | null>(null);
