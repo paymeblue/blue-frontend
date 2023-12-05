@@ -2,25 +2,13 @@
 import { CheckCircleOutlined } from "@ant-design/icons";
 import Portal from "@shared/portal";
 import { Button, Form, Input, Typography, message } from "antd";
-import { useCtx } from "app/context/store-context";
-import axios, { AxiosError, AxiosResponse } from "axios";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import bank from "public/bank.png";
-import { ChangeEvent, Fragment, useEffect, useState } from "react";
-import { useQuery } from "react-query";
+import { ChangeEvent, Fragment, useState } from "react";
 import EmptyState from "./empty-state";
-
-type Bank = {
-  account_number: string;
-  bank_code: string;
-  bank_name: string;
-  receiver_name: string;
-};
-type BasicResponse = {
-  status: "fail" | "string";
-  message: string;
-};
+import useFetchBankList, { LinkedBank } from "@hooks/useFetchBankList";
+import useWithdrawFund from "@hooks/useWithdrawFund";
 
 const { Title, Paragraph } = Typography;
 const { Item } = Form;
@@ -50,110 +38,40 @@ const SelectBank = ({
   transaction_id: number;
   id: number;
 }) => {
-  const { state } = useCtx();
+  const {
+    loading: loadingLinkedBanks,
+    error: errorFetchingLinkedBanks,
+    linkedBanks,
+  } = useFetchBankList({ code, phone });
 
-  console.log(state.phone);
   const [selected, setSelected] = useState("");
-  const [selectedBank, setSelectedBank] = useState<Bank | undefined>();
+  const [selectedBank, setSelectedBank] = useState<LinkedBank | undefined>();
   const [open, setOpen] = useState(false);
-  const [verify, setVerify] = useState({ loading: false, status: undefined });
   const router = useRouter();
   const [messageApi, contextHolder] = message.useMessage();
-  useEffect(() => {
-    if (state.phone) {
-    }
-  }, [state.phone]);
-  console.log(selectedBank, "selected bank");
-  const fetchBankList = async (phone: string | null): Promise<Bank[]> => {
-    try {
-      const result = await axios.get(
-        // `https://blue-api-backend.herokuapp.com/api/payment-link/linked-accounts?phone=${phone}`
-        `https://blue-api-backend.herokuapp.com/api/payment-link/linked-accounts?phone=${phone}&url_code=${code}`
-      );
-      return result.data.data;
-    } catch (error) {
-      console.log(error, "error in fetching list of banks");
-      throw error;
-    }
-  };
-  const withdrawFund = async (data: Bank) => {
-    try {
-      const body: Partial<{
-        amount: number | undefined;
-        transaction_id: string;
-        account_number: string;
-        bank_code: string;
-        bank_name: string;
-        receiver_name: string;
-      }> = {
-        ...data,
-      };
-      delete body.receiver_name;
-      delete body.bank_name;
-      const response: AxiosResponse = await axios.post(
-        `https://blue-api-backend.herokuapp.com/api/payment-link/${id}/withdraw`,
-        body
-      );
-      console.log(response, "withdrawal response");
-      sendReceipt(response.data.data);
+
+  const { handleWithdraw, loading: loadingWithdraw } = useWithdrawFund({
+    id: String(id),
+    messageApi,
+    selectedBank: selectedBank!,
+    onSuccess: (response) => {
+      sendReceipt(response.data);
       messageApi.open({
-        content: `${response.data.message}`,
+        content: `${response.message}`,
         className: "[&>div]:bg-[#17B472] [&>div]:text-white",
         icon: <CheckCircleOutlined />,
       });
       router.replace("?step=success");
       closeModal();
-      return response.data.data;
-    } catch (error: any) {
-      console.log(error, "withdrawal error");
-      if (axios.isAxiosError(error)) {
-        // Axios error (HTTP error response)
-        const axiosError: AxiosError = error;
-        console.log(axiosError, "axios error");
-        if (axiosError.response) {
-          console.log("Error Status:", axiosError.response.status);
-          console.log("Error Data:", axiosError.response.data);
-          messageApi.open({
-            content: `${(axiosError.response.data as BasicResponse).message}`,
-            className: "[&>div]:bg-red-800 [&>div]:text-white",
-          });
-        } else {
-          console.log("Network Error:", axiosError.message);
-          messageApi.open({
-            content: `${axiosError.message}`,
-            className: "[&>div]:bg-red-800 [&>div]:text-white",
-          });
-        }
-      } else {
-        // Non-Axios error (e.g., network error)
-        console.log("Unexpected Error:", error.message);
-        messageApi.open({
-          content: `${error.message}`,
-          className: "[&>div]:bg-red-800 [&>div]:text-white",
-        });
-      }
-    }
-    // };
-  };
-  const { data, isLoading, error } = useQuery(
-    "bank-list",
-    () => fetchBankList(phone),
-    { retry: false }
-    // { enabled: !!state.phone }
-  );
+    },
+  });
 
-  const { data: transfer, isLoading: withdrawalLoading } = useQuery(
-    "transfer-bank",
-    () => withdrawFund(selectedBank!),
-    { enabled: !!verify.status, retry: false }
-  );
-  if (error) {
+  if (errorFetchingLinkedBanks) {
     return <EmptyState />;
   }
-  console.log(transfer, "transfer complete");
   const handleRadioChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSelected(e.target.value);
-    const selectedItem = data?.find(
+    const selectedItem = linkedBanks?.find(
       (item: any) => item.account_number === e.target.value
     );
     setSelectedBank(selectedItem);
@@ -165,35 +83,8 @@ const SelectBank = ({
   };
 
   const onFinish = async ({ acctNum }: { acctNum: string }) => {
-    setVerify((prev) => ({ ...prev, loading: true }));
-    const body = {
-      account_number: acctNum,
-      masked_account: selectedBank?.account_number,
-    };
-    try {
-      const result = await axios.post(
-        `https://blue-api-backend.herokuapp.com/api/payment-link/${id}/validate-account`,
-        body
-      );
-      setVerify((prev) => ({ ...prev, status: result.data.status }));
-      messageApi.open({
-        content: `${result.data.message}`,
-        className: "[&>div]:bg-green-800 [&>div]:text-white",
-      });
-      if (selectedBank) {
-        setSelectedBank(() => ({
-          ...selectedBank,
-          account_number: acctNum,
-        }));
-      }
-    } catch (error) {
-      messageApi.open({
-        content: `Account numbers didn't match. Please enter the correct account number for the account.`,
-        className: "[&>div]:bg-red-800 [&>div]:text-white",
-      });
-    } finally {
-      setVerify((prev) => ({ ...prev, loading: false }));
-    }
+    if (!selectedBank) return;
+    handleWithdraw(acctNum, selectedBank?.account_number);
   };
   return (
     <Fragment>
@@ -230,13 +121,14 @@ const SelectBank = ({
             39663rem] text-white laptop:p-6 laptop:text-[1rem] laptop:leading-[1.5rem] "
                 block
                 size="large"
-                loading={verify.loading || withdrawalLoading}
+                loading={loadingWithdraw}
               >
-                {verify.loading
+                {/* {verify.loading
                   ? "Verifying"
                   : withdrawalLoading
                   ? "Attempting Withdrawal"
-                  : "Verify"}
+                  : "Verify"} */}
+                Verify
               </Button>
             </Form>
           </div>
@@ -253,7 +145,7 @@ const SelectBank = ({
           Choose the bank account you want to transfer the received money to:
         </div>
       </div>
-      {isLoading ? (
+      {loadingLinkedBanks ? (
         Array.from({ length: 3 }, (_, index) => (
           <LoadingBankSkeleton key={index} />
         ))
@@ -261,7 +153,7 @@ const SelectBank = ({
         <form className="max-w-lg w-full m-auto">
           <div className="flex items-center w-full flex-col gap-20 justify-center">
             <div className="w-full">
-              {data?.map((item: Bank) => {
+              {linkedBanks?.map((item) => {
                 return (
                   <div
                     key={item.account_number}
