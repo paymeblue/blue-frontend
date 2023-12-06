@@ -41,7 +41,7 @@ const HeroSection = () => {
             bgColor="white"
             className="rounded-2xl p-6"
             type="svg"
-            value="https://paymeblue.com/"
+            value="https://paymeblue.com/download"
           />
           <div className="absolute bottom-[-35%] left-[40%] flex w-full items-center tablet:-bottom-[50%] tablet:left-[50%] tablet:w-max laptop:left-[60%]">
             <Image
