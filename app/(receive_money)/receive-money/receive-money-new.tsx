@@ -198,7 +198,7 @@ const ReceiveMoney = ({ code }: Props) => {
                               {item.desc}
                             </Paragraph>
                             {item.showCharge && (
-                              <Paragraph className="tracking-[-0.00813rem] leading-5 text-[0.6825rem] laptop:tracking-[-0.01125rem] m-0 laptop:text-[.9rem] text-primary">
+                              <Paragraph className="tracking-[-0.00813rem] leading-5 text-[0.8125rem] laptop:tracking-[-0.01125rem] m-0 laptop:text-[.9rem] text-primary">
                                 A charge of {formatCurrency(Number(charge))}{" "}
                                 will apply.
                               </Paragraph>
