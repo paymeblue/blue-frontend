@@ -13,6 +13,7 @@ interface ReceiverDetails {
   sender: string;
   phone: string;
   transaction_id: number;
+  charges: string;
 }
 
 const useGetReceiverDetails = ({ code }: Props) => {

@@ -41,6 +41,7 @@ const ReceiveMoney = ({ code }: Props) => {
   const amount = receiverDetails?.amount || null;
   const sender = receiverDetails?.sender || null;
   const phone = receiverDetails?.phone || null;
+  const charge = receiverDetails?.charges || null;
   useEffect(() => {
     const data = { amount, sender, phone };
     updateStore(data);
@@ -90,6 +91,7 @@ const ReceiveMoney = ({ code }: Props) => {
       ),
       title: "Send to your desired Bank Account",
       desc: "Enter your phone number and choose any bank accounts linked to your number.",
+      showCharge: true,
     },
     {
       id: "2",
@@ -169,7 +171,7 @@ const ReceiveMoney = ({ code }: Props) => {
                     {items.map((item) => (
                       <div
                         key={item.id}
-                        className="relative h-[120px] w-full mx-auto max-w-[500px] mb-6"
+                        className="relative h-[150px] w-full mx-auto max-w-[500px] mb-6"
                       >
                         <input
                           type="radio"
@@ -195,6 +197,12 @@ const ReceiveMoney = ({ code }: Props) => {
                             <Paragraph className="tracking-[-0.00813rem] leading-5 text-[0.8125rem] laptop:tracking-[-0.01125rem] m-0 laptop:text-base text-txt2">
                               {item.desc}
                             </Paragraph>
+                            {item.showCharge && (
+                              <Paragraph className="tracking-[-0.00813rem] leading-5 text-[0.6825rem] laptop:tracking-[-0.01125rem] m-0 laptop:text-[.9rem] text-primary">
+                                A charge of {formatCurrency(Number(charge))}{" "}
+                                will apply.
+                              </Paragraph>
+                            )}
                           </div>
                         </label>
                       </div>
