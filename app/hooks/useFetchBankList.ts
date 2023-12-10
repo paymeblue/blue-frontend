@@ -28,6 +28,7 @@ const useFetchBankList = ({ phone, code }: IUseFetchBankList) => {
       );
       setLinkedBanks(result.data.data);
     } catch (err) {
+      setError(true);
     } finally {
       setLoading(false);
     }
