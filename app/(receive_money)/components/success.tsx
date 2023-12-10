@@ -52,7 +52,7 @@ const Success = ({ refElem, data }: { refElem: any; data: any }) => {
           <Paragraph className="tracking-[-0.025rem] max-w-xs mx-auto text-base leading-6 laptop:leading-[2.00244rem] text-txt2 font-medium laptop:text-xl">
             You sent&nbsp;
             <strong className="font-semibold text-txt">
-              {formatCurrency(data.amount)}
+              {formatCurrency(data.amount - 50)}
             </strong>
             &nbsp;to {data.receiver_wallet}
             <br />({data.receiver_name})
