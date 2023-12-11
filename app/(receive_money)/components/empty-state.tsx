@@ -1,5 +1,5 @@
 import { detectOS } from "@lib/index";
-import { Typography } from "antd";
+import { Button, Typography } from "antd";
 import Image from "next/image";
 import Link from "next/link";
 import empty from "public/empty.png";
@@ -47,7 +47,7 @@ const EmptyState = ({ title, description, btnText }: Props) => {
                 There is no bank account tied to your phone number.&nbsp;
               </span>
             )}
-            <br className="laptop:hidden" />
+            {/* <br className="laptop:hidden" />
             <Link
               href={
                 platform === "iOS"
@@ -57,8 +57,23 @@ const EmptyState = ({ title, description, btnText }: Props) => {
               className="text-primary underline"
             >
               {btnText || "Sign up for Blue to access your funds."}
-            </Link>
+            </Link> */}
           </Paragraph>
+          <Link
+            href={
+              platform === "iOS"
+                ? "/#link-to-iOS-store"
+                : "/#link-to-android-store"
+            }
+            className="mt-4 max-lg:w-[90%]"
+          >
+            <Button
+              type="primary"
+              className="max-lg:w-full lg:px-20 h-12 text-[0.8125rem] laptop:text-xl"
+            >
+              {btnText || "Sign up on Blue to access your funds"}
+            </Button>
+          </Link>
         </div>
       </div>
     </Fragment>
