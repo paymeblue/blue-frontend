@@ -90,13 +90,13 @@ const VerifyIdentity = () => {
         widget_id: DOJAH_WIDGET_ID,
       }}
       userData={{
-        first_name: userKycDetails.firstName,
-        last_name: userKycDetails.lastName,
-        dob: userKycDetails.dateOfBirth,
+        first_name: userKycDetails.first_name,
+        last_name: userKycDetails.last_name,
+        dob: userKycDetails.date_of_birth,
         residence_country: "NG",
       }}
       metadata={{
-        user_id: userKycDetails.walletId,
+        wallet_code: userKycDetails.wallet_code,
       }}
       govData={{
         bvn: userKycDetails.bvn,
