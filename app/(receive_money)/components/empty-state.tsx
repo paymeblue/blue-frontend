@@ -11,9 +11,10 @@ interface Props {
   title?: string;
   description?: string | ReactNode;
   btnText?: string;
+  btnOnClick?: () => void;
 }
 
-const EmptyState = ({ title, description, btnText }: Props) => {
+const EmptyState = ({ title, description, btnText, btnOnClick }: Props) => {
   const [isClient, setClient] = useState(false);
   let platform;
   useEffect(() => {
@@ -59,21 +60,31 @@ const EmptyState = ({ title, description, btnText }: Props) => {
               {btnText || "Sign up for Blue to access your funds."}
             </Link> */}
           </Paragraph>
-          <Link
-            href={
-              platform === "iOS"
-                ? "/#link-to-iOS-store"
-                : "/#link-to-android-store"
-            }
-            className="mt-4 max-lg:w-[90%]"
-          >
+          {btnOnClick ? (
             <Button
+              onClick={btnOnClick}
               type="primary"
               className="max-lg:w-full lg:px-20 h-12 text-[0.8125rem] laptop:text-xl"
             >
               {btnText || "Sign up on Blue to access your funds"}
             </Button>
-          </Link>
+          ) : (
+            <Link
+              href={
+                platform === "iOS"
+                  ? "/#link-to-iOS-store"
+                  : "/#link-to-android-store"
+              }
+              className="mt-4 max-lg:w-[90%]"
+            >
+              <Button
+                type="primary"
+                className="max-lg:w-full lg:px-20 h-12 text-[0.8125rem] laptop:text-xl"
+              >
+                {btnText || "Sign up on Blue to access your funds"}
+              </Button>
+            </Link>
+          )}
         </div>
       </div>
     </Fragment>
