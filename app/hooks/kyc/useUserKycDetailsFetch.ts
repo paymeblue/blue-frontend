@@ -1,4 +1,5 @@
 "use client";
+import axios from "axios";
 import { useCallback, useEffect, useState } from "react";
 
 interface Props {
@@ -6,11 +7,12 @@ interface Props {
 }
 
 interface IUserKycDetails {
-  firstName: string;
-  lastName: string;
-  dateOfBirth: string;
+  first_name: string;
+  last_name: string;
+  date_of_birth: string;
   bvn: string;
-  walletId: string;
+  phone: string;
+  wallet_code: string;
 }
 
 const useUserKycDetailsGet = ({ token }: Props) => {
@@ -25,13 +27,24 @@ const useUserKycDetailsGet = ({ token }: Props) => {
     setError(false);
     try {
       // const res = await axios.get() // Call accelerate endpoint
-      setUserKycDetails({
-        firstName: "Victor",
-        lastName: "Whyte",
-        bvn: "22222222222",
-        dateOfBirth: "1999-04-22",
-        walletId: "12222333",
-      });
+      const res = await axios.get(
+        "https://blue-api-backend.herokuapp.com/api/kycs",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      const details = res?.data?.data as IUserKycDetails;
+      console.log({ details });
+      setUserKycDetails(details);
+      // setUserKycDetails({
+      //   firstName: "Victor",
+      //   lastName: "Whyte",
+      //   bvn: "22222222222",
+      //   dateOfBirth: "1999-04-22",
+      //   walletId: "12222333",
+      // });
     } catch (err) {
       setError(true);
     } finally {
