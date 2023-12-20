@@ -41,6 +41,9 @@ dependencies:
   react:
     specifier: 18.2.0
     version: 18.2.0
+  react-dojah:
+    specifier: ^1.1.0
+    version: 1.1.0(react@18.2.0)
   react-dom:
     specifier: 18.2.0
     version: 18.2.0(react@18.2.0)
@@ -5728,6 +5731,18 @@ packages:
       rc-util: 5.38.0(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
+  /react-dojah@1.1.0(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-+O+NjhUR98Ti4QOvoTURVlN6mB4Df/+ebLWintElJX7y8eD4oVByJHhvXA6Qwr9oEXq6u9qDTY9OH5/UbEKm9w==,
+      }
+    engines: { node: ">=10" }
+    peerDependencies:
+      react: ^16.0.0
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /react-dom@18.2.0(react@18.2.0):
