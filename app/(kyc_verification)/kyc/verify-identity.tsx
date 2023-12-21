@@ -34,6 +34,7 @@ const VerifyIdentity = () => {
   const closeWebview = () => {
     // window.postMessage("closeWebView", "*");
     window.postMessage("closeWebView", "*");
+    window?.Close.postMessage("closeWebView", "*");
   };
 
   const response = (type: any, data: any) => {
