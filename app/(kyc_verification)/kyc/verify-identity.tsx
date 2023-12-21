@@ -33,7 +33,8 @@ const VerifyIdentity = () => {
   );
 
   const closeWebview = () => {
-    window.postMessage("closeWebView", "*");
+    // window.postMessage("closeWebView", "*");
+    window.parent.postMessage("closeWebView", "*");
   };
 
   const response = (type: any, data: any) => {
