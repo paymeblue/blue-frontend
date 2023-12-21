@@ -9,7 +9,6 @@ import {
 import { Spin } from "antd";
 import EmptyState from "app/(receive_money)/components/empty-state";
 import { useSearchParams } from "next/navigation";
-import { useEffect } from "react";
 // @ts-ignore
 import Dojah from "react-dojah";
 
@@ -19,7 +18,6 @@ const VerifyIdentity = () => {
   const { error, loading, userKycDetails } = useUserKycDetailsGet({
     token,
   });
-  console.log({ userKycDetails });
   const antIcon = (
     <LoadingOutlined
       style={{
@@ -35,10 +33,7 @@ const VerifyIdentity = () => {
 
   const closeWebview = () => {
     // window.postMessage("closeWebView", "*");
-    // window.parent.postMessage("closeWebView", "*");
-    if (window?.flutter_inappwebview) {
-      window.flutter_inappwebview.callHandler("closeWebView", "here");
-    }
+    window.postMessage("closeWebView", "*");
   };
 
   const response = (type: any, data: any) => {
@@ -52,17 +47,6 @@ const VerifyIdentity = () => {
     } else if (type === "loading") {
     }
   };
-
-  const appReady = () => {
-    console.log("App ready");
-  };
-
-  useEffect(() => {
-    window.addEventListener("flutterInAppWebViewPlatformReady", appReady);
-    return () => {
-      window.removeEventListener("flutterInAppWebViewPlatformReady", appReady);
-    };
-  }, []);
 
   if (!token) {
     return (
