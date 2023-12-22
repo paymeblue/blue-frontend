@@ -32,9 +32,13 @@ const VerifyIdentity = () => {
   );
 
   const closeWebview = () => {
-    // window.postMessage("closeWebView", "*");
     window.postMessage("closeWebView", "*");
     window?.Close.postMessage("closeWebView", "*");
+  };
+
+  const closeWebViewOnError = () => {
+    window.postMessage("closeWebViewError", "*");
+    window?.Close.postMessage("closeWebViewError", "*");
   };
 
   const response = (type: any, data: any) => {
@@ -43,7 +47,9 @@ const VerifyIdentity = () => {
       console.log({ type, data });
       closeWebview();
     } else if (type === "error") {
+      closeWebViewOnError();
     } else if (type === "close") {
+      closeWebViewOnError();
     } else if (type === "begin") {
     } else if (type === "loading") {
     }
@@ -74,8 +80,11 @@ const VerifyIdentity = () => {
       <div className="flex w-screen h-screen items-center justify-center">
         <EmptyState
           title="Invalid credentials"
-          description="We could not verify your identity. Please log into Blue and try again."
-          btnText="Sign up for Blue today!"
+          description="We could not verify your identity. Please return to the Blue app and try again."
+          btnText="Return to app"
+          btnOnClick={() => {
+            closeWebViewOnError();
+          }}
         />
       </div>
     );
