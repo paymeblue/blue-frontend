@@ -9,8 +9,6 @@ interface Props {
 interface IUserKycDetails {
   first_name: string;
   last_name: string;
-  date_of_birth: string;
-  bvn: string;
   phone: string;
   wallet_code: string;
 }
@@ -26,7 +24,6 @@ const useUserKycDetailsGet = ({ token }: Props) => {
     setLoading(true);
     setError(false);
     try {
-      // const res = await axios.get() // Call accelerate endpoint
       const res = await axios.get(
         "https://blue-api-backend.herokuapp.com/api/kycs",
         {
@@ -36,15 +33,7 @@ const useUserKycDetailsGet = ({ token }: Props) => {
         }
       );
       const details = res?.data?.data as IUserKycDetails;
-      console.log({ details });
       setUserKycDetails(details);
-      // setUserKycDetails({
-      //   firstName: "Victor",
-      //   lastName: "Whyte",
-      //   bvn: "22222222222",
-      //   dateOfBirth: "1999-04-22",
-      //   walletId: "12222333",
-      // });
     } catch (err) {
       setError(true);
     } finally {

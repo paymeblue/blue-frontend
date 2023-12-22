@@ -102,14 +102,10 @@ const VerifyIdentity = () => {
       userData={{
         first_name: userKycDetails.first_name,
         last_name: userKycDetails.last_name,
-        dob: userKycDetails.date_of_birth,
         residence_country: "NG",
       }}
       metadata={{
         wallet_code: userKycDetails.wallet_code,
-      }}
-      govData={{
-        bvn: userKycDetails.bvn,
       }}
     />
   );
