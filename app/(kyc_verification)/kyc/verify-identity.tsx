@@ -42,9 +42,7 @@ const VerifyIdentity = () => {
   };
 
   const response = (type: any, data: any) => {
-    console.log(type, data);
     if (type === "success") {
-      console.log({ type, data });
       closeWebview();
     } else if (type === "error") {
       closeWebViewOnError();
