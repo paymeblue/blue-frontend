@@ -10,6 +10,7 @@ interface IUseWithdrawFund {
   selectedBank: LinkedBank;
   onSuccess?: (x: any) => void;
 }
+``;
 
 const useWithdrawFund = ({
   id,
@@ -21,8 +22,9 @@ const useWithdrawFund = ({
   const [isWidthrawing, setIsWithdrawing] = useState(false);
 
   const isStringMatch = (pattern: string, strToMatch: string) => {
-    const regexPattern = pattern.replace(/\*/g, "\\d*");
-    const regex = new RegExp(`^${regexPattern}$`);
+    const regexPattern = pattern.replace(/[*]/g, "\\d*");
+    const regexPatternWithX = regexPattern.replace(/[Xx]/g, "\\d");
+    const regex = new RegExp(`^${regexPatternWithX}$`, "i");
 
     return regex.test(strToMatch);
   };

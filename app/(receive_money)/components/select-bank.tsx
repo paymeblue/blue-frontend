@@ -160,7 +160,7 @@ const SelectBank = ({
                 return (
                   <div
                     key={item.account_number}
-                    className="relative w-full h-[80px] max-w-[450px] mb-6"
+                    className="relative w-full h-[90px] max-w-[450px] mb-6"
                   >
                     <input
                       type="radio"
