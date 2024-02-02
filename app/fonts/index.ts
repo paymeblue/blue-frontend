@@ -14,7 +14,7 @@ export const satoshi = localFont({
     {
       path: "./Satoshi/Fonts/WEB/fonts/Satoshi-Regular.ttf",
       weight: "400",
-      style: "italic",
+      style: "normal",
     },
     {
       path: "./Satoshi/Fonts/WEB/fonts/Satoshi-Medium.ttf",
