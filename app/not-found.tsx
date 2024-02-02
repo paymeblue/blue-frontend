@@ -46,7 +46,7 @@ const PageNotFound = () => {
       <Typography className="text-center w-full max-w-[21.75rem] font-satoshi text-body-text-2">
         We're sorry, the page you requested <br /> could not be found
       </Typography>
-      <Link href="/" className="mt-4 w-full max-w-[21.75rem]">
+      <Link href="/" className="mt-4 w-full max-w-[20.75rem]">
         <Button
           type="primary"
           className="w-full font-satoshi lg:px-20 h-12"
