@@ -41,7 +41,7 @@ const PageNotFound = () => {
         className="object-contain"
       />
       <Typography className="text-center w-full max-w-[21.75rem] font-satoshi font-[700] text-txt">
-        <span className="text-[2rem] lg:text-[2.5rem]">Page Not Found</span>
+        <span className="text-[2rem] lg:text-[2.5rem]">Page Not Found!</span>
       </Typography>
       <Typography className="text-center w-full max-w-[21.75rem] font-satoshi text-body-text-2">
         We're sorry, the page you requested <br /> could not be found
