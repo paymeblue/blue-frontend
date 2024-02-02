@@ -3,7 +3,7 @@ import "@styles/globals.css";
 // ant design stylesheet
 import "antd/dist/reset.css";
 import { Metadata } from "next";
-import { gilroy } from "./fonts";
+import { gilroy, satoshi } from "./fonts";
 import Providers from "./providers";
 
 export const metadata: Metadata = {
@@ -32,7 +32,7 @@ export default function RootLayout({
         name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
       />
-      <body className={`${gilroy.variable}`}>
+      <body className={`${gilroy.variable} ${satoshi.variable}`}>
         <Providers>{children}</Providers>
       </body>
     </html>

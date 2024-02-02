@@ -8,3 +8,23 @@ export const gilroy = localFont({
   preload: true,
   style: "normal",
 });
+
+export const satoshi = localFont({
+  src: [
+    {
+      path: "./Satoshi/Fonts/WEB/fonts/Satoshi-Regular.ttf",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "./Satoshi/Fonts/WEB/fonts/Satoshi-Medium.ttf",
+      weight: "500",
+      style: "normal",
+    },
+  ],
+  weight: "400",
+  display: "swap",
+  variable: "--font-satoshi",
+  preload: true,
+  style: "normal",
+});

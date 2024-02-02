@@ -1,11 +1,11 @@
 "use client";
 import { LoadingOutlined } from "@ant-design/icons";
 import useHandleCodeVerify from "@hooks/useHandleCodeVerify";
-import { Button, Spin } from "antd";
-import { Typography } from "antd";
+import { Button, Spin, Typography } from "antd";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import notFound from "public/404.png";
 
 const PageNotFound = () => {
   const code = usePathname();
@@ -32,37 +32,25 @@ const PageNotFound = () => {
     );
   }
   return (
-    <div className="flex h-screen w-screen items-center justify-center flex-col relative">
+    <div className="flex h-screen w-screen items-center justify-center flex-col">
       <Image
-        src="/xIcon.svg"
+        src={notFound}
         alt="X Icon"
-        width={47}
-        height={52}
-        className="absolute top-[20%] left-[40%]"
+        width={347.21}
+        height={322.89}
+        className="object-contain"
       />
-      <Image
-        src="/xIcon.svg"
-        alt="X Icon"
-        width={63}
-        height={70}
-        className="absolute bottom-[20%] left-[50%]"
-      />
-      <Image
-        src="/circle.svg"
-        alt="Circle Icon"
-        width={28}
-        height={28}
-        className="absolute bottom-[70%] lg:bottom-[50%] left-[70%]"
-      />
-      <Typography className="text-center font-[700] text-txt">
-        <span className="text-[3rem] lg:text-[3rem]">404</span> <br />{" "}
+      <Typography className="text-center font-satoshi font-[700] text-txt">
         <span className="text-[2rem] lg:text-[2.5rem]">Page Not Found</span>
       </Typography>
-      <Typography className="text-center text-body-text-2">
-        We're sorry, the page you requested could <br /> not be found
+      <Typography className="text-center font-satoshi text-body-text-2">
+        We're sorry, the page you requested <br /> could not be found
       </Typography>
       <Link href="/" className="mt-4 max-lg:w-[90%]">
-        <Button type="primary" className="max-lg:w-full lg:px-20 h-12">
+        <Button
+          type="primary"
+          className="max-lg:w-full font-satoshi lg:px-20 h-12"
+        >
           Proceed
         </Button>
       </Link>
