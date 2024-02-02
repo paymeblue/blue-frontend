@@ -1,0 +1,32 @@
+import { Space } from "antd";
+import Image from "next/image";
+import Link from "next/link";
+import appPlay from "public/app-store.svg";
+import googlePlay from "public/google-play.svg";
+
+const DownloadBtns = () => {
+  return (
+    <Space className="mt-6 laptop-md:mt-8">
+      <Link href="#" target="_blank">
+        <Image
+          src={googlePlay}
+          alt="download blue app on google play"
+          priority
+          className="mx-auto object-contain laptop:w-auto"
+          width={121.8}
+        />
+      </Link>
+      <Link href="#" target="_blank">
+        <Image
+          src={appPlay}
+          alt="download blue app on google play"
+          priority
+          className="mx-auto object-contain laptop:w-auto"
+          width={121.8}
+        />
+      </Link>
+    </Space>
+  );
+};
+
+export default DownloadBtns;

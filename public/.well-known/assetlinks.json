@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.roman_dev.blue_mobile",
+      "sha256_cert_fingerprints": [
+        "21:48:0F:95:AD:FE:03:68:85:F5:B9:1F:F6:A8:71:08:CF:EE:0D:8E:23:B8:04:E9:26:90:4D:EE:12:FF:5A:4B"
+      ]
+    }
+  }
+]
