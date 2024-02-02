@@ -36,11 +36,11 @@ const EmptyState = ({ title, description, btnText, btnOnClick }: Props) => {
         <div>
           <Title
             level={5}
-            className="laptop:leading-normal font-semibold m-0 leading-[1.3125rem] text-lg laptop:text-[1.75rem]"
+            className="laptop:leading-normal font-satoshi font-semibold m-0 leading-[1.3125rem] text-lg laptop:text-[1.75rem]"
           >
             {title || "No Linked Bank Account!"}
           </Title>
-          <Paragraph className="font-medium leading-5 text-[0.8125rem] laptop:text-xl">
+          <Paragraph className="font-medium font-satoshi leading-5 text-[0.8125rem] laptop:text-xl">
             {description ? (
               <span>{description}&nbsp;</span>
             ) : (
@@ -64,7 +64,7 @@ const EmptyState = ({ title, description, btnText, btnOnClick }: Props) => {
             <Button
               onClick={btnOnClick}
               type="primary"
-              className="max-lg:w-full lg:px-20 h-12 text-[0.8125rem] laptop:text-xl"
+              className="max-lg:w-full font-satoshi lg:px-20 h-12 text-[0.8125rem] laptop:text-xl"
             >
               {btnText || "Sign up on Blue to access your funds"}
             </Button>
@@ -79,7 +79,7 @@ const EmptyState = ({ title, description, btnText, btnOnClick }: Props) => {
             >
               <Button
                 type="primary"
-                className="max-lg:w-full lg:px-20 h-12 text-[0.8125rem] laptop:text-xl"
+                className="max-lg:w-full font-satoshi lg:px-20 h-12 text-[0.8125rem] laptop:text-xl"
               >
                 {btnText || "Sign up on Blue to access your funds"}
               </Button>

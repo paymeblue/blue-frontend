@@ -24,6 +24,7 @@ module.exports = {
       },
       fontFamily: {
         gilroy: ["var(--font-gilroy)"],
+        satoshi: ["var(--font-satoshi)"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

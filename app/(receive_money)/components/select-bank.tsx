@@ -1,5 +1,7 @@
 "use client";
 import { CheckCircleOutlined } from "@ant-design/icons";
+import useFetchBankList, { LinkedBank } from "@hooks/useFetchBankList";
+import useWithdrawFund from "@hooks/useWithdrawFund";
 import Portal from "@shared/portal";
 import { Button, Form, Input, Typography, message } from "antd";
 import Image from "next/image";
@@ -7,8 +9,6 @@ import { useRouter } from "next/navigation";
 import bank from "public/bank.png";
 import { ChangeEvent, Fragment, useState } from "react";
 import EmptyState from "./empty-state";
-import useFetchBankList, { LinkedBank } from "@hooks/useFetchBankList";
-import useWithdrawFund from "@hooks/useWithdrawFund";
 
 const { Title, Paragraph } = Typography;
 const { Item } = Form;
@@ -103,26 +103,25 @@ const SelectBank = ({
               <div className="text-center mb-1">
                 <Title
                   level={4}
-                  className="leading-7 text-[#101828] laptop:leading-[3.37644rem] font-bold laptop:text-[1.75rem] text-lg m-0"
+                  className="leading-7 text-[#101828] font-satoshi laptop:leading-[3.37644rem] font-bold laptop:text-[1.75rem] text-lg m-0"
                 >
                   Confirm Account Number
                 </Title>
-                <Paragraph className="leading-[1.125rem] max-w-sm tracking-[-0.00813rem] font-normal laptop:tracking-[-0.01375rem] laptop:text-[1.375rem] text-[0.8125rem] text-body-text-2">
+                <Paragraph className="leading-[1.125rem] font-satoshi max-w-sm tracking-[-0.00813rem] font-normal laptop:tracking-[-0.01375rem] laptop:text-[1.375rem] text-[0.8125rem] text-body-text-2">
                   Input your entire account number to confirm it's yours.
                 </Paragraph>
               </div>
               <Item name="acctNum">
                 <Input
                   type="text"
-                  className="border w-full mb-3 border-primary outline-0 ring-0 rounded px-4 py-3"
+                  className="border w-full mb-3 border-primary font-satoshi outline-0 ring-0 rounded px-4 py-3"
                   placeholder="1234567890"
                 />
               </Item>
               <Button
                 type="primary"
                 htmlType="submit"
-                className="laptop mx-auto mt-6 flex items-center justify-center disabled:text-gray-900 disabled:bg-gray-200 disabled:border-none text-[0.9375rem] font-medium leading-[1.
-            39663rem] text-white laptop:p-6 laptop:text-[1rem] laptop:leading-[1.5rem] "
+                className="laptop mx-auto mt-6 flex items-center font-satoshi justify-center disabled:text-gray-900 disabled:bg-gray-200 disabled:border-none text-[0.9375rem] font-medium leading-[1.39663rem] text-white laptop:p-6 laptop:text-[1rem] laptop:leading-[1.5rem] "
                 block
                 size="large"
                 loading={loadingWithdraw}
@@ -137,14 +136,14 @@ const SelectBank = ({
           </div>
         </Portal>
       )}
-      <div className="max-w-2xl laptop-md:mt-20 mb-8 mx-auto text-center laptop:mb-10">
+      <div className="max-w-2xl laptop-md:mt-20 font-satoshi mb-8 mx-auto text-center laptop:mb-10">
         <Title
           level={3}
-          className="text-body-text-2 font-semibold leading-[1.6625rem] text-xl laptop:text-4xl laptop:leading-normal"
+          className="text-body-text-2 font-satoshi font-semibold leading-[1.6625rem] text-xl laptop:text-4xl laptop:leading-normal"
         >
           Select your desired bank account:
         </Title>
-        <div className="text-body-text-2 max-w-[450px] mx-auto leading-[1.3125rem] text-[0.9375rem] laptop:leading-9 laptop:text-[1.375rem] font-medium">
+        <div className="text-body-text-2 font-satoshi max-w-[450px] mx-auto leading-[1.3125rem] text-[0.9375rem] laptop:leading-9 laptop:text-[1.375rem] font-medium">
           Choose the bank account you want to transfer the received money to:
         </div>
       </div>
@@ -153,14 +152,14 @@ const SelectBank = ({
           <LoadingBankSkeleton key={index} />
         ))
       ) : (
-        <form className="max-w-lg w-full m-auto">
+        <form className="max-w-lg w-full font-satoshi m-auto">
           <div className="flex items-center w-full flex-col gap-20 justify-center">
             <div className="w-full">
               {linkedBanks?.map((item) => {
                 return (
                   <div
                     key={item.account_number}
-                    className="relative w-full h-[90px] max-w-[450px] mb-6"
+                    className="relative w-full font-satoshi h-[90px] max-w-[450px] mb-6"
                   >
                     <input
                       type="radio"
@@ -169,11 +168,11 @@ const SelectBank = ({
                       id={item.account_number}
                       checked={selected === item.account_number}
                       onChange={handleRadioChange}
-                      className="w-full h-full relative appearance-none checked:border-primary bg-input-field hover:border-primary border-transparent rounded border"
+                      className="w-full h-full relative font-satoshi appearance-none checked:border-primary bg-input-field hover:border-primary border-transparent rounded border"
                     />
                     <label
                       htmlFor={item.account_number}
-                      className="absolute w-full m-auto flex items-center justify-start gap-4 p-4 laptop:gap-8 laptop:p-8 h-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                      className="absolute w-full m-auto font-satoshi flex items-center justify-start gap-4 p-4 laptop:gap-8 laptop:p-8 h-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                     >
                       <div>
                         <Image
@@ -185,11 +184,11 @@ const SelectBank = ({
                       <div className="text-start">
                         <Title
                           level={5}
-                          className="font-semibold laptop:leading-[1.97531rem] mb-1 leading-[1.3125rem] text-[0.9375rem] laptop:text-xl text-txt"
+                          className="font-semibold font-satoshi laptop:leading-[1.97531rem] mb-1 leading-[1.3125rem] text-[0.9375rem] laptop:text-xl text-txt"
                         >
                           {item.bank_name}
                         </Title>
-                        <Paragraph className="laptop:leading-[1.85113rem] font-medium m-0 leading-5 text-[0.8125rem] laptop:text-lg text-txt">
+                        <Paragraph className="laptop:leading-[1.85113rem] font-satoshi font-medium m-0 leading-5 text-[0.8125rem] laptop:text-lg text-txt">
                           {item.receiver_name} - {item.account_number}
                         </Paragraph>
                       </div>

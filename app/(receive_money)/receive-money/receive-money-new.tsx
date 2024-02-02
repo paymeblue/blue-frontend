@@ -149,12 +149,12 @@ const ReceiveMoney = ({ code }: Props) => {
               <div className="max-w-2xl laptop-md:mt-20 mb-8 mx-auto text-center laptop:mb-10">
                 <Title
                   level={2}
-                  className="text-body-text-2 text-xl font-semibold laptop:text-4xl leading-[1.6625rem] laptop:leading-[2.9925rem]"
+                  className="text-body-text-2 text-xl font-satoshi font-semibold laptop:text-4xl leading-[1.6625rem] laptop:leading-[2.9925rem]"
                 >
                   You just received {formatCurrency(Number(amount))}
                   !&nbsp;
                 </Title>
-                <div className="text-body-text-2 max-w-[500px] mx-auto leading-[1.3125rem] text-[0.9375rem] laptop:leading-9 laptop:text-[1.375rem] font-medium">
+                <div className="text-body-text-2 font-satoshi max-w-[500px] mx-auto leading-[1.3125rem] text-[0.9375rem] laptop:leading-9 laptop:text-[1.375rem] font-medium">
                   <p className="text-primary capitalize font-semibold inline">
                     {sender?.replaceAll("%20", " ").toLowerCase()}&nbsp;
                   </p>
@@ -180,25 +180,25 @@ const ReceiveMoney = ({ code }: Props) => {
                           id={item.value}
                           checked={selected === item.value}
                           onChange={handleRadioChange}
-                          className="w-full h-full relative appearance-none checked:border-primary bg-input-field hover:border-primary border-transparent rounded border"
+                          className="w-full h-full relative font-satoshi appearance-none checked:border-primary bg-input-field hover:border-primary border-transparent rounded border"
                         />
                         <label
                           htmlFor={item.value}
-                          className="absolute w-full m-auto flex items-center justify-center gap-4 laptop:gap-8 p-4 laptop:p-8 h-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                          className="absolute w-full m-auto font-satoshi flex items-center justify-center gap-4 laptop:gap-8 p-4 laptop:p-8 h-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                         >
                           <div>{item.icon}</div>
                           <div>
                             <Title
                               level={4}
-                              className="font-semibold leading-[1.3125rem] text-[0.9375rem] laptop:leading-[1.97531rem] mb-1 laptop:text-xl text-txt"
+                              className="font-semibold leading-[1.3125rem] font-satoshi text-[0.9375rem] laptop:leading-[1.97531rem] mb-1 laptop:text-xl text-txt"
                             >
                               {item.title}
                             </Title>
-                            <Paragraph className="tracking-[-0.00813rem] leading-5 text-[0.8125rem] laptop:tracking-[-0.01125rem] m-0 laptop:text-base text-txt2">
+                            <Paragraph className="tracking-[-0.00813rem] font-satoshi leading-5 text-[0.8125rem] laptop:tracking-[-0.01125rem] m-0 laptop:text-base text-txt2">
                               {item.desc}
                             </Paragraph>
                             {item.showCharge && (
-                              <Paragraph className="tracking-[-0.00813rem] leading-5 text-[0.8125rem] laptop:tracking-[-0.01125rem] m-0 laptop:text-[.9rem] text-primary">
+                              <Paragraph className="tracking-[-0.00813rem] leading-5 font-satoshi text-[0.8125rem] laptop:tracking-[-0.01125rem] m-0 laptop:text-[.9rem] text-primary">
                                 A charge of {formatCurrency(Number(charge))}{" "}
                                 will apply.
                               </Paragraph>
@@ -211,7 +211,7 @@ const ReceiveMoney = ({ code }: Props) => {
                   <Button
                     type="primary"
                     htmlType="submit"
-                    className="laptop mx-auto mt-6 flex items-center max-w-[500px] justify-center disabled:text-gray-900 disabled:bg-gray-200 disabled:border-none text-[0.9375rem] font-medium leading-[1.
+                    className="laptop mx-auto mt-6 flex font-satoshi items-center max-w-[500px] justify-center disabled:text-gray-900 disabled:bg-gray-200 disabled:border-none text-[0.9375rem] font-medium leading-[1.
             39663rem] text-white laptop:p-6 laptop:text-[1rem] laptop:leading-[1.5rem] "
                     size="large"
                     block
