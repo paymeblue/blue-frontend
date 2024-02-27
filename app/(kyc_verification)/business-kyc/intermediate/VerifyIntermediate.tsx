@@ -17,6 +17,7 @@ const VerifyIntermediate = () => {
   const token = searchParams.get("token");
   const { error, loading, userKycDetails } = useUserKycDetailsGet({
     token,
+    type: "business",
   });
   const antIcon = (
     <LoadingOutlined
