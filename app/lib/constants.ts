@@ -1,5 +1,5 @@
-// const USE_SANDBOX = true;
-const USE_SANDBOX = process.env.NODE_ENV === "development";
+const USE_SANDBOX = true;
+// const USE_SANDBOX = process.env.NODE_ENV === "development";
 
 export const DOJAH_APP_ID = "65687f5182d14d00405ca29c";
 
