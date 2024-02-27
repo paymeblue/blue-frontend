@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 
 interface Props {
   token: string | null;
+  type?: "business" | "personal";
 }
 
 interface IUserKycDetails {
@@ -13,7 +14,7 @@ interface IUserKycDetails {
   wallet_code: string;
 }
 
-const useUserKycDetailsGet = ({ token }: Props) => {
+const useUserKycDetailsGet = ({ token, type = "personal" }: Props) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [userKycDetails, setUserKycDetails] = useState<IUserKycDetails | null>(
@@ -24,14 +25,15 @@ const useUserKycDetailsGet = ({ token }: Props) => {
     setLoading(true);
     setError(false);
     try {
-      const res = await axios.get(
-        "https://blue-api-backend.herokuapp.com/api/kycs",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const base =
+        type === "personal"
+          ? "https://blue-api-backend.herokuapp.com/api/kycs"
+          : "https://blue-business-backend-8c46f2828f9e.herokuapp.com/api/kycs";
+      const res = await axios.get(base, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       const details = res?.data?.data as IUserKycDetails;
       setUserKycDetails(details);
     } catch (err) {
@@ -39,7 +41,7 @@ const useUserKycDetailsGet = ({ token }: Props) => {
     } finally {
       setLoading(false);
     }
-  }, [token]);
+  }, [token, type]);
 
   useEffect(() => {
     if (!token) return;

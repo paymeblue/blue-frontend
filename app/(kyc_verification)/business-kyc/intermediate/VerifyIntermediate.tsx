@@ -4,7 +4,7 @@ import useUserKycDetailsGet from "@hooks/kyc/useUserKycDetailsFetch";
 import {
   DOJAH_APP_ID,
   DOJAH_PUBLIC_KEY,
-  DOJAH_WIDGET_ID,
+  DOJAH_WIDGET_ID_BUSINESS_INTERMEDIATE,
 } from "@lib/constants";
 import { Spin } from "antd";
 import EmptyState from "app/(receive_money)/components/empty-state";
@@ -12,11 +12,12 @@ import { useSearchParams } from "next/navigation";
 // @ts-ignore
 import Dojah from "react-dojah";
 
-const VerifyIdentity = () => {
+const VerifyIntermediate = () => {
   const searchParams = useSearchParams();
   const token = searchParams.get("token");
   const { error, loading, userKycDetails } = useUserKycDetailsGet({
     token,
+    type: "business",
   });
   const antIcon = (
     <LoadingOutlined
@@ -95,7 +96,7 @@ const VerifyIdentity = () => {
       publicKey={DOJAH_PUBLIC_KEY}
       type={"custom"}
       config={{
-        widget_id: DOJAH_WIDGET_ID,
+        widget_id: DOJAH_WIDGET_ID_BUSINESS_INTERMEDIATE,
       }}
       userData={{
         first_name: userKycDetails.first_name,
@@ -104,10 +105,11 @@ const VerifyIdentity = () => {
       }}
       metadata={{
         wallet_code: userKycDetails.wallet_code,
-        type: "personal",
+        tier: "intermediate",
+        type: "business",
       }}
     />
   );
 };
 
-export default VerifyIdentity;
+export default VerifyIntermediate;
