@@ -15,6 +15,7 @@ import screen5 from "public/screen-5.png";
 import screen7 from "public/screen-7.png";
 import smallPhone from "public/small-phone.svg";
 import { Fragment } from "react";
+import OurProducts from "./products-section";
 
 export const metadata: Metadata = {
   title: "Home | Blue",
@@ -131,7 +132,7 @@ const Home = () => {
             ))}
           </Row>
         </div>
-
+        <OurProducts />
         <Typography className="mb-8 mt-12 laptop:my-16">
           <Paragraph className="m-0 text-[0.9375rem] font-bold leading-[1.3125rem] text-primary tablet:font-semibold laptop:text-[1.25rem] laptop:leading-[1.625rem]">
             Flexibility at your Fingertips

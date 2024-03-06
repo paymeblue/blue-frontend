@@ -13,7 +13,7 @@ const items2: MenuProps["items"] = [
   {
     key: "/#benefits",
     label: (
-      <Link className="font-body text-sm text-inherit" href="#benefits">
+      <Link className="font-body text-sm text-inherit" href="/#benefits">
         Benefits
       </Link>
     ),
@@ -112,7 +112,7 @@ const Navbar = () => {
     {
       key: "/#benefits",
       label: (
-        <Link className="font-body text-sm text-inherit" href="#benefits">
+        <Link className="font-body text-sm text-inherit" href="/#benefits">
           Benefits
         </Link>
       ),
