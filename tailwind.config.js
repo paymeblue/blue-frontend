@@ -23,13 +23,15 @@ module.exports = {
         "input-field": "#F7F7FA",
       },
       fontFamily: {
-        gilroy: ["var(--font-gilroy)"],
+        fraunces: ["var(--font-fraunces)"],
         satoshi: ["var(--font-satoshi)"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        lilac:
+          "linear-gradient(189.8deg, #F6F0FF -87.15%, rgba(246, 240, 255, 0) 149.62%)",
       },
       screens: {
         "mobile-md": "375px",
