@@ -1,5 +1,5 @@
 import { Segmented, Typography } from "antd";
-import { useSearchParams } from "next/navigation";
+import { useSectionRef } from "app/context/section-scroll-context";
 import { Fragment, useEffect, useState } from "react";
 import BusinessSegment from "./BusinessSegment";
 import PersonalSection from "./PersonalSection";
@@ -7,19 +7,14 @@ import PersonalSection from "./PersonalSection";
 const { Paragraph, Title } = Typography;
 
 const OurProducts = () => {
-  const [segment, setSegment] = useState("personal");
-  const searchParam = useSearchParams();
-  console.log(searchParam.get("hash"), segment);
+  const { sectionRef, value } = useSectionRef();
+  const [segment, setSegment] = useState(value);
   useEffect(() => {
-    if (searchParam.get("hash") === "personal") {
-      setSegment("personal");
-    } else if (searchParam.get("hash") === "business") {
-      setSegment("business");
-    }
-  }, [searchParam]);
+    setSegment(value);
+  }, [value]);
   return (
     <Fragment>
-      <Typography className="mt-12 text-center">
+      <Typography ref={sectionRef} className="mt-12 text-center">
         <Title
           level={2}
           className="text-txt font-bold tracking-[-2%] text-[38px]"
@@ -32,16 +27,14 @@ const OurProducts = () => {
         </Paragraph>
       </Typography>
       <Segmented
-        id="product"
         options={[
           { label: "BLUEPERSONAL", value: "personal" },
           { label: "BLUEBUSINESS", value: "business" },
         ]}
         onChange={(value) => {
-          console.log(value);
           setSegment(value);
         }}
-        defaultValue={segment}
+        value={segment}
         className="border my-8"
       />
       {segment === "personal" ? <PersonalSection /> : <BusinessSegment />}

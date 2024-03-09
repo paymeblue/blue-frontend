@@ -6,9 +6,9 @@ import { Typography } from "antd";
 import { Metadata } from "next";
 import { Fragment } from "react";
 import OurProducts from "./Products";
-import Swift from "./assets/icons/swift";
-import TransfersIcon from "./assets/icons/transfers";
-import Versatile from "./assets/icons/versatile";
+import Swift from "./assets/svg/swift";
+import TransfersIcon from "./assets/svg/transfers";
+import Versatile from "./assets/svg/versatile";
 
 export const metadata: Metadata = {
   title: "Home | Blue",
@@ -23,7 +23,7 @@ const Home = () => {
     <Fragment>
       <HeroSection />
       <Container className="text-center">
-        <div id="benefits">
+        <div>
           <Typography className="mt-24 mb-8 text-center">
             <Title
               level={2}
@@ -40,45 +40,51 @@ const Home = () => {
               payments.
             </Paragraph>
           </Typography>
-          <div className="mx-auto my-8 bg-lilac flex flex-wrap border border-[#EFE5FF] rounded-xl py-8 items-center justify-center gap-6 laptop-md:flex-nowrap">
-            <div className="border-[#efe5ff] border w-full max-w-[374px] shadow-[0px_0px_0px_5px_#FFFFFF] flex flex-col justify-start items-start bg-[#FCFAFF] p-4 rounded-xl">
+          <div className="mx-auto my-8 bg-lilac flex flex-wrap border border-[#EFE5FF] rounded-xl py-12 items-center justify-center gap-5 laptop-md:flex-nowrap">
+            <div className="border-[#efe5ff] p-6 border w-full max-w-[374px] gap-6 shadow-[0px_0px_0px_5px_#FFFFFF] flex flex-col justify-start items-start bg-[#FCFAFF] rounded-xl">
               <Swift />
-              <Title
-                level={5}
-                className="font-medium text-[23px] m-0 leading-[36px]"
-              >
-                Swift Transactions
-              </Title>
-              <Paragraph className="text-base text-start text-body-text-2">
-                Make instant and seamless payments on the go with Quickpay. It
-                only takes a few clicks.
-              </Paragraph>
+              <div className="text-start">
+                <Title
+                  level={5}
+                  className="font-medium text-[23px] mb-0.5 leading-[36px]"
+                >
+                  Swift Transactions
+                </Title>
+                <Paragraph className="text-base text-start w-full max-w-[314px] text-body-text-2">
+                  Make instant and seamless payments on the go with Quickpay. It
+                  only takes a few clicks.
+                </Paragraph>
+              </div>
             </div>
-            <div className="border-[#efe5ff] border w-full max-w-[374px] shadow-[0px_0px_0px_5px_#FFFFFF] flex flex-col justify-start items-start bg-[#FCFAFF] p-4 rounded-xl">
+            <div className="border-[#efe5ff] border w-full max-w-[374px] gap-6 shadow-[0px_0px_0px_5px_#FFFFFF] flex flex-col justify-start items-start bg-[#FCFAFF] p-6 rounded-xl">
               <Versatile />
-              <Title
-                level={5}
-                className="font-medium text-[23px] m-0 leading-[36px]"
-              >
-                Versatile Payment Option
-              </Title>
-              <Paragraph className="text-base text-start text-body-text-2">
-                From Blue to Blue users, to QR codes, phone, or USSD, choose
-                your preferred way to pay and get paid hassle-free.
-              </Paragraph>
+              <div className="text-start">
+                <Title
+                  level={5}
+                  className="font-medium text-[23px] mb-0.5 leading-[36px]"
+                >
+                  Versatile Payment Option
+                </Title>
+                <Paragraph className="text-base text-start w-full max-w-[314px] text-body-text-2">
+                  From Blue to Blue users, to QR codes, phone, or USSD, choose
+                  your preferred way to pay and get paid hassle-free.
+                </Paragraph>
+              </div>
             </div>
-            <div className="border-[#efe5ff] border w-full max-w-[374px] shadow-[0px_0px_0px_5px_#FFFFFF] flex flex-col justify-start items-start bg-[#FCFAFF] p-4 rounded-xl">
+            <div className="border-[#efe5ff] border w-full max-w-[374px] gap-6 shadow-[0px_0px_0px_5px_#FFFFFF] flex flex-col justify-start items-start bg-[#FCFAFF] p-6 rounded-xl">
               <TransfersIcon />
-              <Title
-                level={5}
-                className="font-medium text-[23px] m-0 leading-[36px]"
-              >
-                Free Transfers
-              </Title>
-              <Paragraph className="text-base text-start text-body-text-2">
-                Get Free transfers to fellow blue users without any hidden
-                charges.
-              </Paragraph>
+              <div className="text-start">
+                <Title
+                  level={5}
+                  className="font-medium text-[23px] mb-0.5 leading-[36px]"
+                >
+                  Free Transfers
+                </Title>
+                <Paragraph className="text-base text-start w-full max-w-[314px] text-body-text-2">
+                  Get Free transfers to fellow blue users without any hidden
+                  charges.
+                </Paragraph>
+              </div>
             </div>
           </div>
         </div>

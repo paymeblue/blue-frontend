@@ -6,10 +6,16 @@ const { Title, Paragraph } = Typography;
 
 const HeroSection = () => {
   return (
-    <main className="flex flex-col items-center justify-center">
-      <div className="grid grid-cols-2 items-center justify-center">
-        <div className="bg-[#EAEAFF] pl-20 pt-28 rounded-br-[24px]">
-          <Image src={phones} alt="phones" width={587} height={592} />
+    <main className="w-full max-w-[1440px] m-auto">
+      <div className="grid grid-cols-2 w-full items-center justify-center">
+        <div className="bg-[#EAEAFF] pl-20 clear-both pt-28 rounded-br-[24px]">
+          <Image
+            src={phones}
+            alt="phones"
+            width={587}
+            height={592}
+            className="float-right mr-[8%]"
+          />
         </div>
         <Typography className="mx-12 text-start laptop:max-w-2xl">
           <Title

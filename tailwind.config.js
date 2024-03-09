@@ -33,6 +33,10 @@ module.exports = {
         lilac:
           "linear-gradient(189.8deg, #F6F0FF -87.15%, rgba(246, 240, 255, 0) 149.62%)",
       },
+      boxShadow: {
+        shadow: "0px 5px 15px 0px #EAEAFF",
+        light: "0px 3px 15px 0px #eaeaff69",
+      },
       screens: {
         "mobile-md": "375px",
         "mobile-lg": "425px",

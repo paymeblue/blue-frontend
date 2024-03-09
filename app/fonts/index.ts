@@ -8,14 +8,6 @@ export const fraunces = Fraunces({
   display: "swap",
   variable: "--font-fraunces",
 });
-export const gilroy = localFont({
-  src: "./gilroy/Gilroy-Medium.ttf",
-  weight: "400",
-  display: "swap",
-  variable: "--font-gilory",
-  preload: true,
-  style: "normal",
-});
 
 export const satoshi = localFont({
   src: "./Satoshi/Fonts/WEB/fonts/Satoshi-Variable.ttf",
