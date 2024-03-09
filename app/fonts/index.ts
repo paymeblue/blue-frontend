@@ -2,7 +2,7 @@ import { Fraunces } from "next/font/google";
 import localFont from "next/font/local";
 
 export const fraunces = Fraunces({
-  weight: "variable",
+  weight: "300",
   style: ["normal", "italic"],
   subsets: ["latin"],
   display: "swap",

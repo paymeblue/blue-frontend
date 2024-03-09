@@ -1,4 +1,5 @@
 import { MenuOutlined } from "@ant-design/icons";
+import useNavBg from "@hooks/useNavBg";
 import { Button, Divider, Drawer, Layout, Menu, MenuProps } from "antd";
 import { useSectionRef } from "app/context/section-scroll-context";
 import Image from "next/image";
@@ -12,6 +13,7 @@ const { Header } = Layout;
 const Navbar = () => {
   const pathname = usePathname();
   const router = useRouter();
+  const bgColor = useNavBg();
   const [open, setOpen] = useState(false);
   const [goto, setGoto] = useState<"personal" | "business" | undefined>();
   const { sectionRef, setValue } = useSectionRef();
@@ -155,7 +157,7 @@ const Navbar = () => {
 
   return (
     <Header
-      className={`fixed left-0 top-0 z-30 m-auto flex h-aut w-full items-center justify-between ${pathname === "/" ? "bg-white" : "bg-primary"} px-4 transition-all ease-out tablet:px-20`}
+      className={`fixed left-0 top-0 z-30 m-auto flex h-aut w-full items-center justify-between ${pathname === "/" ? "bg-white" : "bg-primary"} px-4 transition-all ease-out tablet:px-20 ${bgColor > 0 ? "shadow-md" : "shadow-none"}`}
     >
       <div>
         <Link href="/">
