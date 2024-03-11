@@ -1,22 +1,25 @@
 import { ThemeConfig } from "antd";
-import { gilroy } from "app/fonts";
+import { satoshi } from "app/fonts";
 
 const theme: ThemeConfig = {
   token: {
     colorPrimary: "#4341CD",
-    fontFamily: gilroy.style.fontFamily,
-    fontWeightStrong: 500,
-    fontSize: 18,
+    fontFamily: satoshi.style.fontFamily,
   },
   components: {
-    Menu: {
-      itemBg: "transparent",
-      itemSelectedBg: "transparent",
-      boxShadowSecondary: "none",
-      itemColor: "#4341CD",
-    },
     Input: {
       colorBorder: "transparent",
+    },
+    Segmented: {
+      trackPadding: 4,
+      controlHeight: 50,
+      trackBg: "white",
+      itemColor: "#232949",
+      itemSelectedColor: "white",
+      itemSelectedBg: "#4341CD",
+      itemHoverBg: "#4341CD10",
+      motionDurationMid: "0.1s",
+      motionDurationSlow: "0.2s",
     },
   },
 };

@@ -74,7 +74,7 @@ const Receipt = forwardRef(({ receiptData }: any, ref: Ref<HTMLElement>) => {
   ];
   if (isLoading) {
     return (
-      <div className="flex w-screen h-screen font-satoshi items-center justify-center">
+      <div className="flex w-screen h-screen  items-center justify-center">
         <Spin size="large" indicator={antIcon} />
       </div>
     );
@@ -82,7 +82,7 @@ const Receipt = forwardRef(({ receiptData }: any, ref: Ref<HTMLElement>) => {
   return (
     <main ref={ref}>
       <nav className="w-full flex items-center px-6 py-4 tablet:px-20 m-auto justify-between bg-primary">
-        <p className="text-lg font-medium m-0 font-satoshi p-0 text-white leading-6">
+        <p className="text-lg font-medium m-0  p-0 text-white leading-6">
           Transaction Receipt
         </p>
         <div>
@@ -99,11 +99,11 @@ const Receipt = forwardRef(({ receiptData }: any, ref: Ref<HTMLElement>) => {
         <div className="border border-[#0000000f] gap-2 flex-col rounded bg-[#ececec17] p-4 flex">
           {receiptDetails.map((item, i) => (
             <div key={item.id}>
-              <small className="leading-6 font-satoshi text-[0.8125rem] text-txt2">
+              <small className="leading-6  text-[0.8125rem] text-txt2">
                 {item.heading}
               </small>
               <p
-                className={`font-medium font-satoshi ${
+                className={`font-medium  ${
                   i === receiptDetails.length - 1 && "last:text-[#009999]"
                 } leading-6 text-sm text-body-text-2`}
               >
@@ -113,28 +113,25 @@ const Receipt = forwardRef(({ receiptData }: any, ref: Ref<HTMLElement>) => {
           ))}
         </div>
         <div className="my-4">
-          <p className="leading-[1.40625rem] font-satoshi text-[0.9375rem]">
+          <p className="leading-[1.40625rem]  text-[0.9375rem]">
             Best regards,
           </p>
-          <p className="leading-[1.40625rem] font-satoshi text-[0.9375rem]">
+          <p className="leading-[1.40625rem]  text-[0.9375rem]">
             BluePay Team.
           </p>
         </div>
-        <div className="bg-[#F5F8FF] max-w-[280px] font-satoshi text-[0.875rem] break-words px-6 py-4 rounded">
+        <div className="bg-[#F5F8FF] max-w-[280px]  text-[0.875rem] break-words px-6 py-4 rounded">
           Need help? kindly contact us on
           <br />
           <Link
             href="mailto:hello@paymeblue.com"
-            className="underline font-satoshi text-primary"
+            className="underline  text-primary"
           >
             hello@paymeblue.com
           </Link>
           &nbsp;and
           <br />
-          <Link
-            href="tel:+2347077655432"
-            className="underline font-satoshi text-primary"
-          >
+          <Link href="tel:+2347077655432" className="underline  text-primary">
             +2347077655432
           </Link>
         </div>

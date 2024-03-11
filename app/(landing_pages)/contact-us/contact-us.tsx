@@ -1,7 +1,6 @@
 "use client";
 import { CheckCircleOutlined } from "@ant-design/icons";
 import { Input } from "@components/FormInput";
-import { DevTool } from "@hookform/devtools";
 import { zodResolver } from "@hookform/resolvers/zod";
 import countrycodes from "@lib/countryCodes";
 import { TSchema, schema } from "@lib/index";
@@ -20,12 +19,11 @@ const Contact = () => {
     number: "+234",
     message: "",
   };
-  const { formState, handleSubmit, register, setValue, control, reset } =
-    useForm({
-      mode: "onTouched",
-      defaultValues,
-      resolver: zodResolver(schema),
-    });
+  const { formState, handleSubmit, register, setValue, reset } = useForm({
+    mode: "onTouched",
+    defaultValues,
+    resolver: zodResolver(schema),
+  });
   const { errors, isSubmitting, isDirty, isValid, isSubmitted } = formState;
 
   const [messageApi, contextHolder] = message.useMessage();
@@ -62,7 +60,7 @@ const Contact = () => {
     <Fragment>
       {contextHolder}
       <PageHead mainText="Get in touch" subText="Contact us" />
-      <Container>
+      <Container className="min-h-screen h-full">
         <form
           autoComplete="off"
           onSubmit={handleSubmit(onSubmit)}
@@ -105,7 +103,7 @@ const Contact = () => {
           <div className="flex flex-col items-start mb-6 justify-start w-full">
             <label
               htmlFor="message"
-              className="text-[0.9375rem] ms-4 mb-[2px] w-full font-semibold leading-[1.3125rem]"
+              className="text-[0.9375rem] mb-[2px] w-full font-semibold leading-[1.3125rem]"
             >
               Phone number
               <span className="text-[#ff4d4f] font-normal text-[1.125rem] font-sans ms-1">
@@ -113,9 +111,9 @@ const Contact = () => {
               </span>
             </label>
             <Fragment>
-              <div className="bg-input-field items-center w-full rounded flex gap-1">
+              <div className="bg-input-field items-center p-0.5 h-[2.5rem] outline-primary border-[0.5px] hover:border-primary w-full rounded flex">
                 <select
-                  className="w-16 ms-4 py-1 px-3 rounded outline-primary bg-white"
+                  className="w-16 py-1 px-3 rounded border-none outline-none bg-white"
                   {...register("code", {
                     onChange: (e) => {
                       setValue("number", e.target.value);
@@ -133,7 +131,7 @@ const Contact = () => {
                   placeholder="Enter your phone number"
                   type="tel"
                   {...register("number")}
-                  className="rounded w-full bg-input-field py-2 px-4 outline-primary placeholder:text-[#555] placeholder:text-sm placeholder:font-light placeholder:leading-[1.3125rem]"
+                  className="rounded w-full bg-input-field border-none py-2 px-4 outline-none placeholder:text-[#555] placeholder:text-sm placeholder:font-light placeholder:leading-[1.3125rem]"
                 />
               </div>
               {errors.number && (
@@ -163,14 +161,13 @@ const Contact = () => {
           <Button
             type="primary"
             htmlType="submit"
-            className="laptopfont-semibold mx-auto mt-6 flex items-center justify-center disabled:text-gray-900 disabled:bg-gray-200 disabled:border-none text-[0.9375rem] font-medium leading-[1.39663rem] text-white laptop:p-6 laptop:text-[1rem] laptop:leading-[1.5rem] "
+            className="laptopfont-semibold mx-auto mt-6 flex items-center justify-center disabled:text-gray-900 disabled:bg-gray-200 disabled:border-none text-[0.9375rem] font-medium leading-[1.39663rem] text-white laptop:p-6 laptop:text-[1rem] laptop:leading-[1.5rem] disabled:cursor-not-allowed"
             loading={isSubmitting}
             disabled={!isValid || !isDirty || isSubmitting}
             block
           >
             {isSubmitting ? "Sending..." : "Submit message"}
           </Button>
-          <DevTool control={control} />
         </form>
       </Container>
     </Fragment>

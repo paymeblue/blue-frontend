@@ -52,20 +52,21 @@ const socialIcons = [
   },
 ];
 const LayoutFooter = () => {
+  const year = new Date().getFullYear();
   return (
     <Footer className="bg-black px-0 py-6">
       <Space
         size="large"
         className="m-auto flex w-full flex-col items-center justify-between px-8 laptop:flex-row laptop:px-20 [&>.ant-space-item]:w-full [&>.ant-space-item]:first:text-center laptop:[&>.ant-space-item]:first:text-start"
       >
-        <Text className="text-[1rem] font-semibold leading-[1.5rem] text-neutral laptop:text-[0.9375rem] laptop:font-medium laptop:leading-[1.3125rem]">
-          © 2023 Blue. All rights reserved
+        <Text className="text-base laptop-md:text-lg font-normal leading-[1.3125rem] text-neutral/90">
+          © 2023 - {year} Blue. All rights reserved
         </Text>
         <ul className="mx-auto my-0 flex flex-col items-center justify-center gap-2 laptop:flex-row laptop:gap-0">
           {policies.map((item) => (
             <li
               key={item.id}
-              className="mx-2 text-[1rem] font-semibold leading-[1.5rem] text-neutral laptop:text-[0.9375rem] laptop:font-medium laptop:leading-[1.3125rem]"
+              className="mx-2 text-base laptop-md:text-lg font-normal leading-[1.3125rem] text-neutral/90"
             >
               <Link href={item.link} className="text-inherit">
                 {item.text}
@@ -77,7 +78,7 @@ const LayoutFooter = () => {
           {socialIcons.map((item) => (
             <li
               key={item.id}
-              className="mx-2 text-[1rem] font-semibold leading-[1.5rem] laptop:text-[0.9375rem] laptop:font-medium laptop:leading-[1.3125rem]"
+              className="mx-2 text-base laptop-md:text-lg font-normal leading-[1.3125rem]"
             >
               <Link href={item.link} target="_blank" className="text-inherit">
                 {item.icon}

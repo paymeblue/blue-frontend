@@ -40,18 +40,14 @@ const PageNotFound = () => {
         height={322.89}
         className="object-contain"
       />
-      <Typography className="text-center w-full max-w-[21.75rem] font-satoshi font-[700] text-txt">
-        <span className="text-[2rem] lg:text-[2.5rem]">Page Not Found</span>
+      <Typography className="text-center w-full max-w-[21.75rem]  font-[700] text-txt">
+        <span className="text-[2rem] lg:text-[2.5rem]">Page Not Found!</span>
       </Typography>
-      <Typography className="text-center w-full max-w-[21.75rem] font-satoshi text-body-text-2">
+      <Typography className="text-center w-full max-w-[21.75rem]  text-body-text-2">
         We're sorry, the page you requested <br /> could not be found
       </Typography>
       <Link href="/" className="mt-4 w-full max-w-[20.75rem]">
-        <Button
-          type="primary"
-          className="w-full font-satoshi lg:px-20 h-12"
-          size="large"
-        >
+        <Button type="primary" className="w-full  lg:px-20 h-12" size="large">
           Proceed
         </Button>
       </Link>
