@@ -10,6 +10,12 @@ const theme: ThemeConfig = {
     Input: {
       colorBorder: "transparent",
     },
+    Menu: {
+      itemBg: "transparent",
+      itemSelectedBg: "transparent",
+      boxShadowSecondary: "none",
+      itemColor: "#4341CD",
+    },
     Segmented: {
       trackPadding: 4,
       controlHeight: 50,
