@@ -1,9 +1,8 @@
 import DownloadBtns from "@shared/downloadBtns";
 import { Space, Typography } from "antd";
 import Image from "next/image";
-import dataPhone from "public/data-phone.png";
+import chartPhone from "public/chart-phone.png";
 import desktop from "public/desktop.png";
-import chart from "public/expense-chart.png";
 import teamPhone from "public/team-phone.png";
 import { Fragment } from "react";
 
@@ -32,19 +31,12 @@ const BusinessSegment = () => {
         </Typography>
         <div className="relative">
           <Image
-            src={chart}
+            src={chartPhone}
             alt="img"
             priority
-            className="m-auto absolute w-1/2 z-10 aspect-auto laptop:aspect-[0] laptop-md:aspect-auto md:-left-8 laptop:w-auto bottom-0 object-contain"
-            width={257.61}
-          />
-          <Image
-            src={dataPhone}
-            alt="img"
-            priority
-            className="m-auto w-full aspect-auto object-contain md:max-w-max translate-x-4"
-            width={332}
-            height={260}
+            className="m-auto w-full aspect-auto object-contain md:max-w-max laptop:m-auto laptop:mr-0 translate-x-4"
+            width={496}
+            height={483}
           />
         </div>
       </Space>
@@ -68,7 +60,7 @@ const BusinessSegment = () => {
           src={teamPhone}
           alt="img"
           priority
-          className="m-auto w-full aspect-auto object-contain pl-4 ml-4  md:max-w-max"
+          className="m-auto w-full aspect-auto object-contain pl-4 ml-4 laptop:m-auto laptop:mr-0  md:max-w-max"
           width={332}
           height={263}
         />
