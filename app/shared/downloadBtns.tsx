@@ -12,8 +12,8 @@ const DownloadBtns = () => {
           src={googlePlay}
           alt="download blue app on google play"
           priority
-          className="mx-auto object-contain w-full max-w-[121.6px] md:max-w-[auto]"
-          width={180}
+          className="mx-auto object-contain cursor-pointer w-full max-w-[196px] md:max-w-[auto]"
+          width={196}
           height={60}
         />
       </Link>
@@ -22,9 +22,9 @@ const DownloadBtns = () => {
           src={appPlay}
           alt="download blue app on google play"
           priority
-          className="mx-auto object-contain w-full max-w-[121.6px] md:max-w-[auto]"
+          className="mx-auto cursor-pointer object-contain w-full max-w-[196px] md:max-w-[auto]"
           height={60}
-          width={180}
+          width={196}
         />
       </Link>
     </Space>

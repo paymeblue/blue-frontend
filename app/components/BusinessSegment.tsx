@@ -11,7 +11,7 @@ const { Title, Paragraph } = Typography;
 const BusinessSegment = () => {
   return (
     <Fragment>
-      <Space className="flex flex-col w-full px-8 laptop:px-10 laptop-md:px-0 [&>.ant-space-item]:w-full laptop:pb-0 md:flex-row justify-between my-8 md:my-16 items-center bg-txt py-12 gap-8 rounded-2xl pb-0">
+      <Space className="flex flex-col w-full px-8 laptop:px-10 laptop-md:px-0 [&>.ant-space-item]:w-full laptop:pb-0 md:flex-row justify-between mb-8 md:mb-16 items-center bg-txt py-12 gap-8 rounded-2xl pb-0">
         <Typography className="mx-auto w-full md:text-start md:max-w-[400px]">
           <Title
             level={3}

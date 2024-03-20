@@ -17,8 +17,8 @@ const theme: ThemeConfig = {
       itemColor: "#4341CD",
     },
     Segmented: {
-      trackPadding: 4,
-      controlHeight: 50,
+      trackPadding: 8,
+      controlHeight: 65,
       trackBg: "white",
       itemColor: "#232949",
       itemSelectedColor: "white",
