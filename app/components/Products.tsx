@@ -35,7 +35,7 @@ const OurProducts = () => {
           setSegment(value);
         }}
         value={segment}
-        className="border my-8 text-[.7206rem] leading-[1.0813rem] laptop:text-base"
+        className="border mt-6 mb-12 text-[.7206rem] leading-[1.0813rem] laptop:text-base"
       />
       {segment === "personal" ? <PersonalSection /> : <BusinessSegment />}
     </Fragment>

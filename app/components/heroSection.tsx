@@ -6,15 +6,15 @@ const { Title, Paragraph } = Typography;
 
 const HeroSection = () => {
   return (
-    <main className="w-full max-w-[1440px] m-auto">
+    <main className="w-full max-w-[2560px] m-auto">
       <div className="flex gap-6 flex-col-reverse md:grid-cols-2 bg-[#EAEAFF] md:grid md:bg-white w-full items-center justify-center">
-        <div className="bg-[#EAEAFF] md:pl-20 mx-6 md:mx-auto w-full clear-both md:pt-28 rounded-br-[24px]">
+        <div className="bg-[#EAEAFF] md:px-8 mx-6 md:mx-auto w-full clear-both md:pt-28 rounded-br-[24px]">
           <Image
             src={phones}
             alt="phones"
             width={587}
             height={592}
-            className="md:float-right m-auto md:mr-[8%] w-full max-w-[337px] md:max-w-[auto]"
+            className="m-auto w-auto"
           />
         </div>
         <Typography className="mx-6 mt-32 md:mt-0 md:mx-12 text-center md:text-start md:max-w-2xl">
