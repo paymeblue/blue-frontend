@@ -71,7 +71,7 @@ const PersonalSection = () => {
           bordered={false}
           className="rounded-[23px] bg-primary p-10 px-0 pb-0 [&>.ant-card-body]:p-3 [&>.ant-card-body]:pb-0 md:[&>.ant-card-body]:p-6 md:[&>.ant-card-body]:pb-0"
         >
-          <Typography className="mx-auto mb-8 text-center">
+          <Typography className="mx-auto mb-12 sm:mb-8 text-center">
             <Title
               level={3}
               className="m-0 font-medium text-white text-[1.25rem] leading-[1.6625rem tracking-[-1%] md:text-[2rem] md:leading-[2.5rem]"
@@ -80,7 +80,7 @@ const PersonalSection = () => {
               <span className="font-fraunces font-normal italic">Free</span>{" "}
               Transfers
             </Title>
-            <Paragraph className="mx-auto mt-2 min-w-[270px] text-[0.9375rem] font-normal leading-[1.3125rem] text-body-text-1/70 mobile-md:min-w-max md:text-[1.125rem] md:leading-[1.625rem]">
+            <Paragraph className="mx-auto mb-0 mt-2 min-w-[270px] text-[0.9375rem] font-normal leading-[1.3125rem] text-body-text-1/70 mobile-md:min-w-max md:text-[1.125rem] md:leading-[1.625rem]">
               You can expect no hidden charges and
               <br className="hidden mobile-md:block" /> no transfer failures
               with Blue transfers.
@@ -91,7 +91,7 @@ const PersonalSection = () => {
           <Image
             src={screen4}
             alt="free transfers"
-            className="m-auto w-full aspect-auto object-contain translate-x-6"
+            className="m-auto w-full aspect-square tablet:aspect-auto object-contain translate-x-6"
             width={285}
           />
         </Card>
@@ -99,7 +99,7 @@ const PersonalSection = () => {
           bordered={false}
           className="rounded-[23px] bg-txt p-10 px-0 pb-0 [&>.ant-card-body]:p-3 [&>.ant-card-body]:pb-0 md:[&>.ant-card-body]:p-6 md:[&>.ant-card-body]:pb-0"
         >
-          <Typography className="mx-auto mb-8 text-center">
+          <Typography className="mx-auto mb-12 sm:mb-8 text-center">
             <Title
               level={3}
               className="m-0 text-[1.2rem] mx-auto font-medium w-full max-w-[292px] tracking-[-1%] text-white md:text-[1.7rem] md:leading-[2.5rem]"
@@ -110,7 +110,7 @@ const PersonalSection = () => {
                 without a smartphone
               </span>
             </Title>
-            <Paragraph className="mx-auto mt-2 max-w-[335px] text-[0.9375rem] leading-[1.3125rem] text-body-text-1 md:text-[1.125rem] md:leading-[1.625rem]">
+            <Paragraph className="mx-auto mb-0 mt-2 max-w-[335px] text-[0.9375rem] leading-[1.3125rem] text-body-text-1 md:text-[1.125rem] md:leading-[1.625rem]">
               Blue offers a hassle - free way to make
               <br className="block" /> payments without a smartphone. You
               <br className="block" /> can make payments via USSD or text
@@ -121,7 +121,7 @@ const PersonalSection = () => {
           <Image
             src={screen7}
             alt="free transfers"
-            className="m-auto w-full aspect-auto object-contain translate-x-6"
+            className="m-auto w-full aspect-auto object-contain translate-x-12"
             width={285}
           />
         </Card>
@@ -132,7 +132,7 @@ const PersonalSection = () => {
       >
         <Card
           bordered={false}
-          className="w-full rounded-[23px] bg-txt p-0 laptop:py-14 h-full tablet:h-[580px] laptop:h-[720px] laptop-md:h-[758px] [&>.ant-card-body]:px-3 md:[&>.ant-card-body]:p-6"
+          className="w-full rounded-[23px] bg-txt p-0 pb-20 tablet:pb-0 laptop:py-14 h-full tablet:h-[580px] laptop:h-[720px] laptop-md:h-[758px] [&>.ant-card-body]:px-3 md:[&>.ant-card-body]:p-6"
         >
           <Typography className="mx-auto my-10 text-center">
             <Title
@@ -144,7 +144,7 @@ const PersonalSection = () => {
                 quick scan!
               </span>
             </Title>
-            <Paragraph className="mx-auto mt-2 text-[0.9375rem] w-full max-w-[319px] font-normal leading-[1.3125rem] text-body-text-1/70 laptop:text-[1.125rem] laptop:leading-[1.625rem]">
+            <Paragraph className="mx-auto mb-0 mt-2 text-[0.9375rem] w-full max-w-[319px] font-normal leading-[1.3125rem] text-body-text-1/70 laptop:text-[1.125rem] laptop:leading-[1.625rem]">
               Scan and make payments on the go.
               <br /> No stress, no complaints.
             </Paragraph>
@@ -161,12 +161,12 @@ const PersonalSection = () => {
         </Card>
         <Card
           bordered={false}
-          className="w-full rounded-[23px] bg-primary p-10 h-full tablet:h-[580px] laptop:h-[720px] laptop-md:h-[758px] md:pb-12 px-0 pt-0 [&>.ant-card-body]:p-3 [&>.ant-card-body]:pt-0 md:[&>.ant-card-body]:p-6 md:[&>.ant-card-body]:pt-0"
+          className="w-full rounded-[23px] bg-primary p-10 pb-20 tablet:pb-0  h-full tablet:h-[580px] laptop:h-[720px] laptop-md:h-[758px] md:pb-12 px-0 pt-0 [&>.ant-card-body]:p-3 [&>.ant-card-body]:pt-0 md:[&>.ant-card-body]:p-6 md:[&>.ant-card-body]:pt-0"
         >
           <Image
             src={screen6}
             alt="sync contacts"
-            className="m-auto w-auto object-contain translate-x-6"
+            className="m-auto w-auto object-contain aspect-square tablet:aspect-auto translate-x-7"
             priority
             width={285}
             height={145}
@@ -181,7 +181,7 @@ const PersonalSection = () => {
               within Blue <br className="hidden laptop::block" /> and send money
               to them easily
             </Title>
-            <Paragraph className="md-mobile:min-w-max mx-auto mt-2 max-w-[354px] text-[0.9375rem] font-normal leading-[1.3125rem] text-body-text-1/70 laptop:text-[1.125rem] laptop:leading-[1.625rem]">
+            <Paragraph className="md-mobile:min-w-max mx-auto mb-0 mt-2 max-w-[354px] text-[0.9375rem] font-normal leading-[1.3125rem] text-body-text-1/70 laptop:text-[1.125rem] laptop:leading-[1.625rem]">
               Easily send and request money directly from your contact list
               using Blue.
             </Paragraph>

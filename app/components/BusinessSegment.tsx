@@ -60,7 +60,7 @@ const BusinessSegment = () => {
           src={teamPhone}
           alt="img"
           priority
-          className="m-auto w-full aspect-auto object-contain pl-4 ml-4 laptop:m-auto laptop:mr-0  md:max-w-max"
+          className="m-auto w-full aspect-square tablet:aspect-auto object-contain pl-4 ml-4 laptop:m-auto laptop:mr-0  md:max-w-max"
           width={332}
           height={263}
         />
