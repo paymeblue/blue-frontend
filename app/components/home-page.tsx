@@ -31,7 +31,7 @@ const Home = () => {
             >
               Receive and Make{" "}
               <span className="text-primary font-medium italic font-fraunces">
-                Payment
+                Payments
               </span>{" "}
               on the Go
             </Title>
@@ -51,7 +51,7 @@ const Home = () => {
                   Swift Transactions
                 </Title>
                 <Paragraph className="text-[.9375rem] leading-[1.375rem] laptop:text-base text-start w-full max-w-[19.625rem] text-body-text-2">
-                  Make instant and seamless payments on the go with Quickpay. It
+                  Make instant and seamless payments on the go with Blue. It
                   only takes a few clicks.
                 </Paragraph>
               </div>

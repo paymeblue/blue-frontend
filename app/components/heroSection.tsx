@@ -22,7 +22,7 @@ const HeroSection = () => {
             level={1}
             className="m-0 text-[28px] leading-[34px] laptop:text-[40px] laptop:leading-[50px] laptop-md:text-[50px] laptop-md:leading-[55px] tracking-[-5%] font-bold"
           >
-            Easy Banking for{" "}
+            Easy Payments for{" "}
             <span className="font-fraunces text-primary font-normal italic tracking-[-2%]">
               You
             </span>{" "}
