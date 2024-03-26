@@ -1,62 +1,44 @@
-import Container from "@shared/container";
 import DownloadBtns from "@shared/downloadBtns";
-import { QRCode, Space, Typography } from "antd";
+import { Typography } from "antd";
 import Image from "next/image";
-import spiralLine from "public/spiral.svg";
-
-const { Text, Title, Paragraph } = Typography;
+import phones from "public/phones.png";
+const { Title, Paragraph } = Typography;
 
 const HeroSection = () => {
   return (
-    <main className="flex h-[600px] flex-col items-center justify-center  bg-primary laptop:h-[772px]">
-      <Container className="my-0 text-center">
-        <Typography className="m-auto max-w-2xl">
+    <main className="w-full max-w-[2560px] m-auto">
+      <div className="flex gap-12 sm:gap-6 flex-col-reverse md:grid-cols-2 bg-[#EAEAFF] md:grid md:bg-white w-full items-center justify-center">
+        <div className="bg-[#EAEAFF] md:px-8 mx-6 md:mx-auto w-full clear-both md:pt-28 rounded-br-[24px]">
+          <Image
+            src={phones}
+            alt="phones"
+            width={587}
+            height={592}
+            className="m-auto w-auto"
+          />
+        </div>
+        <Typography className="mx-6 mt-32 md:mt-0 md:mx-12 text-center md:text-start md:max-w-2xl">
           <Title
             level={1}
-            className="m-0 text-[1.3rem] font-extrabold text-white tablet:font-bold laptop:text-[3rem] laptop:leading-[110%]"
+            className="m-0 text-[28px] leading-[34px] laptop:text-[40px] laptop:leading-[50px] laptop-md:text-[50px] laptop-md:leading-[55px] tracking-[-5%] font-bold"
           >
-            Receive and make <br /> payments easily with Blue!
+            Easy Banking for{" "}
+            <span className="font-fraunces text-primary font-normal italic tracking-[-2%]">
+              You
+            </span>{" "}
+            and
+            <span className="font-fraunces text-primary font-normal italic">
+              {" "}
+              Your Business!{" "}
+            </span>
           </Title>
-          <Paragraph className="mt-2 hidden max-w-xl text-[0.9375rem]  font-medium leading-[1.3125rem] text-body-text-1  laptop:block laptop:text-[1.25rem] laptop:leading-[1.625rem]">
-            With Blue, you can make payments seamlessly, request and receive
-            money, all on one platform.
+          <Paragraph className="mb-0 mt-2 text-body-text-2 text-[.9375rem] laptop-md:text-[18px] laptop-md:leading-[26px] laptop:text-base max-w-[502px] w-full">
+            Experience swift transactions and seamless business management with
+            Blue's All-In-One Platform.
           </Paragraph>
-          <Paragraph className="mt-2 block max-w-xl text-[0.9375rem] font-semibold leading-[1.3125rem] text-body-text-1 tablet:font-bold  laptop:hidden laptop:text-[1.25rem] laptop:leading-[1.625rem]">
-            With Blue, you can make payments
-            <br className="block tablet:hidden" />
-            seamlessly, request &nbsp;
-            <br className="hidden tablet:block" />
-            and receive
-            <br className="block tablet:hidden" />
-            money, all on one platform.
-          </Paragraph>
-        </Typography>
-        <div className="mb-8">
           <DownloadBtns />
-        </div>
-        <Space className="relative inset-0">
-          <QRCode
-            errorLevel="Q"
-            color="#4341CD"
-            bgColor="white"
-            className="rounded-2xl p-6"
-            type="svg"
-            value="https://paymeblue.com/download"
-          />
-          <div className="absolute bottom-[-35%] left-[40%] flex w-full items-center tablet:-bottom-[50%] tablet:left-[50%] tablet:w-max laptop:left-[60%]">
-            <Image
-              src={spiralLine}
-              alt="directional line"
-              priority
-              className="w-[35%] laptop:w-[30%]"
-              width={120}
-            />
-            <Text className="text-[0.8rem] font-medium leading-[1.3125rem] text-[#EAEAFE] tablet:text-[0.9375rem] laptop:text-[1.25rem] laptop:leading-[1.625rem]">
-              Scan this code to <br /> download now
-            </Text>
-          </div>
-        </Space>
-      </Container>
+        </Typography>
+      </div>
     </main>
   );
 };

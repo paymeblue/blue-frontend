@@ -1,14 +1,17 @@
+"use client";
+
 import { Footer } from "@layout/index";
 import Navbar from "@layout/navbar";
-import { Fragment, ReactNode } from "react";
+import { SectionProvider } from "app/context/section-scroll-context";
+import { ReactNode } from "react";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
-    <Fragment>
+    <SectionProvider>
       <Navbar />
       {children}
       <Footer />
-    </Fragment>
+    </SectionProvider>
   );
 };
 

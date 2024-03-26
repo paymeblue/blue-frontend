@@ -34,7 +34,7 @@ const Success = ({ refElem, data }: { refElem: any; data: any }) => {
   };
   return (
     <Fragment>
-      <div className="flex flex-col text-center font-satoshi items-center max-w-md mx-auto justify-center gap-4">
+      <div className="flex flex-col text-center  items-center max-w-md mx-auto justify-center gap-4">
         <div className="mb-6 laptop:mb-10 mt-8 laptop:mt-20">
           <Image
             src={success}
@@ -45,13 +45,13 @@ const Success = ({ refElem, data }: { refElem: any; data: any }) => {
         <div>
           <Title
             level={5}
-            className="laptop:leading-[2.74313rem] font-satoshi leading-[1.82875rem] text-[1.375rem] laptop:tracking-[-0.02063rem] font-semibold laptop:text-[2.0625rem]"
+            className="laptop:leading-[2.74313rem]  leading-[1.82875rem] text-[1.375rem] laptop:tracking-[-0.02063rem] font-semibold laptop:text-[2.0625rem]"
           >
             Transfer Successful!
           </Title>
-          <Paragraph className="tracking-[-0.025rem] max-w-xs font-satoshi mx-auto text-base leading-6 laptop:leading-[2.00244rem] text-txt2 font-medium laptop:text-xl">
+          <Paragraph className="tracking-[-0.025rem] max-w-xs  mx-auto text-base leading-6 laptop:leading-[2.00244rem] text-txt2 font-medium laptop:text-xl">
             You sent&nbsp;
-            <strong className="font-semibold font-satoshi text-txt">
+            <strong className="font-semibold  text-txt">
               {formatCurrency(data.amount - 50)}
             </strong>
             &nbsp;to {data.receiver_wallet}
@@ -64,7 +64,7 @@ const Success = ({ refElem, data }: { refElem: any; data: any }) => {
             size="large"
             block
             onClick={handleClick}
-            className="laptop mx-auto mt-6 flex font-satoshi items-center justify-center disabled:text-gray-900 disabled:bg-gray-200 disabled:border-none text-[0.9375rem] font-medium leading-[1.
+            className="laptop mx-auto mt-6 flex  items-center justify-center disabled:text-gray-900 disabled:bg-gray-200 disabled:border-none text-[0.9375rem] font-medium leading-[1.
             39663rem] text-white laptop:p-6 laptop:text-[1rem] laptop:leading-[1.5rem] "
           >
             Download Receipt
@@ -72,7 +72,7 @@ const Success = ({ refElem, data }: { refElem: any; data: any }) => {
 
           <Button
             onClick={() => router.replace("/")}
-            className="laptop mx-auto mt-6 flex font-satoshi items-center justify-center hover:bg-white/80 text-[0.9375rem] font-medium leading-[1.
+            className="laptop mx-auto mt-6 flex  items-center justify-center hover:bg-white/80 text-[0.9375rem] font-medium leading-[1.
             39663rem] laptop:p-6 laptop:text-[1rem] border-primary text-primary laptop:leading-[1.5rem]"
             block
             size="large"
