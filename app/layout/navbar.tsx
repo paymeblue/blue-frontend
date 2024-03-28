@@ -89,17 +89,17 @@ const Navbar = () => {
         </small>
       ),
     },
-    {
-      key: "/contact-us",
-      label: (
-        <Link
-          href="/contact-us"
-          className={`text-sm text-body-text-2 ${pathname === "/contact-us" ? "border-[3px] rounded-lg px-4 py-3 text-white border-[#9694F3] shadow-light" : pathname !== "/" ? "text-white" : ""}`}
-        >
-          Contact us
-        </Link>
-      ),
-    },
+    // {
+    //   key: "/contact-us",
+    //   label: (
+    //     <Link
+    //       href="/contact-us"
+    //       className={`text-sm text-body-text-2 ${pathname === "/contact-us" ? "border-[3px] rounded-lg px-4 py-3 text-white border-[#9694F3] shadow-light" : pathname !== "/" ? "text-white" : ""}`}
+    //     >
+    //       Contact us
+    //     </Link>
+    //   ),
+    // },
   ];
   const items2: MenuProps["items"] = [
     {
@@ -142,17 +142,17 @@ const Navbar = () => {
         </small>
       ),
     },
-    {
-      key: "/contact-us",
-      label: (
-        <Link
-          href="/contact-us"
-          className={`text-sm text-body-text-2 hover:text-primary w-full px-4 py-2 ${pathname === "/contact-us" ? "border-[2px] rounded-lg border-[#9694F3] shadow-shadow" : ""}`}
-        >
-          Contact us
-        </Link>
-      ),
-    },
+    // {
+    //   key: "/contact-us",
+    //   label: (
+    //     <Link
+    //       href="/contact-us"
+    //       className={`text-sm text-body-text-2 hover:text-primary w-full px-4 py-2 ${pathname === "/contact-us" ? "border-[2px] rounded-lg border-[#9694F3] shadow-shadow" : ""}`}
+    //     >
+    //       Contact us
+    //     </Link>
+    //   ),
+    // },
   ];
 
   return (
@@ -181,18 +181,18 @@ const Navbar = () => {
         className="hidden border-b-0 font-medium laptop:flex laptop:items-center laptop:justify-between [&>.ant-menu-item-selected]:text-white [&>.ant-menu-item]:text-white [&>li::after]:border-b-0 [&>li]:rounded-md hover:[&>li]:text-input-field laptop:[&>li]:mx-2"
       />
 
-      <Button
+      {/* <Button
         type="primary"
         size="large"
-        className={`hidden border-transparent bg-primary ${pathname !== "/" ? "bg-white" : ""} text-[0.875rem] leading-[1.25rem] text-white shadow-none laptop:block`}
+        className={`ml-4 border-transparent text-[0.875rem] leading-[1.25rem] shadow-none`}
+      > */}
+      <Link
+        className={`font-medium border-transparent text-[0.875rem] px-4 border-[3px] py-3 rounded-lg  leading-[1.25rem] shadow-none text-inherit ${pathname === "/contact-us" ? " bg-white  text-primary hover:text-primary/80 border-[#9694F3] shadow-light" : pathname !== "/" ? "text-primary hover:text-primary/80 bg-white" : "text-white bg-primary hover:bg-primary/80"}`}
+        href="/contact-us"
       >
-        <Link
-          className={`${pathname !== "/" ? "text-primary hover:text-primary/80" : "text-white hover:text-white/80"}`}
-          href="#"
-        >
-          Sign in
-        </Link>
-      </Button>
+        Contact us
+      </Link>
+      {/* </Button> */}
       <Drawer
         placement="right"
         onClose={onClose}
@@ -218,8 +218,11 @@ const Navbar = () => {
           size="large"
           className={`ml-4 border-transparent text-[0.875rem] leading-[1.25rem] shadow-none`}
         >
-          <Link className="font-medium text-inherit" href="#">
-            Sign in
+          <Link
+            className="font-medium border-transparent text-[0.875rem] leading-[1.25rem] shadow-none text-inherit"
+            href="/contact-us"
+          >
+            Contact us
           </Link>
         </Button>
       </Drawer>
