@@ -15,6 +15,7 @@ const HeroSection = () => {
             width={587}
             height={592}
             className="m-auto w-auto"
+            placeholder="blur"
           />
         </div>
         <Typography className="mx-6 mt-32 md:mt-0 md:mx-12 text-center md:text-start md:max-w-2xl">

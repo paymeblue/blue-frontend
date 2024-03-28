@@ -37,6 +37,7 @@ const BusinessSegment = () => {
             className="m-auto w-full aspect-auto object-contain md:max-w-max laptop:m-auto laptop:mr-0 translate-x-4"
             width={496}
             height={483}
+            placeholder="blur"
           />
         </div>
       </Space>
@@ -63,6 +64,7 @@ const BusinessSegment = () => {
           className="m-auto w-full aspect-square tablet:aspect-auto object-contain pl-4 ml-4 laptop:m-auto laptop:mr-0  md:max-w-max"
           width={332}
           height={263}
+          placeholder="blur"
         />
       </Space>
       <Space className="flex flex-col-reverse w-full px-8 laptop:pb-0 [&>.ant-space-item]:w-full md:flex-row justify-between my-8 md:my-16 items-center bg-txt py-12 gap-8 rounded-2xl pb-0">
@@ -73,6 +75,7 @@ const BusinessSegment = () => {
           className="m-auto w-full aspect-auto sm:aspect-square xl:aspect-[0] md:-translate-x-8 rounded-b-2xl pl-4 md:pl-0 md:rounded-none md:max-w-full"
           width={589}
           height={424}
+          placeholder="blur"
         />
 
         <Typography className="mx-auto w-full md:text-start md:max-w-md">

@@ -5,6 +5,7 @@ import { useSectionRef } from "app/context/section-scroll-context";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import logoInvert from "public/blue-invert.png";
 import logo from "public/logo.png";
 import { useCallback, useEffect, useState } from "react";
 
@@ -161,13 +162,23 @@ const Navbar = () => {
     >
       <div>
         <Link href="/">
-          <Image
-            src={logo}
-            alt="blue logo"
-            className="w-[65%] laptop:w-auto"
-            priority
-            width={123}
-          />
+          {pathname === "/" ? (
+            <Image
+              src={logo}
+              alt="blue logo"
+              className="w-[65%] laptop:w-auto"
+              priority
+              width={123}
+            />
+          ) : (
+            <Image
+              src={logoInvert}
+              alt="blue logo"
+              className="w-[65%] laptop:w-auto"
+              priority
+              width={123}
+            />
+          )}
         </Link>
       </div>
 
@@ -187,7 +198,7 @@ const Navbar = () => {
         className={`ml-4 border-transparent text-[0.875rem] leading-[1.25rem] shadow-none`}
       > */}
       <Link
-        className={`font-medium border-transparent text-[0.875rem] px-4 border-[3px] py-3 rounded-lg  leading-[1.25rem] shadow-none text-inherit ${pathname === "/contact-us" ? " bg-white  text-primary hover:text-primary/80 border-[#9694F3] shadow-light" : pathname !== "/" ? "text-primary hover:text-primary/80 bg-white" : "text-white bg-primary hover:bg-primary/80"}`}
+        className={`font-medium border-transparent hidden tablet:block text-[0.875rem] px-4 border-[3px] py-3 rounded-lg  leading-[1.25rem] shadow-none text-inherit ${pathname === "/contact-us" ? " bg-white  text-primary hover:text-primary/80 border-[#9694F3] shadow-light" : pathname !== "/" ? "text-primary hover:text-primary/80 bg-white" : "text-white bg-primary hover:bg-primary/80"}`}
         href="/contact-us"
       >
         Contact us

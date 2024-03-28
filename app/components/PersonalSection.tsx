@@ -35,6 +35,7 @@ const PersonalSection = () => {
           priority
           width={332}
           height={160}
+          placeholder="blur"
         />
       </Space>
       <Space className="mb-6 laptop:mb-12 hidden w-full flex-col items-center justify-around rounded-[1.4375rem] md:flex bg-txt tablet:flex-row md:px-8 md:pb-0 md:pt-8">
@@ -44,6 +45,7 @@ const PersonalSection = () => {
           priority
           width={435}
           height={160}
+          placeholder="blur"
         />
         <Typography className="laptop-md:mx-12 text-start w-full md:max-w-md">
           <Title
@@ -93,6 +95,7 @@ const PersonalSection = () => {
             alt="free transfers"
             className="m-auto w-full aspect-square tablet:aspect-auto object-contain translate-x-6"
             width={285}
+            placeholder="blur"
           />
         </Card>
         <Card
@@ -123,6 +126,7 @@ const PersonalSection = () => {
             alt="free transfers"
             className="m-auto w-full aspect-auto object-contain translate-x-12"
             width={285}
+            placeholder="blur"
           />
         </Card>
       </Space>
@@ -157,6 +161,7 @@ const PersonalSection = () => {
             priority
             width={285}
             height={285}
+            placeholder="blur"
           />
         </Card>
         <Card
@@ -170,6 +175,7 @@ const PersonalSection = () => {
             priority
             width={285}
             height={145}
+            placeholder="blur"
           />
           <Typography className="mx-auto text-center md:mt-10">
             <Title
