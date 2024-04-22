@@ -4,7 +4,7 @@ import heroBg from "public/businessHeroBg.jpg";
 import img7 from "public/img-7.png";
 import img8 from "public/img-8.png";
 import img9 from "public/img-9.png";
-import HeroSection from "./heroSection";
+import HeroSection from "../../components/heroSection";
 
 const Business = () => {
   return (

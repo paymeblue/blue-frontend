@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     "Streamline your financial operations effortlessly with Blue Business",
 };
 
-const Business = dynamic(() => import("@components/business"));
+const Business = dynamic(() => import("app/(landing_pages)/business/business"));
 const Businesspage = () => <Business />;
 
 export default Businesspage;

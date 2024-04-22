@@ -1,7 +1,7 @@
 import Container from "@shared/container";
 import Image, { StaticImageData } from "next/image";
 import { ReactNode } from "react";
-import Store from "./DownloadStore";
+import Store from "../shared/DownloadStore";
 
 type HeroSectionProps = {
   title: string | ReactNode;

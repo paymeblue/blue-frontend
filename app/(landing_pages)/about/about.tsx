@@ -8,10 +8,7 @@ const AboutPage = () => {
   return (
     <Fragment>
       <section className="text-white w-full relative bg-txt h-[474px]">
-        <Container
-          // className="absolute w-full text-center px-4 md:px-20 laptop:px-4 laptop-md:px-20 max-w-[775px] m-auto justify-center flex gap-1 flex-col my-0 top-1/2 -translate-y-1/2 mobile-md:-translate-y-1/2 translate-x-0 lg:translate-x-full laptop-md:translate-x-full lg:-translate-y-1/2"
-          className="absolute max-w-[775px] text-center px-4 md:px-20 laptop:px-4 laptop-md:px-20 m-auto w-full justify-center flex gap-1 flex-col my-0 top-1/2 -translate-y-1/2 mobile-md:-translate-y-[35% translate-x-0 laptop:translate-x-[15%] laptop-md:translate-x-1/2 2xl:translate-x-full lg:-translate-y-1/2"
-        >
+        <Container className="inset-0 top-[52%] mobile-md:top-1/2 absolute max-w-[775px] text-center px-4 md:px-20 laptop:px-4 laptop-md:px-20 m-auto w-full justify-center flex gap-1 flex-col translate-x-0 -translate-y-1/2">
           <h1 className="text-[35px] leading-[38px] lg:text-[45px] lg:leading-[47px] mb-5 font-bold lg:tracking-title">
             Redefining{" "}
             <span className="font-fraunces italic">Easy Banking</span> and{" "}

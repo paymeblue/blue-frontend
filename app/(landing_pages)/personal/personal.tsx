@@ -9,7 +9,7 @@ import img4 from "public/img-4.png";
 import img5 from "public/img-5.png";
 import img6 from "public/img-6.png";
 import heroBg from "public/personalHeroBg.jpg";
-import HeroSection from "./heroSection";
+import HeroSection from "../../components/heroSection";
 
 const Personal = () => {
   const isMobile = useMatchMedia();

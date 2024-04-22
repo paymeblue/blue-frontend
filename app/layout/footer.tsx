@@ -4,7 +4,7 @@ import {
   Twitter,
   Youtube,
 } from "@components/assets/icons";
-import Store from "@components/DownloadStore";
+import Store from "@shared/DownloadStore";
 import Link from "next/link";
 
 const policyLinks = [
