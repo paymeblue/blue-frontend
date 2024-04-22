@@ -9,23 +9,21 @@ const { Title, Paragraph } = Typography;
 const Terms = () => {
   return (
     <Fragment>
-      <PageHead mainText="Terms and Conditions" />
-      <Container className="mb-8 laptop:mb-20">
+      <PageHead
+        title="Terms and Conditions"
+        subTitle="Last Updated: July 1st, 2023"
+      />
+      <Container className="py-6 laptop:my-20">
         <Typography className="mb-7 text-justify">
-          <Title
-            level={2}
-            className="m-0 mb-5 text-left text-[0.9375rem] font-medium uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:font-medium laptop:leading-normal"
-          >
-            Terms and Conditions
-          </Title>
-          <Paragraph className="text-[0.9375rem] font-normal leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
+          <Paragraph className="text-[0.9375rem] text-[#32374E] m-0 leading-[1.625rem]">
             <span className="mb-4 block">Welcome to Blue website!</span>
             These terms and conditions outline the rules and regulations for the
             use of Blue Fintech Service Limited 's Website, located at
-            paymeblue.com. By accessing this website we assume you accept these
-            terms and conditions. Do not continue to use Blue website if you do
-            not agree to take all of the terms and conditions stated on this
-            page.
+            paymeblue.com.
+            <br />
+            By accessing this website we assume you accept these terms and
+            conditions. Do not continue to use Blue website if you do not agree
+            to take all of the terms and conditions stated on this page.
             <br /> The following terminology applies to these Terms and
             Conditions, Privacy Statement and Disclaimer Notice and all
             Agreements: "Client", "You" and "Your" refers to you, the person log
@@ -46,11 +44,11 @@ const Terms = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[0.9375rem] font-medium uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:font-medium laptop:leading-normal"
+            className="m-0 mb-3 font-avenir text-left font-semibold text-[#232949] text-[28px] leading-[38.25px]"
           >
             Cookies
           </Title>
-          <Paragraph className="text-[0.9375rem] font-normal leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
+          <Paragraph className="text-[0.9375rem] text-[#32374E] m-0 leading-[1.625rem]">
             We employ the use of cookies. By accessing Blue website, you agreed
             to use cookies in agreement with the Blue Fintech Service Limited 's
             Privacy Policy.
@@ -64,17 +62,17 @@ const Terms = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[0.9375rem] font-medium uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:font-medium laptop:leading-normal"
+            className="m-0 mb-3 font-avenir text-left font-semibold text-[#232949] text-[28px] leading-[38.25px]"
           >
             License
           </Title>
-          <Paragraph className="text-[0.9375rem] font-normal leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
+          <Paragraph className="text-[0.9375rem] text-[#32374E] m-0 leading-[1.625rem]">
             Unless otherwise stated, Blue Fintech Service Limited and/or its
             licensors own the intellectual property rights for all material on
             Blue website. All intellectual property rights are reserved. You may
             access this from Blue website for your own personal use subjected to
             restrictions set in these terms and conditions.
-            <ul className="list-disc">
+            <ul className="list-disc m-0">
               You must not:
               <li>Republish material from Blue website</li>
               <li>Sell, rent or sub-license material from Blue website</li>
@@ -97,7 +95,7 @@ const Terms = () => {
             all Comments and to remove any Comments which can be considered
             inappropriate, offensive or causes breach of these Terms and
             Conditions.
-            <ul className="list-disc">
+            <ul className="list-disc m-0">
               You warrant and represent that:
               <li>
                 You are entitled to post the Comments on our website and have
@@ -127,12 +125,12 @@ const Terms = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[0.9375rem] font-medium uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:font-medium laptop:leading-normal"
+            className="m-0 mb-3 font-avenir text-left font-semibold text-[#232949] text-[28px] leading-[38.25px]"
           >
             Hyperlinking to our Content
           </Title>
-          <Paragraph className="text-[0.9375rem] font-normal leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
-            <ul className="list-disc">
+          <Paragraph className="text-[0.9375rem] text-[#32374E] m-0 leading-[1.625rem]">
+            <ul className="list-disc m-0">
               The following organizations may link to our Website without prior
               written approval:
               <li>Government agencies;</li>
@@ -154,7 +152,7 @@ const Terms = () => {
             deceptive; (b) does not falsely imply sponsorship, endorsement or
             approval of the linking party and its products and/or services; and
             (c) fits within the context of the linking party's site.
-            <ul className="list-disc">
+            <ul className="list-disc m-0">
               We may consider and approve other link requests from the following
               types of organizations:
               <li>
@@ -186,7 +184,7 @@ const Terms = () => {
             well as the URL of your site, a list of any URLs from which you
             intend to link to our Website, and a list of the URLs on our site to
             which you would like to link. Wait 2-3 weeks for a response.
-            <ul className="list-disc">
+            <ul className="list-disc m-0">
               Approved organizations may hyperlink to our Website as follows:
               <li>By use of our corporate name; or </li>
               <li>
@@ -205,11 +203,11 @@ const Terms = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[0.9375rem] font-medium uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:font-medium laptop:leading-normal"
+            className="m-0 mb-3 font-avenir text-left font-semibold text-[#232949] text-[28px] leading-[38.25px]"
           >
             iFrames
           </Title>
-          <Paragraph className="text-[0.9375rem] font-normal leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
+          <Paragraph className="text-[0.9375rem] text-[#32374E] m-0 leading-[1.625rem]">
             Without prior approval and written permission, you may not create
             frames around our Webpages that alter in any way the visual
             presentation or appearance of our Website.
@@ -218,11 +216,11 @@ const Terms = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[0.9375rem] font-medium uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:font-medium laptop:leading-normal"
+            className="m-0 mb-3 font-avenir text-left font-semibold text-[#232949] text-[28px] leading-[38.25px]"
           >
             Content Liability
           </Title>
-          <Paragraph className="text-[0.9375rem] font-normal leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
+          <Paragraph className="text-[0.9375rem] text-[#32374E] m-0 leading-[1.625rem]">
             We shall not be hold responsible for any content that appears on
             your Website. You agree to protect and defend us against all claims
             that is rising on your Website. No link(s) should appear on any
@@ -234,11 +232,11 @@ const Terms = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[0.9375rem] font-medium uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:font-medium laptop:leading-normal"
+            className="m-0 mb-3 font-avenir text-left font-semibold text-[#232949] text-[28px] leading-[38.25px]"
           >
             Reservation of Rights
           </Title>
-          <Paragraph className="text-[0.9375rem] font-normal leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
+          <Paragraph className="text-[0.9375rem] text-[#32374E] m-0 leading-[1.625rem]">
             We reserve the right to request that you remove all links or any
             particular link to our Website. You approve to immediately remove
             all links to our Website upon request. We also reserve the right to
@@ -250,11 +248,11 @@ const Terms = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[0.9375rem] font-medium uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:font-medium laptop:leading-normal"
+            className="m-0 mb-3 font-avenir text-left font-semibold text-[#232949] text-[28px] leading-[38.25px]"
           >
             Removal of links from our website
           </Title>
-          <Paragraph className="text-[0.9375rem] font-normal leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
+          <Paragraph className="text-[0.9375rem] text-[#32374E] m-0 leading-[1.625rem]">
             If you find any link on our Website that is offensive for any
             reason, you are free to contact and inform us any moment. We will
             consider requests to remove links but we are not obligated to or so
@@ -268,12 +266,12 @@ const Terms = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[0.9375rem] font-medium uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:font-medium laptop:leading-normal"
+            className="m-0 mb-3 font-avenir text-left font-semibold text-[#232949] text-[28px] leading-[38.25px]"
           >
             Disclaimer
           </Title>
-          <Paragraph className="text-[0.9375rem] font-normal leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
-            <ul className="list-disc">
+          <Paragraph className="text-[0.9375rem] text-[#32374E] m-0 leading-[1.625rem]">
+            <ul className="list-disc m-0">
               To the maximum extent permitted by applicable law, we exclude all
               representations, warranties and conditions relating to our website
               and the use of this website. Nothing in this disclaimer will:

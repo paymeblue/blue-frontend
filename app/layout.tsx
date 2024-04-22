@@ -3,7 +3,7 @@ import "@styles/globals.css";
 // ant design stylesheet
 import "antd/dist/reset.css";
 import { Metadata } from "next";
-import { fraunces, satoshi } from "./fonts";
+import { avenir, fraunces, grotesque, satoshi } from "./fonts";
 import Providers from "./providers";
 export const metadata: Metadata = {
   title: {
@@ -32,7 +32,7 @@ export default function RootLayout({
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
       />
       <body
-        className={`${fraunces.variable} ${satoshi.variable} ${satoshi.className}`}
+        className={`${fraunces.variable} ${satoshi.variable} ${avenir.variable} ${grotesque.variable} ${grotesque.className}`}
       >
         <Providers>{children}</Providers>
       </body>

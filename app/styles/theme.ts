@@ -1,10 +1,10 @@
 import { ThemeConfig } from "antd";
-import { satoshi } from "app/fonts";
+import { grotesque } from "app/fonts";
 
 const theme: ThemeConfig = {
   token: {
     colorPrimary: "#4341CD",
-    fontFamily: satoshi.style.fontFamily,
+    fontFamily: grotesque.style.fontFamily,
   },
   components: {
     Input: {

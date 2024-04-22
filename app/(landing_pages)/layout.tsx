@@ -1,17 +1,13 @@
-"use client";
-
-import { Footer } from "@layout/index";
-import Navbar from "@layout/navbar";
-import { SectionProvider } from "app/context/section-scroll-context";
+import { Footer, Navbar } from "@layout/index";
 import { ReactNode } from "react";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
-    <SectionProvider>
+    <main>
       <Navbar />
       {children}
       <Footer />
-    </SectionProvider>
+    </main>
   );
 };
 

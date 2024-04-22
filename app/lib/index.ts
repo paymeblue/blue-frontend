@@ -3,7 +3,7 @@ import { z } from "zod";
 export type TSchema = z.infer<typeof schema>;
 export const schema = z.object({
   firstname: z.string().min(3, "Please enter your first name"),
-  surname: z.string().min(3, "Please enter your surname"),
+  lastname: z.string().min(3, "Please enter your lastname"),
   email: z.string().email("Email is invalid!"),
   code: z.string(),
   number: z

@@ -17,7 +17,7 @@ const PersonalSection = () => {
         <Typography className="laptop-md:mx-12 w-full text-start md:max-w-md">
           <Title
             level={3}
-            className="m-0 font-medium text-[1.25rem] leading-[1.6625rem] text-white laptop:text-[2rem] tracking-[-1%] laptop:leading-[2.5rem]"
+            className="m-0 font-medium text-[1.25rem] leading-[1.6625rem] text-white laptop:text-[2rem] tracking-text laptop:leading-[2.5rem]"
           >
             Blue to Blue{" "}
             <span className="font-fraunces font-normal italic">Free</span>{" "}
@@ -50,7 +50,7 @@ const PersonalSection = () => {
         <Typography className="laptop-md:mx-12 text-start w-full md:max-w-md">
           <Title
             level={3}
-            className="m-0 font-medium text-white text-[1.25rem] leading-[1.6625rem tracking-[-1%] laptop:text-[2rem] laptop:leading-[2.5rem]"
+            className="m-0 font-medium text-white text-[1.25rem] leading-[1.6625rem tracking-text laptop:text-[2rem] laptop:leading-[2.5rem]"
           >
             Receive and make payments without a
             <span className="font-fraunces font-normal italic">
@@ -76,7 +76,7 @@ const PersonalSection = () => {
           <Typography className="mx-auto mb-12 sm:mb-8 text-center">
             <Title
               level={3}
-              className="m-0 font-medium text-white text-[1.25rem] leading-[1.6625rem tracking-[-1%] md:text-[2rem] md:leading-[2.5rem]"
+              className="m-0 font-medium text-white text-[1.25rem] leading-[1.6625rem tracking-text md:text-[2rem] md:leading-[2.5rem]"
             >
               Blue to Blue{" "}
               <span className="font-fraunces font-normal italic">Free</span>{" "}
@@ -105,7 +105,7 @@ const PersonalSection = () => {
           <Typography className="mx-auto mb-12 sm:mb-8 text-center">
             <Title
               level={3}
-              className="m-0 text-[1.2rem] mx-auto font-medium w-full max-w-[292px] tracking-[-1%] text-white md:text-[1.7rem] md:leading-[2.5rem]"
+              className="m-0 text-[1.2rem] mx-auto font-medium w-full max-w-[292px] tracking-text text-white md:text-[1.7rem] md:leading-[2.5rem]"
             >
               Receive and make payments
               <span className="font-fraunces font-normal italic">
@@ -141,7 +141,7 @@ const PersonalSection = () => {
           <Typography className="mx-auto my-10 text-center">
             <Title
               level={3}
-              className="m-0 text-[1.2rem] max-w-[266px] laptop:max-w-[477px] w-full mx-auto font-medium tracking-[-1%] text-white laptop:text-[2rem] laptop:leading-[2.5rem]"
+              className="m-0 text-[1.2rem] max-w-[266px] laptop:max-w-[477px] w-full mx-auto font-medium tracking-text text-white laptop:text-[2rem] laptop:leading-[2.5rem]"
             >
               Send, request and receive money with a{" "}
               <span className="font-fraunces font-normal italic">

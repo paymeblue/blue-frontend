@@ -17,7 +17,7 @@ const OurProducts = () => {
       <Typography ref={sectionRef} className="mt-12 text-center">
         <Title
           level={2}
-          className="text-txt font-bold tracking-[-2%] text-[1.5rem] leading-[1.995rem] laptop:text-[38px]"
+          className="text-txt font-bold tracking-title text-[1.5rem] leading-[1.995rem] laptop:text-[38px]"
         >
           Our Products
         </Title>

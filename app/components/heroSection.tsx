@@ -1,46 +1,56 @@
-import DownloadBtns from "@shared/downloadBtns";
-import { Typography } from "antd";
-import Image from "next/image";
-import phones from "public/phones.png";
-const { Title, Paragraph } = Typography;
+import Container from "@shared/container";
+import Image, { StaticImageData } from "next/image";
+import { ReactNode } from "react";
+import Store from "./DownloadStore";
 
-const HeroSection = () => {
+type HeroSectionProps = {
+  title: string | ReactNode;
+  subTitle: string;
+  hasTag?: boolean;
+  tag?: string;
+  heroBg: StaticImageData;
+  imgClassName: string;
+  className: string;
+};
+const HeroSection = ({
+  title,
+  subTitle,
+  hasTag,
+  tag,
+  heroBg,
+  imgClassName,
+  className,
+}: HeroSectionProps) => {
   return (
-    <main className="w-full max-w-[2560px] m-auto">
-      <div className="flex gap-12 sm:gap-6 flex-col-reverse md:grid-cols-2 bg-[#EAEAFF] md:grid md:bg-white w-full items-center justify-center">
-        <div className="bg-[#EAEAFF] md:px-8 mx-6 md:mx-auto w-full clear-both md:pt-28 rounded-br-[24px]">
-          <Image
-            src={phones}
-            alt="phones"
-            width={587}
-            height={592}
-            className="m-auto w-auto"
-            placeholder="blur"
-          />
+    <section className="text-white relative">
+      <Image
+        alt="Hero Bg"
+        src={heroBg}
+        sizes="100vw"
+        className={`w-full object-cover ${imgClassName}`}
+        placeholder="blur"
+        quality={100}
+        priority
+      />
+      <Container
+        className={`absolute max-w-[1400px] justify-center flex gap-8 flex-col my-0 top-1/2 -translate-y-1/2 translate-x-0 z-10`}
+      >
+        {hasTag && (
+          <p className="p-2 lg:p-3 rounded-lg lg:rounded-xl bg-white/30 m-0 w-max text-[15px] leadimg-[15px] lg:text-lg lg:leading-[18px] lg:tracking-text">
+            {tag}
+          </p>
+        )}
+        <div className={className} style={{ width: "100%" }}>
+          <h1 className="text-[35px] leading-[45px] lg:text-[45px] lg:leading-[47px] mb-2 font-bold lg:tracking-title">
+            {title}
+          </h1>
+          <p className="text-base lg:text-lg m-0 lg:leading-[25px] tracking-text">
+            {subTitle}
+          </p>
         </div>
-        <Typography className="mx-6 mt-32 md:mt-0 md:mx-12 text-center md:text-start md:max-w-2xl">
-          <Title
-            level={1}
-            className="m-0 text-[28px] leading-[34px] laptop:text-[40px] laptop:leading-[50px] laptop-md:text-[50px] laptop-md:leading-[55px] tracking-[-5%] font-bold"
-          >
-            Easy Payments for{" "}
-            <span className="font-fraunces text-primary font-normal italic tracking-[-2%]">
-              You
-            </span>{" "}
-            and
-            <span className="font-fraunces text-primary font-normal italic">
-              {" "}
-              Your Business!{" "}
-            </span>
-          </Title>
-          <Paragraph className="mb-0 mt-2 text-body-text-2 text-[.9375rem] laptop-md:text-[18px] laptop-md:leading-[26px] laptop:text-base max-w-[502px] w-full">
-            Experience swift transactions and seamless business management with
-            Blue's All-In-One Platform.
-          </Paragraph>
-          <DownloadBtns />
-        </Typography>
-      </div>
-    </main>
+        <Store />
+      </Container>
+    </section>
   );
 };
 
