@@ -40,6 +40,10 @@ module.exports = {
           "linear-gradient(106.92deg, #C4CFF8 -14.91%, #F9FAFF 59.7%, #BEBAE7 121.38%)",
         lilac:
           "linear-gradient(189.8deg, #F6F0FF -87.15%, rgba(246, 240, 255, 0) 149.62%)",
+        "primary-grad-footer":
+          "linear-gradient(180deg, #4341CD 42%, #4357C2 73%, #436BB8 100%)",
+        "primary-grad-nav":
+          "linear-gradient(180deg, #436BB8 0%, #4357C2 27%, #4341CD 58%)",
       },
       boxShadow: {
         shadow: "0px 3px 15px 0px #EAEAFF",

@@ -20,7 +20,7 @@ const socialLinks = [
 
 const Footer = () => {
   return (
-    <footer className="bg-primary text-white">
+    <footer className="bg-primary-grad-footer text-white">
       <center className="space-y-10 py-14">
         <h6 className="font-bold text-[27px] leading-[35px] lg:text-[40px] lg:leading-[47px] tracking-title">
           What are you waiting for?

@@ -23,7 +23,7 @@ const Navbar = () => {
   const onClose = () => setOpen(false);
   return (
     <header
-      className={`flex gap-8 w-full fixed items-center justify-between lg:justify-start text-white py-4 px-6 tablet:px-20 z-50 laptop:px-6 laptop-md:px-20 top-0 ${backgroundTransparent <= 0 ? "bg-inherit" : "bg-primary"}`}
+      className={`flex gap-8 w-full fixed items-center justify-between lg:justify-start text-white py-4 px-6 tablet:px-20 z-50 laptop:px-6 laptop-md:px-20 top-0 ${backgroundTransparent <= 0 ? "bg-inherit" : "bg-primary-grad-nav"}`}
     >
       <Link href="/">
         <Image
