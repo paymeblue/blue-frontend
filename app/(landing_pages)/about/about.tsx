@@ -7,7 +7,7 @@ import { Fragment } from "react";
 const AboutPage = () => {
   return (
     <Fragment>
-      <section className="text-white w-full relative bg-txt h-[474px]">
+      <section className="text-white w-full relative bg-primary h-[474px]">
         <Container className="inset-0 top-[52%] mobile-md:top-1/2 absolute max-w-[775px] text-center px-4 md:px-20 laptop:px-4 laptop-md:px-20 m-auto w-full justify-center flex gap-1 flex-col translate-x-0 -translate-y-1/2">
           <h1 className="text-[35px] leading-[38px] lg:text-[45px] lg:leading-[47px] mb-5 font-bold lg:tracking-title">
             Redefining{" "}

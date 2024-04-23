@@ -1,3 +1,4 @@
+import Spinner from "@shared/Spinner";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
 
@@ -7,7 +8,12 @@ export const metadata: Metadata = {
     "Streamline your financial operations effortlessly with Blue Business",
 };
 
-const Business = dynamic(() => import("app/(landing_pages)/business/business"));
+const Business = dynamic(
+  () => import("app/(landing_pages)/business/business"),
+  {
+    loading: () => <Spinner />,
+  }
+);
 const Businesspage = () => <Business />;
 
 export default Businesspage;

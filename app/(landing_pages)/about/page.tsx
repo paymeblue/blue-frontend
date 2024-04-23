@@ -1,3 +1,4 @@
+import Spinner from "@shared/Spinner";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
 
@@ -6,7 +7,7 @@ export const metadata: Metadata = {
   description: "Receive and make payments on the go with Blue About",
 };
 
-const About = dynamic(() => import("./about"));
+const About = dynamic(() => import("./about"), { loading: () => <Spinner /> });
 const Aboutpage = () => <About />;
 
 export default Aboutpage;

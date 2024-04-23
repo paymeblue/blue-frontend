@@ -9,7 +9,7 @@ type IProps = {
 
 const PageHead = ({ title, subTitle }: IProps) => {
   return (
-    <section className="text-white relative bg-txt h-[321px]">
+    <section className="text-white relative bg-primary h-[321px]">
       <Container className="absolute max-w-[1440px] justify-center flex gap-8 flex-col my-0 top-1/2 -translate-y-1/2 translate-x-0">
         <div className="w-full">
           <h1 className="text-[35px] leading-[38px] lg:text-[45px] lg:leading-[47px] mb-2 font-bold lg:tracking-title">
