@@ -1,3 +1,5 @@
+"use client";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import apple from "public/app-store.png";
@@ -8,7 +10,10 @@ import { Fragment } from "react";
 const DownloadStore = ({ centered }: { centered?: boolean }) => {
   return (
     <Fragment>
-      <div
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5, delay: 0.35 }}
         className={`flex items-center gap-3 ${centered ? "justify-center" : "justify-start"}`}
       >
         <Link href="/" className="rounded-lg">
@@ -29,8 +34,13 @@ const DownloadStore = ({ centered }: { centered?: boolean }) => {
             alt="google play"
           />
         </Link>
-      </div>
-      <div className="w-[calc(100%-70px)] md:w-max custom_svg_border border-[#73706f] p-4 rounded-xl flex items-center justify-center gap-3">
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5, delay: 0.35 }}
+        className="w-[calc(100%-70px)] md:w-max custom_svg_border py-5 px-8 rounded-xl flex items-center justify-center gap-3"
+      >
         <QRCodeSVG
           value="https://deploy-preview-27--blue-frontend.netlify.app/"
           fgColor="#000000"
@@ -52,7 +62,7 @@ const DownloadStore = ({ centered }: { centered?: boolean }) => {
         <p className="text-[15px] leading-[20.77px] m-0 lg:text-base lg:leading-[22px] w-full max-w-[158px] tracking-text">
           or, scan the qr code to download the app.
         </p>
-      </div>
+      </motion.div>
     </Fragment>
   );
 };

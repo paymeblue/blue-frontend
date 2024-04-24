@@ -10,6 +10,6 @@ export const metadata: Metadata = {
 const Personal = dynamic(() => import("./personal"), {
   loading: () => <Spinner />,
 });
-const Personalpage = () => <Personal />;
+const PersonalPage = () => <Personal />;
 
-export default Personalpage;
+export default PersonalPage;

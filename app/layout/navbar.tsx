@@ -28,7 +28,7 @@ const Navbar = () => {
     <header
       className={`flex gap-8 w-full fixed items-center justify-between lg:justify-start text-white py-4 px-6 tablet:px-20 z-50 laptop:px-6 laptop-md:px-20 top-0 ${backgroundTransparent <= 0 ? "bg-inherit" : "bg-primary-grad-nav"}`}
     >
-      <Link href="/">
+      <Link href="/" className="mr-6 laptop-md:mr-8">
         <Image
           width={110}
           height={44.8}
@@ -50,10 +50,19 @@ const Navbar = () => {
               <ul
                 className={`flex flex-col gap-4 px-0 py-[0.625rem] laptop:hidden`}
               >
+                <li className="text-[#32374E]">
+                  <Link
+                    className={`text-[0.9375rem] leading-[15px] tracking-text text-inherit ${pathname === "/" ? "font-bold" : "font-normal"}`}
+                    href={`/`}
+                    onClick={onClose}
+                  >
+                    Home
+                  </Link>
+                </li>
                 {navLinks.map((item) => (
                   <li key={item.href} className="text-[#32374E]">
                     <Link
-                      className={`text-[0.9375rem] leading-[15px] tracking-text text-inherit`}
+                      className={`text-[0.9375rem] leading-[15px] tracking-text text-inherit ${pathname === `/${item.href}` ? "font-bold" : "font-normal"}`}
                       href={`/${item.href}`}
                       onClick={onClose}
                     >
@@ -70,7 +79,7 @@ const Navbar = () => {
         </Portal>
       )}
       <nav className="hidden lg:block">
-        <ul className="flex items-center gap-8 justify-center m-0">
+        <ul className="flex items-center gap-12 laptop-md:gap-16 justify-center m-0">
           {navLinks.map((item) => (
             <li key={item.href}>
               <Link

@@ -1,4 +1,5 @@
 import Container from "@shared/container";
+import { motion } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import apple from "public/app-store2.png";
@@ -41,22 +42,42 @@ const HeroSection = ({
         className={`absolute max-w-[1400px] justify-center flex gap-8 flex-col my-0 top-1/2 -translate-y-1/2 translate-x-0 z-10`}
       >
         {hasTag && (
-          <p className="p-2 lg:p-3 rounded-lg lg:rounded-xl bg-white/30 m-0 w-max text-[15px] leadimg-[15px] lg:text-lg lg:leading-[18px] lg:tracking-text">
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.5, delay: 0.25 }}
+            className="p-2 lg:p-3 rounded-lg lg:rounded-xl bg-white/30 m-0 w-max text-[15px] leadimg-[15px] lg:text-lg lg:leading-[18px] lg:tracking-text"
+          >
+            {" "}
             {tag}
-          </p>
+          </motion.p>
         )}
         <div className={className} style={{ width: "100%" }}>
-          <h1 className="text-[35px] leading-[45px] lg:text-[40px] lg:leading-[47px] mb-2 lg:mb-4 font-bold lg:tracking-title">
+          <motion.h1
+            initial={{ opacity: 0, y: -100 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, stiffness: 90 }}
+            className="text-[32px] leading-[40px] lg:text-[40px] lg:leading-[47px] mb-2 lg:mb-4 font-bold lg:tracking-title"
+          >
+            {" "}
             {title}
-          </h1>
-          <p
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.35, stiffness: 90 }}
             className={`text-base lg:text-lg m-0 lg:leading-[25px] w-full tracking-text ${pClassName}`}
           >
             {subTitle}
-          </p>
+          </motion.p>
         </div>
         <Fragment>
-          <div className="flex items-center gap-3 justify-start">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.5, delay: 0.35 }}
+            className="flex items-center gap-3 justify-start"
+          >
             <Link href="/">
               <Image
                 width={159.28}
@@ -75,8 +96,13 @@ const HeroSection = ({
                 alt="google play"
               />
             </Link>
-          </div>
-          <div className="w-[calc(100%-70px)] md:w-max custom_svg_border border-[#73706f] p-4 rounded-xl flex items-center justify-center gap-3">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.5, delay: 0.35 }}
+            className="w-[calc(100%-70px)] md:w-max custom_svg_border py-5 px-8 rounded-xl flex items-center justify-center gap-3"
+          >
             <QRCodeSVG
               value="https://deploy-preview-27--blue-frontend.netlify.app/"
               fgColor="#000000"
@@ -98,7 +124,7 @@ const HeroSection = ({
             <p className="text-[15px] leading-[20.77px] m-0 lg:text-base lg:leading-[22px] w-full max-w-[158px] tracking-text">
               or, scan the qr code to download the app.
             </p>
-          </div>
+          </motion.div>
         </Fragment>
       </Container>
     </section>

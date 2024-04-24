@@ -11,6 +11,6 @@ export const metadata: Metadata = {
 const Business = dynamic(() => import("./business"), {
   loading: () => <Spinner />,
 });
-const Businesspage = () => <Business />;
+const BusinessPage = () => <Business />;
 
-export default Businesspage;
+export default BusinessPage;

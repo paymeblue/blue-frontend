@@ -1,4 +1,6 @@
+"use client";
 import Container from "@shared/container";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import gridImg from "public/gridImg.png";
 import vector from "public/vector.png";
@@ -9,7 +11,12 @@ const AboutPage = () => {
     <Fragment>
       <section className="text-white w-full relative bg-primary-grad-nav h-[474px]">
         <Container className="inset-0 top-[52%] mobile-md:top-1/2 absolute max-w-[925px] text-center px-4 md:px-20 laptop:px-4 laptop-md:px-20 m-auto w-full justify-center flex gap-1 flex-col translate-x-0 -translate-y-1/2">
-          <h1 className="text-[35px] leading-[38px] lg:text-[45px] lg:leading-[47px] mb-5 font-bold lg:tracking-title">
+          <motion.h1
+            initial={{ opacity: 0, y: -100 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, stiffness: 90 }}
+            className="text-[32px] leading-[35px] lg:text-[45px] lg:leading-[47px] mb-5 font-bold lg:tracking-title"
+          >
             Redefining{" "}
             <span className="font-fraunces text-[35px] leading-[38px] lg:text-[47px] lg:leading-[47px] italic">
               Easy Banking
@@ -19,12 +26,17 @@ const AboutPage = () => {
               Seamless Payments{" "}
             </span>
             for Everyone
-          </h1>
-          <p className=" text-base lg:text-lg m-0 leading-[25px] tracking-text">
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.35, stiffness: 90 }}
+            className=" text-base lg:text-lg m-0 leading-[25px] tracking-text"
+          >
             Founded with a vision to revolutionize the way individuals and
             businesses manage their finances, Blue is committed to providing
             seamless, secure, and user-friendly payment solutions.
-          </p>
+          </motion.p>
         </Container>
         <Image
           src={vector}
@@ -41,7 +53,7 @@ const AboutPage = () => {
               Simplify all things payments
             </i>
           </h3>
-          <div className="text-[15px] leading-[25px] lg:text-base lg:leading-[27px] tracking-text space-y-3 lg:space-y-5">
+          <div className="text-[15px] mt-3 lg:mt-4 leading-[25px] lg:text-base lg:leading-[27px] tracking-text space-y-3 lg:space-y-5">
             <p className="m-0">
               At Blue, we're committed to simplifying the world of payments for
               both individuals and businesses. Lorem ipsum dolor sit amet,

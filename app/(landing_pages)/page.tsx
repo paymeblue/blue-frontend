@@ -11,6 +11,6 @@ export const metadata: Metadata = {
 const Home = dynamic(() => import("@components/home"), {
   loading: () => <Spinner />,
 });
-const Homepage = () => <Home />;
+const HomePage = () => <Home />;
 
-export default Homepage;
+export default HomePage;

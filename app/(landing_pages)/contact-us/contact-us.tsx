@@ -1,6 +1,7 @@
 "use client";
 import { CheckCircleOutlined } from "@ant-design/icons";
 import { Input } from "@components/FormInput";
+import { ChevronDown } from "@components/assets/icons";
 import { zodResolver } from "@hookform/resolvers/zod";
 import countrycodes from "@lib/countryCodes";
 import { TSchema, schema } from "@lib/index";
@@ -104,20 +105,23 @@ const Contact = () => {
               </label>
               <Fragment>
                 <div className="bg-input-field items-center p-0.5 h-[51px] outline-0 border-[0.5px] border-transparent hover:border-primary w-full rounded flex">
-                  <select
-                    className="w-16 py-1 px-3 h-8 rounded cursor-pointer ml-1 border-none outline-none bg-white"
-                    {...register("code", {
-                      onChange: (e) => {
-                        setValue("number", e.target.value);
-                      },
-                    })}
-                  >
-                    {countrycodes.map((country) => (
-                      <option value={country.code} key={country.flag}>
-                        {country.flag}
-                      </option>
-                    ))}
-                  </select>
+                  <div className="w-28 flex items-center justify-center gap-1 py-1 px-3 h-8 rounded appearance-none cursor-pointer ml-1 border-none outline-none bg-white">
+                    <select
+                      className="w-16 rounded appearance-none cursor-pointer border-none outline-none focus:right-0"
+                      {...register("code", {
+                        onChange: (e) => {
+                          setValue("number", e.target.value);
+                        },
+                      })}
+                    >
+                      {countrycodes.map((country) => (
+                        <option value={country.code} key={country.flag}>
+                          {country.flag}&nbsp; {country.code}
+                        </option>
+                      ))}
+                    </select>
+                    <ChevronDown />
+                  </div>
                   <input
                     id="number"
                     placeholder="Enter your phone number"

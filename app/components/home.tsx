@@ -1,4 +1,6 @@
+"use client";
 import Container from "@shared/container";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import heroBg from "public/homeHeroBg.jpg";
@@ -28,15 +30,28 @@ const Home = () => {
       />
       <Container className="text-center mb-16">
         <div className="mt-16 md:mt-24 mb-8 text-center">
-          <h2 className="text-txt font-bold tracking-title text-[30px] leading-[35px]  laptop:text-[2.375rem] laptop:leading-[47px]">
+          <motion.h2
+            initial={{ y: 35, opacity: 0.5 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2, stiffness: 90 }}
+            viewport={{ once: true }}
+            className="text-txt font-bold tracking-title text-[27px] leading-[32px]  laptop:text-[2.375rem] laptop:leading-[47px]"
+          >
             Receive and make{" "}
             <span className="text-primary italic font-fraunces">payments</span>{" "}
             on the go
-          </h2>
-          <p className="w-full text-base m-auto text-body-text-2 laptop:text-lg leading-[23px]">
+          </motion.h2>
+          <motion.p
+            initial={{ y: 40, opacity: 0.6 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.3, stiffness: 90 }}
+            viewport={{ once: true }}
+            className="w-full text-base m-auto text-body-text-2 laptop:text-lg leading-[23px]"
+          >
+            {" "}
             Blue ensures a guaranteed swift, versatile, and seamless way for you
             to receive and make payments.
-          </p>
+          </motion.p>
         </div>
         <div className="mx-auto my-20 bg-lilac flex px-6 md:px-0 flex-wrap border border-[#EFE5FF] rounded-xl py-12 items-center justify-center gap-5 laptop-md:flex-nowrap">
           <div className="border-[#efe5ff] p-4 md:p-6 border w-full max-w-[23.375rem] gap-6 shadow-[0rem_0rem_0rem_.3125rem_#FFFFFF] flex flex-col justify-start items-start bg-[#FCFAFF] rounded-xl">
@@ -76,9 +91,15 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="flex mb-12 lg:mb-auto flex-col-reverse lg:grid lg:grid-cols-2 items-center justify-between gap-10 lg:gap-16">
+        <motion.div
+          initial={{ y: 35, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.35 }}
+          viewport={{ once: true }}
+          className="flex mb-12 lg:mb-auto flex-col-reverse lg:grid lg:grid-cols-2 items-center justify-between gap-10 lg:gap-16"
+        >
           <div className="max-w-[551px] w-full text-start">
-            <h4 className="font-bold text-[29px] lg:text-[40px] leading-[47px] tracking-title m-0">
+            <h4 className="font-bold text-[25px] lg:text-[40px] leading-[47px] tracking-title m-0">
               Discover&nbsp;
               <i className="text-primary font-fraunces">BluePersonal</i>
             </h4>
@@ -102,14 +123,21 @@ const Home = () => {
           <div>
             <Image src={img1} alt="blue personal" className="object-contain" />
           </div>
-        </div>
-        <div className="flex flex-col lg:grid lg:grid-cols-2 items-center justify-between gap-10 lg:gap-16">
+        </motion.div>
+        <motion.div
+          initial={{ y: 35, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.25, duration: 0.5 }}
+          viewport={{ once: true }}
+          className="flex flex-col lg:grid lg:grid-cols-2 items-center justify-between gap-10 lg:gap-16"
+        >
           <div>
             <Image src={img2} alt="blue business" className="object-contain" />
           </div>
           <div className="max-w-[551px] w-full text-start">
-            <h4 className="font-bold text-[29px] lg:text-[40px] leading-[47px] tracking-title m-0">
-              Discover<i className="text-primary font-fraunces">BlueBusiness</i>
+            <h4 className="font-bold text-[25px] lg:text-[40px] leading-[47px] tracking-title m-0">
+              Discover&nbsp;
+              <i className="text-primary font-fraunces">BlueBusiness</i>
             </h4>
             <p className="m-0 text-base lg:text-lg lg:leading-[28px] text-[#32374E] tracking-text">
               BlueBusiness offers a range of features tailored to streamline
@@ -128,7 +156,7 @@ const Home = () => {
               </Link>
             </div>
           </div>
-        </div>
+        </motion.div>
       </Container>
     </div>
   );

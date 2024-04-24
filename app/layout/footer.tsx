@@ -1,3 +1,4 @@
+"use client";
 import {
   Instagram,
   Linkedin,
@@ -5,6 +6,7 @@ import {
   Youtube,
 } from "@components/assets/icons";
 import Store from "@shared/DownloadStore";
+import { motion } from "framer-motion";
 import Link from "next/link";
 
 const policyLinks = [
@@ -20,16 +22,22 @@ const socialLinks = [
 
 const Footer = () => {
   return (
-    <footer className="bg-primary-grad-footer text-white mt-16 laptop-md:24">
+    <motion.footer
+      initial={{ y: "35vh", opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      transition={{ delay: 0.3, duration: 0.6 }}
+      viewport={{ once: true }}
+      className="bg-primary-grad-footer text-white mt-16 px-6 laptop-md:px-0 laptop-md:24"
+    >
       <center className="space-y-10 py-14">
-        <h6 className="font-bold text-[27px] leading-[35px] lg:text-[40px] lg:leading-[47px] tracking-title">
+        <h6 className="font-bold text-[24px] leading-[32px] lg:text-[40px] lg:leading-[47px] tracking-title">
           What are you waiting for?
           <br />
           Simplify your life with seamless transactions.
         </h6>
         <Store centered />
       </center>
-      <hr className="w-[95%] m-auto border-0 border-b-[0.5px] border-[#5F6578]" />
+      <hr className="w-[95%] m-auto border-0 border-b-[0.5px] border-[#EAEAFF]" />
       <div className="flex flex-col-reverse lg:flex-row justify-between opacity-75 items-center gap-12 px-16 py-5">
         <small className="text-sm leading-[14px] tracking-text">
           © 2024 Blue. All rights reserved
@@ -63,7 +71,7 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 };
 

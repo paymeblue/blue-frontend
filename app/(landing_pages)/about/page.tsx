@@ -8,6 +8,6 @@ export const metadata: Metadata = {
 };
 
 const About = dynamic(() => import("./about"), { loading: () => <Spinner /> });
-const Aboutpage = () => <About />;
+const AboutPage = () => <About />;
 
-export default Aboutpage;
+export default AboutPage;

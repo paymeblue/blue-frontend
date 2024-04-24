@@ -1,3 +1,4 @@
+"use client";
 import Container from "@shared/container";
 import Image from "next/image";
 import heroBg from "public/businessHeroBg.jpg";

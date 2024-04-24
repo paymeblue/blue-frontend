@@ -1,3 +1,4 @@
+export { default as ChevronDown } from "./chevron-down";
 export { default as ChevronRight } from "./chevron-right";
 export { default as Close } from "./close";
 export { default as Instagram } from "./instagram";
