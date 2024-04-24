@@ -20,7 +20,7 @@ const Contact = () => {
     number: "+234",
     message: "",
   };
-  const { formState, handleSubmit, register, setValue, reset } = useForm({
+  const { formState, handleSubmit, register, reset } = useForm({
     mode: "onBlur",
     defaultValues,
     resolver: zodResolver(schema),
@@ -109,9 +109,9 @@ const Contact = () => {
                     <select
                       className="w-16 rounded appearance-none cursor-pointer border-none outline-none focus:right-0"
                       {...register("code", {
-                        onChange: (e) => {
-                          setValue("number", e.target.value);
-                        },
+                        // onChange: (e) => {
+                        //   setValue("number", e.target.value);
+                        // },
                       })}
                     >
                       {countrycodes.map((country) => (

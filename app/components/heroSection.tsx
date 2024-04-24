@@ -57,7 +57,7 @@ const HeroSection = ({
             initial={{ opacity: 0, y: -100 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, stiffness: 90 }}
-            className="text-[32px] leading-[40px] lg:text-[40px] lg:leading-[47px] mb-2 lg:mb-4 font-bold lg:tracking-title"
+            className="text-[32px] leading-[38px] lg:text-[40px] lg:leading-[47px] mb-2 lg:mb-4 font-bold lg:tracking-title"
           >
             {" "}
             {title}

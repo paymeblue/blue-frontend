@@ -31,22 +31,22 @@ const Home = () => {
       <Container className="text-center mb-16">
         <div className="mt-16 md:mt-24 mb-8 text-center">
           <motion.h2
-            initial={{ y: 35, opacity: 0.5 }}
-            whileInView={{ y: 0, opacity: 1 }}
+            initial={{ y: 35 }}
+            whileInView={{ y: 0 }}
             transition={{ delay: 0.2, stiffness: 90 }}
             viewport={{ once: true }}
-            className="text-txt font-bold tracking-title text-[27px] leading-[32px]  laptop:text-[2.375rem] laptop:leading-[47px]"
+            className="text-txt font-bold tracking-title text-[27px] leading-[28px]  laptop:text-[2.375rem] laptop:leading-[47px]"
           >
             Receive and make{" "}
             <span className="text-primary italic font-fraunces">payments</span>{" "}
             on the go
           </motion.h2>
           <motion.p
-            initial={{ y: 40, opacity: 0.6 }}
-            whileInView={{ y: 0, opacity: 1 }}
+            initial={{ y: 40 }}
+            whileInView={{ y: 0 }}
             transition={{ delay: 0.3, stiffness: 90 }}
             viewport={{ once: true }}
-            className="w-full text-base m-auto text-body-text-2 laptop:text-lg leading-[23px]"
+            className="w-full text-base m-auto text-body-text-2 mt-4 laptop:text-lg leading-[23px]"
           >
             {" "}
             Blue ensures a guaranteed swift, versatile, and seamless way for you

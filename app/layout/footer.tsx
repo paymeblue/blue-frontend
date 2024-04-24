@@ -30,7 +30,7 @@ const Footer = () => {
       className="bg-primary-grad-footer text-white mt-16 px-6 laptop-md:px-0 laptop-md:24"
     >
       <center className="space-y-10 py-14">
-        <h6 className="font-bold text-[24px] leading-[32px] lg:text-[40px] lg:leading-[47px] tracking-title">
+        <h6 className="font-bold text-[24px] leading-[30px] lg:text-[40px] lg:leading-[47px] tracking-title">
           What are you waiting for?
           <br />
           Simplify your life with seamless transactions.
