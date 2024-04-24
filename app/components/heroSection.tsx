@@ -1,7 +1,10 @@
 import Container from "@shared/container";
 import Image, { StaticImageData } from "next/image";
-import { ReactNode } from "react";
-import Store from "../shared/DownloadStore";
+import Link from "next/link";
+import apple from "public/app-store2.png";
+import google from "public/google-play2.png";
+import { QRCodeSVG } from "qrcode.react";
+import { Fragment, ReactNode } from "react";
 
 type HeroSectionProps = {
   title: string | ReactNode;
@@ -48,7 +51,51 @@ const HeroSection = ({
             {subTitle}
           </p>
         </div>
-        <Store />
+        <Fragment>
+          <div className="flex items-center gap-3 justify-start">
+            <Link href="/">
+              <Image
+                width={159.28}
+                height={53.09}
+                src={apple}
+                className="object-contain"
+                alt="app store"
+              />
+            </Link>
+            <Link href="/">
+              <Image
+                width={159.28}
+                height={53.09}
+                className="object-contain"
+                src={google}
+                alt="google play"
+              />
+            </Link>
+          </div>
+          <div className="w-[calc(100%-70px)] md:w-max custom_svg_border border-[#73706f] p-4 rounded-xl flex items-center justify-center gap-3">
+            <QRCodeSVG
+              value="https://deploy-preview-27--blue-frontend.netlify.app/"
+              fgColor="#000000"
+              level="M"
+              imageSettings={{
+                src: "/icon.png",
+                x: undefined,
+                y: undefined,
+                height: 32,
+                width: 32,
+                excavate: true,
+              }}
+              includeMargin
+              className="rounded-lg w-[80px] h-[80px] lg:w-auto lg:h-auto"
+              bgColor="white"
+              type="svg"
+              size={128}
+            />
+            <p className="text-[15px] leading-[20.77px] m-0 lg:text-base lg:leading-[22px] w-full max-w-[158px] tracking-text">
+              or, scan the qr code to download the app.
+            </p>
+          </div>
+        </Fragment>
       </Container>
     </section>
   );

@@ -90,7 +90,7 @@ const Home = () => {
             </p>
             <div className="mt-2 lg:mt-4">
               <Link
-                href="/"
+                href="/personal"
                 className="flex gap-2 text-base leading-[16px] tracking-text items-center justify-start text-primary"
               >
                 Learn more
@@ -119,7 +119,7 @@ const Home = () => {
             </p>
             <div className="mt-2 lg:mt-4">
               <Link
-                href="/"
+                href="/business"
                 className="flex gap-2 text-base leading-[16px] tracking-text items-center justify-start text-primary"
               >
                 Learn more
