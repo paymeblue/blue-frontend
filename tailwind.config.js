@@ -23,8 +23,8 @@ module.exports = {
         "input-field": "#F7F7FA",
       },
       letterSpacing: {
-        title: "-2%",
-        text: "-1%",
+        title: "-0.32px",
+        text: "-0.16px",
       },
       fontFamily: {
         fraunces: ["var(--font-fraunces)"],

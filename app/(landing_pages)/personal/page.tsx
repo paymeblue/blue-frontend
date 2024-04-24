@@ -7,12 +7,9 @@ export const metadata: Metadata = {
   description: "Receive and make payments on the go with Blue Personal",
 };
 
-const Personal = dynamic(
-  () => import("app/(landing_pages)/personal/personal"),
-  {
-    loading: () => <Spinner />,
-  }
-);
+const Personal = dynamic(() => import("./personal"), {
+  loading: () => <Spinner />,
+});
 const Personalpage = () => <Personal />;
 
 export default Personalpage;

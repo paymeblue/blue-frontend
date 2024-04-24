@@ -29,11 +29,6 @@ const grotesque = localFont({
   src: [
     {
       path: "./Basis Grotesque PRO Font Family/BasisGrotesqueArabicPro-Light.ttf",
-      weight: "300",
-      style: "normal",
-    },
-    {
-      path: "./Basis Grotesque PRO Font Family/BasisGrotesqueArabicPro-Regular.ttf",
       weight: "400",
       style: "normal",
     },

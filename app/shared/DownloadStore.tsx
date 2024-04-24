@@ -11,20 +11,20 @@ const DownloadStore = ({ centered }: { centered?: boolean }) => {
       <div
         className={`flex items-center gap-3 ${centered ? "justify-center" : "justify-start"}`}
       >
-        <Link href="/" className="border border-white rounded-lg">
+        <Link href="/" className="rounded-lg">
           <Image
             width={159.28}
             height={53.09}
             src={apple}
-            className="object-contain"
+            className="object-contain w-[159.28px] h-[53.09px]"
             alt="app store"
           />
         </Link>
-        <Link href="/" className="border border-white rounded-lg">
+        <Link href="/" className="rounded-lg">
           <Image
             width={159.28}
             height={53.09}
-            className="object-contain"
+            className="object-contain w-[159.28px] h-[53.09px]"
             src={google}
             alt="google play"
           />
@@ -39,15 +39,15 @@ const DownloadStore = ({ centered }: { centered?: boolean }) => {
             src: "/icon.png",
             x: undefined,
             y: undefined,
-            height: 32,
-            width: 32,
-            excavate: true,
+            height: 30,
+            width: 30,
+            excavate: false,
           }}
           includeMargin
           className="rounded-lg w-[80px] h-[80px] lg:w-auto lg:h-auto"
           bgColor="white"
           type="svg"
-          size={128}
+          size={77}
         />
         <p className="text-[15px] leading-[20.77px] m-0 lg:text-base lg:leading-[22px] w-full max-w-[158px] tracking-text">
           or, scan the qr code to download the app.

@@ -14,6 +14,7 @@ type HeroSectionProps = {
   heroBg: StaticImageData;
   imgClassName: string;
   className: string;
+  pClassName?: string;
 };
 const HeroSection = ({
   title,
@@ -23,6 +24,7 @@ const HeroSection = ({
   heroBg,
   imgClassName,
   className,
+  pClassName,
 }: HeroSectionProps) => {
   return (
     <section className="text-white relative">
@@ -44,10 +46,12 @@ const HeroSection = ({
           </p>
         )}
         <div className={className} style={{ width: "100%" }}>
-          <h1 className="text-[35px] leading-[45px] lg:text-[45px] lg:leading-[47px] mb-2 font-bold lg:tracking-title">
+          <h1 className="text-[35px] leading-[45px] lg:text-[40px] lg:leading-[47px] mb-2 lg:mb-4 font-bold lg:tracking-title">
             {title}
           </h1>
-          <p className="text-base lg:text-lg m-0 lg:leading-[25px] tracking-text">
+          <p
+            className={`text-base lg:text-lg m-0 lg:leading-[25px] w-full tracking-text ${pClassName}`}
+          >
             {subTitle}
           </p>
         </div>
@@ -81,15 +85,15 @@ const HeroSection = ({
                 src: "/icon.png",
                 x: undefined,
                 y: undefined,
-                height: 32,
-                width: 32,
-                excavate: true,
+                height: 30,
+                width: 30,
+                excavate: false,
               }}
               includeMargin
               className="rounded-lg w-[80px] h-[80px] lg:w-auto lg:h-auto"
               bgColor="white"
               type="svg"
-              size={128}
+              size={77}
             />
             <p className="text-[15px] leading-[20.77px] m-0 lg:text-base lg:leading-[22px] w-full max-w-[158px] tracking-text">
               or, scan the qr code to download the app.

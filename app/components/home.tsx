@@ -22,8 +22,9 @@ const Home = () => {
         }
         subTitle="Experience the future of payments with Blue. Whether you're an individual or a business, our all-in-one platform enables you to send and receive payments effortlessly. "
         heroBg={heroBg}
-        className="max-w-[780px]"
+        className="max-w-[750px]"
         imgClassName="h-[779px]"
+        pClassName="w-full max-w-[610px]"
       />
       <Container className="text-center mb-16">
         <div className="mt-16 md:mt-24 mb-8 text-center">

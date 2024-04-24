@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import logo from "public/logo.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const navLinks = [
   { label: "Personal", href: "personal" },
@@ -19,6 +19,9 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const backgroundTransparent = useNavBg();
   const pathname = usePathname();
+  useEffect(() => {
+    window.history.scrollRestoration = "manual";
+  }, []);
   const openMenu = () => setOpen(true);
   const onClose = () => setOpen(false);
   return (
@@ -31,7 +34,7 @@ const Navbar = () => {
           height={44.8}
           src={logo}
           alt="blue logo"
-          className="w-auto object-contain"
+          className="w-[110px] h-[44.8px] object-contain "
         />
       </Link>
       <span onClick={openMenu} className="cursor-pointer lg:hidden">
@@ -50,7 +53,7 @@ const Navbar = () => {
                 {navLinks.map((item) => (
                   <li key={item.href} className="text-[#32374E]">
                     <Link
-                      className={`text-[0.9375rem] leading-normal text-inherit`}
+                      className={`text-[0.9375rem] leading-[15px] tracking-text text-inherit`}
                       href={`/${item.href}`}
                       onClick={onClose}
                     >

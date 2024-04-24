@@ -23,11 +23,11 @@ const Personal = () => {
         hasTag
         tag="Discover BluePersonal"
         imgClassName="h-[720px]"
-        className="max-w-[900px]"
+        className="max-w-[869px]"
       />
       <Container className="py-8 lg:py-16">
-        <div className="bg-purple flex flex-col lg:flex-row mb-12 items- justify-between p-5 md:p-10 min-[900px]:pb-0 laptop-md:p-20 laptop-md:pb-0 pb-0 gap-8 rounded-3xl">
-          <div className="w-full mt-5 md:mt-0 lg:mt-20 max-w-[650px]">
+        <div className="bg-purple flex flex-col lg:flex-row mb-8 items- justify-between p-5 md:p-10 min-[900px]:pb-0 laptop-md:p-20 laptop-md:pb-0 pb-0 gap-8 rounded-3xl">
+          <div className="w-full mt-5 md:mt-0 lg:mt-20 max-w-[620px]">
             <h4 className="tracking-title text-[30px] leading-[35px] lg:text-[38px] font-bold m-0 lg:leading-[47px]">
               Blue-to-Blue
               <i className="font-fraunces text-primary">&nbsp;Free Transfers</i>
@@ -58,16 +58,16 @@ const Personal = () => {
             />
           </div>
         </div>
-        <div className="flex flex-col lg:flex-row items-center justify-center w-full gap-12 laptop-md:gap-8">
+        <div className="flex flex-col lg:flex-row items-center justify-center w-full gap-8 laptop-md:gap-8">
           <div className="bg-primary text-white w-full flex flex-col rounded-3xl gap-12 lg:gap-6 justify-between p-5 md:p-7 md:pb-0 md:pl-0 lg:pt-10 laptop-md:p-12 laptop-md:pb-0 laptop-md:pl-0 h-auto lg:h-[758px] pb-0 pl-0">
             <div className="w-full p-0 mt-5 laptop-md:mt-0 pl-5 md:pl-10 laptop-md:pl-12">
-              <h4 className="tracking-title text-[30px] leading-[35px] laptop-md:text-[38px] max-w-g font-bold m-0 laptop-md:leading-[47px]">
+              <h4 className="tracking-title text-[30px] leading-[35px] laptop-md:text-[38px] font-bold m-0 laptop-md:leading-[47px]">
                 Don&apos;t have a&nbsp;
                 <i className="font-fraunces inline">smartphone?&nbsp;</i>
                 <br />
                 No worries!
               </h4>
-              <p className="tracking-text text-base leading-[25px] laptop-md:text-lg mt-3 laptop-md:leading-[28px]">
+              <p className="tracking-text text-base w-full max-w-[496px] leading-[25px] laptop-md:text-lg mt-3 laptop-md:leading-[28px]">
                 Blue offers a hassle-free way to make and receive payments
                 without a smartphone, using our USSD and text message features.
               </p>
@@ -84,7 +84,7 @@ const Personal = () => {
             </div>
           </div>
           <div className="bg-txt text-white flex flex-col rounded-3xl gap-6 w-full justify-between h-auto lg:h-[758px] p-5 md:p-10 md:pb-0 laptop-md:p-12 laptop-md:pb-0  pb-0">
-            <div className="w-full mt-5 lg:mt-auto m-auto max-w-[650px]">
+            <div className="w-full mt-5 lg:mt-auto m-auto">
               <h4 className="tracking-title text-[30px] leading-[35px] laptop-md:text-[38px] font-bold m-0 laptop-md:leading-[47px]">
                 Send, request and receive money with a
                 <span className="font-fraunces italic">
@@ -108,9 +108,9 @@ const Personal = () => {
             </div>
           </div>
         </div>
-        <div className="bg-purple flex flex-col lg:flex-row mt-12 items- justify-between p-5 md:p-10 md:pb-0 laptop-md:p-20 laptop-md:pb-0 pb-0 gap-8 rounded-3xl">
+        <div className="bg-purple flex flex-col lg:flex-row mt-8 items- justify-between p-5 md:p-10 md:pb-0 laptop-md:p-20 laptop-md:pb-0 pb-0 gap-8 rounded-3xl">
           <div className="w-full mt-5 lg:mt-20 max-w-[650px]">
-            <h4 className="tracking-title text-[30px] leading-[35px] laptop-md:text-[38px] font-bold m-0 laptop-md:leading-[47px]">
+            <h4 className="tracking-title text-[30px] leading-[35px] w-full max-w-[598px] laptop-md:text-[38px] font-bold m-0 laptop-md:leading-[47px]">
               <span className="font-fraunces italic text-primary">
                 Sync your contacts&nbsp;
               </span>
