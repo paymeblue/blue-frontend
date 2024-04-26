@@ -1,13 +1,12 @@
 "use client";
-import { formatCurrency, sleep } from "@lib/index";
-import html2canvas from "html2canvas";
+import { formatCurrency } from "@lib/index";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import bank from "public/bank.png";
-import blueWhite from "public/blue-white.png";
 import blue from "public/blue.png";
-import success from "public/done.png";
 import { ChangeEvent, FormEvent, Fragment, useState } from "react";
+import SelectBank from "./SelectBank";
+import Success from "./Success";
 
 const items = [
   {
@@ -46,6 +45,8 @@ const NonBlueWithdrawal = () => {
   const [selected, setSelected] = useState("send");
   const router = useRouter();
   const searchParams = useSearchParams();
+  const step = searchParams.get("step");
+
   const handleRadioChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSelected(e.target.value);
   };
@@ -53,98 +54,17 @@ const NonBlueWithdrawal = () => {
     e.preventDefault();
 
     if (selected === "send") {
-      router.replace("?step=success");
+      router.replace("?step=select-bank");
     } else if (selected === "signup") {
       router.replace("/");
     }
   };
-  const handleClick = async () => {
-    router.replace("?step=receipt");
-    await sleep(2000);
-    const componentElement = "";
-    //  const componentElement = refElem.current;
 
-    if (componentElement) {
-      html2canvas(componentElement, { allowTaint: true, useCORS: true })
-        .then((canvas) => {
-          const imgData = canvas.toDataURL("image/png");
-          const link = document.createElement("a");
-          link.href = imgData;
-          link.download = `receipt-${Date.now()}.png`;
-          link.click();
-        })
-        .catch((error) => {
-          console.error("Error capturing component:", error);
-        });
-    }
-    await sleep(2000);
-    router.replace("/");
-  };
   return (
     <Fragment>
-      {searchParams.get("step") === "success" ? (
-        <div className="flex px-4 flex-col text-center  items-center max-w-[1440px] w-full mx-auto justify-center gap-4">
-          <div className="mt-8 laptop:mt-20">
-            <Image
-              src={success}
-              alt="success icon"
-              width={188}
-              height={150}
-              className="object-contain w-[166px] h-[166px] laptop:w-[188px] lg:h-[150px] mx-auto"
-              priority
-            />
-          </div>
-          <div>
-            <h5 className="laptop:leading-[40px] leading-[26px] text-[20px] font-medium laptop:text-[32px]">
-              Withdrawal Successful!
-            </h5>
-            <p className="mx-auto text-[15px] leading-[21px] laptop:leading-[26px] text-txt2 m-0 laptop:text-xl">
-              You withdrawn {formatCurrency(10000)} to
-              <br /> 2210123339 - Stanbic IBTC
-              <br />
-              (Favour Onotse Momoh)
-            </p>
-          </div>
-          <button
-            type="button"
-            onClick={handleClick}
-            className="laptop mx-auto mt-6 flex  max-w-[336px] items-center border-primary hover:bg-gray-50 border rounded-lg text-primary w-full justify-center disabled:text-gray-900 disabled:bg-gray-200 disabled:border-none text-[0.9375rem] font-medium leading-[1.39663rem] p-4 laptop:text-[1rem] laptop:leading-[1.5rem] "
-          >
-            Download Receipt
-          </button>
-
-          <div className="p-5 mt-24 lg:mt-28 laptop-md:mt-32 w-full max-w-[696px] flex flex-col items-start gap-4 rounded-lg bg-[#F3F3FE] ">
-            <Image
-              src={blueWhite}
-              alt="success icon"
-              width={72.5}
-              height={72.5}
-              className="object-contain w-[40px] h-[40px] m-auto md:m-0 laptop:w-[72.5px] lg:h-[72.5px]"
-              priority
-            />
-            <div className="flex gap-12 flex-col md:flex-row md:items-start w-full justify-between">
-              <div className="text-center max-w-[256px] md:max-w-max mx-auto md:m-0 md:text-start w-full md:flex-1">
-                <h3 className="font-medium leading-[21px] m-0 lg:mb-1 text-[17px] text-txt">
-                  Sign up on Blue Personal today!
-                </h3>
-                <p className="leading-[19px] text-[13.5px] m-0 laptop-md:text-[15.5px] text-txt2">
-                  Enjoy{" "}
-                  <span className="text-primary">free transfers and more </span>
-                  when you sign up on the Blue app.
-                </p>
-              </div>
-              <button
-                type="button"
-                onClick={() => router.replace("/")}
-                className="laptop mx-auto hover:bg-primary/95 bg-primary w-full text-sm font-medium leading-[21px] py-3 px-4 laptop:text-[1rem] text-white rounded-lg md:w-auto laptop:leading-[1.5rem]"
-              >
-                Download the app
-              </button>
-            </div>
-          </div>
-        </div>
-      ) : (
-        <section className="max-w-[470px] p-6 w-full m-auto">
+      {step === "success" && <Success />}
+      <section className="max-w-[470px] p-6 w-full m-auto">
+        {!step && (
           <div className="w-full flex flex-col gap-2 md:gap-4 mt-20 mb-8 mx-auto text-center">
             <Image
               src={blue}
@@ -166,6 +86,28 @@ const NonBlueWithdrawal = () => {
               <br /> How would you like to withdraw it?&nbsp;
             </p>
           </div>
+        )}
+        {step === "select-bank" && (
+          <div className="w-full flex flex-col gap-2 md:gap-4 mt-20 mb-8 mx-auto text-center">
+            <Image
+              src={blue}
+              alt="blue"
+              width={70}
+              height={70}
+              priority
+              className="w-[70px] h-[70px] m-auto object-contain"
+            />
+            <p className="text-body-text-2 text-[15px] lg:text-base leading-[21px] m-0">
+              <span className="text-primary capitalize">
+                Semira Yesufu&nbsp;
+              </span>
+              has sent you {formatCurrency(10000)}. via BluePay.
+              <br /> Enter your bank account details below to withdraw the
+              funds&nbsp;
+            </p>
+          </div>
+        )}
+        {!step && (
           <form className="w-full space-y-6" onSubmit={submitHandler}>
             {items.map((item) => (
               <div
@@ -204,8 +146,10 @@ const NonBlueWithdrawal = () => {
               Proceed
             </button>
           </form>
-        </section>
-      )}
+        )}
+
+        {step === "select-bank" && <SelectBank />}
+      </section>
     </Fragment>
   );
 };
