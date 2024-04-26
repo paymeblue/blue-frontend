@@ -59,8 +59,8 @@ const NonBlueWithdrawal = () => {
     }
   };
   return (
-    <section className="max-w-[470px] p-6 w-full m-auto">
-      <div className="w-full flex flex-col gap-2 md:gap-4 mt-20 mb-8 mx-auto text-center">
+    <section className="max-w-[470px] p-6 w-full mx-auto min-h-screen">
+      <div className="w-full flex flex-col gap-2 md:gap-4 lg:mt-20 mb-8 mx-auto text-center">
         <Image
           src={blue}
           alt="blue"
