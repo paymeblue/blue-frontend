@@ -7,3 +7,14 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-avenir);
+}
+.custom_svg_border {
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect x='0.15' y='0.244482' width='99%25' height='99%25' rx='15.85' stroke='%23FFFFFF' stroke-width='0.3' fill='none' stroke-linecap='round' stroke-linejoin='round' stroke-dasharray='5 5'/%3e%3c/svg%3e");
+}

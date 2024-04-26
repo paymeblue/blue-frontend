@@ -1,35 +1,33 @@
 "use client";
 import { CheckCircleOutlined } from "@ant-design/icons";
 import { Input } from "@components/FormInput";
+import { ChevronDown } from "@components/assets/icons";
 import { zodResolver } from "@hookform/resolvers/zod";
 import countrycodes from "@lib/countryCodes";
 import { TSchema, schema } from "@lib/index";
 import Container from "@shared/container";
 import PageHead from "@shared/pageHead";
 import { Button, message } from "antd";
-import { Fragment, useEffect } from "react";
+import { Fragment } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 const Contact = () => {
   const defaultValues = {
     firstname: "",
-    surname: "",
+    lastname: "",
     email: "",
     code: "+234",
-    number: "+234",
+    number: "",
     message: "",
   };
-  const { formState, handleSubmit, register, setValue, reset } = useForm({
-    mode: "onTouched",
+  const { formState, handleSubmit, register, reset } = useForm({
+    mode: "onBlur",
     defaultValues,
     resolver: zodResolver(schema),
   });
-  const { errors, isSubmitting, isDirty, isValid, isSubmitted } = formState;
+  const { errors, isSubmitting } = formState;
 
   const [messageApi, contextHolder] = message.useMessage();
-  useEffect(() => {
-    if (isSubmitted) reset();
-  }, [isSubmitted, reset]);
 
   const onSubmit: SubmitHandler<TSchema> = async (_, e): Promise<void> => {
     const formData = new FormData(e?.target);
@@ -48,6 +46,7 @@ const Contact = () => {
         className: "[&>div]:bg-[#17B472] [&>div]:text-white",
         icon: <CheckCircleOutlined />,
       });
+      reset();
     } catch (error: any) {
       messageApi.open({
         content: `${error}`,
@@ -59,94 +58,97 @@ const Contact = () => {
   return (
     <Fragment>
       {contextHolder}
-      <PageHead mainText="Get in touch" subText="Contact us" />
-      <Container className="min-h-screen h-full">
+      <PageHead
+        title="We're here to help."
+        subTitle="Got questions, feedback, or need assistance? We're here to help! Feel free to reach out to our dedicated support team via the contact form below."
+      />
+      <Container className="my-12 lg:mt-16 lg:mb-20">
         <form
           autoComplete="off"
           onSubmit={handleSubmit(onSubmit)}
           noValidate
-          className="max-w-lg mx-auto"
+          className="max-w-4xl mx-auto space-y-4 lg:space-y-6 grid"
         >
-          <Input
-            inputProps={{
-              label: "First name",
-              name: "firstname",
-              id: "firstname",
-              placeholder: "Enter your firstname",
-              type: "text",
-              register: { ...register("firstname") },
-              error: errors.firstname?.message,
-            }}
-          />
-          <Input
-            inputProps={{
-              label: "Surname",
-              name: "surname",
-              id: "surname",
-              placeholder: "Yesufu",
-              type: "text",
-              register: { ...register("surname") },
-              error: errors.surname?.message,
-            }}
-          />
-          <Input
-            inputProps={{
-              label: "Email Address",
-              name: "email",
-              id: "email",
-              placeholder: "ysemiraefe@gmail.com",
-              type: "email",
-              register: { ...register("email") },
-              error: errors.email?.message,
-            }}
-          />
-          <div className="flex flex-col items-start mb-6 justify-start w-full">
-            <label
-              htmlFor="message"
-              className="text-[0.9375rem] mb-[2px] w-full font-semibold leading-[1.3125rem]"
-            >
-              Phone number
-              <span className="text-[#ff4d4f] font-normal text-[1.125rem] font-sans ms-1">
-                *
-              </span>
-            </label>
-            <Fragment>
-              <div className="bg-input-field items-center p-0.5 h-[2.5rem] outline-primary border-[0.5px] hover:border-primary w-full rounded flex">
-                <select
-                  className="w-16 py-1 px-3 rounded border-none outline-none bg-white"
-                  {...register("code", {
-                    onChange: (e) => {
-                      setValue("number", e.target.value);
-                    },
-                  })}
-                >
-                  {countrycodes.map((country) => (
-                    <option value={country.code} key={country.flag}>
-                      {country.flag}
-                    </option>
-                  ))}
-                </select>
-                <input
-                  id="message"
-                  placeholder="Enter your phone number"
-                  type="tel"
-                  {...register("number")}
-                  className="rounded w-full bg-input-field border-none py-2 px-4 outline-none placeholder:text-[#555] placeholder:text-sm placeholder:font-light placeholder:leading-[1.3125rem]"
-                />
-              </div>
-              {errors.number && (
-                <small className="text-[#b22222e6] text-xs tablet:text-sm mt-1 tablet:mt-2 text-start">
-                  {errors.number?.message}
-                </small>
-              )}
-            </Fragment>
+          <div className="flex flex-col lg:flex-row gap-4 lg:gap-6">
+            <Input
+              inputProps={{
+                label: "First name",
+                name: "firstname",
+                id: "firstname",
+                placeholder: "Enter your first name",
+                type: "text",
+                register: { ...register("firstname") },
+                error: errors.firstname?.message,
+              }}
+            />
+            <Input
+              inputProps={{
+                label: "Last name",
+                name: "lastname",
+                id: "lastname",
+                placeholder: "Enter your last name",
+                type: "text",
+                register: { ...register("lastname") },
+                error: errors.lastname?.message,
+              }}
+            />
+          </div>
+          <div className="flex flex-col lg:flex-row gap-4 lg:gap-6">
+            <div className="flex flex-col items-start justify-start w-full">
+              <label
+                htmlFor="number"
+                className="text-[0.9375rem] mb-[2px] font-medium w-full leading-[1.3125rem]"
+              >
+                Phone number
+              </label>
+              <Fragment>
+                <div className="bg-input-field items-center p-0.5 h-[51px] outline-0 border-[0.5px] border-transparent hover:border-primary w-full rounded flex">
+                  <div className="w-28 flex items-center justify-center gap-1 py-1 px-3 h-8 rounded appearance-none cursor-pointer ml-1 border-none outline-none bg-white">
+                    <select
+                      className="w-16 rounded appearance-none cursor-pointer border-none outline-none focus:right-0"
+                      {...register("code")}
+                    >
+                      {countrycodes.map((country) => (
+                        <option value={country.code} key={country.flag}>
+                          {country.flag}&nbsp; {country.code}
+                        </option>
+                      ))}
+                    </select>
+                    <ChevronDown />
+                  </div>
+                  <input
+                    id="number"
+                    placeholder="Enter your phone number"
+                    type="tel"
+                    {...register("number")}
+                    className="rounded w-full bg-input-field border-none py-2 px-4 outline-none placeholder:text-[#555] placeholder:text-sm placeholder:font-light placeholder:leading-[1.3125rem]"
+                  />
+                </div>
+                {errors.number && (
+                  <small className="text-[red]/80 text-xs tablet:text-[13px] mt-1 tablet:mt-1.5 text-start">
+                    {errors.number?.message}
+                  </small>
+                )}
+              </Fragment>
+            </div>
+            <Input
+              inputProps={{
+                label: "Email address",
+                name: "email",
+                id: "email",
+                placeholder: "Enter your email address",
+                type: "email",
+                register: { ...register("email") },
+                error: errors.email?.message,
+              }}
+            />
           </div>
           <Input
             inputProps={{
               label: "Message",
               name: "message",
               id: "message",
-              placeholder: "",
+              placeholder: "Leave us a message...",
               type: "text",
               register: { ...register("message") },
               error: errors.message?.message,
@@ -161,12 +163,12 @@ const Contact = () => {
           <Button
             type="primary"
             htmlType="submit"
-            className="laptopfont-semibold mx-auto mt-6 flex items-center justify-center disabled:text-gray-900 disabled:bg-gray-200 disabled:border-none text-[0.9375rem] font-medium leading-[1.39663rem] text-white laptop:p-6 laptop:text-[1rem] laptop:leading-[1.5rem] disabled:cursor-not-allowed"
+            className="text-sm leading-[14px] !tracking-text font-medium w-auto rounded-lg p-4 flex items-center justify-center justify-self-end"
             loading={isSubmitting}
-            disabled={!isValid || !isDirty || isSubmitting}
-            block
+            disabled={isSubmitting}
+            size="large"
           >
-            {isSubmitting ? "Sending..." : "Submit message"}
+            {isSubmitting ? "Sending..." : "Submit"}
           </Button>
         </form>
       </Container>

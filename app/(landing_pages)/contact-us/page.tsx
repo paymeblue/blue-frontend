@@ -1,3 +1,4 @@
+import Spinner from "@shared/Spinner";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
 import Script from "next/script";
@@ -8,12 +9,14 @@ export const metadata: Metadata = {
   description: "Stay connected with us for all your needs!",
 };
 
-const Contact = dynamic(() => import("./contact-us"));
+const Contact = dynamic(() => import("./contact-us"), {
+  loading: () => <Spinner />,
+});
 const ContactPage = () => {
   return (
     <Fragment>
       <Script
-        src={process.env.CLOUDFLARE_TURNSTILE_CHALLENGE_URL}
+        src="https://challenges.cloudflare.com/turnstile/v0/api.js"
         defer
         async
         strategy="lazyOnload"

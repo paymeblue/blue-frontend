@@ -1,3 +1,4 @@
+import Spinner from "@shared/Spinner";
 import StoreContextProvider from "app/context/store-context";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
@@ -7,7 +8,9 @@ export const metadata: Metadata = {
   description: "Receive and withdraw money sent to you from friends and family",
 };
 
-const ReceiveMoney = dynamic(() => import("../receive-money-new"));
+const ReceiveMoney = dynamic(() => import("../receive-money-new"), {
+  loading: () => <Spinner />,
+});
 
 const ReceiveMoneyPage = ({ params }: { params: { id: string } }) => (
   <StoreContextProvider>

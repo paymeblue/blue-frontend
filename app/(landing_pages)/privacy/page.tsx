@@ -1,3 +1,4 @@
+import Spinner from "@shared/Spinner";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
 
@@ -9,7 +10,9 @@ export const metadata: Metadata = {
             protects You.`,
 };
 
-const Privacy = dynamic(() => import("./privacy"));
+const Privacy = dynamic(() => import("./privacy"), {
+  loading: () => <Spinner />,
+});
 const PrivacyPage = () => <Privacy />;
 
 export default PrivacyPage;

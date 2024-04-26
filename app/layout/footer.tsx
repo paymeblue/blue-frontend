@@ -1,94 +1,70 @@
-"use client";
-
-import { PhoneOutlined } from "@ant-design/icons";
-// import LinkedinOutlined from "@components/assets/icons/linkedin";
-import { Layout, Space, Typography } from "antd";
+import {
+  Instagram,
+  Linkedin,
+  Twitter,
+  Youtube,
+} from "@components/assets/icons";
+import Store from "@shared/DownloadStore";
 import Link from "next/link";
-const { Text } = Typography;
-const { Footer } = Layout;
 
-const policies = [
-  { id: "1", text: "Privacy policy", link: "/privacy" },
-  { id: "2", text: "Terms and conditions", link: "/terms-and-conditions" },
+const policyLinks = [
+  { label: "Privacy Policy", href: "privacy" },
+  { label: "Terms and Conditions", href: "terms-and-conditions" },
 ];
-// const socialIcons = [
-//   {
-//     id: "1",
-//     link: "#",
-//     icon: (
-//       <InstagramOutlined className="mx-[2px] rounded-full bg-[#202124] p-[6px] text-[13px] text-white" />
-//     ),
-//   },
-//   {
-//     id: "2",
-//     link: "#",
-//     icon: (
-//       <LinkedinOutlined className="mx-[2px] rounded-full bg-[#202124] p-[6px] text-[13px] text-white" />
-//     ),
-//   },
-//   {
-//     id: "3",
-//     link: "#",
-//     icon: (
-//       <TwitterOutlined className="mx-[2px] rounded-full bg-[#202124] p-[6px] text-[13px] text-white" />
-//     ),
-//   },
-//   {
-//     id: "4",
-//     link: "#",
-//     icon: (
-//       <YoutubeFilled className="mx-[2px] rounded-full bg-[#202124] p-[6px] text-[13px] text-white" />
-//     ),
-//   },
-// ];
+const socialLinks = [
+  { icon: <Instagram />, href: "https://instagram.com" },
+  { icon: <Linkedin />, href: "https://linkedin.com" },
+  { icon: <Twitter />, href: "https://twitter.com" },
+  { icon: <Youtube />, href: "https://youtube.com" },
+];
 
-const socialIcons = [
-  {
-    id: "1",
-    link: "tel:+2349075561565",
-    icon: (
-      <PhoneOutlined className="mx-[2px] rounded-full bg-[#202124] p-[6px] text-[13px] text-white" />
-    ),
-  },
-];
-const LayoutFooter = () => {
-  const year = new Date().getFullYear();
+const Footer = () => {
   return (
-    <Footer className="bg-black px-0 py-6">
-      <Space
-        size="large"
-        className="m-auto flex w-full flex-col items-center justify-between px-8 laptop:flex-row laptop:px-20 [&>.ant-space-item]:w-full [&>.ant-space-item]:first:text-center laptop:[&>.ant-space-item]:first:text-start"
-      >
-        <Text className="text-base laptop-md:text-lg font-normal leading-[1.3125rem] text-neutral/90">
-          © 2023 - {year} Blue. All rights reserved
-        </Text>
-        <ul className="mx-auto my-0 flex flex-col items-center justify-center gap-2 laptop:flex-row laptop:gap-0">
-          {policies.map((item) => (
-            <li
-              key={item.id}
-              className="mx-2 text-base laptop-md:text-lg font-normal leading-[1.3125rem] text-neutral/90"
-            >
-              <Link href={item.link} className="text-inherit">
-                {item.text}
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <ul className="my-0 flex items-center justify-center laptop:justify-end">
-          {socialIcons.map((item) => (
-            <li
-              key={item.id}
-              className="mx-2 text-base laptop-md:text-lg font-normal leading-[1.3125rem]"
-            >
-              <Link href={item.link} target="_blank" className="text-inherit">
-                {item.icon}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </Space>
-    </Footer>
+    <footer className="bg-primary-grad-footer text-white mt-16 px-2 laptop-md:px-0">
+      <center className="space-y-10 py-14">
+        <h6 className="font-bold text-[24px] leading-[30px] lg:text-[40px] lg:leading-[47px] tracking-title">
+          What are you waiting for?
+          <br />
+          Simplify your life with seamless transactions.
+        </h6>
+        <Store centered />
+      </center>
+      <hr className="w-[95%] m-auto border-0 border-b-[0.5px] border-[#EAEAFF]" />
+      <div className="flex flex-col-reverse lg:flex-row justify-between opacity-75 items-center gap-12 px-16 py-5">
+        <small className="text-sm leading-[14px] tracking-text">
+          © 2024 Blue. All rights reserved
+        </small>
+        <div className="flex flex-col lg:flex-row justify-between items-center gap-5 lg:gap-10">
+          <ul className="flex justify-between items-center gap-4 m-0">
+            {policyLinks.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  className="text-sm leading-[14px] tracking-text"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <ul className="flex justify-between items-center gap-4 m-0">
+            {socialLinks.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  className="text-sm leading-[14px] tracking-text"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  {item.icon}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </footer>
   );
 };
 
-export default LayoutFooter;
+export default Footer;
