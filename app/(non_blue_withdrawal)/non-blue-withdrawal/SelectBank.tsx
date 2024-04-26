@@ -1,4 +1,6 @@
 import AccessBankLogo from "@components/assets/icons/banks/access-bank";
+import { Button } from "@components/ui/button";
+import { Dialog, DialogContent, DialogTrigger } from "@components/ui/dialog";
 import {
   Form,
   FormControl,
@@ -34,7 +36,7 @@ const BankList = ({ onChange, onClose }: IBankList) => {
       />
       <div className="mt-4 flex w-full flex-col space-y-4">
         <div
-          className="w-full flex items-center justify-between"
+          className="w-full flex items-center justify-between cursor-pointer"
           onClick={() => {
             onChange("Access Bank");
             onClose();
@@ -56,6 +58,7 @@ const BankList = ({ onChange, onClose }: IBankList) => {
 
 const SelectBank = () => {
   const [open, setOpen] = useState(false);
+  const [openDialog, setOpenDialog] = useState(false);
   const router = useRouter();
 
   const form = useForm<SelectBankValidation>({
@@ -73,7 +76,10 @@ const SelectBank = () => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="flex flex-col flex-1"
+      >
         <FormField
           control={form.control}
           name="bank"
@@ -81,23 +87,48 @@ const SelectBank = () => {
             <FormItem>
               <FormLabel>Bank name</FormLabel>
               <FormControl>
-                <Sheet open={open} onOpenChange={setOpen}>
-                  <SheetTrigger asChild>
-                    <InputWithIcon
-                      placeholder="Select"
-                      value={field.value || "Select"}
-                      // className="pointer-events-none"
-                      icon={<ChevronDown size={16} color="#77758E" />}
-                      iconPosition="right"
-                    />
-                  </SheetTrigger>
-                  <SheetContent side="bottom" className="min-h-[60vh]">
-                    <BankList
-                      onChange={field.onChange}
-                      onClose={() => setOpen(false)}
-                    />
-                  </SheetContent>
-                </Sheet>
+                <>
+                  <div className="lg:hidden">
+                    <Sheet open={open} onOpenChange={setOpen}>
+                      <SheetTrigger asChild>
+                        <InputWithIcon
+                          placeholder="Select"
+                          value={field.value || "Select"}
+                          // className="pointer-events-none"
+                          icon={<ChevronDown size={16} color="#77758E" />}
+                          iconPosition="right"
+                        />
+                      </SheetTrigger>
+                      <SheetContent side="bottom" className="min-h-[60vh]">
+                        <BankList
+                          onChange={field.onChange}
+                          onClose={() => setOpen(false)}
+                        />
+                      </SheetContent>
+                    </Sheet>
+                  </div>
+
+                  <div className="max-lg:hidden">
+                    <Dialog open={openDialog} onOpenChange={setOpenDialog}>
+                      <DialogTrigger asChild>
+                        <InputWithIcon
+                          placeholder="Select"
+                          value={field.value || "Select"}
+                          // className="pointer-events-none"
+                          icon={<ChevronDown size={16} color="#77758E" />}
+                          iconPosition="right"
+                        />
+                      </DialogTrigger>
+
+                      <DialogContent className="sm:max-w-[425px]">
+                        <BankList
+                          onChange={field.onChange}
+                          onClose={() => setOpen(false)}
+                        />
+                      </DialogContent>
+                    </Dialog>
+                  </div>
+                </>
               </FormControl>
             </FormItem>
           )}
@@ -116,12 +147,13 @@ const SelectBank = () => {
             </FormItem>
           )}
         />
-        <button
-          type="submit"
-          className="mx-auto !mt-10 disabled:text-gray-900 disabled:cursor-not-allowed bg-primary w-full rounded-lg disabled:bg-gray-200 disabled:border-none text-[0.9375rem] font-medium text-white p-4 leading-[21px]"
-        >
-          Proceed
-        </button>
+
+        <div className="w-full flex flex-col mt-10">
+          <Button type="submit">Withdraw to bank</Button>
+          <Button variant="link" type="submit" className="text-[#32374E]">
+            Or, Sign up to access your funds
+          </Button>
+        </div>
       </form>
     </Form>
   );
