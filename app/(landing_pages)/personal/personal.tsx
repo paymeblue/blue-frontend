@@ -1,6 +1,7 @@
 "use client";
 import useMatchMedia from "@hooks/useMatchMedia";
 import Container from "@shared/container";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import img10 from "public/img-10.png";
 import img11 from "public/img-11.png";
@@ -26,7 +27,13 @@ const Personal = () => {
         className="max-w-[869px]"
       />
       <Container className="py-8 lg:py-16">
-        <div className="bg-purple flex flex-col lg:flex-row mb-8 items- justify-between p-5 md:p-10 min-[900px]:pb-0 laptop-md:p-20 laptop-md:pb-0 pb-0 gap-8 rounded-3xl">
+        <motion.div
+          initial={{ y: 35, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.35 }}
+          viewport={{ once: true }}
+          className="bg-purple flex flex-col lg:flex-row mb-8 items- justify-between p-5 md:p-10 min-[900px]:pb-0 laptop-md:p-20 laptop-md:pb-0 pb-0 gap-8 rounded-3xl"
+        >
           <div className="w-full mt-5 md:mt-0 lg:mt-20 max-w-[620px]">
             <h4 className="tracking-title text-[30px] leading-[35px] lg:text-[38px] font-bold m-0 lg:leading-[47px]">
               Blue-to-Blue
@@ -57,9 +64,15 @@ const Personal = () => {
               priority
             />
           </div>
-        </div>
+        </motion.div>
         <div className="flex flex-col lg:flex-row items-center justify-center w-full gap-8 laptop-md:gap-8">
-          <div className="bg-primary text-white w-full flex flex-col rounded-3xl gap-12 lg:gap-6 justify-between p-5 md:p-7 md:pb-0 md:pl-0 lg:pt-10 laptop-md:p-12 laptop-md:pb-0 laptop-md:pl-0 h-auto lg:h-[758px] pb-0 pl-0">
+          <motion.div
+            initial={{ y: 35, x: -10, opacity: 0 }}
+            whileInView={{ y: 0, x: 0, opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.4 }}
+            viewport={{ once: true }}
+            className="bg-primary text-white w-full flex flex-col rounded-3xl gap-12 lg:gap-6 justify-between p-5 md:p-7 md:pb-0 md:pl-0 lg:pt-10 laptop-md:p-12 laptop-md:pb-0 laptop-md:pl-0 h-auto lg:h-[758px] pb-0 pl-0"
+          >
             <div className="w-full p-0 mt-5 laptop-md:mt-0 pl-5 md:pl-10 laptop-md:pl-12">
               <h4 className="tracking-title text-[30px] leading-[35px] laptop-md:text-[38px] font-bold m-0 laptop-md:leading-[47px]">
                 Don&apos;t have a&nbsp;
@@ -82,8 +95,14 @@ const Personal = () => {
                 priority
               />
             </div>
-          </div>
-          <div className="bg-txt text-white flex flex-col rounded-3xl gap-6 w-full justify-between h-auto lg:h-[758px] p-5 md:p-10 md:pb-0 laptop-md:p-12 laptop-md:pb-0  pb-0">
+          </motion.div>
+          <motion.div
+            initial={{ y: 35, x: 10, opacity: 0 }}
+            whileInView={{ y: 0, x: 0, opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.4 }}
+            viewport={{ once: true }}
+            className="bg-txt text-white flex flex-col rounded-3xl gap-6 w-full justify-between h-auto lg:h-[758px] p-5 md:p-10 md:pb-0 laptop-md:p-12 laptop-md:pb-0  pb-0"
+          >
             <div className="w-full mt-5 lg:mt-auto m-auto">
               <h4 className="tracking-title text-[30px] leading-[35px] laptop-md:text-[38px] font-bold m-0 laptop-md:leading-[47px]">
                 Send, request and receive money with a
@@ -106,9 +125,15 @@ const Personal = () => {
                 priority
               />
             </div>
-          </div>
+          </motion.div>
         </div>
-        <div className="bg-purple flex flex-col lg:flex-row mt-8 items- justify-between p-5 md:p-10 md:pb-0 laptop-md:p-20 laptop-md:pb-0 pb-0 gap-8 rounded-3xl">
+        <motion.div
+          initial={{ y: 35, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.25, duration: 0.5 }}
+          viewport={{ once: true }}
+          className="bg-purple flex flex-col lg:flex-row mt-8 items- justify-between p-5 md:p-10 md:pb-0 laptop-md:p-20 laptop-md:pb-0 pb-0 gap-8 rounded-3xl"
+        >
           <div className="w-full mt-5 lg:mt-20 max-w-[650px]">
             <h4 className="tracking-title text-[30px] leading-[35px] w-full max-w-[598px] laptop-md:text-[38px] font-bold m-0 laptop-md:leading-[47px]">
               <span className="font-fraunces italic text-primary">
@@ -132,7 +157,7 @@ const Personal = () => {
               priority
             />
           </div>
-        </div>
+        </motion.div>
       </Container>
     </div>
   );

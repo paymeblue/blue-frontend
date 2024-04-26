@@ -1,5 +1,6 @@
 "use client";
 import Container from "@shared/container";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import heroBg from "public/businessHeroBg.jpg";
 import img7 from "public/img-7.png";
@@ -20,7 +21,13 @@ const Business = () => {
         className="max-w-[980px]"
       />
       <Container className="py-8 lg:py-16">
-        <div className="bg-purple flex flex-col lg:flex-row mb-8 items- justify-between p-5 lg:p-20 lg:pb-0 pb-0 gap-8 rounded-3xl">
+        <motion.div
+          initial={{ y: 35, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.35 }}
+          viewport={{ once: true }}
+          className="bg-purple flex flex-col lg:flex-row mb-8 items- justify-between p-5 lg:p-20 lg:pb-0 pb-0 gap-8 rounded-3xl"
+        >
           <div className="w-full mt-5 lg:mt-20 max-w-[616px]">
             <h4 className="tracking-title text-[30px] leading-[35px] lg:text-[38px] font-bold m-0 lg:leading-[47px]">
               Boost your business sales with
@@ -44,9 +51,15 @@ const Business = () => {
               priority
             />
           </div>
-        </div>
+        </motion.div>
         <div className="flex flex-col lg:flex-row items-center justify-center w-full gap-6">
-          <div className="bg-primary text-white w-full flex flex-col rounded-3xl gap-6 justify-between p-5 lg:p-12 lg:pb-0 h-auto lg:h-[758px] pb-0">
+          <motion.div
+            initial={{ y: 35, x: -10, opacity: 0 }}
+            whileInView={{ y: 0, x: 0, opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.4 }}
+            viewport={{ once: true }}
+            className="bg-primary text-white w-full flex flex-col rounded-3xl gap-6 justify-between p-5 lg:p-12 lg:pb-0 h-auto lg:h-[758px] pb-0"
+          >
             <div className="w-full max-w-[520px] m-auto mt-5 lg:m-auto">
               <h4 className="tracking-title text-[30px] leading-[35px] lg:text-[38px] font-bold m-0 lg:leading-[47px]">
                 Add and&nbsp;
@@ -71,8 +84,14 @@ const Business = () => {
                 priority
               />
             </div>
-          </div>
-          <div className="bg-txt text-white flex flex-col rounded-3xl gap-6 w-full justify-between h-auto lg:h-[758px] lg:p-4 pb-0 lg:pb-0">
+          </motion.div>
+          <motion.div
+            initial={{ y: 35, x: 10, opacity: 0 }}
+            whileInView={{ y: 0, x: 0, opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.4 }}
+            viewport={{ once: true }}
+            className="bg-txt text-white flex flex-col rounded-3xl gap-6 w-full justify-between h-auto lg:h-[758px] lg:p-4 pb-0 lg:pb-0"
+          >
             <div className="w-full m-auto mt-5 lg:m-auto px-5 lg:px-6 pt-8 lg:pt-0 pb-0">
               <h4 className="tracking-title text-[30px] leading-[35px] lg:text-[38px] font-bold m-0 lg:leading-[47px]">
                 <i className="font-fraunces">
@@ -96,7 +115,7 @@ const Business = () => {
                 priority
               />
             </div>
-          </div>
+          </motion.div>
         </div>
       </Container>
     </div>

@@ -44,7 +44,7 @@ const AboutPage = () => {
           className="absolute right-10 opacity-10 -bottom-12 w-[15%]"
         />
       </section>
-      <Container className="mx-auto my-6 w-full px-4 md:px-20 laptop:px-4 laptop-md:px-20 py-8 lg:py-14 grid gap-12 grid-cols-1 lg:grid-cols-2 items-center justify-between lg:justify-center">
+      <div className="max-w-[1440px] px-6 tablet:px-20 laptop:px-6 laptop-md:px-20 mx-auto my-6 w-full  md:px-20 py-8 lg:py-14 grid gap-12 grid-cols-1 lg:grid-cols-2 items-center justify-between lg:justify-center">
         <div className="w-full max-w-[616px]">
           <h3 className="font-bold text-[30px] leading-[33px] lg:text-[40px] lg:leading-[47px] tracking-title">
             We&apos;re on a mission to:
@@ -55,27 +55,35 @@ const AboutPage = () => {
           </h3>
           <div className="text-[15px] mt-3 lg:mt-4 leading-[25px] lg:text-base lg:leading-[27px] tracking-text space-y-3 lg:space-y-5">
             <p className="m-0">
-              At Blue, we're committed to simplifying the world of payments for
-              both individuals and businesses. Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit. Sed tempor justo nec dui condimentum,
-              sit amet consectetur justo efficitur. Proin pulvinar justo et quam
-              pharetra, at ultricies justo pellentesque.
+              At Blue, we aim to revolutionize the way payments are made and
+              received, ultimately eliminating the need for cash and cards. We
+              envision a future where your mobile phone becomes your primary
+              method of payment, creating an ecosystem where transactions are
+              seamlessly conducted with just a tap or a scan.
             </p>
             <p className="m-0">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-              tempor justo nec dui condimentum, sit amet consectetur justo
-              efficitur. Proin pulvinar justo et quam pharetra, at ultricies
-              justo pellentesque. Vestibulum ante ipsum primis in faucibus orci
-              luctus et ultrices posuere cubilia curae; Cras sed lorem vel quam
-              interdum hendrerit. Sed nec mi vitae arcu dictum tincidunt. Ut
-              vestibulum odio ut diam molestie, nec finibus nulla commodo.
+              In today's digital age, internet penetration and mobile phone
+              usage have reached unprecedented levels, especially in Africa and
+              Nigeria. However, despite this technological advancement,
+              transactions are often hindered by issues such as network
+              downtime, failures, and slow processing times. At Blue, we're
+              committed to solving this prevalent problem by streamlining
+              payment processes and speeding up transactions, ensuring that
+              payments are swift, reliable, and hassle-free.
             </p>
             <p className="m-0">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-              tempor justo nec dui condimentum, sit amet consectetur justo
-              efficitur. Proin pulvinar justo et quam pharetra, at ultricies
-              justo pellentesque. Vestibulum ante ipsum primis in faucibus orci
-              luctus et ultrices posuere cubilia curae.
+              We want Blue to be the first thing you think of when making a
+              payment—a lifestyle choice that empowers individuals and
+              businesses alike. Whether you're shopping at your favorite local
+              market or running a bustling enterprise, Blue enables you to pay
+              and receive payments effortlessly wherever you go.
+            </p>
+            <p className="m-0">
+              With Blue, payments are no longer a burden but a seamless part of
+              everyday life. Our mission is simple: think payments, think Blue.
+              By enabling businesses and individuals to transact with ease,
+              we're paving the way for a future where financial transactions are
+              faster, safer, and more convenient for everyone.
             </p>
           </div>
         </div>
@@ -89,7 +97,7 @@ const AboutPage = () => {
             quality={100}
           />
         </div>
-      </Container>
+      </div>
     </Fragment>
   );
 };

@@ -8,7 +8,7 @@ import { TSchema, schema } from "@lib/index";
 import Container from "@shared/container";
 import PageHead from "@shared/pageHead";
 import { Button, message } from "antd";
-import { Fragment, useEffect } from "react";
+import { Fragment } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 const Contact = () => {
@@ -17,7 +17,7 @@ const Contact = () => {
     lastname: "",
     email: "",
     code: "+234",
-    number: "+234",
+    number: "",
     message: "",
   };
   const { formState, handleSubmit, register, reset } = useForm({
@@ -25,12 +25,9 @@ const Contact = () => {
     defaultValues,
     resolver: zodResolver(schema),
   });
-  const { errors, isSubmitting, isSubmitted } = formState;
+  const { errors, isSubmitting } = formState;
 
   const [messageApi, contextHolder] = message.useMessage();
-  useEffect(() => {
-    if (isSubmitted) reset();
-  }, [isSubmitted, reset]);
 
   const onSubmit: SubmitHandler<TSchema> = async (_, e): Promise<void> => {
     const formData = new FormData(e?.target);
@@ -49,6 +46,7 @@ const Contact = () => {
         className: "[&>div]:bg-[#17B472] [&>div]:text-white",
         icon: <CheckCircleOutlined />,
       });
+      reset();
     } catch (error: any) {
       messageApi.open({
         content: `${error}`,
@@ -108,11 +106,7 @@ const Contact = () => {
                   <div className="w-28 flex items-center justify-center gap-1 py-1 px-3 h-8 rounded appearance-none cursor-pointer ml-1 border-none outline-none bg-white">
                     <select
                       className="w-16 rounded appearance-none cursor-pointer border-none outline-none focus:right-0"
-                      {...register("code", {
-                        // onChange: (e) => {
-                        //   setValue("number", e.target.value);
-                        // },
-                      })}
+                      {...register("code")}
                     >
                       {countrycodes.map((country) => (
                         <option value={country.code} key={country.flag}>
@@ -161,7 +155,7 @@ const Contact = () => {
             }}
           />
           <div
-            className="cf-turnstile hidden"
+            className="cf-turnstile"
             data-sitekey="0x4AAAAAAAL2hsshtDAYjQxx"
             data-theme="light"
             data-retry-interval={3000}

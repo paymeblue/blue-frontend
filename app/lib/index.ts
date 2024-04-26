@@ -8,7 +8,7 @@ export const schema = z.object({
   code: z.string(),
   number: z
     .string()
-    .min(11, "Phone number should not be lesser than 11 digits")
+    .min(10, "Phone number should not be lesser than 10 digits")
     .max(14, "Phone number should not exceed 14 digits"),
   message: z.string().min(3, "Please leave your message here!"),
 });

@@ -16,7 +16,7 @@ const ContactPage = () => {
   return (
     <Fragment>
       <Script
-        src={process.env.CLOUDFLARE_TURNSTILE_CHALLENGE_URL}
+        src="https://challenges.cloudflare.com/turnstile/v0/api.js"
         defer
         async
         strategy="lazyOnload"

@@ -1,13 +1,13 @@
 import { Footer, Navbar } from "@layout/index";
-import { ReactNode } from "react";
+import { Fragment, ReactNode } from "react";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
-    <main>
+    <Fragment>
       <Navbar />
-      {children}
+      <main>{children}</main>
       <Footer />
-    </main>
+    </Fragment>
   );
 };
 
