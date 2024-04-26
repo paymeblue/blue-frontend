@@ -123,7 +123,7 @@ const SelectBank = () => {
                       <DialogContent className="sm:max-w-[425px]">
                         <BankList
                           onChange={field.onChange}
-                          onClose={() => setOpen(false)}
+                          onClose={() => setOpenDialog(false)}
                         />
                       </DialogContent>
                     </Dialog>
