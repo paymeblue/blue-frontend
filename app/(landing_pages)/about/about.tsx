@@ -17,15 +17,14 @@ const AboutPage = () => {
             transition={{ delay: 0.2, stiffness: 90 }}
             className="text-[32px] leading-[35px] lg:text-[45px] lg:leading-[47px] mb-5 font-bold lg:tracking-title"
           >
-            Redefining{" "}
+            Think{" "}
             <span className="font-fraunces text-[35px] leading-[38px] lg:text-[47px] lg:leading-[47px] italic">
-              Easy Banking
+              Payments,
             </span>{" "}
-            and{" "}
+            Think{" "}
             <span className="font-fraunces text-[35px] leading-[38px] lg:text-[47px] lg:leading-[47px] italic">
-              Seamless Payments{" "}
+              Blue{" "}
             </span>
-            for Everyone
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 25 }}
@@ -33,9 +32,9 @@ const AboutPage = () => {
             transition={{ delay: 0.35, stiffness: 90 }}
             className=" text-base lg:text-lg m-0 leading-[25px] tracking-text"
           >
-            Founded with a vision to revolutionize the way individuals and
-            businesses manage their finances, Blue is committed to providing
-            seamless, secure, and user-friendly payment solutions.
+            Unlock the power of your smartphone as your ultimate payment tool
+            with Blue, enabling you to make and receive payments effortlessly,
+            from anywhere, and at anytime.
           </motion.p>
         </Container>
         <Image

@@ -90,16 +90,14 @@ const Business = () => {
             whileInView={{ y: 0, x: 0, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.4 }}
             viewport={{ once: true }}
-            className="bg-txt text-white flex flex-col rounded-3xl gap-6 w-full justify-between h-auto lg:h-[758px] lg:p-4 pb-0 lg:pb-0"
+            className="bg-txt text-white w-full flex flex-col rounded-3xl gap-12 lg:gap-6 justify-between p-5 lg:pb-0 md:p-7 md:pb-0 md:pl-0 lg:pt-16 laptop-md:p-16 laptop-md:pb-0 laptop-md:pl-0 h-auto lg:h-[758px] pb-0 pl-0"
           >
-            <div className="w-full m-auto mt-5 lg:m-auto px-5 lg:px-6 pt-8 lg:pt-0 pb-0">
-              <h4 className="tracking-title text-[30px] leading-[35px] lg:text-[38px] font-bold m-0 lg:leading-[47px]">
-                <i className="font-fraunces">
-                  &nbsp;Integrate BlueBusiness&nbsp;
-                </i>
+            <div className="w-full p-0 mx-auto mt-5 laptop-md:mt-0 pl-5 md:pl-10 laptop-md:pl-12">
+              <h4 className="tracking-title text-[30px] leading-[35px] laptop-md:text-[38px] font-bold m-0 laptop-md:leading-[47px]">
+                <i className="font-fraunces">Integrate BlueBusiness&nbsp;</i>
                 with your Point-of-Sale system
               </h4>
-              <p className="text-base leading-[25px] max-w-[485px] w-full tracking-text mt-3 lg:text-lg">
+              <p className="tracking-text text-base w-full max-w-[485px] leading-[25px] laptop-md:text-lg mt-3 laptop-md:leading-[28px]">
                 BlueBusiness Desktop allows for seamless integration into your
                 Point of Sale system, facilitating swift customer payments via
                 barcode scan.
@@ -109,9 +107,9 @@ const Business = () => {
               <Image
                 src={img9}
                 alt="img 9"
-                width={566}
-                height={408}
-                className="object-contain m-auto w-[90%] lg:w-auto lg:rounded-sm"
+                width={490}
+                height={490}
+                className="object-contain mb-0 laptop-md:-translate-y-2.5 rounded-bl-3xl"
                 priority
               />
             </div>
