@@ -60,7 +60,7 @@ const DownloadStore = ({ centered }: { centered?: boolean }) => {
           size={77}
         />
         <p className="text-[15px] leading-[20.77px] m-0 lg:text-base lg:leading-[22px] w-full max-w-[158px] tracking-text">
-          or, scan the qr code to download the app.
+          or, scan the QR code to download the app.
         </p>
       </motion.div>
     </Fragment>

@@ -28,13 +28,13 @@ const Navbar = () => {
     <header
       className={`flex gap-8 w-full fixed items-center justify-between lg:justify-start text-white py-4 px-6 tablet:px-20 z-50 laptop:px-6 laptop-md:px-20 top-0 ${backgroundTransparent <= 0 ? "bg-inherit" : "bg-primary-grad-nav"}`}
     >
-      <Link href="/" className="mr-6 laptop-md:mr-8">
+      <Link href="/">
         <Image
-          width={110}
-          height={44.8}
+          width={104}
+          height={45}
           src={logo}
           alt="blue logo"
-          className="w-[110px] h-[44.8px] object-contain "
+          className="w-[104px] h-[45px] object-contain"
         />
       </Link>
       <span onClick={openMenu} className="cursor-pointer lg:hidden">

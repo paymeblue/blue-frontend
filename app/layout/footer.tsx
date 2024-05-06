@@ -20,19 +20,21 @@ const socialLinks = [
 
 const Footer = () => {
   return (
-    <footer className="bg-primary-grad-footer text-white mt-16 px-2 laptop-md:px-0">
+    <footer className="bg-primary-grad-footer text-white px-2 laptop-md:px-0">
       <center className="space-y-10 py-14">
         <h6 className="font-bold text-[24px] leading-[30px] lg:text-[40px] lg:leading-[47px] tracking-title">
           What are you waiting for?
           <br />
           Simplify your life with seamless transactions.
+          <br />
+          Get the Blue app now!
         </h6>
         <Store centered />
       </center>
       <hr className="w-[95%] m-auto border-0 border-b-[0.5px] border-[#EAEAFF]" />
       <div className="flex flex-col-reverse lg:flex-row justify-between opacity-75 items-center gap-12 px-16 py-5">
         <small className="text-sm leading-[14px] tracking-text">
-          © 2024 Blue. All rights reserved
+          © {new Date().getFullYear()} Blue. All rights reserved
         </small>
         <div className="flex flex-col lg:flex-row justify-between items-center gap-5 lg:gap-10">
           <ul className="flex justify-between items-center gap-4 m-0">

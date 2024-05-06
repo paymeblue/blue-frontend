@@ -36,8 +36,7 @@ const Personal = () => {
         >
           <div className="w-full mt-5 md:mt-0 lg:mt-20 max-w-[620px]">
             <h4 className="tracking-title text-[30px] leading-[35px] lg:text-[38px] font-bold m-0 lg:leading-[47px]">
-              Blue-to-Blue
-              <i className="font-fraunces text-primary">&nbsp;Free Transfers</i>
+              Blue-to-Blue <span className="text-primary">Free Transfers</span>
             </h4>
             <p className="text-base leading-[25px] tracking-text mt-3 lg:text-lg text-txt">
               Sending money to friends, family, or anyone else with a Blue
@@ -75,8 +74,7 @@ const Personal = () => {
           >
             <div className="w-full p-0 mt-5 laptop-md:mt-0 pl-5 md:pl-10 laptop-md:pl-12">
               <h4 className="tracking-title text-[30px] leading-[35px] laptop-md:text-[38px] font-bold m-0 laptop-md:leading-[47px]">
-                Don&apos;t have a&nbsp;
-                <i className="font-fraunces inline">smartphone?&nbsp;</i>
+                Don&apos;t have a smartphone?
                 <br />
                 No worries!
               </h4>
@@ -105,9 +103,7 @@ const Personal = () => {
           >
             <div className="w-full p-0 mt-5 laptop-md:mt-0 pl-5 md:pl-10 laptop-md:pl-12">
               <h4 className="tracking-title text-[30px] leading-[35px] laptop-md:text-[38px] font-bold m-0 laptop-md:leading-[47px]">
-                Send, request and receive money with a
-                <i className="font-fraunces inline"> &nbsp;quick scan&nbsp;</i>
-                <br />
+                Send, request and receive money with a quick scan
               </h4>
               <p className="tracking-text text-base w-full max-w-[485px] leading-[25px] laptop-md:text-lg mt-3 laptop-md:leading-[28px]">
                 Embrace the future of payments with Blue. Simply scan the QR
@@ -135,9 +131,7 @@ const Personal = () => {
         >
           <div className="w-full mt-5 lg:mt-20 max-w-[650px]">
             <h4 className="tracking-title text-[30px] leading-[35px] w-full max-w-[598px] laptop-md:text-[38px] font-bold m-0 laptop-md:leading-[47px]">
-              <span className="font-fraunces italic text-primary">
-                Sync your contacts&nbsp;
-              </span>
+              <span className="text-primary">Sync your contacts&nbsp;</span>
               within Blue and send money to them easily
             </h4>
             <p className="tracking-text text-base mt-3 leading-[25px] laptop-md:text-lg laptop-md:leading-7 text-txt">

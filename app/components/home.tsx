@@ -18,8 +18,8 @@ const Home = () => {
       <HeroSection
         title={
           <span>
-            Say goodbye to lengthy transaction processes and hello to&nbsp;
-            <i className="italic font-fraunces">seamless, instant payments</i>
+            Say goodbye to lengthy transaction processes and hello to seamless,
+            instant payments
           </span>
         }
         subTitle="Experience the future of payments with Blue. Whether you're an individual or a business, our all-in-one platform enables you to send and receive payments effortlessly. "
@@ -37,9 +37,8 @@ const Home = () => {
             viewport={{ once: true }}
             className="text-txt font-bold tracking-title text-[27px] leading-[28px]  laptop:text-[2.375rem] laptop:leading-[47px]"
           >
-            Receive and make{" "}
-            <span className="text-primary italic font-fraunces">payments</span>{" "}
-            on the go
+            Receive and make <span className="text-primary">payments</span> on
+            the go
           </motion.h2>
           <motion.p
             initial={{ y: 40 }}
@@ -61,8 +60,8 @@ const Home = () => {
                 Swift Transactions
               </h5>
               <p className="text-sm lg:leading-[23px] lg:text-base text-start w-full max-w-[19.625rem] text-body-text-2">
-                Make instant and seamless payments on the go with Blue. It only
-                takes a few clicks.
+                Make instant and seamless payments on the go with Quickpay. It
+                only takes a few clicks.
               </p>
             </div>
           </div>
@@ -85,7 +84,7 @@ const Home = () => {
                 Free Transfers
               </h5>
               <p className="text-sm lg:leading-[23px] lg:text-base text-start w-full max-w-[19.625rem] text-body-text-2">
-                Get Free transfers to fellow blue users without any hidden
+                Get free transfers to fellow Blue users without any hidden
                 charges.
               </p>
             </div>
@@ -101,7 +100,12 @@ const Home = () => {
           <div className="max-w-[551px] w-full text-start">
             <h4 className="font-bold text-[25px] lg:text-[40px] leading-[47px] tracking-title m-0">
               Discover&nbsp;
-              <i className="text-primary font-fraunces">BluePersonal</i>
+              <span className="text-primary font-fraunces">
+                <i>BluePersonal </i>
+                <sup className="font-grotesque text-base leading-[23px] tracking-text">
+                  TM
+                </sup>
+              </span>
             </h4>
             <p className="m-0 text-base lg:text-lg lg:leading-[28px] text-[#32374E] tracking-text">
               Designed with individuals in mind, BluePersonal offers a suite of
@@ -137,7 +141,12 @@ const Home = () => {
           <div className="max-w-[551px] w-full text-start">
             <h4 className="font-bold text-[25px] lg:text-[40px] leading-[47px] tracking-title m-0">
               Discover&nbsp;
-              <i className="text-primary font-fraunces">BlueBusiness</i>
+              <span className="text-primary font-fraunces">
+                <i>BlueBusiness </i>
+                <sup className="font-grotesque text-base leading-[23px] tracking-text">
+                  TM
+                </sup>
+              </span>
             </h4>
             <p className="m-0 text-base lg:text-lg lg:leading-[28px] text-[#32374E] tracking-text">
               BlueBusiness offers a range of features tailored to streamline

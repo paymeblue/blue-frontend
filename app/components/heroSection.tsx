@@ -2,8 +2,8 @@ import Container from "@shared/container";
 import { motion } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
-import apple from "public/app-store2.png";
-import google from "public/google-play2.png";
+import apple from "public/app-store.png";
+import google from "public/google-play.png";
 import { QRCodeSVG } from "qrcode.react";
 import { Fragment, ReactNode } from "react";
 
@@ -46,9 +46,9 @@ const HeroSection = ({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5, delay: 0.25 }}
-            className="p-2 lg:p-3 rounded-lg lg:rounded-xl bg-white/30 m-0 w-max text-[15px] leadimg-[15px] lg:text-lg lg:leading-[18px] lg:tracking-text"
+            className="py-2 px-4 lg:px-6 lg:py-3 flex items-center justify-center rounded-lg gap-2 lg:rounded-xl bg-white/30 m-0 w-max text-[15px] leadimg-[15px] lg:text-base lg:leading-[16px] lg:tracking-text"
           >
-            {" "}
+            <span className="w-[7px] h-[7px] shadow-[0px_1px_8px_0px_#FFFFFFAD] inline-block bg-white rounded-full" />
             {tag}
           </motion.p>
         )}
@@ -122,7 +122,7 @@ const HeroSection = ({
               size={77}
             />
             <p className="text-[15px] leading-[20.77px] m-0 lg:text-base lg:leading-[22px] w-full max-w-[158px] tracking-text">
-              or, scan the qr code to download the app.
+              or, scan the QR code to download the app.
             </p>
           </motion.div>
         </Fragment>

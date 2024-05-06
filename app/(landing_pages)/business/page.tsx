@@ -1,6 +1,5 @@
-import Spinner from "@shared/Spinner";
 import { Metadata } from "next";
-import dynamic from "next/dynamic";
+import Business from "./business";
 
 export const metadata: Metadata = {
   title: "Business",
@@ -8,9 +7,6 @@ export const metadata: Metadata = {
     "Streamline your financial operations effortlessly with Blue Business",
 };
 
-const Business = dynamic(() => import("./business"), {
-  loading: () => <Spinner />,
-});
 const BusinessPage = () => <Business />;
 
 export default BusinessPage;

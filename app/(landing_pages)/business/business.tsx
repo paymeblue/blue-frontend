@@ -31,10 +31,9 @@ const Business = () => {
           <div className="w-full mt-5 lg:mt-20 max-w-[616px]">
             <h4 className="tracking-title text-[30px] leading-[35px] lg:text-[38px] font-bold m-0 lg:leading-[47px]">
               Boost your business sales with
-              <i className="font-fraunces text-primary">
-                {" "}
-                data driven insights &nbsp;
-              </i>
+              <span className="text-primary">
+                &nbsp; data driven insights &nbsp;
+              </span>
             </h4>
             <p className="text-base leading-[25px] tracking-text mt-3 lg:text-lg text-txt">
               Enhance your revenue-generating strategies with clear
@@ -63,9 +62,7 @@ const Business = () => {
             <div className="w-full max-w-[520px] m-auto mt-5 lg:m-auto">
               <h4 className="tracking-title text-[30px] leading-[35px] lg:text-[38px] font-bold m-0 lg:leading-[47px]">
                 Add and&nbsp;
-                <span className="font-fraunces inline italic">
-                  manage your team&nbsp;
-                </span>
+                <span className="inline">manage your team&nbsp;</span>
                 <br />
                 seamlessly
               </h4>
@@ -94,7 +91,14 @@ const Business = () => {
           >
             <div className="w-full p-0 mx-auto mt-5 laptop-md:mt-0 pl-5 md:pl-10 laptop-md:pl-12">
               <h4 className="tracking-title text-[30px] leading-[35px] laptop-md:text-[38px] font-bold m-0 laptop-md:leading-[47px]">
-                <i className="font-fraunces">Integrate BlueBusiness&nbsp;</i>
+                Integrate
+                <span className="font-fraunces">
+                  &nbsp;<i>BlueBusiness</i>
+                  <sup className="font-grotesque text-base font-light leading-[23px] tracking-text">
+                    TM
+                  </sup>
+                  &nbsp;
+                </span>
                 with your Point-of-Sale system
               </h4>
               <p className="tracking-text text-base w-full max-w-[485px] leading-[25px] laptop-md:text-lg mt-3 laptop-md:leading-[28px]">
