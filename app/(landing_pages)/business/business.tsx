@@ -102,7 +102,7 @@ const Business = () => {
                 with your Point-of-Sale system
               </h4>
               <p className="tracking-text text-base w-full max-w-[485px] leading-[25px] laptop-md:text-lg mt-3 laptop-md:leading-[28px]">
-                BlueBusiness Desktop allows for seamless integration into your
+                BlueBusiness desktop allows for seamless integration into your
                 Point of Sale system, facilitating swift customer payments via
                 barcode scan.
               </p>

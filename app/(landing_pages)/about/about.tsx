@@ -43,7 +43,7 @@ const About = () => {
           </motion.p>
         </Container>
       </section>
-      <div className="max-w-[1440px] px-6 tablet:px-20 laptop:px-6 laptop-md:px-20 mx-auto mt-6 w-full  md:px-20 py-8 lg:py-14 grid gap-12 grid-cols-1 lg:grid-cols-2 items-start justify-between lg:justify-center">
+      <div className="max-w-[1440px] px-6 tablet:px-20 laptop:px-6 laptop-md:px-20 mx-auto mt-6 w-full  md:px-20 py-8 lg:py-14 grid gap-12 grid-cols-1 lg:grid-cols-2 items-center justify-between lg:justify-center">
         <div className="w-full max-w-[616px]">
           <h3 className="font-bold text-[30px] leading-[33px] lg:text-[40px] lg:leading-[47px] tracking-title">
             We&apos;re on a mission to:
@@ -52,7 +52,7 @@ const About = () => {
               Simplify all things payments
             </span>
           </h3>
-          <p className="text-[15px] mt-3 lg:mt-4 w-full max-w-[520px] leading-[25px] lg:text-base lg:leading-[27px] tracking-text">
+          <p className="text-[15px] mt-3 lg:mt-4 w-full max-w-[520px] leading-[25px] lg:text-lg lg:leading-[27px] tracking-text">
             At Blue, we aim to revolutionize the way payments are made and
             received, ultimately eliminating the need for cash and cards. We
             envision a future where your mobile phone becomes your primary
@@ -68,7 +68,7 @@ const About = () => {
           />
         </div>
       </div>
-      <section className="bg-[#141752CC] relative pb-8 lg:pb-20 w-full text-white">
+      <section className="bg-[#141752CC] px-4 lg:px-0  relative pb-8 lg:pb-20 w-full text-white">
         <Image
           src={blur}
           alt="blur blue bg"
@@ -87,7 +87,7 @@ const About = () => {
           <h1 className="text-[30px] mb-5 w-full max-w-[650px] leading-[35px] lg:text-[35px] lg:leading-[42px] lg:mb-10 font-semibold tracking-title">
             Unlock the power of your smartphone as your ultimate payment tool.
           </h1>
-          <div className="text-[15px] mt-3 lg:mt-4 leading-[25px] lg:text-base lg:leading-[27px] tracking-text space-y-5 lg:space-y-9">
+          <div className="text-[15px] mt-3 lg:mt-4 leading-[25px] lg:text-lg lg:leading-[27px] tracking-text space-y-5 lg:space-y-9">
             <p className="m-0">
               In today's digital age, internet penetration and mobile phone
               usage have reached unprecedented levels, especially in Africa and
@@ -111,7 +111,7 @@ const About = () => {
             </p>
           </div>
         </div>
-        <h5 className="font-fraunces mx-auto text-[30px] leading-[37px] px-6 lg:px-0 my-0 lg:pt-2 lg:pb-10 w-full max-w-[780px] text-center lg:text-[40px] lg:leading-[47px] tracking-title">
+        <h5 className="font-fraunces mx-auto text-[30px] leading-[37px] w-[350px] px-6 lg:px-0 my-0 lg:pt-2 lg:pb-10 md:w-full max-w-[780px] text-center lg:text-[40px] lg:leading-[47px] tracking-title">
           “With Blue, payments are no longer a burden but a seamless part of
           everyday life”
         </h5>
