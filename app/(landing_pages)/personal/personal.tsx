@@ -36,8 +36,7 @@ const Personal = () => {
         >
           <div className="w-full mt-5 md:mt-0 lg:mt-20 max-w-[620px]">
             <h4 className="tracking-title text-[30px] leading-[35px] lg:text-[38px] font-bold m-0 lg:leading-[47px]">
-              Blue-to-Blue
-              <i className="font-fraunces text-primary">&nbsp;Free Transfers</i>
+              Blue-to-Blue <span className="text-primary">Free Transfers</span>
             </h4>
             <p className="text-base leading-[25px] tracking-text mt-3 lg:text-lg text-txt">
               Sending money to friends, family, or anyone else with a Blue
@@ -75,8 +74,7 @@ const Personal = () => {
           >
             <div className="w-full p-0 mt-5 laptop-md:mt-0 pl-5 md:pl-10 laptop-md:pl-12">
               <h4 className="tracking-title text-[30px] leading-[35px] laptop-md:text-[38px] font-bold m-0 laptop-md:leading-[47px]">
-                Don&apos;t have a&nbsp;
-                <i className="font-fraunces inline">smartphone?&nbsp;</i>
+                Don&apos;t have a smartphone?
                 <br />
                 No worries!
               </h4>
@@ -101,16 +99,13 @@ const Personal = () => {
             whileInView={{ y: 0, x: 0, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.4 }}
             viewport={{ once: true }}
-            className="bg-txt text-white flex flex-col rounded-3xl gap-6 w-full justify-between h-auto lg:h-[758px] p-5 md:p-10 md:pb-0 laptop-md:p-12 laptop-md:pb-0  pb-0"
+            className="bg-txt text-white w-full flex flex-col rounded-3xl gap-12 lg:gap-6 justify-between p-5 md:p-7 md:pb-0 md:pl-0 lg:pt-10 laptop-md:p-12 laptop-md:pb-0 laptop-md:pl-0 h-auto lg:h-[758px] pb-0 pl-0"
           >
-            <div className="w-full mt-5 lg:mt-auto m-auto">
+            <div className="w-full p-0 mt-5 laptop-md:mt-0 pl-5 md:pl-10 laptop-md:pl-12">
               <h4 className="tracking-title text-[30px] leading-[35px] laptop-md:text-[38px] font-bold m-0 laptop-md:leading-[47px]">
-                Send, request and receive money with a
-                <span className="font-fraunces italic">
-                  &nbsp;quick scan&nbsp;
-                </span>
+                Send, request and receive money with a quick scan
               </h4>
-              <p className="tracking-text text-base mt-3 leading-[25px] laptop-md:text-lg laptop-md:leading-7">
+              <p className="tracking-text text-base w-full max-w-[485px] leading-[25px] laptop-md:text-lg mt-3 laptop-md:leading-[28px]">
                 Embrace the future of payments with Blue. Simply scan the QR
                 code or barcode with your smartphone to make payments on the go.
               </p>
@@ -119,9 +114,9 @@ const Personal = () => {
               <Image
                 src={img5}
                 alt="img 5"
-                width={332}
-                height={638.81}
-                className="object-contain m-auto w-[90%] md:w-auto laptop-md:w-3/5"
+                width={631}
+                height={454}
+                className="object-contain mb-0 laptop-md:-translate-y-2 rounded-bl-3xl"
                 priority
               />
             </div>
@@ -136,9 +131,7 @@ const Personal = () => {
         >
           <div className="w-full mt-5 lg:mt-20 max-w-[650px]">
             <h4 className="tracking-title text-[30px] leading-[35px] w-full max-w-[598px] laptop-md:text-[38px] font-bold m-0 laptop-md:leading-[47px]">
-              <span className="font-fraunces italic text-primary">
-                Sync your contacts&nbsp;
-              </span>
+              <span className="text-primary">Sync your contacts&nbsp;</span>
               within Blue and send money to them easily
             </h4>
             <p className="tracking-text text-base mt-3 leading-[25px] laptop-md:text-lg laptop-md:leading-7 text-txt">

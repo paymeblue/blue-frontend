@@ -1,6 +1,5 @@
-import Spinner from "@shared/Spinner";
 import { Metadata } from "next";
-import dynamic from "next/dynamic";
+import Terms from "./terms";
 
 export const metadata: Metadata = {
   title: "Terms and Conditions",
@@ -9,9 +8,6 @@ export const metadata: Metadata = {
             paymeblue.com.`,
 };
 
-const Terms = dynamic(() => import("./terms"), {
-  loading: () => <Spinner />,
-});
 const TermsPage = () => <Terms />;
 
 export default TermsPage;
