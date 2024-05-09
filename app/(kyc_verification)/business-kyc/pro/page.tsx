@@ -1,4 +1,4 @@
-import { LoadingOutlined } from "@ant-design/icons";
+import Spinner from "@shared/Spinner";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
 
@@ -8,18 +8,7 @@ export const metadata: Metadata = {
 };
 
 const DynamicVerifyIdentity = dynamic(() => import("./VerifyPro"), {
-  loading: () => (
-    <LoadingOutlined
-      style={{
-        fontSize: 32,
-        display: "flex",
-        alignItems: "center",
-        minHeight: "10rem",
-        color: "#4341CD",
-      }}
-      spin
-    />
-  ),
+  loading: () => <Spinner />,
 });
 
 const KycIdentification = () => {

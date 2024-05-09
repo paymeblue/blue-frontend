@@ -10,20 +10,16 @@ const { Title, Paragraph } = Typography;
 const Privacy = () => {
   return (
     <Fragment>
-      <PageHead mainText="Privacy policy" />
-      <Container className="mb-8 laptop:mb-20">
+      <PageHead
+        title="Privacy Policy"
+        subTitle="Last Updated: July 1st, 2023"
+      />
+      <Container className="py-6 laptop:my-20">
         <Typography className="mb-7 text-justify">
-          <Title
-            level={2}
-            className="m-0 mb-5 text-left text-[0.9375rem] font-medium uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:leading-normal"
-          >
-            PRIVACY POLICY
-          </Title>
-          <Paragraph className="text-[0.9375rem] leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
-            Last updated: <span className="text-primary">July 1st, 2023 </span>
-            <br /> This Privacy Policy describes Our policies and procedures on
-            the collection, use and disclosure of Your information when You use
-            the Service and tells You about Your privacy rights and how the law
+          <Paragraph className="text-[0.9375rem] text-[#32374E] m-0 leading-[1.625rem]">
+            This Privacy Policy describes Our policies and procedures on the
+            collection, use and disclosure of Your information when You use the
+            Service and tells You about Your privacy rights and how the law
             protects You. We use Your Personal data to provide and improve the
             Service. By using the Service, You agree to the collection and use
             of information in accordance with this Privacy Policy.
@@ -32,11 +28,11 @@ const Privacy = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[0.9375rem] font-medium uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:leading-normal"
+            className="m-0 mb-3 font-avenir text-left font-semibold text-[#232949] text-[28px] leading-[38.25px]"
           >
             Interpretation
           </Title>
-          <Paragraph className="text-[0.9375rem] leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
+          <Paragraph className="text-[0.9375rem] text-[#32374E] m-0 leading-[1.625rem]">
             The words of which the initial letter is capitalised have meanings
             defined under the following conditions. The following definitions
             shall have the same meaning regardless of whether they appear in
@@ -46,11 +42,11 @@ const Privacy = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[0.9375rem] font-medium uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:leading-normal"
+            className="m-0 mb-3 font-avenir text-left font-semibold text-[#232949] text-[28px] leading-[38.25px]"
           >
             Definitions
           </Title>
-          <Paragraph className="text-[0.9375rem] leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
+          <Paragraph className="text-[0.9375rem] text-[#32374E] m-0 leading-[1.625rem]">
             For the purposes of this Privacy Policy:
             <ul className="list-disc">
               <li>
@@ -93,7 +89,7 @@ const Privacy = () => {
               </li>
               <li>
                 Website refers to Blue website, accessible from &nbsp;
-                <Link href="/" className="text-primary underline">
+                <Link href="/" className="text-[#32374E]">
                   paymeblue.com
                 </Link>
               </li>
@@ -108,12 +104,12 @@ const Privacy = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[0.9375rem] font-medium uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:leading-normal"
+            className="m-0 mb-3 font-avenir text-left font-semibold text-[#232949] text-[28px] leading-[38.25px]"
           >
             Collecting and Using Your Personal Data
           </Title>
-          <Paragraph className="text-[0.9375rem] leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
-            <span className="font-medium text-primary">Personal Data:</span>
+          <Paragraph className="text-[0.9375rem] text-[#32374E] m-0 leading-[1.625rem]">
+            <span className="text-[#32374E]">Personal Data:</span>
             <ul className="list-disc">
               While using Our Service, We may ask You to provide Us with certain
               personally identifiable information that can be used to contact or
@@ -126,8 +122,8 @@ const Privacy = () => {
               <li>Usage Data</li>
             </ul>
           </Paragraph>
-          <Paragraph className="text-[0.9375rem] leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
-            <span className="font-medium text-primary">Usage Data: </span>
+          <Paragraph className="text-[0.9375rem] text-[#32374E] m-0 leading-[1.625rem]">
+            <span className="text-[#32374E]">Usage Data: </span>
             <br />
             Usage Data is collected automatically when using the Service.
             <br /> Usage Data may include information such as Your Device's
@@ -149,12 +145,12 @@ const Privacy = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[0.9375rem] font-medium uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:leading-normal"
+            className="m-0 mb-3 font-avenir text-left font-semibold text-[#232949] text-[28px] leading-[38.25px]"
           >
             Tracking Technologies and Cookies
           </Title>
-          <Paragraph className="text-[0.9375rem leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
-            <ul className="list-disc">
+          <Paragraph className="text-[0.9375rem leading-[1.3125rem]  text-[#32374E] laptop:text-[1.125rem] laptop:leading-[1.625rem]">
+            <ul className="text-[0.9375rem] list-disc text-[#32374E] m-0 leading-[1.625rem]">
               We use Cookies and similar tracking technologies to track the
               activity on Our Service and store certain information. Tracking
               technologies used are beacons, tags, and scripts to collect and
@@ -183,8 +179,8 @@ const Privacy = () => {
               Your web browser.
             </ul>
           </Paragraph>
-          <Paragraph className="text-[0.9375rem] leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
-            <span className="font-medium text-primary">
+          <Paragraph className="text-[0.9375rem] text-[#32374E] m-0 leading-[1.625rem]">
+            <span className="text-[#32374E]">
               Necessary / Essential Cookies:
             </span>
             <br />
@@ -197,8 +193,8 @@ const Privacy = () => {
             that You have asked for cannot be provided, and We only use these
             Cookies to provide You with those services.
           </Paragraph>
-          <Paragraph className="text-[0.9375rem] leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
-            <span className="font-medium text-primary">
+          <Paragraph className="text-[0.9375rem] text-[#32374E] m-0 leading-[1.625rem]">
+            <span className="text-[#32374E]">
               Cookies Policy / Notice Acceptance Cookies:
             </span>
             <br />
@@ -208,10 +204,8 @@ const Privacy = () => {
             Purpose: These Cookies identify if users have accepted the use of
             cookies on the Website.
           </Paragraph>
-          <Paragraph className="text-[0.9375rem] leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
-            <span className="font-medium text-primary">
-              Functionality Cookies:
-            </span>
+          <Paragraph className="text-[0.9375rem] text-[#32374E] m-0 leading-[1.625rem]">
+            <span className="text-[#32374E]">Functionality Cookies:</span>
             <br />
             <ul className="list-disc">
               <li>Type: Persistent Cookies</li>
@@ -233,38 +227,30 @@ const Privacy = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[0.9375rem] font-medium uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:leading-normal"
+            className="m-0 mb-3 font-avenir text-left font-semibold text-[#232949] text-[28px] leading-[38.25px]"
           >
             Use of Your Personal Data
           </Title>
-          <Paragraph className="text-[0.9375rem] leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
+          <Paragraph className="text-[0.9375rem] text-[#32374E] m-0 leading-[1.625rem]">
             <ul className="list-disc">
               The Company may use Personal Data for the following purposes:
               <li>
-                <strong className="font-medium">
-                  To provide and maintain our Service,&nbsp;
-                </strong>
-                including to monitor the usage of our Service.
+                To provide and maintain our Service, including to monitor the
+                usage of our Service.
               </li>
               <li>
-                <strong className="font-medium">
-                  To manage Your Account:&nbsp;
-                </strong>
-                to manage Your registration as a user of the Service. The
-                Personal Data You provide can give You access to different
-                functionalities of the Service that are available to You as a
-                registered user.
+                To manage Your Account: to manage Your registration as a user of
+                the Service. The Personal Data You provide can give You access
+                to different functionalities of the Service that are available
+                to You as a registered user.
               </li>
               <li>
-                <strong className="font-medium">
-                  For the performance of a contract:&nbsp;
-                </strong>
-                the development, compliance and undertaking of the purchase
-                contract for the products, items or services You have purchased
-                or of any other contract with Us through the Service.
+                For the performance of a contract: the development, compliance
+                and undertaking of the purchase contract for the products, items
+                or services You have purchased or of any other contract with Us
+                through the Service.
               </li>
               <li>
-                <strong className="font-medium">To contact You:&nbsp;</strong>
                 To contact You by email, telephone calls, SMS, or other
                 equivalent forms of electronic communication, such as a mobile
                 application's push notifications regarding updates or
@@ -273,78 +259,57 @@ const Privacy = () => {
                 when necessary or reasonable for their implementation.
               </li>
               <li>
-                <strong className="font-medium">To provide You&nbsp;</strong>
                 with news, special offers and general information about other
                 goods, services and events which we offer that are similar to
                 those that you have already purchased or enquired about unless
                 You have opted not to receive such information.
               </li>
               <li>
-                <strong className="font-medium">
-                  To manage Your requests: &nbsp;
-                </strong>
-                To attend and manage Your requests to Us.
+                To manage Your requests: To attend and manage Your requests to
+                Us.
               </li>
               <li>
-                <strong className="font-medium">
-                  {" "}
-                  For business transfers:&nbsp;
-                </strong>
-                We may use Your information to evaluate or conduct a merger,
-                divestiture, restructuring, reorganization, dissolution, or
-                other sale or transfer of some or all of Our assets, whether as
-                a going concern or as part of bankruptcy, liquidation, or
-                similar proceeding, in which Personal Data held by Us about our
-                Service users is among the assets transferred.
+                For business transfers: We may use Your information to evaluate
+                or conduct a merger, divestiture, restructuring, reorganization,
+                dissolution, or other sale or transfer of some or all of Our
+                assets, whether as a going concern or as part of bankruptcy,
+                liquidation, or similar proceeding, in which Personal Data held
+                by Us about our Service users is among the assets transferred.
               </li>
               <li>
-                <strong className="font-medium">
-                  For other purposes:&nbsp;
-                </strong>
-                We may use Your information for other purposes, such as data
-                analysis, identifying usage trends, determining the
-                effectiveness of our promotional campaigns and to evaluate and
-                improve our Service, products, services, marketing and your
-                experience.
+                For other purposes: We may use Your information for other
+                purposes, such as data analysis, identifying usage trends,
+                determining the effectiveness of our promotional campaigns and
+                to evaluate and improve our Service, products, services,
+                marketing and your experience.
               </li>
               We may share Your personal information in the following
               situations:
               <li>
-                <strong className="font-medium">
-                  {" "}
-                  With Service Providers:&nbsp;
-                </strong>
-                We may share Your personal information with Service Providers to
-                monitor and analyze the use of our Service, to contact You.
+                {" "}
+                With Service Providers: We may share Your personal information
+                with Service Providers to monitor and analyze the use of our
+                Service, to contact You.
               </li>
               <li>
-                <strong className="font-medium">
-                  For business transfers:&nbsp;
-                </strong>
-                We may share or transfer Your personal information in connection
-                with, or during negotiations of, any merger, sale of Company
-                assets, financing, or acquisition of all or a portion of Our
-                business to another company.
+                For business transfers: We may share or transfer Your personal
+                information in connection with, or during negotiations of, any
+                merger, sale of Company assets, financing, or acquisition of all
+                or a portion of Our business to another company.
               </li>
               <li>
-                <strong className="font-medium">
-                  With business partners:&nbsp;
-                </strong>
-                We may share Your information with Our business partners to
-                offer You certain products, services or promotions.
+                With business partners: We may share Your information with Our
+                business partners to offer You certain products, services or
+                promotions.
               </li>
               <li>
-                <strong className="font-medium">With other users:&nbsp;</strong>
                 when You share personal information or otherwise interact in the
                 public areas with other users, such information may be viewed by
                 all users and may be publicly distributed outside.
               </li>
               <li>
-                <strong className="font-medium">
-                  With Your consent:&nbsp;
-                </strong>
-                We may disclose Your personal information for any other purpose
-                with Your consent.
+                With Your consent: We may disclose Your personal information for
+                any other purpose with Your consent.
               </li>
             </ul>
           </Paragraph>
@@ -352,11 +317,11 @@ const Privacy = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[0.9375rem] font-medium uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:leading-normal"
+            className="m-0 mb-3 font-avenir text-left font-semibold text-[#232949] text-[28px] leading-[38.25px]"
           >
             Retention of Your Personal Data
           </Title>
-          <Paragraph className="text-[0.9375rem] leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
+          <Paragraph className="text-[0.9375rem] text-[#32374E] m-0 leading-[1.625rem]">
             The Company will retain Your Personal Data only for as long as is
             necessary for the purposes set out in this Privacy Policy. We will
             retain and use Your Personal Data to the extent necessary to comply
@@ -373,20 +338,21 @@ const Privacy = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[0.9375rem] font-medium uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:leading-normal"
+            className="m-0 mb-3 font-avenir text-left font-semibold text-[#232949] text-[28px] leading-[38.25px]"
           >
             Transfer of Your Personal Data
           </Title>
-          <Paragraph className="text-[0.9375rem] leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
+          <Paragraph className="text-[0.9375rem] text-[#32374E] m-0 leading-[1.625rem]">
             Your information, including Personal Data, is processed at the
             Company's operating offices and in any other places where the
             parties involved in the processing are located. It means that this
             information may be transferred to — and maintained on — computers
             located outside of Your state, province, country or other
             governmental jurisdiction where the data protection laws may differ
-            than those from Your jurisdiction. Your consent to this Privacy
-            Policy followed by Your submission of such information represents
-            Your agreement to that transfer.
+            than those from Your jurisdiction.
+            <br />
+            Your consent to this Privacy Policy followed by Your submission of
+            such information represents Your agreement to that transfer.
             <br /> The Company will take all steps reasonably necessary to
             ensure that Your data is treated securely and in accordance with
             this Privacy Policy and no transfer of Your Personal Data will take
@@ -398,15 +364,15 @@ const Privacy = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[0.9375rem] font-medium uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:leading-normal"
+            className="m-0 mb-3 font-avenir text-left font-semibold text-[#232949] text-[28px] leading-[38.25px]"
           >
             Delete Your Personal Data
           </Title>
-          <Paragraph className="text-[0.9375rem] leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
+          <Paragraph className="text-[0.9375rem] text-[#32374E] m-0 leading-[1.625rem]">
             You have the right to delete or request that We assist in deleting
-            the Personal Data that We have collected about You. Our Service may
-            give You the ability to delete certain information about You from
-            within the Service.
+            the Personal Data that We have collected about You.
+            <br /> Our Service may give You the ability to delete certain
+            information about You from within the Service.
             <br /> You may update, amend, or delete Your information at any time
             by signing in to Your Account, if you have one, and visiting the
             account settings section that allows you to manage Your personal
@@ -420,15 +386,13 @@ const Privacy = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[0.9375rem] font-medium uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:leading-normal"
+            className="m-0 mb-3 font-avenir text-left font-semibold text-[#232949] text-[28px] leading-[38.25px]"
           >
             Disclosure of Your Personal Data
           </Title>
-          <Paragraph className="text-[0.9375rem] leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
+          <Paragraph className="text-[0.9375rem] text-[#32374E] m-0 leading-[1.625rem]">
             <p>
-              <span className="font-medium text-primary">
-                Business Transactions:
-              </span>
+              <span className="text-[#32374E]">Business Transactions:</span>
               <br />
               If the Company is involved in a merger, acquisition or asset sale,
               Your Personal Data may be transferred. We will provide notice
@@ -436,7 +400,7 @@ const Privacy = () => {
               different Privacy Policy.
             </p>
             <p>
-              <span className="font-medium text-primary">Law enforcement:</span>
+              <span className="text-[#32374E]">Law enforcement:</span>
               <br />
               Under certain circumstances, the Company may be required to
               disclose Your Personal Data if required to do so by law or in
@@ -444,9 +408,7 @@ const Privacy = () => {
               a government agency).
             </p>
             <ul className="list-disc">
-              <span className="font-medium text-primary">
-                Other legal requirements:
-              </span>
+              <span className="text-[#32374E]">Other legal requirements:</span>
               <br />
               The Company may disclose Your Personal Data in the good faith
               belief that such action is necessary to:
@@ -463,34 +425,15 @@ const Privacy = () => {
               <li>Protect against legal liability</li>
             </ul>
           </Paragraph>
-          <Paragraph className="text-[0.9375rem] leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
-            <span className="font-medium text-primary">Usage Data: </span>
-            <br />
-            Usage Data is collected automatically when using the Service.
-            <br /> Usage Data may include information such as Your Device's
-            Internet Protocol address (e.g. IP address), browser type, browser
-            version, the pages of our Service that You visit, the time and date
-            of Your visit, the time spent on those pages, unique device
-            identifiers and other diagnostic data.
-            <br /> When You access the Service by or through a mobile device, We
-            may collect certain information automatically, including, but not
-            limited to, the type of mobile device You use, Your mobile device
-            unique ID, the IP address of Your mobile device, Your mobile
-            operating system, the type of mobile Internet browser You use,
-            unique device identifiers and other diagnostic data.
-            <br /> We may also collect information that Your browser sends
-            whenever You visit our Service or when You access the Service by or
-            through a mobile device.
-          </Paragraph>
         </Typography>
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[0.9375rem] font-medium uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:leading-normal"
+            className="m-0 mb-3 font-avenir text-left font-semibold text-[#232949] text-[28px] leading-[38.25px]"
           >
             Security of Your Personal Data
           </Title>
-          <Paragraph className="text-[0.9375rem] leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
+          <Paragraph className="text-[0.9375rem] text-[#32374E] m-0 leading-[1.625rem]">
             The security of Your Personal Data is important to Us, but remember
             that no method of transmission over the Internet, or method of
             electronic storage is 100% secure. While We strive to use
@@ -501,11 +444,11 @@ const Privacy = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[0.9375rem] font-medium uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:leading-normal"
+            className="m-0 mb-3 font-avenir text-left font-semibold text-[#232949] text-[28px] leading-[38.25px]"
           >
             Children's Privacy
           </Title>
-          <Paragraph className="text-[0.9375rem] leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
+          <Paragraph className="text-[0.9375rem] text-[#32374E] m-0 leading-[1.625rem]">
             Our Service does not address anyone under the age of 13. We do not
             knowingly collect personally identifiable information from anyone
             under the age of 13. If You are a parent or guardian and You are
@@ -522,11 +465,11 @@ const Privacy = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[0.9375rem] font-medium uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:leading-normal"
+            className="m-0 mb-3 font-avenir text-left font-semibold text-[#232949] text-[28px] leading-[38.25px]"
           >
             Links to Other Websites
           </Title>
-          <Paragraph className="text-[0.9375rem] leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
+          <Paragraph className="text-[0.9375rem] text-[#32374E] m-0 leading-[1.625rem]">
             Our Service may contain links to other websites that are not
             operated by Us. If You click on a third party link, You will be
             directed to that third party's site. We strongly advise You to
@@ -539,13 +482,14 @@ const Privacy = () => {
         <Typography className="mb-7 text-justify">
           <Title
             level={2}
-            className="m-0 mb-5 text-left text-[0.9375rem] font-medium uppercase leading-[1.3125rem] text-primary laptop:text-[1.25rem] laptop:leading-normal"
+            className="m-0 mb-3 font-avenir text-left font-semibold text-[#232949] text-[28px] leading-[38.25px]"
           >
             Changes to this Privacy Policy
           </Title>
-          <Paragraph className="text-[0.9375rem] leading-[1.3125rem]  text-txt laptop:text-[1.125rem] laptop:leading-[1.625rem]">
+          <Paragraph className="text-[0.9375rem] text-[#32374E] m-0 leading-[1.625rem]">
             We may update Our Privacy Policy from time to time. We will notify
             You of any changes by posting the new Privacy Policy on this page.
+            <br />
             We will let You know via email and/or a prominent notice on Our
             Service, prior to the change becoming effective and update the "Last
             updated" date at the top of this Privacy Policy.

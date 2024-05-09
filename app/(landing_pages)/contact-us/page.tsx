@@ -1,19 +1,18 @@
 import { Metadata } from "next";
-import dynamic from "next/dynamic";
 import Script from "next/script";
 import { Fragment } from "react";
+import Contact from "./contact-us";
 
 export const metadata: Metadata = {
   title: "Contact us",
   description: "Stay connected with us for all your needs!",
 };
 
-const Contact = dynamic(() => import("./contact-us"));
 const ContactPage = () => {
   return (
     <Fragment>
       <Script
-        src={process.env.CLOUDFLARE_TURNSTILE_CHALLENGE_URL}
+        src="https://challenges.cloudflare.com/turnstile/v0/api.js"
         defer
         async
         strategy="lazyOnload"

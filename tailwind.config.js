@@ -13,7 +13,7 @@ module.exports = {
     extend: {
       colors: {
         primary: "#4341CD",
-        txt: "#232949",
+        txt: "#1B1F28",
         txt2: "#666B7E",
         neutral: "#D1D5DB",
         bg: "#FEFEFE;",
@@ -22,16 +22,28 @@ module.exports = {
         "bright-blue": "#AAA9FF",
         "input-field": "#F7F7FA",
       },
+      letterSpacing: {
+        title: "-0.32px",
+        text: "-0.16px",
+      },
       fontFamily: {
         fraunces: ["var(--font-fraunces)"],
         satoshi: ["var(--font-satoshi)"],
+        grotesque: ["var(--font-grotesque)"],
+        avenir: ["var(--font-avenir)"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        purple:
+          "linear-gradient(106.92deg, #C4CFF8 -14.91%, #F9FAFF 59.7%, #BEBAE7 121.38%)",
         lilac:
           "linear-gradient(189.8deg, #F6F0FF -87.15%, rgba(246, 240, 255, 0) 149.62%)",
+        "primary-grad-footer":
+          "linear-gradient(180deg, #4341CD 42%, #4357C2 73%, #436BB8 100%)",
+        "primary-grad-nav":
+          "linear-gradient(180deg, #436BB8 0%, #4357C2 27%, #4341CD 58%)",
       },
       boxShadow: {
         shadow: "0px 3px 15px 0px #EAEAFF",
