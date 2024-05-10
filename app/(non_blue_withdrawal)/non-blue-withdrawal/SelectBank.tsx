@@ -13,6 +13,7 @@ import { Input } from "@components/ui/input";
 import { Input as InputWithIcon } from "@components/ui/input-with-icon";
 import { Sheet, SheetContent, SheetTrigger } from "@components/ui/sheet";
 import { zodResolver } from "@hookform/resolvers/zod";
+import useGetBanks from "@hooks/useGetBanks";
 import { SelectBankSchema, SelectBankValidation } from "@lib/validations";
 import { ChevronDown, Search } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -60,6 +61,9 @@ const SelectBank = () => {
   const [open, setOpen] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
   const router = useRouter();
+  const { banks, loading } = useGetBanks();
+
+  console.log({ banks, loading });
 
   const form = useForm<SelectBankValidation>({
     resolver: zodResolver(SelectBankSchema),
