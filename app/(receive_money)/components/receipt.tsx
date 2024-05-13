@@ -39,8 +39,9 @@ const Receipt = forwardRef(
     const fetchReceiptDetailst = async (transId: string): Promise<Response> => {
       try {
         const result = await axios.get(
-          `https://blue-api-backend.herokuapp.com/api/payment-link/receipt?url_code=${transId}`
+          `https://blue-api-backend.herokuapp.com/api/payment-link/details?url_code=${transId}`
         );
+        console.log({ result });
         return result.data.data;
       } catch (error) {
         console.log(error, "error in fetching list of banks");
@@ -50,7 +51,7 @@ const Receipt = forwardRef(
     const { data, isLoading } = useQuery(
       "receipt",
       () => fetchReceiptDetailst(linkId),
-      { enabled: !!receiptData.transaction_id }
+      { enabled: !!linkId }
     );
 
     const receiptDetails = [

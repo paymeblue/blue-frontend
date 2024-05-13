@@ -200,6 +200,8 @@ const SelectBank = ({
               <FormControl>
                 <Input
                   placeholder="Account number"
+                  type="number"
+                  inputMode="numeric"
                   {...field}
                   onBlur={() => handleAccountVerify(field.value)}
                 />
