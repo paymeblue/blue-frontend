@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useCallback, useEffect, useState } from "react";
 
-interface Bank {
+export interface Bank {
   id: number;
   name: string;
   logo_url: null | string;
@@ -20,8 +20,7 @@ const useGetBanks = () => {
       const result = await axios.get(
         "https://blue-api-backend.herokuapp.com/api/banks"
       );
-
-      setBanks(result.data.banks);
+      setBanks(result.data.data.banks);
     } catch (err) {
       setError(true);
     } finally {
