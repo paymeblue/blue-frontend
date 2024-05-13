@@ -50,14 +50,8 @@ const SelectBank = ({
   const router = useRouter();
   const [messageApi, contextHolder] = message.useMessage();
 
-  const {
-    handleWithdraw,
-    loading: loadingWithdraw,
-    isWidthrawing,
-  } = useWithdrawFund({
-    id: String(id),
+  const { loading: loadingWithdraw } = useWithdrawFund({
     messageApi,
-    selectedBank: selectedBank!,
     onSuccess: (response) => {
       sendReceipt(response.data);
       messageApi.open({
@@ -88,7 +82,7 @@ const SelectBank = ({
 
   const onFinish = async ({ acctNum }: { acctNum: string }) => {
     if (!selectedBank) return;
-    handleWithdraw(acctNum, selectedBank?.account_number);
+    // handleWithdraw(acctNum, selectedBank?.account_number);
   };
   return (
     <Fragment>
@@ -126,11 +120,7 @@ const SelectBank = ({
                 size="large"
                 loading={loadingWithdraw}
               >
-                {loadingWithdraw
-                  ? isWidthrawing
-                    ? "Withdrawing"
-                    : "Verifying"
-                  : "Verify"}
+                Verify
               </Button>
             </Form>
           </div>

@@ -8,13 +8,13 @@ export const metadata: Metadata = {
   description: "Receive and withdraw money sent to you from friends and family",
 };
 
-const ReceiveMoney = dynamic(() => import("../receive-money-new"), {
+const NonBlueWithdrawal = dynamic(() => import("../non-blue-withdrawal"), {
   loading: () => <Spinner />,
 });
 
 const ReceiveMoneyPage = ({ params }: { params: { id: string } }) => (
   <StoreContextProvider>
-    <ReceiveMoney code={params.id} />
+    <NonBlueWithdrawal linkId={params.id} />
   </StoreContextProvider>
 );
 
