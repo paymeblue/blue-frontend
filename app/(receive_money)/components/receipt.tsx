@@ -70,11 +70,7 @@ const Receipt = forwardRef(({ linkId }: any) => {
       pdf.save("receipt.pdf");
     };
 
-    const timer = setTimeout(() => {
-      downloadReceipt();
-    }, 2000);
-
-    return () => clearTimeout(timer);
+    downloadReceipt();
   }, [isLoading, data]);
 
   const receiptDetails = [
