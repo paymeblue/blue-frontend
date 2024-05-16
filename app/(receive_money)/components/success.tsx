@@ -30,7 +30,7 @@ const Success = ({ refElem, data }: { refElem: any; data: any }) => {
         });
     }
     await sleep(2000);
-    router.replace("/");
+    // router.replace("/");
   };
   return (
     <Fragment>
