@@ -19,7 +19,7 @@ import { SelectBankSchema, SelectBankValidation } from "@lib/validations";
 import { message } from "antd";
 import { ChevronDown, Search } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
 interface IBankList {
@@ -93,7 +93,12 @@ const SelectBank = ({
   const router = useRouter();
   const { banks, loading } = useGetBanks();
   const [bankId, setBankId] = useState("");
-  const { account, verifyAccount } = useAccountVerify();
+  const {
+    account,
+    verifyAccount,
+    loading: verifying,
+    error: isErrorVerifying,
+  } = useAccountVerify();
   const [messageApi, contextHolder] = message.useMessage();
   const { handleWithdraw, loading: withdrawing } = useWithdrawFund({
     messageApi,
@@ -125,6 +130,13 @@ const SelectBank = ({
 
     verifyAccount(linkId, accountNumber, bankId);
   };
+
+  useEffect(() => {
+    const accountNumber = form.watch("accountNumber");
+    if (accountNumber.length === 10 && /^\d+$/.test(accountNumber)) {
+      handleAccountVerify(accountNumber);
+    }
+  }, [form.watch("accountNumber")]);
 
   return (
     <Form {...form}>
@@ -200,16 +212,30 @@ const SelectBank = ({
               <FormControl>
                 <Input
                   placeholder="Account number"
-                  type="number"
+                  // type="number"
                   inputMode="numeric"
                   {...field}
-                  onBlur={() => handleAccountVerify(field.value)}
+                  onChange={(e) => {
+                    field.onChange(e.target.value.replace(/\D/g, ""));
+                  }}
+                  // onBlur={() => handleAccountVerify(field.value)}
                 />
               </FormControl>
               <FormMessage />
               {account && (
                 <span className="text-sm text-primary">
                   {account.account_name}
+                </span>
+              )}
+              {verifying && (
+                <span className="text-sm text-primary">
+                  Verifying account number...
+                </span>
+              )}
+              {isErrorVerifying && (
+                <span className="text-sm text-red-500">
+                  An error occurred verifying. Please try a different account
+                  number
                 </span>
               )}
             </FormItem>

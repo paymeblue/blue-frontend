@@ -9,6 +9,7 @@ interface Account {
 
 const useAccountVerify = () => {
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   const [account, setAccount] = useState<Account | null>(null);
 
   const verifyAccount = async (
@@ -18,6 +19,7 @@ const useAccountVerify = () => {
   ) => {
     setLoading(true);
     setAccount(null);
+    setError(false);
     try {
       const result = await axios.post(
         "https://blue-api-backend.herokuapp.com/api/payment-link/verify-account",
@@ -29,9 +31,10 @@ const useAccountVerify = () => {
       );
       setAccount(result.data.data);
 
-      console.log({ result });
+      setError(false);
     } catch (err) {
       setAccount(null);
+      setError(true);
     } finally {
       setLoading(false);
     }
@@ -41,6 +44,7 @@ const useAccountVerify = () => {
     loading,
     account,
     verifyAccount,
+    error,
   };
 };
 
