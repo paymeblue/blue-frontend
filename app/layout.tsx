@@ -5,6 +5,7 @@ import "antd/dist/reset.css";
 import { Metadata } from "next";
 import { avenir, fraunces, grotesque, satoshi } from "./fonts";
 import Providers from "./providers";
+import ZohoSalesIQ from "@components/ZohoSalesIq";
 export const metadata: Metadata = {
   title: {
     template: "%s | Blue",
@@ -35,6 +36,7 @@ export default function RootLayout({
         className={`${fraunces.variable} ${satoshi.variable} ${avenir.variable} ${grotesque.variable} ${grotesque.className}`}
       >
         <Providers>{children}</Providers>
+        <ZohoSalesIQ />
       </body>
     </html>
   );
