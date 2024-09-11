@@ -57,18 +57,23 @@ const Receipt = forwardRef(({ linkId }: any) => {
     { enabled: !!linkId }
   );
 
+  const downloadReceipt = async () => {
+    const element = elemRef?.current;
+    if (!element) return;
+
+    const canvas = await html2canvas(element, { scale: 3 });
+    const imgData = canvas.toDataURL("image/png");
+    const pdf = new JsPDF("p", "pt", [canvas.width, canvas.height]);
+
+    const imgWidth = pdf.internal.pageSize.getWidth();
+    const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+    pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+    pdf.save("receipt.pdf");
+  };
+
   useEffect(() => {
     if (isLoading || !data) return;
-    const downloadReceipt = async () => {
-      const element = elemRef?.current;
-      if (!element) return;
-
-      const canvas = await html2canvas(element);
-      const imgData = canvas.toDataURL("image/png");
-      const pdf = new JsPDF();
-      pdf.addImage(imgData, "PNG", 0, 0, 0, 0);
-      pdf.save("receipt.pdf");
-    };
 
     downloadReceipt();
   }, [isLoading, data]);

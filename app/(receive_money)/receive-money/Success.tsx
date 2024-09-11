@@ -1,6 +1,5 @@
 "use client";
 import { formatCurrency, sleep } from "@lib/index";
-import html2canvas from "html2canvas";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import blueWhite from "public/blue-white.png";
@@ -13,22 +12,22 @@ const Success = ({ refElem, data }: { refElem: any; data: any }) => {
   const handleClick = async () => {
     router.replace("?step=receipt");
     await sleep(2000);
-    const componentElement = "";
+    // const componentElement = "";
     //  const componentElement = refElem.current;
 
-    if (componentElement) {
-      html2canvas(componentElement, { allowTaint: true, useCORS: true })
-        .then((canvas) => {
-          const imgData = canvas.toDataURL("image/png");
-          const link = document.createElement("a");
-          link.href = imgData;
-          link.download = `receipt-${Date.now()}.png`;
-          link.click();
-        })
-        .catch((error) => {
-          console.error("Error capturing component:", error);
-        });
-    }
+    // if (componentElement) {
+    //   html2canvas(componentElement, { allowTaint: true, useCORS: true })
+    //     .then((canvas) => {
+    //       const imgData = canvas.toDataURL("image/png");
+    //       const link = document.createElement("a");
+    //       link.href = imgData;
+    //       link.download = `receipt-${Date.now()}.png`;
+    //       link.click();
+    //     })
+    //     .catch((error) => {
+    //       console.error("Error capturing component:", error);
+    //     });
+    // }
     await sleep(2000);
     router.replace("/");
   };

@@ -91,7 +91,7 @@ const SelectBank = ({
   const [open, setOpen] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
   const router = useRouter();
-  const { banks, loading } = useGetBanks();
+  const { banks } = useGetBanks();
   const [bankId, setBankId] = useState("");
   const {
     account,
@@ -107,8 +107,6 @@ const SelectBank = ({
       router.push("?step=success");
     },
   });
-
-  console.log({ banks, loading });
 
   const form = useForm<SelectBankValidation>({
     resolver: zodResolver(SelectBankSchema),
@@ -223,7 +221,7 @@ const SelectBank = ({
               </FormControl>
               <FormMessage />
               {account && (
-                <span className="text-sm text-primary">
+                <span className="text-sm text-primary mt-4">
                   {account.account_name}
                 </span>
               )}
