@@ -18,27 +18,26 @@ const Terms = () => {
           <Paragraph className="text-[0.9375rem] text-[#32374E] m-0 leading-[1.625rem]">
             <span className="mb-4 block">Welcome to Blue website!</span>
             These terms and conditions outline the rules and regulations for the
-            use of Blue Fintech Service Limited 's Website, located at
+            use of Blue Fintech Service Limited’s website, located at
             paymeblue.com.
             <br />
-            By accessing this website we assume you accept these terms and
-            conditions. Do not continue to use Blue website if you do not agree
-            to take all of the terms and conditions stated on this page.
+            By accessing this website, we assume you accept these terms and
+            conditions. Do not continue to use the Blue website if you do not
+            agree to accept all of the terms and conditions stated on this page.
             <br /> The following terminology applies to these Terms and
-            Conditions, Privacy Statement and Disclaimer Notice and all
-            Agreements: "Client", "You" and "Your" refers to you, the person log
-            on this website and compliant to the Company's terms and conditions.
-            "The Company", "Ourselves", "We", "Our" and "Us", refers to our
-            Company. "Party", "Parties", or "Us", refers to both the Client and
-            ourselves. All terms refer to the offer, acceptance and
+            Conditions, Privacy Statement, and Disclaimer Notice, as well as all
+            Agreements: "Client", "You", and "Your" refer to you, the person
+            logging on to this website and complying with the Company's terms
+            and conditions. "The Company", "Ourselves", "We", "Our", and "Us"
+            refer to our Company. "Party", "Parties", or "Us" refers to both the
+            Client and ourselves. All terms refer to the offer, acceptance, and
             consideration of payment necessary to undertake the process of our
-            assistance to the Client in the most appropriate manner for the
-            express purpose of meeting the Client's needs in respect of
-            provision of the Company's stated services, in accordance with and
-            subject to, prevailing law of af. Any use of the above terminology
-            or other words in the singular, plural, capitalisation and/or he/she
-            or they, are taken as interchangeable and therefore as referring to
-            same.
+            assistance to the Client in the most appropriate manner, for the
+            express purpose of meeting the Client's needs in respect of the
+            provision of the Company's stated services. Any use of the above
+            terminology or other words in the singular, plural, capitalisation,
+            and/or he/she or they, are taken as interchangeable and therefore as
+            referring to the same.
           </Paragraph>
         </Typography>
         <Typography className="mb-7 text-justify">
@@ -238,10 +237,10 @@ const Terms = () => {
           </Title>
           <Paragraph className="text-[0.9375rem] text-[#32374E] m-0 leading-[1.625rem]">
             We reserve the right to request that you remove all links or any
-            particular link to our Website. You approve to immediately remove
-            all links to our Website upon request. We also reserve the right to
-            amen these terms and conditions and it's linking policy at any time.
-            By continuously linking to our Website, you agree to be bound to and
+            particular link to our website. You agree to immediately remove all
+            links to our website upon request. We also reserve the right to
+            amend these terms and conditions and our linking policy at any time.
+            By continuously linking to our website, you agree to be bound by and
             follow these linking terms and conditions.
           </Paragraph>
         </Typography>
@@ -253,14 +252,14 @@ const Terms = () => {
             Removal of links from our website
           </Title>
           <Paragraph className="text-[0.9375rem] text-[#32374E] m-0 leading-[1.625rem]">
-            If you find any link on our Website that is offensive for any
-            reason, you are free to contact and inform us any moment. We will
-            consider requests to remove links but we are not obligated to or so
-            or to respond to you directly.
-            <br /> We do not ensure that the information on this website is
-            correct, we do not warrant its completeness or accuracy; nor do we
-            promise to ensure that the website remains available or that the
-            material on the website is kept up to date.
+            If you find any link on our website that is offensive for any
+            reason, you are free to contact and inform us at any time. We will
+            consider requests to remove links, but we are not obligated to do
+            so, nor are we required to respond to you directly.
+            <br /> We do not guarantee that the information on this website is
+            correct, nor do we warrant its completeness or accuracy.
+            Additionally, we do not promise to ensure that the website remains
+            available or that the material on the website is kept up to date.
           </Paragraph>
         </Typography>
         <Typography className="mb-7 text-justify">
