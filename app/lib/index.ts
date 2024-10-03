@@ -13,6 +13,20 @@ export const schema = z.object({
   message: z.string().min(3, "Please leave your message here!"),
 });
 
+export const PilotSchema = z.object({
+  firstname: z.string().min(3, "Please enter your first name"),
+  lastname: z.string().min(3, "Please enter your lastname"),
+  email: z.string().email("Email is invalid!"),
+  number: z
+    .string()
+    .min(10, "Phone number should not be lesser than 10 digits")
+    .max(14, "Phone number should not exceed 14 digits"),
+  code: z.string(),
+  platform: z.string().min(3, "Please select one"),
+});
+
+export type TPilotSchema = z.infer<typeof PilotSchema>;
+
 export const capitalizeFirstLetter = (words: string): string => {
   const separateWord = words.toLowerCase().split(" ");
   for (let i = 0; i < separateWord.length; i++) {
