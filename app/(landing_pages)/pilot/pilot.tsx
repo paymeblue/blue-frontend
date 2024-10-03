@@ -198,10 +198,10 @@ const Pilot = () => {
                     </div>
                     <div className="flex flex-row items-center gap-2">
                       <Checkbox
-                        checked={watch("platform") === "friend_colleague"}
+                        checked={watch("platform") === "friendcolleague"}
                         onChange={(checked) =>
                           checked.target.checked
-                            ? setValue("platform", "friend_colleague")
+                            ? setValue("platform", "friendcolleague")
                             : setValue("platform", "")
                         }
                       />
@@ -209,14 +209,14 @@ const Pilot = () => {
                     </div>
                     <div className="flex flex-row items-center gap-2">
                       <Checkbox
-                        checked={watch("platform") === "other"}
+                        checked={watch("platform") === "others"}
                         onChange={(checked) =>
                           checked.target.checked
-                            ? setValue("platform", "other")
+                            ? setValue("platform", "others")
                             : setValue("platform", "")
                         }
                       />
-                      <Text>Other</Text>
+                      <Text>Others</Text>
                     </div>
                   </div>
                   {errors?.platform?.message && (
