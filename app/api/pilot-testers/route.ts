@@ -24,7 +24,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
   if (verifyTokenResult.success) {
     // Now call the send the original body to the external API
     const externalApiRequest = await fetch(
-      "https://sower-api-backend-0efb2dc250e6.herokuapp.com/api/pilot-testers",
+      "https://blue-api-backend.herokuapp.com/api/pilot-testers",
       {
         method: "POST",
         body: JSON.stringify({
