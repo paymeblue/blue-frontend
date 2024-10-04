@@ -18,6 +18,8 @@ import useWithdrawFund from "@hooks/useWithdrawFund";
 import { SelectBankSchema, SelectBankValidation } from "@lib/validations";
 import { message } from "antd";
 import { ChevronDown, Search } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -241,12 +243,26 @@ const SelectBank = ({
         />
 
         <div className="w-full flex flex-col mt-10">
+          <div className="bg-[#F6FAFE] px-4 flex items-center mb-6 py-3 rounded-[3px] gap-2">
+            <Image
+              src="/info-square.svg"
+              alt="Info square"
+              width={18}
+              height={18}
+            />
+            <span className="leading-none text-sm text-[#232949]">
+              You will be charged <span className="text-[#4341CD]">₦50.00</span>{" "}
+              for this transfer
+            </span>
+          </div>
           <Button type="submit" disabled={!account} loading={withdrawing}>
             Withdraw to bank
           </Button>
-          <Button variant="link" type="submit" className="text-[#32374E]">
-            Or, Sign up to access your funds
-          </Button>
+          <Link href="/" className="text-center">
+            <Button variant="link" className="text-[#32374E]">
+              Or, Sign up to access your funds
+            </Button>
+          </Link>
         </div>
       </form>
     </Form>
