@@ -76,9 +76,8 @@ const Pilot = () => {
         icon: <CheckCircleOutlined />,
       });
       reset();
-      window.location.reload();
     } catch (error: any) {
-      window.location.reload();
+      reset();
       messageApi.open({
         content: `${error}`,
         className: "[&>div]:bg-red-800 [&>div]:text-white",
