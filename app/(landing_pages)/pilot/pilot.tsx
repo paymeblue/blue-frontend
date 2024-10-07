@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 "use client";
 import { ChevronDown } from "@components/assets/icons";
 import { Input } from "@components/FormInput";
@@ -14,6 +15,14 @@ import { z } from "zod";
 import { CheckCircleOutlined } from "@ant-design/icons";
 
 const { Title, Paragraph, Text } = Typography;
+
+declare global {
+  interface Window {
+    turnstile: {
+      reset: (widgetId?: string) => void;
+    };
+  }
+}
 
 const Pilot = () => {
   const { formState, handleSubmit, register, reset } = useForm<
@@ -76,7 +85,15 @@ const Pilot = () => {
         icon: <CheckCircleOutlined />,
       });
       reset();
+      // Reset the CAPTCHA on error
+      if (typeof window?.turnstile !== "undefined") {
+        window?.turnstile?.reset(); // Reset Turnstile CAPTCHA
+      }
     } catch (error: any) {
+      // Reset the CAPTCHA on error
+      if (typeof window?.turnstile !== "undefined") {
+        window?.turnstile?.reset(); // Reset Turnstile CAPTCHA
+      }
       reset();
       messageApi.open({
         content: `${error}`,
