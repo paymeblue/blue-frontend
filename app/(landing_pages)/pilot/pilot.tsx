@@ -97,7 +97,7 @@ const Pilot = () => {
           onSubmit={(e) => {
             e.preventDefault();
             runPlatformsValidation();
-            handleSubmit(onSubmit)();
+            handleSubmit(onSubmit)(e);
           }}
           noValidate
         >
