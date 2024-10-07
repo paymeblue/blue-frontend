@@ -7,7 +7,7 @@ import Container from "@shared/container";
 import PageHead from "@shared/pageHead";
 import { Button, Checkbox, Typography, message } from "antd";
 import Image from "next/image";
-import { Fragment } from "react";
+import { Fragment, useCallback, useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import countrycodes from "@lib/countryCodes";
 import { z } from "zod";
@@ -16,7 +16,7 @@ import { CheckCircleOutlined } from "@ant-design/icons";
 const { Title, Paragraph, Text } = Typography;
 
 const Pilot = () => {
-  const { formState, handleSubmit, register, reset, setValue, watch } = useForm<
+  const { formState, handleSubmit, register, reset } = useForm<
     z.infer<typeof PilotSchema>
   >({
     mode: "onBlur",
@@ -26,7 +26,6 @@ const Pilot = () => {
       firstname: "",
       lastname: "",
       number: "",
-      platform: "",
       code: "+234",
     },
   });
@@ -34,12 +33,33 @@ const Pilot = () => {
   const { errors, isSubmitting } = formState;
 
   const [messageApi, contextHolder] = message.useMessage();
+  const [platforms, setPlatforms] = useState<string[]>([]);
+  const [errorPlatform, setErrorPlatform] = useState("");
+
+  const runPlatformsValidation = useCallback(() => {
+    if (!platforms.length) {
+      setErrorPlatform("Please select one");
+    } else {
+      setErrorPlatform("");
+    }
+  }, [platforms]);
+
+  useEffect(() => {
+    if (errorPlatform.length && platforms.length) {
+      setErrorPlatform("");
+    }
+  }, [errorPlatform, platforms]);
 
   const onSubmit: SubmitHandler<z.infer<typeof PilotSchema>> = async (
     data,
     e
   ): Promise<void> => {
+    if (!platforms?.length) {
+      setErrorPlatform("Please select one");
+      return;
+    }
     const formData = new FormData(e?.target);
+    formData.append("platforms", JSON.stringify(platforms));
 
     try {
       const res = await fetch("/api/pilot-testers", {
@@ -72,7 +92,15 @@ const Pilot = () => {
       />
 
       <Container className="py-6 laptop:my-20">
-        <form autoComplete="off" onSubmit={handleSubmit(onSubmit)} noValidate>
+        <form
+          autoComplete="off"
+          onSubmit={(e) => {
+            e.preventDefault();
+            runPlatformsValidation();
+            handleSubmit(onSubmit)();
+          }}
+          noValidate
+        >
           <div className="flex-1 flex items-center justify-between">
             <div className="hidden lg:flex flex-col items-center gap-4">
               <Image
@@ -176,54 +204,67 @@ const Pilot = () => {
                   <div className="flex flex-col lg:flex-row lg:items-center gap-6 mt-4">
                     <div className="flex flex-row items-center gap-2">
                       <Checkbox
-                        checked={watch("platform") === "social_media"}
+                        checked={platforms.includes("social_media")}
                         onChange={(checked) =>
                           checked.target.checked
-                            ? setValue("platform", "social_media")
-                            : setValue("platform", "")
+                            ? setPlatforms((prev) => [...prev, "social_media"])
+                            : setPlatforms((prev) =>
+                                prev.filter((value) => value !== "social_media")
+                              )
                         }
                       />
                       <Text>Social media</Text>
                     </div>
                     <div className="flex flex-row items-center gap-2">
                       <Checkbox
-                        checked={watch("platform") === "online_search"}
+                        checked={platforms.includes("online_search")}
                         onChange={(checked) =>
                           checked.target.checked
-                            ? setValue("platform", "online_search")
-                            : setValue("platform", "")
+                            ? setPlatforms((prev) => [...prev, "online_search"])
+                            : setPlatforms((prev) =>
+                                prev.filter(
+                                  (value) => value !== "online_search"
+                                )
+                              )
                         }
                       />
                       <Text>Online search</Text>
                     </div>
                     <div className="flex flex-row items-center gap-2">
                       <Checkbox
-                        checked={watch("platform") === "friendcolleague"}
+                        checked={platforms.includes("friendcolleague")}
                         onChange={(checked) =>
                           checked.target.checked
-                            ? setValue("platform", "friendcolleague")
-                            : setValue("platform", "")
+                            ? setPlatforms((prev) => [
+                                ...prev,
+                                "friendcolleague",
+                              ])
+                            : setPlatforms((prev) =>
+                                prev.filter(
+                                  (value) => value !== "friendcolleague"
+                                )
+                              )
                         }
                       />
                       <Text>Friend/Colleague</Text>
                     </div>
                     <div className="flex flex-row items-center gap-2">
                       <Checkbox
-                        checked={watch("platform") === "others"}
+                        checked={platforms.includes("others")}
                         onChange={(checked) =>
                           checked.target.checked
-                            ? setValue("platform", "others")
-                            : setValue("platform", "")
+                            ? setPlatforms((prev) => [...prev, "others"])
+                            : setPlatforms((prev) =>
+                                prev.filter((value) => value !== "others")
+                              )
                         }
                       />
                       <Text>Others</Text>
                     </div>
                   </div>
-                  {errors?.platform?.message && (
-                    <small className="text-[red]/80 text-xs tablet:text-[13px] mt-1 tablet:mt-1.5 text-start">
-                      {errors?.platform?.message}
-                    </small>
-                  )}
+                  <small className="text-[red]/80 text-xs tablet:text-[13px] mt-1 tablet:mt-1.5 text-start">
+                    {errorPlatform}
+                  </small>
                 </div>
 
                 <div

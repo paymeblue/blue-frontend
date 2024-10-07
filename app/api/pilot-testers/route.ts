@@ -32,7 +32,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
           last_name: data.get("lastname"),
           email: data.get("email"),
           phone: `${data.get("code")}${data.get("number")}`,
-          platform: data.get("platform"),
+          platform: JSON.parse(data.get("platforms") as string),
         }),
         headers: { "Content-Type": "application/json" },
       }
