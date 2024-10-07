@@ -77,6 +77,7 @@ const Pilot = () => {
       });
       reset();
     } catch (error: any) {
+      window.location.reload();
       messageApi.open({
         content: `${error}`,
         className: "[&>div]:bg-red-800 [&>div]:text-white",
