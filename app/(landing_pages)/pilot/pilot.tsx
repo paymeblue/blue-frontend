@@ -234,16 +234,16 @@ const Pilot = () => {
                     </div>
                     <div className="flex flex-row items-center gap-2">
                       <Checkbox
-                        checked={platforms.includes("friendcolleague")}
+                        checked={platforms.includes("friend/colleague")}
                         onChange={(checked) =>
                           checked.target.checked
                             ? setPlatforms((prev) => [
                                 ...prev,
-                                "friendcolleague",
+                                "friend/colleague",
                               ])
                             : setPlatforms((prev) =>
                                 prev.filter(
-                                  (value) => value !== "friendcolleague"
+                                  (value) => value !== "friend/colleague"
                                 )
                               )
                         }
