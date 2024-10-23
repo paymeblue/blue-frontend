@@ -1,11 +1,11 @@
 // global css stylesheet
 import "@styles/globals.css";
 // ant design stylesheet
+import ZohoSalesIQ from "@components/ZohoSalesIq";
 import "antd/dist/reset.css";
 import { Metadata } from "next";
 import { avenir, fraunces, grotesque, satoshi } from "./fonts";
 import Providers from "./providers";
-import ZohoSalesIQ from "@components/ZohoSalesIq";
 export const metadata: Metadata = {
   title: {
     template: "%s | Blue",
