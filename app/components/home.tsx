@@ -11,6 +11,7 @@ import Swift from "./assets/svg/swift";
 import TransfersIcon from "./assets/svg/transfers";
 import Versatile from "./assets/svg/versatile";
 import HeroSection from "./heroSection";
+import FAQSection from "./FAQs";
 
 const Home = () => {
   return (
@@ -167,6 +168,7 @@ const Home = () => {
           </div>
         </motion.div>
       </Container>
+      <FAQSection />
     </div>
   );
 };
