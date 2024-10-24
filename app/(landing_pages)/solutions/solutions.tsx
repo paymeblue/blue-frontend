@@ -106,7 +106,7 @@ const Solutions = () => {
           </div>
         </div>
       </Container>
-      <div className="mx-auto max-w-[1560px] px-6 laptop-md:pl-48 tablet:pr-0 laptop-md:pr-0">
+      <div className="mx-auto max-w-[1560px] px-6 laptop-md:pl-[7.65rem] tablet:pr-0 laptop-md:pr-0">
         <div className="py-6 lg:py-0 flex flex-col laptop-md:flex-row laptop-md:items-center justify-between gap-8">
           <div>
             <ul className="w-full laptop-md:max-w-[600px] list-disc list-inside">
@@ -235,7 +235,7 @@ const Solutions = () => {
           </div>
         </div>
       </Container>
-      <div className="mx-auto max-w-[1560px] px-6 laptop:px-6 laptop-md:px-20 laptop-md:pr-48 laptop-md:pl-0">
+      <div className="mx-auto max-w-[1560px] px-6 laptop:px-6 laptop-md:px-20 laptop-md:pr-[7.65rem] laptop-md:pl-0">
         <div className="py-6 lg:py-0 flex laptop-md:items-center flex-col laptop-md:flex-row justify-between gap-8">
           <motion.div
             initial={{ x: -100, opacity: 0 }}
