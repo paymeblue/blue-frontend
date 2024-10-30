@@ -4,7 +4,7 @@ import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import apple from "public/app-store.png";
 import google from "public/google-play.png";
-import { QRCodeSVG } from "qrcode.react";
+import svg from "public/qr-code.svg";
 import { Fragment, ReactNode } from "react";
 
 type HeroSectionProps = {
@@ -59,7 +59,6 @@ const HeroSection = ({
             transition={{ delay: 0.2, stiffness: 90 }}
             className="text-[32px] leading-[38px] lg:text-[40px] lg:leading-[47px] mb-2 lg:mb-4 font-bold lg:tracking-title"
           >
-            {" "}
             {title}
           </motion.h1>
           <motion.p
@@ -78,7 +77,10 @@ const HeroSection = ({
             transition={{ duration: 1.5, delay: 0.35 }}
             className="flex items-center gap-3 justify-start"
           >
-            <Link href="https://apps.apple.com/ng/app/paymeblue/id6452384963">
+            <Link
+              href="https://apps.apple.com/ng/app/paymeblue/id6452384963"
+              target="_blank"
+            >
               <Image
                 width={159.28}
                 height={53.09}
@@ -87,7 +89,10 @@ const HeroSection = ({
                 alt="app store"
               />
             </Link>
-            <Link href="https://play.google.com/store/apps/details?id=com.roman_dev.blueMobile">
+            <Link
+              href="https://play.google.com/store/apps/details?id=com.roman_dev.blueMobile"
+              target="_blank"
+            >
               <Image
                 width={159.28}
                 height={53.09}
@@ -103,24 +108,7 @@ const HeroSection = ({
             transition={{ duration: 1.5, delay: 0.35 }}
             className="w-[calc(100%-70px)] md:w-max custom_svg_border py-5 px-8 rounded-xl flex items-center justify-center gap-3"
           >
-            <QRCodeSVG
-              value="https://paymeblue.com/app-redirect"
-              fgColor="#000000"
-              level="M"
-              imageSettings={{
-                src: "/icon.png",
-                x: undefined,
-                y: undefined,
-                height: 30,
-                width: 30,
-                excavate: false,
-              }}
-              includeMargin
-              className="rounded-lg w-[80px] h-[80px] lg:w-auto lg:h-auto"
-              bgColor="white"
-              type="svg"
-              size={77}
-            />
+            <Image src={svg} alt="blue app qr code scan" />
             <p className="text-[15px] leading-[20.77px] m-0 lg:text-base lg:leading-[22px] w-full max-w-[158px] tracking-text">
               or, scan the QR code to download the app.
             </p>
