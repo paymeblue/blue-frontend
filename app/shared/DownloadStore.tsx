@@ -16,7 +16,10 @@ const DownloadStore = ({ centered }: { centered?: boolean }) => {
         transition={{ duration: 1.5, delay: 0.35 }}
         className={`flex items-center gap-3 ${centered ? "justify-center" : "justify-start"}`}
       >
-        <Link href="/" className="rounded-lg">
+        <Link
+          href="https://apps.apple.com/ng/app/paymeblue/id6452384963"
+          className="rounded-lg"
+        >
           <Image
             width={159.28}
             height={53.09}
@@ -25,7 +28,10 @@ const DownloadStore = ({ centered }: { centered?: boolean }) => {
             alt="app store"
           />
         </Link>
-        <Link href="/" className="rounded-lg">
+        <Link
+          href="https://play.google.com/store/apps/details?id=com.roman_dev.blueMobile"
+          className="rounded-lg"
+        >
           <Image
             width={159.28}
             height={53.09}
@@ -42,7 +48,7 @@ const DownloadStore = ({ centered }: { centered?: boolean }) => {
         className="w-[calc(100%-70px)] md:w-max custom_svg_border py-5 px-8 rounded-xl flex items-center justify-center gap-3"
       >
         <QRCodeSVG
-          value="https://deploy-preview-27--blue-frontend.netlify.app/"
+          value="https://paymeblue.com/app-redirect"
           fgColor="#000000"
           level="M"
           imageSettings={{
