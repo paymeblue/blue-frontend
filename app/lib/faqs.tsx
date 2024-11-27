@@ -7,7 +7,7 @@ type FAQ = {
 
 export const generalFaqs: FAQ[] = [
   {
-    title: "What is PayMeBlue?",
+    title: "What is Blue?",
     content:
       "Blue is a financial technology platform that allows individuals and businesses to make and receive payments seamlessly. It supports various financial transactions like transferring funds, paying bills, and purchasing goods, all via mobile and web platforms.",
   },
@@ -106,7 +106,7 @@ export const personalAccountFaqs: FAQ[] = [
   {
     title: "Can I use Blue without a smartphone?",
     content:
-      "Yes, PayMeBlue offers a USSD and text message option, allowing you to perform transactions without the need for a smartphone.",
+      "Yes, Blue offers a USSD and text message option, allowing you to perform transactions without the need for a smartphone.",
   },
 ];
 
@@ -134,7 +134,7 @@ export const businessAccountFaqs: FAQ[] = [
       "Blue's Business solution allows seamless integration with your existing POS systems, enabling barcode payments. You can also use Blue Business desktop tools to manage these integrations.",
   },
   {
-    title: "How can I manage my team using PayMeBlue Business?",
+    title: "How can I manage my team using Blue Business?",
     content:
       "You can add and manage your team members from the admin dashboard. This allows you to monitor their activity, manage permissions, and track transactions to ensure accountability.",
   },
