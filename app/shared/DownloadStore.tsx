@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import apple from "public/app-store.png";
 import google from "public/google-play.png";
-import { QRCodeSVG } from "qrcode.react";
+import svg from "public/qr-code.svg";
 import { Fragment } from "react";
 
 const DownloadStore = ({ centered }: { centered?: boolean }) => {
@@ -16,7 +16,11 @@ const DownloadStore = ({ centered }: { centered?: boolean }) => {
         transition={{ duration: 1.5, delay: 0.35 }}
         className={`flex items-center gap-3 ${centered ? "justify-center" : "justify-start"}`}
       >
-        <Link href="/" className="rounded-lg">
+        <Link
+          href="https://apps.apple.com/ng/app/paymeblue/id6452384963"
+          target="_blank"
+          className="rounded-lg"
+        >
           <Image
             width={159.28}
             height={53.09}
@@ -25,7 +29,11 @@ const DownloadStore = ({ centered }: { centered?: boolean }) => {
             alt="app store"
           />
         </Link>
-        <Link href="/" className="rounded-lg">
+        <Link
+          href="https://play.google.com/store/apps/details?id=com.roman_dev.blueMobile"
+          target="_blank"
+          className="rounded-lg"
+        >
           <Image
             width={159.28}
             height={53.09}
@@ -41,24 +49,7 @@ const DownloadStore = ({ centered }: { centered?: boolean }) => {
         transition={{ duration: 1.5, delay: 0.35 }}
         className="w-[calc(100%-70px)] md:w-max custom_svg_border py-5 px-8 rounded-xl flex items-center justify-center gap-3"
       >
-        <QRCodeSVG
-          value="https://deploy-preview-27--blue-frontend.netlify.app/"
-          fgColor="#000000"
-          level="M"
-          imageSettings={{
-            src: "/icon.png",
-            x: undefined,
-            y: undefined,
-            height: 30,
-            width: 30,
-            excavate: false,
-          }}
-          includeMargin
-          className="rounded-lg w-[80px] h-[80px] lg:w-auto lg:h-auto"
-          bgColor="white"
-          type="svg"
-          size={77}
-        />
+        <Image src={svg} alt="blue app qr code scan" />
         <p className="text-[15px] leading-[20.77px] m-0 lg:text-base lg:leading-[22px] w-full max-w-[158px] tracking-text">
           or, scan the QR code to download the app.
         </p>
