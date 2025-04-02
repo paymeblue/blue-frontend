@@ -28,7 +28,7 @@ const useUserKycDetailsGet = ({ token, type = "personal" }: Props) => {
       const base =
         type === "personal"
           ? "https://blue-api-backend.herokuapp.com/api/kycs"
-          : "https://blue-business-backend-8c46f2828f9e.herokuapp.com/api/kycs";
+          : "https://blue-business-backend-8c46f2828f9e.herokuapp.com/api/kycs/web";
       const res = await axios.get(base, {
         headers: {
           Authorization: `Bearer ${token}`,
