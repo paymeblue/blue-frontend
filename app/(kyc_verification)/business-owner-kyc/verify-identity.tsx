@@ -100,8 +100,6 @@ const BusinessOwnerVerification = () => {
         widget_id: DOJAH_WIDGET_ID_BUSINESS_OWNER_VERIFICATION,
       }}
       userData={{
-        first_name: userKycDetails.first_name,
-        last_name: userKycDetails.last_name,
         residence_country: "NG",
       }}
       metadata={{
