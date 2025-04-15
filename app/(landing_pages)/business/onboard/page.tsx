@@ -4,7 +4,7 @@ import { Fragment } from "react";
 
 // Dynamically import the BusinessPilot component with SSR disabled
 // to avoid hydration issues with client components
-const BusinessPilotForm = dynamic(() => import("./pilot"), {
+const BusinessOnboardingForm = dynamic(() => import("./onboard"), {
   ssr: false,
 });
 
@@ -22,7 +22,7 @@ export const metadata = {
   },
 };
 
-const PilotPage = () => {
+const OnboardPage = () => {
   return (
     <Fragment>
       <Script
@@ -31,9 +31,9 @@ const PilotPage = () => {
         async
         strategy="lazyOnload"
       />
-      <BusinessPilotForm />
+      <BusinessOnboardingForm />
     </Fragment>
   );
 };
 
-export default PilotPage;
+export default OnboardPage;

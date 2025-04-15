@@ -37,7 +37,7 @@ import {
 } from "@components/ui/select";
 
 // Define the validation schema for the form
-const BusinessPilotSchema = z.object({
+const BusinessOnboardingSchema = z.object({
   // Business Information
   businessName: z.string().min(2, "Business name is required"),
   businessType: z.string().min(1, "Please select a business type"),
@@ -154,9 +154,9 @@ const setupNeedOptions = [
   "Customer-facing signages or materials",
 ];
 
-const BusinessPilot = () => {
-  const form = useForm<z.infer<typeof BusinessPilotSchema>>({
-    resolver: zodResolver(BusinessPilotSchema),
+const BusinessOnboarding = () => {
+  const form = useForm<z.infer<typeof BusinessOnboardingSchema>>({
+    resolver: zodResolver(BusinessOnboardingSchema),
     defaultValues: {
       businessName: "",
       businessType: "",
@@ -181,16 +181,32 @@ const BusinessPilot = () => {
   const [messageApi, contextHolder] = message.useMessage();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const onSubmit = async (data: z.infer<typeof BusinessPilotSchema>) => {
+  const onSubmit = async (data: z.infer<typeof BusinessOnboardingSchema>) => {
     setIsSubmitting(true);
     try {
-      // Submit form data
-      const res = await fetch("/api/business-pilot", {
+      // First get turnstile token
+      const turnstileElement = document.querySelector<HTMLInputElement>(
+        '[name="cf-turnstile-response"]'
+      );
+      const turnstileToken = turnstileElement ? turnstileElement.value : "";
+
+      if (!turnstileToken) {
+        throw new Error("Please complete the security check (CAPTCHA)");
+      }
+
+      // Add turnstile token to data
+      const submissionData = {
+        ...data,
+        "cf-turnstile-response": turnstileToken,
+      };
+
+      // Submit form data to business onboarding API
+      const res = await fetch("/api/business-onboarding", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(submissionData),
       });
 
       const result = await res.json();
@@ -206,11 +222,27 @@ const BusinessPilot = () => {
       });
 
       form.reset();
+
+      // Reset turnstile
+      if (
+        typeof window !== "undefined" &&
+        typeof (window as any).turnstile !== "undefined"
+      ) {
+        (window as any).turnstile.reset();
+      }
     } catch (error: any) {
       messageApi.open({
         content: error.message || "An error occurred. Please try again.",
         className: "[&>div]:bg-red-800 [&>div]:text-white",
       });
+
+      // Reset turnstile on error
+      if (
+        typeof window !== "undefined" &&
+        typeof (window as any).turnstile !== "undefined"
+      ) {
+        (window as any).turnstile.reset();
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -772,4 +804,4 @@ const BusinessPilot = () => {
   );
 };
 
-export default BusinessPilot;
+export default BusinessOnboarding;
