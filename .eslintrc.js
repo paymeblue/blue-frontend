@@ -22,6 +22,8 @@ module.exports = {
     "react/jsx-props-no-spreading": "off",
     "react/no-unescaped-entities": "off",
     "@next/next/no-page-custom-font": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "no-unused-vars": "off",
     "require-jsdoc": "off",
     "new-cap": ["error", { capIsNew: false }],
     camelcase: "off",

@@ -21,3 +21,21 @@ export const DOJAH_WIDGET_ID_BUSINESS_PRO = USE_SANDBOX
 export const DOJAH_WIDGET_ID_BUSINESS_OWNER_VERIFICATION = USE_SANDBOX
   ? "67dc5ebfbe04bb9c246209cf"
   : "67dc59abbe04bb9c2460c85c";
+
+// YouVerify Configuration
+export const YOUVERIFY_PUBLIC_MERCHANT_KEY = USE_SANDBOX
+  ? "6660bfdb34602004114a82c8"
+  : "6660bfdb34602004114a82c8";
+
+export const YOUVERIFY_VFORM_ID = USE_SANDBOX
+  ? "test_vform_id_here"
+  : "prod_vform_id_here";
+
+// YouVerify supported document types for Nigeria
+export const YOUVERIFY_SUPPORTED_DOCUMENTS = {
+  NIN: "nin",
+  BVN: "bvn",
+  PASSPORT: "passport",
+  DRIVERS_LICENSE: "drivers_license",
+  VOTERS_CARD: "voters_card",
+} as const;
