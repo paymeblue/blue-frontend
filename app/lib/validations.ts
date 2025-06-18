@@ -28,6 +28,9 @@ export const VerificationFormSchema = z.object({
     .string()
     .min(2, "Last name must be at least 2 characters")
     .max(50, "Last name must not exceed 50 characters"),
+  dateOfBirth: z.date({
+    required_error: "A date of birth is required.",
+  }),
 });
 
 export type VerificationFormValidation = z.infer<typeof VerificationFormSchema>;

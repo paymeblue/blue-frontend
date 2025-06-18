@@ -5,6 +5,7 @@ import { useCallback, useEffect, useState } from "react";
 interface Props {
   token: string | null;
   type?: "business" | "personal";
+  isLocal?: boolean;
 }
 
 interface IUserKycDetails {
@@ -14,7 +15,17 @@ interface IUserKycDetails {
   wallet_code: string;
 }
 
-const useUserKycDetailsGet = ({ token, type = "personal" }: Props) => {
+const local = "http://localhost:3000/api";
+
+const PERSONAL_API_URL = "https://blue-api-backend.herokuapp.com/api";
+const BUSINESS_API_URL =
+  "https://blue-business-backend-8c46f2828f9e.herokuapp.com/api";
+
+const useUserKycDetailsGet = ({
+  token,
+  type = "personal",
+  isLocal = false,
+}: Props) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [userKycDetails, setUserKycDetails] = useState<IUserKycDetails | null>(
@@ -27,8 +38,8 @@ const useUserKycDetailsGet = ({ token, type = "personal" }: Props) => {
     try {
       const base =
         type === "personal"
-          ? "https://blue-api-backend.herokuapp.com/api/kycs"
-          : "https://blue-business-backend-8c46f2828f9e.herokuapp.com/api/kycs/web";
+          ? `${isLocal ? local : PERSONAL_API_URL}/kycs`
+          : `${isLocal ? local : BUSINESS_API_URL}/kycs/web`;
       const res = await axios.get(base, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -44,7 +55,12 @@ const useUserKycDetailsGet = ({ token, type = "personal" }: Props) => {
   }, [token, type]);
 
   useEffect(() => {
-    if (!token) return;
+    if (!token) {
+      setError(true);
+      setUserKycDetails(null);
+      setLoading(false);
+      return;
+    }
     handleUserKycDetailsGet();
   }, [token, handleUserKycDetailsGet]);
 
