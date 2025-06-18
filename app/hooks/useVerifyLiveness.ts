@@ -1,22 +1,14 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { useState } from "react";
 
-interface VerifyBvnRequest {
-  bvn: string;
-  dateOfBirth: string;
+interface VerifyLivenessRequest {
+  verification_id: string;
   token: string;
 }
 
-interface VerifyBvnResponse {
+interface VerifyLivenessResponse {
   status: string;
   message: string;
-  data?: {
-    isFirstNameValid: boolean;
-    isLastNameValid: boolean;
-    isDateOfBirthValid: boolean;
-    validationMessage: string;
-    verificationId: string;
-  };
 }
 
 interface Props {
@@ -26,22 +18,21 @@ interface Props {
 const local = "http://localhost:3000/api";
 const production = "https://blue-api-backend.herokuapp.com/api";
 
-const useVerifyBvn = ({ isLocal = false }: Props) => {
+const useVerifyLiveness = ({ isLocal = false }: Props) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [message, setMessage] = useState("");
-  const [response, setResponse] = useState<VerifyBvnResponse | null>(null);
+  const [response, setResponse] = useState<VerifyLivenessResponse | null>(null);
 
-  const verifyBvn = async (payload: VerifyBvnRequest) => {
+  const verifyLiveness = async (payload: VerifyLivenessRequest) => {
     setLoading(true);
     setError(false);
     setResponse(null);
     try {
-      const result: AxiosResponse<VerifyBvnResponse> = await axios.post(
-        `${isLocal ? local : production}/kycs/verify-bvn`,
+      const result: AxiosResponse<VerifyLivenessResponse> = await axios.post(
+        `${isLocal ? local : production}/kycs/verify-liveness`,
         {
-          bvn: payload.bvn,
-          date_of_birth: payload.dateOfBirth,
+          verification_id: payload.verification_id,
         },
         {
           headers: {
@@ -70,8 +61,8 @@ const useVerifyBvn = ({ isLocal = false }: Props) => {
     error,
     message,
     response,
-    verifyBvn,
+    verifyLiveness,
   };
 };
 
-export default useVerifyBvn;
+export default useVerifyLiveness;

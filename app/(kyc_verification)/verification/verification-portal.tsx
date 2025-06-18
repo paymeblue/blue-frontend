@@ -43,6 +43,7 @@ import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
 import { Calendar } from "@components/ui/calendar";
 import { useRouter } from "next/navigation";
+import useVerifyLiveness from "@hooks/useVerifyLiveness";
 
 // YouVerify SDK types
 interface YouVerifyLivenessOptions {
@@ -116,6 +117,13 @@ const VerificationPortal = () => {
     isLocal: false,
   });
 
+  const {
+    verifyLiveness,
+    loading: loadingVerifyLiveness,
+    error: errorVerifyLiveness,
+    message: messageVerifyLiveness,
+  } = useVerifyLiveness({ isLocal: false });
+
   const form = useForm<VerificationFormValidation>({
     resolver: zodResolver(VerificationFormSchema),
     defaultValues: {
@@ -142,6 +150,17 @@ const VerificationPortal = () => {
       });
     }
   }, [isErrorVerifyingBvn]);
+
+  useEffect(() => {
+    if (errorVerifyLiveness) {
+      setCurrentStep({
+        step: "error",
+        error:
+          messageVerifyLiveness ||
+          "An error occurred verifying your liveness. Please try again.",
+      });
+    }
+  }, [errorVerifyLiveness]);
 
   useEffect(() => {
     if (status === "success") {
@@ -182,10 +201,15 @@ const VerificationPortal = () => {
         token: token || "",
       });
 
-      if (res) {
+      if (res && res.data?.verificationId) {
         // Proceed to liveness test
         setCurrentStep({ step: "liveness", data });
-        startLivenessTest(data);
+        startLivenessTest(data, res.data.verificationId);
+      } else {
+        setCurrentStep({
+          step: "error",
+          error: "Failed to verify document. Please try again.",
+        });
       }
     } catch (error) {
       setCurrentStep({
@@ -197,11 +221,17 @@ const VerificationPortal = () => {
     }
   };
 
-  const startLivenessTest = (formData: VerificationFormValidation) => {
-    initializeLivenessTest(formData);
+  const startLivenessTest = (
+    formData: VerificationFormValidation,
+    verificationId: string
+  ) => {
+    initializeLivenessTest(formData, verificationId);
   };
 
-  const initializeLivenessTest = (formData: VerificationFormValidation) => {
+  const initializeLivenessTest = (
+    formData: VerificationFormValidation,
+    verificationId: string
+  ) => {
     try {
       const livenessModule = new YouverifyLiveness({
         presentation: "modal",
@@ -234,10 +264,23 @@ const VerificationPortal = () => {
           documentNumber: formData.documentNumber,
           timestamp: new Date().toISOString(),
           wallet_code: userKycDetails?.wallet_code,
+          verification_id: verificationId,
         },
-        onSuccess: (data) => {
-          console.log("success", data);
-          router.push(`/verification/?token=${token}&status=success`);
+        onSuccess: async (data) => {
+          try {
+            console.log("success", data);
+            await verifyLiveness({
+              verification_id: data.metadata?.verification_id,
+              token: token || "",
+            });
+            router.push(`/verification/?token=${token}&status=success`);
+          } catch (error) {
+            console.log("error", error);
+            setCurrentStep({
+              step: "error",
+              error: "Liveness test failed. Please try again.",
+            });
+          }
         },
         onFailure: (error: any) => {
           setCurrentStep({
@@ -274,7 +317,7 @@ const VerificationPortal = () => {
     window?.Close.postMessage("closeWebViewError", "*");
   };
 
-  if (loadingUserKycDetails) {
+  if (loadingUserKycDetails || loadingVerifyLiveness) {
     return (
       <div className="flex w-screen h-screen items-center justify-center">
         <Spin size="large" indicator={antIcon} />
