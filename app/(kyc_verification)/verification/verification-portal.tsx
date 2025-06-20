@@ -128,6 +128,7 @@ const VerificationPortal = () => {
     resolver: zodResolver(VerificationFormSchema),
     defaultValues: {
       documentType: "bvn",
+      dateOfBirth: new Date(),
     },
   });
 
@@ -527,41 +528,29 @@ const VerificationPortal = () => {
                     name="dateOfBirth"
                     render={({ field }) => (
                       <FormItem>
-                        <Popover>
-                          <PopoverTrigger asChild>
-                            <FormControl>
-                              <Button
-                                variant={"outline"}
-                                className={cn(
-                                  "w-full pl-3 text-left font-normal",
-                                  !field.value && "text-muted-foreground"
-                                )}
-                              >
-                                {field.value ? (
-                                  format(field.value, "PPP")
-                                ) : (
-                                  <span>Pick a date</span>
-                                )}
-                                <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-                              </Button>
-                            </FormControl>
-                          </PopoverTrigger>
-                          <PopoverContent className="p-0" align="start">
-                            <Calendar
-                              mode="single"
-                              selected={field.value}
-                              onSelect={field.onChange}
-                              disabled={(date) =>
-                                date > new Date() ||
-                                date < new Date("1900-01-01")
-                              }
-                              captionLayout="dropdown"
-                              classNames={{
-                                root: "w-full",
-                              }}
-                            />
-                          </PopoverContent>
-                        </Popover>
+                        <FormControl>
+                          <Input
+                            type="date"
+                            id="dateOfBirth"
+                            max={format(new Date(), "yyyy-MM-dd")}
+                            min="1900-01-01"
+                            value={
+                              field.value
+                                ? format(field.value, "yyyy-MM-dd")
+                                : ""
+                            }
+                            onChange={(e) => {
+                              const dateValue = e.target.value
+                                ? new Date(e.target.value)
+                                : undefined;
+                              field.onChange(dateValue);
+                            }}
+                            className={cn(
+                              form.formState.errors.dateOfBirth &&
+                                "border-red-500"
+                            )}
+                          />
+                        </FormControl>
                       </FormItem>
                     )}
                   />
