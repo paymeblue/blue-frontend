@@ -107,6 +107,7 @@ const VerificationPortal = () => {
   const token = searchParams.get("token");
   const status = searchParams.get("status");
   const [isLoading, setIsLoading] = useState(false);
+  const [verificationId, setVerificationId] = useState<string | null>(null);
 
   const {
     error,
@@ -117,12 +118,16 @@ const VerificationPortal = () => {
     isLocal: false,
   });
 
+  console.log("userKycDetails", userKycDetails);
+
   const {
     verifyLiveness,
     loading: loadingVerifyLiveness,
     error: errorVerifyLiveness,
     message: messageVerifyLiveness,
   } = useVerifyLiveness({ isLocal: false });
+
+  console.log("messageVerifyLiveness", messageVerifyLiveness);
 
   const form = useForm<VerificationFormValidation>({
     resolver: zodResolver(VerificationFormSchema),
@@ -138,6 +143,8 @@ const VerificationPortal = () => {
     error: isErrorVerifyingBvn,
     message: bvnMessage,
   } = useVerifyBvn({ isLocal: false });
+
+  console.log("bvnMessage", bvnMessage);
 
   const documentType = form.watch("documentType");
 
@@ -202,17 +209,32 @@ const VerificationPortal = () => {
         token: token || "",
       });
 
+      console.log("=== BVN Verification Response ===");
+      console.log("Full response:", res);
+      console.log("Response status:", res?.status);
+      console.log("Response message:", res?.message);
+      console.log("Response data object:", res?.data);
+      console.log("Verification ID:", res?.data?.verificationId);
+      console.log("================================");
+
+      // Validate that we have a valid verification ID before proceeding
       if (res && res.data?.verificationId) {
+        console.log("✅ Verification ID received:", res.data.verificationId);
+        // Store verification ID in state
+        setVerificationId(res.data.verificationId);
         // Proceed to liveness test
         setCurrentStep({ step: "liveness", data });
         startLivenessTest(data, res.data.verificationId);
       } else {
+        console.error("❌ BVN verification failed - no verification ID received");
+        console.error("Response structure:", JSON.stringify(res, null, 2));
         setCurrentStep({
           step: "error",
-          error: "Failed to verify document. Please try again.",
+          error: "Failed to verify document. No verification ID received. Please check your BVN and try again.",
         });
       }
     } catch (error) {
+      console.error("BVN verification error:", error);
       setCurrentStep({
         step: "error",
         error: "Failed to verify document. Please try again.",
@@ -234,6 +256,12 @@ const VerificationPortal = () => {
     verificationId: string
   ) => {
     try {
+      // Store verification ID in closure scope to ensure it's not lost
+      // Don't rely on SDK to preserve metadata
+      const capturedVerificationId = verificationId;
+
+      console.log("Initializing liveness test with verification ID:", capturedVerificationId);
+
       const livenessModule = new YouverifyLiveness({
         presentation: "modal",
         publicKey: YOUVERIFY_PUBLIC_MERCHANT_KEY,
@@ -269,14 +297,47 @@ const VerificationPortal = () => {
         },
         onSuccess: async (data) => {
           try {
-            console.log("success", data);
-            await verifyLiveness({
-              verification_id: data.metadata?.verification_id,
+            console.log("Liveness test onSuccess callback data:", data);
+            console.log("Metadata from SDK:", data.metadata);
+            console.log("Captured verification ID from closure:", capturedVerificationId);
+
+            // Use the captured verification ID from closure instead of relying on SDK metadata
+            // This ensures we always have the verification ID even if SDK doesn't preserve metadata
+            const finalVerificationId = capturedVerificationId || data.metadata?.verification_id;
+
+            if (!finalVerificationId) {
+              console.error("Verification ID is missing from both closure and metadata");
+              setCurrentStep({
+                step: "error",
+                error: "Verification ID is missing. Please try again.",
+              });
+              return;
+            }
+
+            console.log("Using verification ID:", finalVerificationId);
+
+            // Call verifyLiveness API
+            const result = await verifyLiveness({
+              verification_id: finalVerificationId,
               token: token || "",
             });
-            router.push(`/verification/?token=${token}&status=success`);
+
+            console.log("verifyLiveness API result:", result);
+
+            // Only redirect to success if verifyLiveness call succeeded
+            // verifyLiveness returns the response data on success, null on error
+            if (result) {
+              console.log("Verification successful, redirecting to success page");
+              router.push(`/verification/?token=${token}&status=success`);
+            } else {
+              console.error("verifyLiveness API call failed");
+              setCurrentStep({
+                step: "error",
+                error: "Failed to verify liveness. Please try again.",
+              });
+            }
           } catch (error) {
-            console.log("error", error);
+            console.error("Error in liveness onSuccess callback:", error);
             setCurrentStep({
               step: "error",
               error: "Liveness test failed. Please try again.",
@@ -306,6 +367,7 @@ const VerificationPortal = () => {
 
   const resetForm = () => {
     setCurrentStep({ step: "form" });
+    setVerificationId(null);
   };
 
   const closeWebview = () => {
@@ -320,7 +382,7 @@ const VerificationPortal = () => {
 
   if (loadingUserKycDetails || loadingVerifyLiveness) {
     return (
-      <div className="flex w-screen h-screen items-center justify-center">
+      <div className="flex items-center justify-center w-screen h-screen">
         <Spin size="large" indicator={antIcon} />
       </div>
     );
@@ -328,7 +390,7 @@ const VerificationPortal = () => {
 
   if (error || !userKycDetails) {
     return (
-      <div className="flex w-screen h-screen items-center justify-center">
+      <div className="flex items-center justify-center w-screen h-screen">
         <EmptyState
           title="Invalid credentials"
           description="We could not verify your identity. Please return to the Blue app and try again."
@@ -343,10 +405,10 @@ const VerificationPortal = () => {
 
   if (currentStep.step === "success") {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
+      <div className="flex items-center justify-center min-h-screen p-4 bg-gray-50">
         <Card className="w-full max-w-md">
           <CardHeader className="text-center">
-            <div className="mx-auto w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
+            <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 bg-green-100 rounded-full">
               <svg
                 className="w-8 h-8 text-green-600"
                 fill="none"
@@ -386,10 +448,10 @@ const VerificationPortal = () => {
 
   if (currentStep.step === "error") {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
+      <div className="flex items-center justify-center min-h-screen p-4 bg-gray-50">
         <Card className="w-full max-w-md">
           <CardHeader className="text-center">
-            <div className="mx-auto w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
+            <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 bg-red-100 rounded-full">
               <svg
                 className="w-8 h-8 text-red-600"
                 fill="none"
@@ -421,10 +483,10 @@ const VerificationPortal = () => {
 
   if (currentStep.step === "liveness") {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
+      <div className="flex items-center justify-center min-h-screen p-4 bg-gray-50">
         <Card className="w-full max-w-md">
           <CardHeader className="text-center">
-            <div className="mx-auto w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4 animate-pulse">
+            <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-full animate-pulse">
               <svg
                 className="w-8 h-8 text-blue-600"
                 fill="none"
@@ -450,6 +512,27 @@ const VerificationPortal = () => {
               Please follow the instructions in the popup window to complete
               your liveness verification.
             </CardDescription>
+            {verificationId && (
+              <div className="mt-4 flex items-center justify-center gap-2 px-4 py-2 bg-green-50 border border-green-200 rounded-lg">
+                <svg
+                  className="w-5 h-5 text-green-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                <div className="text-sm">
+                  <span className="font-semibold text-green-800">Verification ID Confirmed</span>
+                  <p className="text-green-600 text-xs mt-0.5">ID: {verificationId.slice(0, 8)}...{verificationId.slice(-4)}</p>
+                </div>
+              </div>
+            )}
           </CardHeader>
         </Card>
       </div>
@@ -458,7 +541,7 @@ const VerificationPortal = () => {
 
   return (
     <Form {...form}>
-      <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
+      <div className="flex items-center justify-center min-h-screen p-4 bg-gray-50">
         <Card className="w-full max-w-md">
           <CardHeader className="text-center">
             <CardTitle>Identity Verification Portal</CardTitle>
@@ -526,8 +609,8 @@ const VerificationPortal = () => {
                 )}
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-2 flex flex-col ">
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                <div className="flex flex-col space-y-2 ">
                   <Label htmlFor="dateOfBirth">Date of Birth</Label>
                   <Controller
                     control={form.control}
@@ -611,7 +694,7 @@ const VerificationPortal = () => {
               </Button>
             </form>
 
-            <div className="mt-6 text-center text-sm text-gray-500">
+            <div className="mt-6 text-sm text-center text-gray-500">
               <p>
                 Your data is secure and will be processed according to our
                 privacy policy.
