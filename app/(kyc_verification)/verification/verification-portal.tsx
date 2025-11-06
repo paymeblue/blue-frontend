@@ -431,16 +431,15 @@ const VerificationPortal = () => {
               this window and return to the app.
             </CardDescription>
           </CardHeader>
-          {/* <CardContent className="text-center">
+          <CardContent className="text-center">
             <Button
               onClick={closeWebview}
               variant="outline"
               className="w-full"
-              disabled
             >
               Back to app
             </Button>
-          </CardContent> */}
+          </CardContent>
         </Card>
       </div>
     );
