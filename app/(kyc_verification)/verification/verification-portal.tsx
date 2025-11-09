@@ -18,7 +18,7 @@ import {
 } from "@lib/validations";
 import { YOUVERIFY_PUBLIC_MERCHANT_KEY } from "@lib/constants";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Controller, useForm } from "react-hook-form";
 import {
   Card,
@@ -108,6 +108,9 @@ const VerificationPortal = () => {
   const status = searchParams.get("status");
   const [isLoading, setIsLoading] = useState(false);
   const [verificationId, setVerificationId] = useState<string | null>(null);
+  const [showTimeoutModal, setShowTimeoutModal] = useState(false);
+  const [timeoutError, setTimeoutError] = useState<string>("");
+  const livenessTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const {
     error,
@@ -296,6 +299,7 @@ const VerificationPortal = () => {
           verification_id: verificationId,
         },
         onSuccess: async (data) => {
+          clearLivenessTimeout(); // Clear timeout on success
           try {
             console.log("Liveness test onSuccess callback data:", data);
             console.log("Metadata from SDK:", data.metadata);
@@ -331,33 +335,56 @@ const VerificationPortal = () => {
               router.push(`/verification/?token=${token}&status=success`);
             } else {
               console.error("verifyLiveness API call failed");
+              // Use the actual error message from the API hook if available
+              const apiErrorMessage = messageVerifyLiveness || "Failed to verify liveness. Please try again.";
               setCurrentStep({
                 step: "error",
-                error: "Failed to verify liveness. Please try again.",
+                error: apiErrorMessage,
               });
             }
-          } catch (error) {
+          } catch (error: any) {
             console.error("Error in liveness onSuccess callback:", error);
+            // Extract error message from various possible error formats
+            const errorMessage = 
+              error?.response?.data?.message || 
+              error?.message || 
+              messageVerifyLiveness ||
+              "Liveness test failed. Please try again.";
             setCurrentStep({
               step: "error",
-              error: "Liveness test failed. Please try again.",
+              error: errorMessage,
             });
           }
         },
         onFailure: (error: any) => {
+          clearLivenessTimeout(); // Clear timeout on failure
+          console.error("Liveness test failed:", error);
+          // Extract YouVerify SDK error message from various possible formats
+          const errorMessage = 
+            error?.message || 
+            error?.error?.message || 
+            error?.error || 
+            error?.description ||
+            (typeof error === 'string' ? error : null) ||
+            "Liveness test failed. Please try again.";
           setCurrentStep({
             step: "error",
-            error: "Liveness test failed. Please try again.",
+            error: errorMessage,
           });
         },
         onClose: () => {
+          clearLivenessTimeout(); // Clear timeout on close
           setCurrentStep({ step: "form" });
         },
       });
 
       // livenessModule.initialize();
       livenessModule.start();
+      
+      // Start timeout to detect if YouVerify doesn't respond
+      startLivenessTimeout();
     } catch (error) {
+      clearLivenessTimeout();
       setCurrentStep({
         step: "error",
         error: "Failed to initialize liveness test. Please try again.",
@@ -379,6 +406,32 @@ const VerificationPortal = () => {
     window.postMessage("closeWebViewError", "*");
     window?.Close.postMessage("closeWebViewError", "*");
   };
+
+  // Clear liveness timeout
+  const clearLivenessTimeout = () => {
+    if (livenessTimeoutRef.current) {
+      clearTimeout(livenessTimeoutRef.current);
+      livenessTimeoutRef.current = null;
+    }
+  };
+
+  // Start liveness timeout (8 seconds)
+  const startLivenessTimeout = () => {
+    clearLivenessTimeout();
+    livenessTimeoutRef.current = setTimeout(() => {
+      setTimeoutError(
+        "The verification process is taking longer than expected. This could be due to network issues or the verification service being unavailable. Please check your connection and try again."
+      );
+      setShowTimeoutModal(true);
+    }, 8000); // 8 seconds timeout
+  };
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      clearLivenessTimeout();
+    };
+  }, []);
 
   if (loadingUserKycDetails || loadingVerifyLiveness) {
     return (
@@ -470,9 +523,16 @@ const VerificationPortal = () => {
               {currentStep.error || "An error occurred during verification."}
             </CardDescription>
           </CardHeader>
-          <CardContent className="text-center">
+          <CardContent className="space-y-3">
             <Button onClick={resetForm} className="w-full">
               Try Again
+            </Button>
+            <Button 
+              onClick={closeWebViewOnError} 
+              variant="outline" 
+              className="w-full"
+            >
+              Back to App
             </Button>
           </CardContent>
         </Card>
@@ -512,7 +572,7 @@ const VerificationPortal = () => {
               your liveness verification.
             </CardDescription>
             {verificationId && (
-              <div className="mt-4 flex items-center justify-center gap-2 px-4 py-2 bg-green-50 border border-green-200 rounded-lg">
+              <div className="flex items-center justify-center gap-2 px-4 py-2 mt-4 border border-green-200 rounded-lg bg-green-50">
                 <svg
                   className="w-5 h-5 text-green-600"
                   fill="none"
@@ -534,6 +594,55 @@ const VerificationPortal = () => {
             )}
           </CardHeader>
         </Card>
+        
+        {/* Timeout Error Modal */}
+        {showTimeoutModal && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50">
+            <Card className="w-full max-w-md">
+              <CardHeader className="text-center">
+                <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 bg-orange-100 rounded-full">
+                  <svg
+                    className="w-8 h-8 text-orange-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                </div>
+                <CardTitle className="text-orange-600">Verification Timeout</CardTitle>
+                <CardDescription className="mt-4 text-left">
+                  {timeoutError}
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <Button
+                  onClick={closeWebViewOnError}
+                  variant="destructive"
+                  className="w-full"
+                >
+                  Back to App
+                </Button>
+                <Button
+                  onClick={() => {
+                    setShowTimeoutModal(false);
+                    setCurrentStep({ step: "form" });
+                    clearLivenessTimeout();
+                  }}
+                  variant="outline"
+                  className="w-full"
+                >
+                  Try Again
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        )}
       </div>
     );
   }
@@ -609,7 +718,7 @@ const VerificationPortal = () => {
               </div>
 
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                <div className="flex flex-col space-y-2 ">
+                <div className="flex flex-col space-y-2">
                   <Label htmlFor="dateOfBirth">Date of Birth</Label>
                   <Controller
                     control={form.control}
