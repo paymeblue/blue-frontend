@@ -33,15 +33,8 @@ import { useSearchParams } from "next/navigation";
 import EmptyState from "app/(receive_money)/components/empty-state";
 import { Spin } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@components/ui/popover";
 import { Form, FormControl, FormItem } from "@components/ui/form";
 import { format } from "date-fns";
-import { CalendarIcon } from "lucide-react";
-import { Calendar } from "@components/ui/calendar";
 import { useRouter } from "next/navigation";
 import useVerifyLiveness from "@hooks/useVerifyLiveness";
 
@@ -120,8 +113,6 @@ const VerificationPortal = () => {
     token,
     isLocal: false,
   });
-
-  console.log("userKycDetails", userKycDetails);
 
   const {
     verifyLiveness,
@@ -212,13 +203,7 @@ const VerificationPortal = () => {
         token: token || "",
       });
 
-      console.log("=== BVN Verification Response ===");
-      console.log("Full response:", res);
-      console.log("Response status:", res?.status);
-      console.log("Response message:", res?.message);
-      console.log("Response data object:", res?.data);
-      console.log("Verification ID:", res?.data?.verificationId);
-      console.log("================================");
+ 
 
       // Validate that we have a valid verification ID before proceeding
       if (res && res.data?.verificationId) {
@@ -423,7 +408,7 @@ const VerificationPortal = () => {
         "The verification process is taking longer than expected. This could be due to network issues or the verification service being unavailable. Please check your connection and try again."
       );
       setShowTimeoutModal(true);
-    }, 8000); // 8 seconds timeout
+    }, 30000); // 8 seconds timeout
   };
 
   // Cleanup timeout on unmount
