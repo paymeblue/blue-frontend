@@ -72,11 +72,52 @@ declare global {
   }
 }
 
+type VerificationErrorType = "bvn" | "liveness" | "timeout" | "unknown";
+
 interface VerificationStep {
   step: "form" | "liveness" | "success" | "error";
   data?: any;
   error?: string;
+  errorType?: VerificationErrorType;
 }
+
+const ERROR_VARIANTS: Record<
+  VerificationErrorType,
+  { title: string; description: string; titleClass: string; iconBg: string; iconColor: string }
+> = {
+  bvn: {
+    title: "We couldn’t verify your BVN",
+    description:
+      "Double-check that your BVN and date of birth are correct and match your bank records.",
+    titleClass: "text-orange-600",
+    iconBg: "bg-orange-100",
+    iconColor: "text-orange-600",
+  },
+  liveness: {
+    title: "We couldn’t confirm liveness",
+    description:
+      "Please retry the face scan in a well-lit area and ensure your camera permission is enabled.",
+    titleClass: "text-blue-600",
+    iconBg: "bg-blue-100",
+    iconColor: "text-blue-600",
+  },
+  timeout: {
+    title: "Verification is taking longer than expected",
+    description:
+      "The liveness check timed out. Check your connection and try again. We didn’t record a failed attempt.",
+    titleClass: "text-yellow-600",
+    iconBg: "bg-yellow-100",
+    iconColor: "text-yellow-600",
+  },
+  unknown: {
+    title: "Verification failed",
+    description:
+      "An unexpected error occurred. Please try again or contact support if the issue persists.",
+    titleClass: "text-red-600",
+    iconBg: "bg-red-100",
+    iconColor: "text-red-600",
+  },
+};
 
 const antIcon = (
   <LoadingOutlined
@@ -146,23 +187,25 @@ const VerificationPortal = () => {
     if (isErrorVerifyingBvn) {
       setCurrentStep({
         step: "error",
+        errorType: "bvn",
         error:
           bvnMessage ||
           "An error occurred verifying your BVN. Please try again.",
       });
     }
-  }, [isErrorVerifyingBvn]);
+  }, [isErrorVerifyingBvn, bvnMessage]);
 
   useEffect(() => {
     if (errorVerifyLiveness) {
       setCurrentStep({
         step: "error",
+        errorType: "liveness",
         error:
           messageVerifyLiveness ||
           "An error occurred verifying your liveness. Please try again.",
       });
     }
-  }, [errorVerifyLiveness]);
+  }, [errorVerifyLiveness, messageVerifyLiveness]);
 
   useEffect(() => {
     if (status === "success") {
@@ -175,7 +218,7 @@ const VerificationPortal = () => {
       form.setValue("firstName", userKycDetails.first_name);
       form.setValue("lastName", userKycDetails.last_name);
     }
-  }, [userKycDetails]);
+  }, [userKycDetails, form]);
 
   const formatDocumentNumber = (value: string) => {
     // Remove all non-digit characters
@@ -218,6 +261,7 @@ const VerificationPortal = () => {
         console.error("Response structure:", JSON.stringify(res, null, 2));
         setCurrentStep({
           step: "error",
+          errorType: "bvn",
           error: "Failed to verify document. No verification ID received. Please check your BVN and try again.",
         });
       }
@@ -225,6 +269,7 @@ const VerificationPortal = () => {
       console.error("BVN verification error:", error);
       setCurrentStep({
         step: "error",
+        errorType: "bvn",
         error: "Failed to verify document. Please try again.",
       });
     } finally {
@@ -298,6 +343,7 @@ const VerificationPortal = () => {
               console.error("Verification ID is missing from both closure and metadata");
               setCurrentStep({
                 step: "error",
+                errorType: "liveness",
                 error: "Verification ID is missing. Please try again.",
               });
               return;
@@ -324,6 +370,7 @@ const VerificationPortal = () => {
               const apiErrorMessage = messageVerifyLiveness || "Failed to verify liveness. Please try again.";
               setCurrentStep({
                 step: "error",
+                errorType: "liveness",
                 error: apiErrorMessage,
               });
             }
@@ -337,6 +384,7 @@ const VerificationPortal = () => {
               "Liveness test failed. Please try again.";
             setCurrentStep({
               step: "error",
+              errorType: "liveness",
               error: errorMessage,
             });
           }
@@ -354,6 +402,7 @@ const VerificationPortal = () => {
             "Liveness test failed. Please try again.";
           setCurrentStep({
             step: "error",
+          errorType: "liveness",
             error: errorMessage,
           });
         },
@@ -372,6 +421,7 @@ const VerificationPortal = () => {
       clearLivenessTimeout();
       setCurrentStep({
         step: "error",
+        errorType: "unknown",
         error: "Failed to initialize liveness test. Please try again.",
       });
     }
@@ -484,13 +534,20 @@ const VerificationPortal = () => {
   }
 
   if (currentStep.step === "error") {
+    const errorVariant =
+      ERROR_VARIANTS[currentStep.errorType ?? "unknown"];
     return (
       <div className="flex items-center justify-center min-h-screen p-4 bg-gray-50">
         <Card className="w-full max-w-md">
           <CardHeader className="text-center">
-            <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 bg-red-100 rounded-full">
+            <div
+              className={cn(
+                "flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full",
+                errorVariant.iconBg
+              )}
+            >
               <svg
-                className="w-8 h-8 text-red-600"
+                className={cn("w-8 h-8", errorVariant.iconColor)}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -503,9 +560,16 @@ const VerificationPortal = () => {
                 />
               </svg>
             </div>
-            <CardTitle className="text-red-600">Verification Failed</CardTitle>
+            <CardTitle className={errorVariant.titleClass}>
+              {errorVariant.title}
+            </CardTitle>
             <CardDescription>
-              {currentStep.error || "An error occurred during verification."}
+              <p>{errorVariant.description}</p>
+              {currentStep.error && (
+                <p className="mt-3 text-sm text-gray-700">
+                  {currentStep.error}
+                </p>
+              )}
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-3">
