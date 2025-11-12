@@ -132,6 +132,80 @@ const antIcon = (
   />
 );
 
+const isSecureContext =
+  typeof window !== "undefined" ? window.isSecureContext : true;
+
+const ensureCameraAccess = async (): Promise<{
+  ok: boolean;
+  message?: string;
+  errorType?: VerificationErrorType;
+}> => {
+  if (typeof window === "undefined") {
+    return {
+      ok: false,
+      message: "Camera check is unavailable in this environment.",
+      errorType: "unknown",
+    };
+  }
+
+  if (!isSecureContext) {
+    return {
+      ok: false,
+      message:
+        "Camera access requires a secure connection. Please retry over HTTPS or in the Blue mobile app.",
+      errorType: "liveness",
+    };
+  }
+
+  if (!navigator?.mediaDevices?.getUserMedia) {
+    return {
+      ok: false,
+      message:
+        "We couldn't access your camera on this device. Please switch to a device with a working camera.",
+      errorType: "liveness",
+    };
+  }
+
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({
+      video: { facingMode: "user" },
+    });
+    stream.getTracks().forEach((track) => track.stop());
+    return { ok: true };
+  } catch (error: any) {
+    const name = error?.name || error?.code;
+    const defaultMessage =
+      "We couldn't access your camera. Please ensure it's enabled, then try again.";
+
+    const cameraErrorMap: Record<string, string> = {
+      NotAllowedError:
+        "Camera permission was denied. Enable camera access in your browser settings, then try again.",
+      PermissionDeniedError:
+        "Camera permission was denied. Enable camera access in your browser settings, then try again.",
+      NotFoundError:
+        "No camera was detected. Plug in a camera or switch to a device with a working front camera.",
+      DevicesNotFoundError:
+        "No camera was detected. Plug in a camera or switch to a device with a working front camera.",
+      NotReadableError:
+        "Your camera is currently in use by another app. Close other apps using the camera and retry.",
+      OverconstrainedError:
+        "We couldn't match the requested camera. Switch to the default/front camera and try again.",
+      TypeError:
+        "Camera access was blocked. Allow camera usage for this site and retry.",
+      AbortError:
+        "The camera abruptly stopped. Check your device and try again.",
+      SecurityError:
+        "Camera access is blocked by your browser or device policy. Allow access or use a different device.",
+    };
+
+    return {
+      ok: false,
+      message: cameraErrorMap[name] || defaultMessage,
+      errorType: "liveness",
+    };
+  }
+};
+
 const VerificationPortal = () => {
   const router = useRouter();
   const [currentStep, setCurrentStep] = useState<VerificationStep>({
@@ -251,6 +325,16 @@ const VerificationPortal = () => {
       // Validate that we have a valid verification ID before proceeding
       if (res && res.data?.verificationId) {
         console.log("✅ Verification ID received:", res.data.verificationId);
+        const cameraCheck = await ensureCameraAccess();
+        if (!cameraCheck.ok) {
+          console.error("Camera check failed:", cameraCheck.message);
+          setCurrentStep({
+            step: "error",
+            errorType: cameraCheck.errorType ?? "liveness",
+            error: cameraCheck.message,
+          });
+          return;
+        }
         // Store verification ID in state
         setVerificationId(res.data.verificationId);
         // Proceed to liveness test
