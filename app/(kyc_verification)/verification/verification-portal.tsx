@@ -408,7 +408,7 @@ const VerificationPortal = () => {
         "The verification process is taking longer than expected. This could be due to network issues or the verification service being unavailable. Please check your connection and try again."
       );
       setShowTimeoutModal(true);
-    }, 300000); // 3 mins timeout
+    }, 500000); // 3 mins timeout
   };
 
   // Cleanup timeout on unmount
